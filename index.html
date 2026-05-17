@@ -1493,7 +1493,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   <div class="hi">
     <div class="rv">
       <div class="hbadge">🎉 भारत का सबसे आसान बायोडाटा मेकर</div>
-      <h1 class="hh1">विवाह बायोडाटा बनाएं<br><span>मिनटों में — बिल्कुल FREE!</span></h1>
+      <h1 class="hh1">विवाह बायोडाटा बनाएं<br><span id="heroSub">मिनटों में — बिल्कुल FREE!</span></h1>
       <div class="hhd">घर बैठे बनाएं professional बायोडाटा</div>
       <p class="hdesc">सबसे सस्ता और आसान तरीका professional विवाह बायोडाटा बनाने का।
         8 unique designs · Hindi/English/Bilingual · PDF Download · WhatsApp Share</p>
@@ -2380,6 +2380,14 @@ const OfferUI = {
         // Hide the slots-progress track entirely in non-free modes
         if(sfil.parentElement) sfil.parentElement.style.display = 'none';
       }
+    }
+
+    // ── 3a. Hero headline sub-text ──
+    const heroSub = document.getElementById('heroSub');
+    if(heroSub){
+      if(mode === 'free' && left > 0) heroSub.textContent = 'मिनटों में — बिल्कुल FREE!';
+      else if(mode === 'mixed')       heroSub.textContent = 'मिनटों में — सिर्फ ' + sym + c.price + ' में!';
+      else                            heroSub.textContent = 'मिनटों में — सिर्फ ' + sym + c.price + ' में!';
     }
 
     // ── 3. Services card pricing chip + footer pricing ──
