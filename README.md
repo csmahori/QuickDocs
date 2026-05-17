@@ -1,0 +1,2 @@
+# QuickDocs
+Quick Docs generator
