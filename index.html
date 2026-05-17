@@ -1496,7 +1496,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
       <h1 class="hh1">विवाह बायोडाटा बनाएं<br><span id="heroSub">मिनटों में — बिल्कुल FREE!</span></h1>
       <div class="hhd">घर बैठे बनाएं professional बायोडाटा</div>
       <p class="hdesc">सबसे सस्ता और आसान तरीका professional विवाह बायोडाटा बनाने का।
-        8 unique designs · Hindi/English/Bilingual · PDF Download · WhatsApp Share</p>
+        8 unique designs · Hindi/English · PDF Download · WhatsApp Share</p>
       <!-- Slots bar -->
       <div class="sbar" style="margin-bottom:22px">
         <div class="slbl" id="stxt">⚡ 100 spots remaining — अभी join करें, download FREE है!</div>
@@ -1555,7 +1555,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
         <ul class="sfts">
           <li><span class="fck">✓</span>8 Unique Template Designs</li>
           <li><span class="fck">✓</span>10 Color Themes + Custom Picker</li>
-          <li><span class="fck">✓</span>Hindi / English / Bilingual</li>
+          <li><span class="fck">✓</span>Hindi / English</li>
           <li><span class="fck">✓</span>Photo Upload + PDF Download</li>
           <li><span class="fck">✓</span>WhatsApp Share — number enter karein</li>
         </ul>
@@ -1620,7 +1620,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
       <ul class="plist">
         <li><span class="pck">✅</span>सभी 8 Template Designs</li>
         <li><span class="pck">✅</span>10 Colour Themes + Custom Picker</li>
-        <li><span class="pck">✅</span>Hindi / English / Bilingual</li>
+        <li><span class="pck">✅</span>Hindi / English</li>
         <li><span class="pck">✅</span>Photo Upload</li>
         <li><span class="pck">✅</span>PDF Download (No Watermark)</li>
         <li><span class="pck">✅</span>WhatsApp Share</li>
@@ -1752,7 +1752,6 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           <div class="lpick">
             <div class="lpc sel" id="lp-hi" onclick="selLang('hi')"><div class="li">🇮🇳</div><div class="lt2">हिंदी</div><div class="ls2">Hindi Only</div></div>
             <div class="lpc" id="lp-en" onclick="selLang('en')"><div class="li">🇬🇧</div><div class="lt2">English</div><div class="ls2">English Only</div></div>
-            <div class="lpc" id="lp-bi" onclick="selLang('bi')"><div class="li">🔤</div><div class="lt2">दोनों</div><div class="ls2">Hindi + English</div></div>
           </div>
           <div class="wnav"><button class="bfw" onclick="bNx()" id="i18nStep0Btn">भाषा चुनी ✓ → Details भरें →</button></div>
         </div>
@@ -3658,7 +3657,7 @@ const UI_I18N={
 
 function selLang(l){
   bLang=l;
-  ['hi','en','bi'].forEach(x=>{
+  ['hi','en'].forEach(x=>{
     const el=document.getElementById('lp-'+x);
     if(el) el.classList.toggle('sel',x===l);
   });
@@ -4492,7 +4491,7 @@ function saveDesignState(){
 function restoreDesignState(){
   const d=S.get('design'); if(!d) return;
   try{
-    if(d.lang && ['hi','en','bi'].includes(d.lang)) selLang(d.lang);
+    if(d.lang && ['hi','en'].includes(d.lang)) selLang(d.lang);
     if(typeof d.sym==='number' && _SYMS[d.sym]) selSym(d.sym);
     if(typeof d.inclP==='boolean') setPhotoOpt(d.inclP);
     if(d.clr && d.clr.userSet && d.clr.primary){
