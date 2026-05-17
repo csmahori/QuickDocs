@@ -1546,7 +1546,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           <div class="sic ibg">👰</div>
           <div class="sbw">
             <span class="sbdg bdf">FREE Early Access</span>
-            <span class="stim">⏱ 5 min mein ready</span>
+            <span class="stim">⏱ Ready in 5 min</span>
           </div>
         </div>
         <div class="snm">Marriage Biodata</div>
@@ -3826,8 +3826,7 @@ function updStepUI(s){
     const ea=isEA();
     if(sub) sub.textContent = ea
       ? (T.step3Sub||'')
-      : (bLang==='en' ? ('Pay '+OFFER_CONFIG.currency+OFFER_CONFIG.price+' to download')
-                      : (OFFER_CONFIG.currency+OFFER_CONFIG.price+' mein download karein'));
+      : ('Pay '+OFFER_CONFIG.currency+OFFER_CONFIG.price+' to download');
     OfferUI.apply();
   }
 }
