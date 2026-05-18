@@ -1847,7 +1847,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           <div class="fg"><label class="fl" id="i18nLblOcc">Occupation <span class="req-star">★ Required</span></label>
             <select class="fsel" id="bocc" onchange="onOccChange();updB()">
               <option value="">-- Select Occupation --</option>
-              <optgroup label="Government / Sarkari"><option>Government Employee (Sarkari Naukri)</option><option>IAS / IPS / IFS Officer</option><option>Army / Defence</option><option>Police</option><option>Bank Employee</option><option>Teacher / Professor</option><option>Railway Employee</option></optgroup>
+              <optgroup label="Government"><option>Government Employee</option><option>IAS / IPS / IFS Officer</option><option>Army / Defence</option><option>Police</option><option>Bank Employee</option><option>Teacher / Professor</option><option>Railway Employee</option></optgroup>
               <optgroup label="Private Job"><option>Private Job (Software / IT)</option><option>Private Job (Other)</option><option>Doctor</option><option>Engineer</option><option>CA / Accountant</option><option>Lawyer / Advocate</option><option>Nurse / Paramedic</option></optgroup>
               <optgroup label="Business"><option>Business / Self-Employed</option><option>Farming / Agriculture</option><option>Shop Owner</option><option>Contractor</option></optgroup>
               <optgroup label="Other"><option>Homemaker</option><option>Housewife</option><option>Student</option><option>Not Working</option><option>Other</option></optgroup>
@@ -1913,7 +1913,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 
           <div class="sec-div"><span id="i18nSecContact">Contact</span></div>
           <div class="fg"><label class="fl" id="i18nLblCtPerson">Contact Person <span class="req-star">★ Required</span></label>
-            <select class="fsel" id="bctperson" onchange="updB()"><option value="">-- Who to Contact? --</option><option>Father (पिता)</option><option>Mother (माता)</option><option>Brother (भाई)</option><option>Sister (बहन)</option><option>Uncle (चाचा / मामा)</option><option>Guardian (अभिभावक)</option><option>Self (स्वयं)</option></select>
+            <select class="fsel" id="bctperson" onchange="updB()"><option value="">-- Who to Contact? --</option><option value="Father (पिता)">Father</option><option value="Mother (माता)">Mother</option><option value="Brother (भाई)">Brother</option><option value="Sister (बहन)">Sister</option><option value="Uncle (चाचा / मामा)">Uncle</option><option value="Guardian (अभिभावक)">Guardian</option><option value="Self (स्वयं)">Self</option></select>
           </div>
           <div class="fg"><label class="fl" id="i18nLblCtMobile">Contact Mobile <span class="req-star">★ Required</span></label><input class="fi" id="bctmobile" type="tel" placeholder="e.g. 98765 43210" maxlength="15" oninput="updB()"></div>
 
