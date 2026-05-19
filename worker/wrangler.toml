@@ -1,0 +1,11 @@
+name = "harmaalwala-worker"
+main = "index.js"
+compatibility_date = "2024-09-23"
+
+# Secrets are NOT stored here — set them via CLI:
+#   wrangler secret put RAZORPAY_KEY_ID
+#   wrangler secret put RAZORPAY_KEY_SECRET
+#
+# After deploying, your worker URL will be:
+#   https://harmaalwala-worker.<your-subdomain>.workers.dev
+# Paste that URL into WORKER_URL in the HTML file.

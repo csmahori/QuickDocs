@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Noto+Serif+Devanagari:wght@400;600;700&family=Baloo+2:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <style>
 
 :root{
@@ -2113,31 +2114,18 @@ btc{border-radius:12px;overflow:hidden;cursor:pointer;border:3px solid transpare
       <div style="font-size:52px;margin-bottom:12px">🎉</div>
       <h3 style="font-size:22px;font-weight:800;color:var(--T);margin-bottom:8px">पहले 100 Users को Special Offer!</h3>
       <p style="color:var(--TL);margin-bottom:24px;font-size:14px">सिर्फ <strong style="color:var(--M);font-size:22px">₹9</strong> में professional PDF Biodata download करें</p>
-      <!-- UPI Payment Section -->
-      <div style="background:linear-gradient(135deg,#f8f3ff,#ffe8f5);border:2px solid #d4af37;border-radius:16px;padding:20px;margin-bottom:20px">
-        <div style="font-size:13px;font-weight:800;color:var(--M);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px">💳 UPI से Pay करें — Instant!</div>
-        <!-- QR Code placeholder -->
-        <div style="background:#fff;border-radius:12px;padding:16px;margin-bottom:14px;box-shadow:0 2px 12px rgba(0,0,0,.08)">
-          <div style="font-size:12px;color:var(--TL);margin-bottom:8px">QR Code Scan करें</div>
-          <div id="upiQR" style="width:140px;height:140px;margin:0 auto;background:repeating-conic-gradient(#000 0% 25%, #fff 0% 50%) 0 0/8px 8px;border-radius:4px;position:relative;overflow:hidden">
-            <div style="position:absolute;inset:20px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:var(--M);text-align:center">📱<br>HarMaalWala</div>
-          </div>
+      <!-- Razorpay Payment -->
+      <div style="background:linear-gradient(135deg,#f8f3ff,#ffe8f5);border:2px solid #d4af37;border-radius:16px;padding:24px;margin-bottom:20px">
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px">
+          <img src="https://razorpay.com/favicon.ico" width="16" height="16" alt="" style="border-radius:3px">
+          <span style="font-size:12px;color:var(--TL)">Secured by <strong>Razorpay</strong></span>
         </div>
-        <div style="background:rgba(128,0,0,.06);border:1.5px dashed var(--M);border-radius:10px;padding:10px 14px;margin-bottom:12px">
-          <div style="font-size:11px;color:var(--TL);margin-bottom:3px">UPI ID</div>
-          <div style="font-size:15px;font-weight:800;color:var(--M);letter-spacing:.5px" id="upiIdDisplay">csmahori@okhdfcbank</div>
-          <button onclick="copyUPI(event)" style="all:initial;font-family:inherit;font-size:11px;color:#138808;font-weight:700;cursor:pointer;margin-top:4px;display:block">📋 Copy UPI ID</button>
-        </div>
-        <div style="font-size:12px;color:var(--TL);margin-bottom:14px">Amount: <strong style="color:var(--M)">₹9 only</strong> · Name: HarMaalWala</div>
+        <div style="font-size:11px;color:var(--TL);margin-bottom:18px">UPI · Cards · NetBanking · Wallets — सब accept होते हैं</div>
+        <button id="rzpPayBtn" onclick="openRazorpay()" style="all:initial;font-family:var(--f);background:linear-gradient(135deg,#528FF0,#2563EB);color:#fff;padding:16px 32px;border-radius:12px;font-weight:800;font-size:16px;cursor:pointer;width:100%;box-sizing:border-box;text-align:center;box-shadow:0 6px 20px rgba(37,99,235,.35);transition:opacity .2s">
+          💳 ₹9 में Pay करें
+        </button>
       </div>
-      <!-- Payment Confirmation -->
-      <div style="background:#f8fff8;border:1.5px solid #c8e6c9;border-radius:12px;padding:16px;margin-bottom:20px">
-        <div style="font-size:13px;font-weight:700;color:#2e7d32;margin-bottom:10px">✅ Payment के बाद UTR/Screenshot दें</div>
-        <input id="utrInput" class="fi" placeholder="UTR Number या Transaction ID" style="width:100%;box-sizing:border-box;margin-bottom:8px">
-        <div style="font-size:11px;color:var(--TL)">Payment screenshot WhatsApp करें: <strong>+91 99999 99999</strong></div>
-      </div>
-      <button onclick="confirmPayment()" style="all:initial;font-family:inherit;width:100%;padding:15px;border-radius:12px;background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;font-weight:800;font-size:16px;cursor:pointer;text-align:center;box-sizing:border-box;box-shadow:0 6px 20px rgba(128,0,0,.3)">✅ Payment हो गई — Download करें →</button>
-      <div style="font-size:11px;color:var(--TL);margin-top:12px">🔒 Secure · Manual verification · 5 min में active</div>
+      <div style="font-size:11px;color:var(--TL)">🔒 256-bit SSL · Instant access · No subscription</div>
     </div>
   </div>
 </div>
@@ -3037,6 +3025,77 @@ function subFB(){
   else { consume(); showSuc(); }
 }
 function closeFB(){const el=document.getElementById('fbOv');if(el)el.classList.remove('act');}
+
+// ── WORKER URL — replace after deploying the Cloudflare Worker ──────────────
+const WORKER_URL = 'https://harmaalwala-worker.YOUR_SUBDOMAIN.workers.dev';
+// ── RAZORPAY KEY — use test key (rzp_test_...) until ready for live ──────────
+const RZP_KEY = 'rzp_test_XXXXXXXXXXXXXXXX';
+
+async function openRazorpay() {
+  const btn = document.getElementById('rzpPayBtn');
+  const orig = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ Loading...'; }
+
+  try {
+    const res = await fetch(WORKER_URL + '/create-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: 900 }),
+    });
+    const { order_id, amount, currency, error } = await res.json();
+    if (error || !order_id) throw new Error(error || 'Order creation failed');
+
+    const rzp = new Razorpay({
+      key: RZP_KEY,
+      amount,
+      currency,
+      order_id,
+      name: 'HarMaalWala',
+      description: 'Biodata PDF Download',
+      theme: { color: '#800026' },
+      prefill: { name: (document.getElementById('bnm') || {}).value || '' },
+      handler: async function(response) {
+        try {
+          const vRes = await fetch(WORKER_URL + '/verify-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+            }),
+          });
+          const { verified } = await vRes.json();
+          if (verified) {
+            S.set('paid', { payment_id: response.razorpay_payment_id, ts: Date.now(), amt: 9 });
+            closeUp();
+            generateBiodataPDF();
+          } else {
+            alert('Payment verification failed. Please contact support on WhatsApp.');
+            if (btn) { btn.disabled = false; btn.textContent = orig; }
+          }
+        } catch (e) {
+          alert('Verification error: ' + e.message);
+          if (btn) { btn.disabled = false; btn.textContent = orig; }
+        }
+      },
+      modal: {
+        ondismiss: function() {
+          if (btn) { btn.disabled = false; btn.textContent = orig; }
+        },
+      },
+    });
+    rzp.on('payment.failed', function(resp) {
+      alert('Payment failed: ' + (resp.error.description || 'Unknown error'));
+      if (btn) { btn.disabled = false; btn.textContent = orig; }
+    });
+    rzp.open();
+
+  } catch (e) {
+    alert('Error: ' + e.message + '\nPlease try again or contact support on WhatsApp.');
+    if (btn) { btn.disabled = false; btn.textContent = orig; }
+  }
+}
 
 function showUp(){const el=document.getElementById('upOv');if(el)el.classList.add('act');}
 function closeUp(){const el=document.getElementById('upOv');if(el)el.classList.remove('act');}
