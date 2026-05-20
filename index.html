@@ -2353,6 +2353,10 @@ const OfferUI = {
       } else {
         // 'paid' mode OR free-with-zero-spots: hide banner unless user manually un-dismissed
         banner.style.display = 'none';
+        const nav=document.querySelector('.nav');
+        if(nav) nav.style.top='0px';
+        const hero=document.querySelector('.hero');
+        if(hero) hero.style.paddingTop='66px';
       }
     }
 
