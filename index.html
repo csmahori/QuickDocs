@@ -3139,7 +3139,10 @@ const BD={
       :(_includePhoto?'📷':'');
 
     // Write to hidden render element (for PDF generation)
-    const tplEl=document.getElementById('bdTemplate');
+    // IMPORTANT: always query inside bdRender — document.getElementById('bdTemplate')
+    // returns the lpvInner copy first because lpvInner appears earlier in the DOM.
+    const rd2=document.getElementById('bdRender');
+    const tplEl=rd2 ? rd2.querySelector('#bdTemplate')||rd2.querySelector('.bdr-wrap') : null;
     if(tplEl){
       this.inject(tplEl,rows,ph);
       /* v2 fix: apply vars on the .bdr-wrap itself — the hardcoded
