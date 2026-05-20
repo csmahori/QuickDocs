@@ -3279,7 +3279,8 @@ function applyPreset(el,primary,bg,isDefault){
 function openBigPreview(){
   swapTemplate(bTpl);
   buildBdTemplate();
-  const src=document.getElementById('bdTemplate');
+  const rd=document.getElementById('bdRender');
+  const src=rd ? rd.querySelector('#bdTemplate')||rd.querySelector('.bdr-wrap') : document.getElementById('bdTemplate');
   const dest=document.getElementById('bigPrevContent');
   if(src&&dest){
     dest.innerHTML=src.outerHTML;
@@ -3918,7 +3919,8 @@ function updB(){ BD.refresh(); }
 
 function resolveColorMixValue(colorMixExpr){
   // Append temp element INSIDE the template so it inherits --tc1, --tc2 etc.
-  const tpl=document.getElementById('bdTemplate')||document.querySelector('.bdr-wrap')||document.body;
+  const rd2=document.getElementById('bdRender');
+  const tpl=(rd2&&(rd2.querySelector('#bdTemplate')||rd2.querySelector('.bdr-wrap')))||document.querySelector('.bdr-wrap')||document.body;
   const tmp=document.createElement('div');
   tmp.style.cssText='position:absolute;left:-9999px;top:-9999px;width:0;height:0;overflow:hidden;pointer-events:none;';
   tpl.appendChild(tmp);
@@ -4067,7 +4069,9 @@ async function generateBiodataPDF(){
     const jsPDFLib=window.jspdf&&window.jspdf.jsPDF;
     if(!jsPDFLib) throw new Error('jsPDF load nahi hua. Page refresh karein.');
     const rd=document.getElementById('bdRender');
-    const el=document.getElementById('bdTemplate');
+    // Always use the template inside bdRender — NOT document.getElementById('bdTemplate')
+    // which returns the live-preview copy first (lpvInner appears before bdRender in DOM)
+    const el=rd ? rd.querySelector('#bdTemplate')||rd.querySelector('.bdr-wrap') : null;
     if(!el) throw new Error('Template element nahi mila.');
     const origStyle=rd?rd.getAttribute('style'):'';
     if(rd) rd.style.cssText='position:fixed;left:0;top:0;z-index:9999;width:794px;overflow:visible;background:#fff;pointer-events:none;';
