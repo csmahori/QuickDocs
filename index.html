@@ -4612,38 +4612,6 @@ function persistOtherInputs(){
   }catch(e){}
 }
 
-/* ── 10. Success modal: inject WhatsApp share button so next step is obvious ── */
-function showSucWithShare(){
-  const el=document.getElementById('sucOv');
-  if(!el) return;
-  const card=el.querySelector('.mod>div');
-  if(card && !card.querySelector('#sucWaBtn')){
-    const wa=document.createElement('button');
-    wa.id='sucWaBtn';
-    wa.style.cssText='all:unset;cursor:pointer;background:#25D366;color:#fff;padding:11px 22px;border-radius:30px;font-weight:800;font-size:14px;display:inline-flex;align-items:center;gap:8px;margin-top:10px;text-align:center';
-    wa.innerHTML='\ud83d\udcf2 WhatsApp पर Share करें';
-    wa.onclick=function(){closeSuc();handleWAShare();};
-    const okBtn=card.querySelector('button');
-    if(okBtn && okBtn.parentNode){
-      const spacer=document.createElement('div');spacer.style.height='8px';
-      okBtn.parentNode.insertBefore(wa,okBtn);
-      okBtn.parentNode.insertBefore(spacer,okBtn);
-    } else {
-      card.appendChild(wa);
-    }
-  }
-  el.classList.add('act');
-}
-
-/* ── 11. Replace existing showSuc with the WhatsApp-prompting version.
-   We don't redefine showSuc directly because the PDF-success path already
-   calls showSuc(). Instead we monkey-patch it. ── */
-(function patchShowSuc(){
-  if(typeof showSuc==='function' && typeof showSucWithShare==='function'){
-    const orig=showSuc;
-    window.showSuc=function(){showSucWithShare();};
-  }
-})();
 
 (function(){
   FS.init();
