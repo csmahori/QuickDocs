@@ -4095,11 +4095,31 @@ async function generateBiodataPDF(){
     normalizeInlineColors(el);
     await new Promise(r=>setTimeout(r,50));
 
-    // Step 3: Run html2canvas (layout intact, no problematic colors)
+    // Step 3: Patch CanvasGradient.addColorStop to survive any unparseable
+    // color format Chrome returns (color(srgb…), oklch, etc.)
+    const _origACS = CanvasGradient.prototype.addColorStop;
+    CanvasGradient.prototype.addColorStop = function(offset, color) {
+      try {
+        _origACS.call(this, offset, color);
+      } catch(e) {
+        try {
+          // Ask canvas to normalise the color string
+          const _c = document.createElement('canvas').getContext('2d');
+          _c.fillStyle = color;
+          _origACS.call(this, offset, _c.fillStyle);
+        } catch(e2) {
+          _origACS.call(this, offset, '#888888'); // safe fallback
+        }
+      }
+    };
+
+    // Step 4: Run html2canvas (layout intact, no problematic colors)
     const canvas=await html2canvas(el,{
       scale:2,useCORS:true,allowTaint:false,logging:false,
       width:794,windowWidth:794,backgroundColor:'#ffffff',scrollX:0,scrollY:0
     });
+
+    CanvasGradient.prototype.addColorStop = _origACS; // restore immediately
 
     // Step 4: Restore original stylesheets
     restoreStylesheets(originals);
@@ -4129,6 +4149,8 @@ async function generateBiodataPDF(){
     if(originals.length) restoreStylesheets(originals);
     if(brandStamp&&brandStamp.parentNode) brandStamp.parentNode.removeChild(brandStamp);
     if(loadEl) loadEl.classList.remove('act');
+    // Always restore addColorStop patch (in case html2canvas threw mid-run)
+    if(typeof _origACS!=='undefined') CanvasGradient.prototype.addColorStop=_origACS;
   }
   if(success){ if(isEA()) consume(); showSuc(); }
 }
