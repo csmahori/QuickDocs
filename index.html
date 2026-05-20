@@ -2047,15 +2047,10 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           </div>
 
           <div class="sth" id="i18nStep3Title">🎉 Biodata Ready!</div>
-          <div class="ssth" id="step3Sub">See full preview below</div>
+          <div class="ssth" id="step3Sub">Pay ₹9 to download</div>
 
-          <!-- Big Preview Button -->
-          <button class="bprev-btn" onclick="openBigPreview()" id="i18nBigPrevBtn">
-            🔍 View Full Preview (with Watermark)
-          </button>
-
-          <!-- EA: Direct download (no feedback) -->
-          <div id="eaDownloadArea">
+          <!-- EA: Direct download (free users) -->
+          <div id="eaDownloadArea" style="display:none">
             <div style="background:linear-gradient(135deg,#e8f5e9,#f1f8e9);border:2px solid #a5d6a7;border-radius:14px;padding:16px 18px;margin-bottom:12px;text-align:center">
               <div style="font-size:13px;font-weight:800;color:#2e7d32;margin-bottom:4px" id="i18nEaTitle">🎁 Your Early Access is Active!</div>
               <div style="font-size:12px;color:#388e3c" id="i18nEaSub">First 100 users get FREE PDF download</div>
@@ -2063,8 +2058,17 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
             <button class="bfdl" onclick="generateBiodataPDF()" id="i18nEaBtn">⬇️ Download FREE PDF</button>
           </div>
 
+          <!-- PAID: Razorpay payment trigger -->
+          <div id="paidDownloadArea" style="display:none">
+            <div style="background:linear-gradient(135deg,#fff8e1,#fff3e0);border:2px solid #d4af37;border-radius:14px;padding:16px 18px;margin-bottom:12px;text-align:center">
+              <div style="font-size:13px;font-weight:800;color:var(--M);margin-bottom:4px">Professional PDF</div>
+              <div style="font-size:22px;font-weight:800;color:var(--M)">₹9</div>
+              <div style="font-size:12px;color:var(--TL)">Instant download · No subscription</div>
+            </div>
+            <button class="bfdl" onclick="showUp()">💳 Pay ₹9 &amp; Download →</button>
+          </div>
 
-          <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--TL)" id="slotsRem">Loading slots...</div>
+          <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--TL)" id="slotsRem"></div>
           <div class="wnav"><button class="bbk" onclick="bPv()" id="i18nBackBtn3">← Change Design</button></div>
         </div>
       </div>
