@@ -29,6 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Noto+Serif+Devanagari:wght@400;600;700&family=Baloo+2:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <style>
 
 :root{
@@ -2150,33 +2151,18 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
       <div style="font-size:52px;margin-bottom:12px">🎉</div>
       <h3 style="font-size:22px;font-weight:800;color:var(--T);margin-bottom:8px">Special Offer for First 100 Users!</h3>
       <p style="color:var(--TL);margin-bottom:24px;font-size:14px">Download professional PDF Biodata for just <strong style="color:var(--M);font-size:22px">₹9</strong></p>
-      <!-- UPI Payment Section -->
-      <div style="background:linear-gradient(135deg,#f8f3ff,#ffe8f5);border:2px solid #d4af37;border-radius:16px;padding:20px;margin-bottom:20px">
-        <div style="font-size:13px;font-weight:800;color:var(--M);margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px">💳 Pay via UPI — Instant!</div>
-        <!-- Real scannable QR (UPI deeplink → qrserver.com PNG) -->
-        <div style="background:#fff;border-radius:12px;padding:16px;margin-bottom:14px;box-shadow:0 2px 12px rgba(0,0,0,.08);text-align:center">
-          <div style="font-size:12px;color:var(--TL);margin-bottom:8px">Scan QR Code (Google Pay, PhonePe, Paytm)</div>
-          <img id="upiQRImg" alt="UPI QR Code" loading="lazy"
-               src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&margin=2&data=upi%3A%2F%2Fpay%3Fpa%3Dcsmahori%40okhdfcbank%26pn%3DEasyDocuments%26am%3D9.00%26cu%3DINR%26tn%3DBiodata%2520PDF"
-               style="width:160px;height:160px;display:block;margin:0 auto;border-radius:6px"
-               onerror="this.style.display='none';document.getElementById('upiQRFallback').style.display='block'">
-          <div id="upiQRFallback" style="display:none;font-size:12px;color:#e53935;font-weight:600;padding:24px 8px">QR failed to load — copy the UPI ID below to pay</div>
+      <!-- Razorpay Payment -->
+      <div style="background:linear-gradient(135deg,#f8f3ff,#ffe8f5);border:2px solid #d4af37;border-radius:16px;padding:24px;margin-bottom:20px">
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px">
+          <img src="https://razorpay.com/favicon.ico" width="16" height="16" alt="" style="border-radius:3px" onerror="this.style.display='none'">
+          <span style="font-size:12px;color:var(--TL)">Secured by <strong>Razorpay</strong></span>
         </div>
-        <div style="background:rgba(128,0,0,.06);border:1.5px dashed var(--M);border-radius:10px;padding:10px 14px;margin-bottom:12px">
-          <div style="font-size:11px;color:var(--TL);margin-bottom:3px">UPI ID</div>
-          <div style="font-size:15px;font-weight:800;color:var(--M);letter-spacing:.5px" id="upiIdDisplay">csmahori@okhdfcbank</div>
-          <button onclick="copyUPI(event)" style="all:initial;font-family:inherit;font-size:11px;color:#138808;font-weight:700;cursor:pointer;margin-top:4px;display:block">📋 Copy UPI ID</button>
-        </div>
-        <div style="font-size:12px;color:var(--TL);margin-bottom:14px" data-amt="Amount: <strong style='color:var(--M)'>{amt} only</strong> · Name: EasyDocuments">Amount: <strong style="color:var(--M)">₹9 only</strong> · Name: EasyDocuments</div>
+        <div style="font-size:11px;color:var(--TL);margin-bottom:18px">UPI · Cards · NetBanking · Wallets — all accepted</div>
+        <button id="rzpPayBtn" onclick="openRazorpay()" style="all:initial;font-family:var(--f);background:linear-gradient(135deg,#528FF0,#2563EB);color:#fff;padding:16px 32px;border-radius:12px;font-weight:800;font-size:16px;cursor:pointer;width:100%;box-sizing:border-box;text-align:center;box-shadow:0 6px 20px rgba(37,99,235,.35)">
+          💳 Pay ₹9 — Instant Download
+        </button>
       </div>
-      <!-- Payment Confirmation -->
-      <div style="background:#f8fff8;border:1.5px solid #c8e6c9;border-radius:12px;padding:16px;margin-bottom:20px">
-        <div style="font-size:13px;font-weight:700;color:#2e7d32;margin-bottom:10px">✅ Share UTR/Screenshot after payment</div>
-        <input id="utrInput" class="fi" placeholder="UTR Number or Transaction ID" style="width:100%;box-sizing:border-box;margin-bottom:8px">
-        <div style="font-size:11px;color:var(--TL)">WhatsApp payment screenshot to: <strong id="paySupportNum">+91 96773 44874</strong></div>
-      </div>
-      <button onclick="confirmPayment()" style="all:initial;font-family:inherit;width:100%;padding:15px;border-radius:12px;background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;font-weight:800;font-size:16px;cursor:pointer;text-align:center;box-sizing:border-box;box-shadow:0 6px 20px rgba(128,0,0,.3)">✅ Payment Done — Download →</button>
-      <div style="font-size:11px;color:var(--TL);margin-top:12px">🔒 Secure · Manual verification · Active in 5 min</div>
+      <div style="font-size:11px;color:var(--TL)">🔒 256-bit SSL · Instant access · No subscription</div>
     </div>
   </div>
 </div>
@@ -3375,34 +3361,78 @@ function handleWAShare(){
   openWAModal('biodata');
 }
 
-function copyUPI(e){
-  const id='csmahori@okhdfcbank';
-  // Capture the button BEFORE going async — `event` is undefined inside .then() in
-  // strict mode / Firefox, and can't be relied on even in Chromium once a Promise resolves.
-  const btn=(e&&e.currentTarget)||(e&&e.target)||(typeof window!=='undefined'&&window.event&&window.event.target)||null;
-  if(navigator.clipboard&&navigator.clipboard.writeText){
-    navigator.clipboard.writeText(id).then(()=>{
-      if(btn){const orig=btn.textContent;btn.textContent='✅ Copied!';setTimeout(()=>{btn.textContent=orig||'📋 Copy UPI ID';},2000);}
-    }).catch(()=>{
-      if(btn){btn.textContent='⚠️ Copy failed — long-press the UPI ID above';setTimeout(()=>btn.textContent='📋 Copy UPI ID',2500);}
-    });
-  } else if(btn){
-    // No clipboard API — tell the user to copy manually
-    btn.textContent='⚠️ Long-press the UPI ID to copy';setTimeout(()=>btn.textContent='📋 Copy UPI ID',2500);
-  }
-}
+// ── Razorpay Standard Checkout ───────────────────────────────────────────────
+// Update WORKER_URL after deploying the Cloudflare Worker (worker/index.js)
+const WORKER_URL = 'https://harmaalwala-worker.YOUR_SUBDOMAIN.workers.dev';
+const RZP_KEY    = 'rzp_test_SrXj3J9pmRJFp7';
 
-function confirmPayment(){
-  const utr=(document.getElementById('utrInput')||{}).value?.trim()||'';
-  if(!utr){
-    const inp=document.getElementById('utrInput');
-    if(inp){inp.style.borderColor='#e53935';setTimeout(()=>inp.style.borderColor='',2500);}
-    toast(bLang==='en'?'Enter UTR / Transaction ID':'UTR number या transaction ID enter करें','warn');
-    return;
+async function openRazorpay() {
+  const btn  = document.getElementById('rzpPayBtn');
+  const orig = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ Loading...'; }
+
+  try {
+    // 1. Create order on the server (keeps secret key off the client)
+    const res = await fetch(WORKER_URL + '/create-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: OFFER_CONFIG.price * 100 }), // paise
+    });
+    const { order_id, amount, currency, error } = await res.json();
+    if (error || !order_id) throw new Error(error || 'Order creation failed');
+
+    // 2. Open Razorpay checkout popup
+    const rzp = new Razorpay({
+      key:      RZP_KEY,
+      amount,
+      currency,
+      order_id,
+      name:        'EasyDocuments',
+      description: 'Biodata PDF Download',
+      theme:       { color: '#800026' },
+      prefill:     { name: (document.getElementById('bnm') || {}).value || '' },
+
+      // 3. On successful payment → verify signature server-side
+      handler: async function(response) {
+        try {
+          const vRes = await fetch(WORKER_URL + '/verify-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_order_id:  response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature:  response.razorpay_signature,
+            }),
+          });
+          const { verified } = await vRes.json();
+          if (verified) {
+            OfferUI.recordPayment(response.razorpay_payment_id);
+            closeUp();
+            generateBiodataPDF();
+          } else {
+            toast('Payment verification failed — please contact support', 'warn');
+            if (btn) { btn.disabled = false; btn.textContent = orig; }
+          }
+        } catch (e) {
+          toast('Verification error: ' + e.message, 'warn');
+          if (btn) { btn.disabled = false; btn.textContent = orig; }
+        }
+      },
+
+      modal: { ondismiss() { if (btn) { btn.disabled = false; btn.textContent = orig; } } },
+    });
+
+    rzp.on('payment.failed', function(resp) {
+      toast('Payment failed: ' + (resp.error.description || 'Unknown error'), 'warn');
+      if (btn) { btn.disabled = false; btn.textContent = orig; }
+    });
+
+    rzp.open();
+
+  } catch (e) {
+    toast('Error: ' + e.message, 'warn');
+    if (btn) { btn.disabled = false; btn.textContent = orig; }
   }
-  OfferUI.recordPayment(utr);
-  closeUp();
-  generateBiodataPDF();
 }
 
 let curFB=null,selR=0;
