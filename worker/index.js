@@ -41,7 +41,7 @@ export default {
         const rzpResp = await fetch('https://api.razorpay.com/v1/orders', {
           method: 'POST',
           headers: {
-            'Authorization': 'Basic ' + btoa(`${env.RAZORPAY_KEY_ID}:${env.RAZORPAY_KEY_SECRET}`),
+            'Authorization': 'Basic ' + btoa(`${env.RAZORPAY_KEY_ID.trim()}:${env.RAZORPAY_KEY_SECRET.trim()}`),
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
@@ -71,7 +71,7 @@ export default {
 
         const key = await crypto.subtle.importKey(
           'raw',
-          new TextEncoder().encode(env.RAZORPAY_KEY_SECRET),
+          new TextEncoder().encode(env.RAZORPAY_KEY_SECRET.trim()),
           { name: 'HMAC', hash: 'SHA-256' },
           false,
           ['sign']
