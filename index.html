@@ -2491,6 +2491,9 @@ const OfferUI = {
       upPara.innerHTML = (mode === 'mixed')
         ? 'Download professional PDF Biodata for just <strong style="color:var(--M);font-size:22px">'+sym+c.price+'</strong> <span style="font-size:13px;color:var(--TL);text-decoration:line-through">'+sym+c.regularPrice+'</span>'
         : 'Download professional PDF Biodata for just <strong style="color:var(--M);font-size:22px">'+sym+c.price+'</strong>';
+      // Sync the Razorpay button label with the actual price
+      const rzpBtn = document.getElementById('rzpPayBtn');
+      if(rzpBtn) rzpBtn.innerHTML = '💳 Pay ' + sym + c.price + ' — Instant Download';
     }
 
     // ── 7. UPI QR (regenerate so amount in the deeplink matches new price) ──
