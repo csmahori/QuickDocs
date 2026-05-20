@@ -1,5 +1,5 @@
 /**
- * HarMaalWala — Razorpay Payment Worker
+ * QuickDocuments — Razorpay Payment Worker
  * Cloudflare Worker: handles order creation + signature verification
  *
  * Required secrets (set via: wrangler secret put <NAME>):

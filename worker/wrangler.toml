@@ -1,4 +1,4 @@
-name = "harmaalwala-worker"
+name = "quickdocuments-worker"
 main = "index.js"
 compatibility_date = "2024-09-23"
 workers_dev = true
@@ -8,4 +8,4 @@ workers_dev = true
 #   wrangler secret put RAZORPAY_KEY_SECRET
 #
 # Worker is deployed via GitHub Actions on every push to worker/**
-# URL: https://harmaalwala-worker.<your-subdomain>.workers.dev
+# URL: https://quickdocuments-worker.csmahori.workers.dev
