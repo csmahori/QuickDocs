@@ -1,5 +1,5 @@
 /**
- * QuickDocuments — Razorpay Payment Worker
+ * EasyDocuments — Razorpay Payment Worker
  * Cloudflare Worker: handles order creation + signature verification
  *
  * Required secrets (set via: wrangler secret put <NAME>):
