@@ -1,6 +1,7 @@
 name = "harmaalwala-worker"
 main = "index.js"
 compatibility_date = "2024-09-23"
+workers_dev = true
 
 # Secrets are NOT stored here — set them via CLI:
 #   wrangler secret put RAZORPAY_KEY_ID
