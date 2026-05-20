@@ -4019,18 +4019,33 @@ function restoreStylesheets(originals){
 
 // Also normalize inline color(srgb) values on template elements
 function normalizeInlineColors(el){
-  const colorProps=['color','background-color','background','background-image',
-    'border-color','border-top-color','border-bottom-color','border-left-color','border-right-color',
-    'box-shadow','outline-color'];
+  // Simple color props — fix color(srgb) format
+  const colorProps=['color','background-color',
+    'border-color','border-top-color','border-bottom-color',
+    'border-left-color','border-right-color','outline-color'];
+  // Gradient/complex props — ALWAYS force-set as inline so html2canvas
+  // reads the resolved value instead of the stylesheet var() rule
+  const gradientProps=['background-image','background','box-shadow'];
+
   function fixOne(target){
     try{
       const cs=getComputedStyle(target);
+      // Fix color(srgb) on simple props
       colorProps.forEach(p=>{
         try{
           const v=cs.getPropertyValue(p);
-          if(v && (v.indexOf('color(')!==-1)){
-            target.style.setProperty(p,normalizeColor(v));
-          }
+          if(v && v.indexOf('color(')!==-1)
+            target.style.setProperty(p,normalizeColor(v),'important');
+        }catch(e){}
+      });
+      // Force-set gradient props so html2canvas always gets clean resolved colors
+      gradientProps.forEach(p=>{
+        try{
+          const v=cs.getPropertyValue(p);
+          if(!v || v==='none' || v==='normal') return;
+          // Always normalize + inline so var(--tc1) is never seen by html2canvas
+          const normalized=normalizeColor(v);
+          target.style.setProperty(p,normalized,'important');
         }catch(e){}
       });
     }catch(e){}
