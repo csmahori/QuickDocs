@@ -3165,8 +3165,10 @@ const BD={
     const inner=document.getElementById('lpvInner');
     if(!wrap||!inner)return;
     const ww=Math.max(wrap.offsetWidth||0,wrap.clientWidth||0,280);
-    const sc=Math.max(0.25,Math.min(0.50,(ww-8)/794));
-    inner.style.cssText=`position:absolute;top:0;left:0;width:794px;pointer-events:none;`+
+    const sc=Math.max(0.25,Math.min(0.75,(ww-8)/794));
+    // Centre the scaled template horizontally so no white gap appears on the right
+    const leftOff=Math.max(0,Math.round((ww-794*sc)/2));
+    inner.style.cssText=`position:absolute;top:0;left:${leftOff}px;width:794px;pointer-events:none;`+
       `transform:scale(${sc});transform-origin:top left;`;
     wrap.style.height=Math.round(1060*sc+8)+'px';
   },
