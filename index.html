@@ -1509,11 +1509,17 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   border-right:2px solid var(--tc1);
   opacity:.72;pointer-events:none;z-index:20}
 
-/* T3 — Vedic Traditional: dashed ornamental inner frame
-   Sits just inside the chevron stripes for a layered Vedic look */
+/* T3 — Vedic Traditional: ornate scrollwork gold frame (SVG)
+   Double-rect frame + arc-scroll corner ornaments + mid diamonds
+   Fixed saffron-gold #BF9000 — traditional Indian aesthetic */
 .bdr-wrap.t3::before{
-  content:'';position:absolute;inset:10px;
-  border:2px dashed var(--tc1);opacity:.42;
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 210 297' preserveAspectRatio='none'%3E%3Crect x='5' y='5' width='200' height='287' fill='none' stroke='%23BF9000' stroke-width='2.5' opacity='.88'/%3E%3Crect x='10' y='10' width='190' height='277' fill='none' stroke='%23BF9000' stroke-width='1' opacity='.55'/%3E%3Cpath d='M5,52 C5,27 27,5 52,5' fill='none' stroke='%23BF9000' stroke-width='3' opacity='.9'/%3E%3Cpath d='M10,52 C10,29 29,10 52,10' fill='none' stroke='%23BF9000' stroke-width='1.5' opacity='.6'/%3E%3Cpath d='M22,5 C22,14 10,16 10,28 C10,36 20,34 20,44' fill='none' stroke='%23BF9000' stroke-width='1.2' opacity='.8'/%3E%3Cpath d='M5,22 C14,22 16,10 28,10 C36,10 34,20 44,20' fill='none' stroke='%23BF9000' stroke-width='1.2' opacity='.8'/%3E%3Ccircle cx='5' cy='5' r='3.5' fill='%23BF9000' opacity='.72'/%3E%3Cpath d='M205,52 C205,27 183,5 158,5' fill='none' stroke='%23BF9000' stroke-width='3' opacity='.9'/%3E%3Cpath d='M200,52 C200,29 181,10 158,10' fill='none' stroke='%23BF9000' stroke-width='1.5' opacity='.6'/%3E%3Cpath d='M188,5 C188,14 200,16 200,28 C200,36 190,34 190,44' fill='none' stroke='%23BF9000' stroke-width='1.2' opacity='.8'/%3E%3Cpath d='M205,22 C196,22 194,10 182,10 C174,10 176,20 166,20' fill='none' stroke='%23BF9000' stroke-width='1.2' opacity='.8'/%3E%3Ccircle cx='205' cy='5' r='3.5' fill='%23BF9000' opacity='.72'/%3E%3Cpath d='M5,245 C5,270 27,292 52,292' fill='none' stroke='%23BF9000' stroke-width='3' opacity='.9'/%3E%3Cpath d='M10,245 C10,268 29,287 52,287' fill='none' stroke='%23BF9000' stroke-width='1.5' opacity='.6'/%3E%3Cpath d='M22,292 C22,283 10,281 10,269 C10,261 20,263 20,253' fill='none' stroke='%23BF9000' stroke-width='1.2' opacity='.8'/%3E%3Cpath d='M5,275 C14,275 16,287 28,287 C36,287 34,277 44,277' fill='none' stroke='%23BF9000' stroke-width='1.2' opacity='.8'/%3E%3Ccircle cx='5' cy='292' r='3.5' fill='%23BF9000' opacity='.72'/%3E%3Cpath d='M205,245 C205,270 183,292 158,292' fill='none' stroke='%23BF9000' stroke-width='3' opacity='.9'/%3E%3Cpath d='M200,245 C200,268 181,287 158,287' fill='none' stroke='%23BF9000' stroke-width='1.5' opacity='.6'/%3E%3Cpath d='M188,292 C188,283 200,281 200,269 C200,261 190,263 190,253' fill='none' stroke='%23BF9000' stroke-width='1.2' opacity='.8'/%3E%3Cpath d='M205,275 C196,275 194,287 182,287 C174,287 176,277 166,277' fill='none' stroke='%23BF9000' stroke-width='1.2' opacity='.8'/%3E%3Ccircle cx='205' cy='292' r='3.5' fill='%23BF9000' opacity='.72'/%3E%3Cpolygon points='105,3 108.5,6.5 105,10 101.5,6.5' fill='%23BF9000' opacity='.82'/%3E%3Cpolygon points='105,284 108.5,287.5 105,291 101.5,287.5' fill='%23BF9000' opacity='.82'/%3E%3Cpolygon points='3,148.5 6.5,145 10,148.5 6.5,152' fill='%23BF9000' opacity='.82'/%3E%3Cpolygon points='200,148.5 203.5,145 207,148.5 203.5,152' fill='%23BF9000' opacity='.82'/%3E%3C/svg%3E");
+  background-size:100% 100%;background-repeat:no-repeat;
+  pointer-events:none;z-index:5;border:none}
+.bdr-wrap.t3::after{
+  content:'';position:absolute;inset:14px;
+  border:1px solid var(--tc1);opacity:.18;
   pointer-events:none;z-index:5}
 
 /* T4 — Modern Card: frosted-glass double frame
@@ -1538,26 +1544,28 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   border:1px solid var(--tc1);opacity:.14;
   pointer-events:none;z-index:5}
 
-/* T6 — Royal Arch: thick outer + thin inner (royal-document style)
-   3px solid outer frame + 1px inner — Mughal-era document look */
+/* T6 — Royal Arch: ornate royal gold scrollwork frame (SVG)
+   Dark-gold #B8860B (DarkGoldenrod) — regal Mughal-court aesthetic */
 .bdr-wrap.t6::before{
-  content:'';position:absolute;inset:5px;
-  border:3px solid var(--tc1);opacity:.78;
-  pointer-events:none;z-index:20}
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 210 297' preserveAspectRatio='none'%3E%3Crect x='5' y='5' width='200' height='287' fill='none' stroke='%23B8860B' stroke-width='2.5' opacity='.88'/%3E%3Crect x='10' y='10' width='190' height='277' fill='none' stroke='%23B8860B' stroke-width='1' opacity='.55'/%3E%3Cpath d='M5,52 C5,27 27,5 52,5' fill='none' stroke='%23B8860B' stroke-width='3' opacity='.9'/%3E%3Cpath d='M10,52 C10,29 29,10 52,10' fill='none' stroke='%23B8860B' stroke-width='1.5' opacity='.6'/%3E%3Cpath d='M22,5 C22,14 10,16 10,28 C10,36 20,34 20,44' fill='none' stroke='%23B8860B' stroke-width='1.2' opacity='.8'/%3E%3Cpath d='M5,22 C14,22 16,10 28,10 C36,10 34,20 44,20' fill='none' stroke='%23B8860B' stroke-width='1.2' opacity='.8'/%3E%3Ccircle cx='5' cy='5' r='3.5' fill='%23B8860B' opacity='.72'/%3E%3Cpath d='M205,52 C205,27 183,5 158,5' fill='none' stroke='%23B8860B' stroke-width='3' opacity='.9'/%3E%3Cpath d='M200,52 C200,29 181,10 158,10' fill='none' stroke='%23B8860B' stroke-width='1.5' opacity='.6'/%3E%3Cpath d='M188,5 C188,14 200,16 200,28 C200,36 190,34 190,44' fill='none' stroke='%23B8860B' stroke-width='1.2' opacity='.8'/%3E%3Cpath d='M205,22 C196,22 194,10 182,10 C174,10 176,20 166,20' fill='none' stroke='%23B8860B' stroke-width='1.2' opacity='.8'/%3E%3Ccircle cx='205' cy='5' r='3.5' fill='%23B8860B' opacity='.72'/%3E%3Cpath d='M5,245 C5,270 27,292 52,292' fill='none' stroke='%23B8860B' stroke-width='3' opacity='.9'/%3E%3Cpath d='M10,245 C10,268 29,287 52,287' fill='none' stroke='%23B8860B' stroke-width='1.5' opacity='.6'/%3E%3Cpath d='M22,292 C22,283 10,281 10,269 C10,261 20,263 20,253' fill='none' stroke='%23B8860B' stroke-width='1.2' opacity='.8'/%3E%3Cpath d='M5,275 C14,275 16,287 28,287 C36,287 34,277 44,277' fill='none' stroke='%23B8860B' stroke-width='1.2' opacity='.8'/%3E%3Ccircle cx='5' cy='292' r='3.5' fill='%23B8860B' opacity='.72'/%3E%3Cpath d='M205,245 C205,270 183,292 158,292' fill='none' stroke='%23B8860B' stroke-width='3' opacity='.9'/%3E%3Cpath d='M200,245 C200,268 181,287 158,287' fill='none' stroke='%23B8860B' stroke-width='1.5' opacity='.6'/%3E%3Cpath d='M188,292 C188,283 200,281 200,269 C200,261 190,263 190,253' fill='none' stroke='%23B8860B' stroke-width='1.2' opacity='.8'/%3E%3Cpath d='M205,275 C196,275 194,287 182,287 C174,287 176,277 166,277' fill='none' stroke='%23B8860B' stroke-width='1.2' opacity='.8'/%3E%3Ccircle cx='205' cy='292' r='3.5' fill='%23B8860B' opacity='.72'/%3E%3Cpolygon points='105,3 108.5,6.5 105,10 101.5,6.5' fill='%23B8860B' opacity='.82'/%3E%3Cpolygon points='105,284 108.5,287.5 105,291 101.5,287.5' fill='%23B8860B' opacity='.82'/%3E%3Cpolygon points='3,148.5 6.5,145 10,148.5 6.5,152' fill='%23B8860B' opacity='.82'/%3E%3Cpolygon points='200,148.5 203.5,145 207,148.5 203.5,152' fill='%23B8860B' opacity='.82'/%3E%3C/svg%3E");
+  background-size:100% 100%;background-repeat:no-repeat;
+  pointer-events:none;z-index:20;border:none}
 .bdr-wrap.t6::after{
-  content:'';position:absolute;inset:11px;
-  border:1px solid var(--tc1);opacity:.42;
+  content:'';position:absolute;inset:14px;
+  border:1px solid var(--tc1);opacity:.22;
   pointer-events:none;z-index:20}
 
-/* T7 — Floral Frame: double ornamental border + bigger corner ornaments
-   Existing .t7-border enhanced to 2px; inner pseudo-element adds second ring;
-   corner ❧ ornaments enlarged and brightened */
-.t7-border{border:2px solid var(--tc1)!important;opacity:.55}
+/* T7 — Floral Frame: ornate amber gold scrollwork outer frame (SVG)
+   SVG frame at z-index:1; existing ❧ corner ornaments float on top (z-index:3)
+   Warm amber gold #C07800 complements the floral garden aesthetic */
+.t7-border{border:1.5px solid var(--tc1)!important;opacity:.5}
 .bdr-wrap.t7::before{
-  content:'';position:absolute;inset:17px;
-  border:1px solid var(--tc1);opacity:.25;
-  pointer-events:none;z-index:2}
-.t7-corner{font-size:36px!important;color:var(--tc1)!important;opacity:.62}
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 210 297' preserveAspectRatio='none'%3E%3Crect x='5' y='5' width='200' height='287' fill='none' stroke='%23C07800' stroke-width='2.5' opacity='.88'/%3E%3Crect x='10' y='10' width='190' height='277' fill='none' stroke='%23C07800' stroke-width='1' opacity='.55'/%3E%3Cpath d='M5,52 C5,27 27,5 52,5' fill='none' stroke='%23C07800' stroke-width='3' opacity='.9'/%3E%3Cpath d='M10,52 C10,29 29,10 52,10' fill='none' stroke='%23C07800' stroke-width='1.5' opacity='.6'/%3E%3Cpath d='M22,5 C22,14 10,16 10,28 C10,36 20,34 20,44' fill='none' stroke='%23C07800' stroke-width='1.2' opacity='.8'/%3E%3Cpath d='M5,22 C14,22 16,10 28,10 C36,10 34,20 44,20' fill='none' stroke='%23C07800' stroke-width='1.2' opacity='.8'/%3E%3Ccircle cx='5' cy='5' r='3.5' fill='%23C07800' opacity='.72'/%3E%3Cpath d='M205,52 C205,27 183,5 158,5' fill='none' stroke='%23C07800' stroke-width='3' opacity='.9'/%3E%3Cpath d='M200,52 C200,29 181,10 158,10' fill='none' stroke='%23C07800' stroke-width='1.5' opacity='.6'/%3E%3Cpath d='M188,5 C188,14 200,16 200,28 C200,36 190,34 190,44' fill='none' stroke='%23C07800' stroke-width='1.2' opacity='.8'/%3E%3Cpath d='M205,22 C196,22 194,10 182,10 C174,10 176,20 166,20' fill='none' stroke='%23C07800' stroke-width='1.2' opacity='.8'/%3E%3Ccircle cx='205' cy='5' r='3.5' fill='%23C07800' opacity='.72'/%3E%3Cpath d='M5,245 C5,270 27,292 52,292' fill='none' stroke='%23C07800' stroke-width='3' opacity='.9'/%3E%3Cpath d='M10,245 C10,268 29,287 52,287' fill='none' stroke='%23C07800' stroke-width='1.5' opacity='.6'/%3E%3Cpath d='M22,292 C22,283 10,281 10,269 C10,261 20,263 20,253' fill='none' stroke='%23C07800' stroke-width='1.2' opacity='.8'/%3E%3Cpath d='M5,275 C14,275 16,287 28,287 C36,287 34,277 44,277' fill='none' stroke='%23C07800' stroke-width='1.2' opacity='.8'/%3E%3Ccircle cx='5' cy='292' r='3.5' fill='%23C07800' opacity='.72'/%3E%3Cpath d='M205,245 C205,270 183,292 158,292' fill='none' stroke='%23C07800' stroke-width='3' opacity='.9'/%3E%3Cpath d='M200,245 C200,268 181,287 158,287' fill='none' stroke='%23C07800' stroke-width='1.5' opacity='.6'/%3E%3Cpath d='M188,292 C188,283 200,281 200,269 C200,261 190,263 190,253' fill='none' stroke='%23C07800' stroke-width='1.2' opacity='.8'/%3E%3Cpath d='M205,275 C196,275 194,287 182,287 C174,287 176,277 166,277' fill='none' stroke='%23C07800' stroke-width='1.2' opacity='.8'/%3E%3Ccircle cx='205' cy='292' r='3.5' fill='%23C07800' opacity='.72'/%3E%3Cpolygon points='105,3 108.5,6.5 105,10 101.5,6.5' fill='%23C07800' opacity='.82'/%3E%3Cpolygon points='105,284 108.5,287.5 105,291 101.5,287.5' fill='%23C07800' opacity='.82'/%3E%3Cpolygon points='3,148.5 6.5,145 10,148.5 6.5,152' fill='%23C07800' opacity='.82'/%3E%3Cpolygon points='200,148.5 203.5,145 207,148.5 203.5,152' fill='%23C07800' opacity='.82'/%3E%3C/svg%3E");
+  background-size:100% 100%;background-repeat:no-repeat;
+  pointer-events:none;z-index:1;border:none}
+.t7-corner{font-size:36px!important;color:var(--tc1)!important;opacity:.68;z-index:3!important}
 
 /* T8 — Magazine / Editorial: bold left+right sidebar bars + inner hairline
    5px accent bars on left & right edges (editorial column-rule style),
