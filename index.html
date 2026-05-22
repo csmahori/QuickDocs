@@ -3148,7 +3148,7 @@ const BD={
         // Has photo
         if(dpStrip) dpStrip.style.display = '';
         if(dpEl) dpEl.innerHTML =
-          `<img src="${_photoB64}" crossorigin="anonymous" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+          `<img src="${_photoB64}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
         if(dpName) dpName.textContent = rows.name || '';
         if(dpSub)  dpSub.textContent  = rows.subtitle || '';
       } else if(_includePhoto && !_photoB64){
@@ -3258,7 +3258,7 @@ const BD={
     this.read();
     const rows=this.buildRows();
     const ph=(_includePhoto&&_photoB64)
-      ?`<img src="${_photoB64}" crossorigin="anonymous" style="width:100%;height:100%;object-fit:cover">`
+      ?`<img src="${_photoB64}" style="width:100%;height:100%;object-fit:cover">`
       :(_includePhoto?'📷':'');
 
     // Write to hidden render element (for PDF generation)
@@ -4218,6 +4218,17 @@ async function generateBiodataPDF(){
   if(loadEl) loadEl.classList.add('act');
   swapTemplate(bTpl);
   BD.refresh(true);
+  // Wait for photo image to fully decode before capturing
+  await (async()=>{
+    const rd0=document.getElementById('bdRender');
+    if(rd0){
+      const imgs=Array.from(rd0.querySelectorAll('img'));
+      await Promise.all(imgs.map(img=>{
+        if(img.complete && img.naturalWidth>0) return Promise.resolve();
+        return new Promise(res=>{img.onload=res;img.onerror=res;});
+      }));
+    }
+  })();
   await new Promise(r=>setTimeout(r,600));
   let success=false;
   let originals=[];
