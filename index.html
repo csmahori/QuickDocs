@@ -4192,6 +4192,7 @@ async function generateBiodataPDF(){
   let success=false;
   let originals=[];
   let brandStamp=null;  /* v2 fix: track watermark to remove in finally */
+  let overflowEl=null;  /* multi-page: track el so finally can restore overflow */
   try{
     const jsPDFLib=window.jspdf&&window.jspdf.jsPDF;
     if(!jsPDFLib) throw new Error('jsPDF load nahi hua. Page refresh karein.');
@@ -4244,22 +4245,50 @@ async function generateBiodataPDF(){
       }
     };
 
-    // Step 4: Run html2canvas (layout intact, no problematic colors)
+    // Step 4: Detect overflow — let element expand for multi-page capture
+    // A4 at 96dpi: 794px wide × ~1123px tall. 20px tolerance for rounding.
+    const A4_H_PX=1123;
+    const fullH=el.scrollHeight;
+    if(fullH>A4_H_PX+20){
+      overflowEl={el,ov:el.style.overflow,mh:el.style.minHeight};
+      el.style.overflow='visible';
+      el.style.minHeight=fullH+'px';
+      await new Promise(r=>setTimeout(r,60));
+    }
+
+    // Step 5: Run html2canvas — full height if multi-page
     const canvas=await html2canvas(el,{
       scale:2,useCORS:true,allowTaint:false,logging:false,
-      width:794,windowWidth:794,backgroundColor:'#ffffff',scrollX:0,scrollY:0
+      width:794,height:overflowEl?fullH:undefined,
+      windowWidth:794,backgroundColor:'#ffffff',scrollX:0,scrollY:0
     });
 
     CanvasGradient.prototype.addColorStop = _origACS; // restore immediately
 
-    // Step 4: Restore original stylesheets
+    // Restore element overflow right after capture
+    if(overflowEl){el.style.overflow=overflowEl.ov;el.style.minHeight=overflowEl.mh;overflowEl=null;}
+
+    // Step 6: Restore original stylesheets
     restoreStylesheets(originals);
     originals=[];
 
     if(rd) rd.setAttribute('style',origStyle||'position:fixed;left:-9999px;top:0;z-index:-1;overflow:hidden;background:#fff');
-    const imgData=canvas.toDataURL('image/jpeg',0.92);
+
+    // Step 7: Build PDF — slice full canvas into A4 pages
     const pdf=new jsPDFLib({unit:'mm',format:'a4',orientation:'portrait'});
-    pdf.addImage(imgData,'JPEG',0,0,210,297);
+    const pageHC=A4_H_PX*2;  // canvas px per A4 page at scale:2
+    const totalPages=Math.max(1,Math.ceil(canvas.height/pageHC));
+    for(let pg=0;pg<totalPages;pg++){
+      if(pg>0) pdf.addPage();
+      const slC=document.createElement('canvas');
+      slC.width=canvas.width; slC.height=pageHC;
+      const ctx2=slC.getContext('2d');
+      ctx2.fillStyle='#ffffff'; ctx2.fillRect(0,0,slC.width,slC.height);
+      const srcY=pg*pageHC;
+      const srcH=Math.min(pageHC,canvas.height-srcY);
+      if(srcH>0) ctx2.drawImage(canvas,0,srcY,canvas.width,srcH,0,0,canvas.width,srcH);
+      pdf.addImage(slC.toDataURL('image/jpeg',0.92),'JPEG',0,0,210,297);
+    }
     const nm=(document.getElementById('bnm')||{}).value||'Biodata';
     const safe=nm.replace(/[^a-zA-Z0-9 ]/g,'').trim().replace(/\s+/g,'_')||'Biodata';
     pdf.save('Biodata_'+safe+'_EasyDocuments.pdf');
@@ -4278,6 +4307,7 @@ async function generateBiodataPDF(){
     alert(msg);
   }finally{
     if(originals.length) restoreStylesheets(originals);
+    if(overflowEl){overflowEl.el.style.overflow=overflowEl.ov;overflowEl.el.style.minHeight=overflowEl.mh;}
     if(brandStamp&&brandStamp.parentNode) brandStamp.parentNode.removeChild(brandStamp);
     if(loadEl) loadEl.classList.remove('act');
     // Always restore addColorStop patch (in case html2canvas threw mid-run)
