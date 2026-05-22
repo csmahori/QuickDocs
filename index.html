@@ -2026,8 +2026,10 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
               <div class="sib-cell"><span class="sib-lbl">Married</span><input class="fi sib-num" id="bsistersM" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bsisters','bsistersM');updB()"></div>
             </div>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblCaste">Community / Caste</label><input class="fi" id="bcst" placeholder="e.g. Hindu - Agarwal" oninput="updB()"></div>
-          <div class="fg"><label class="fl" id="i18nLblRashi">Gotra / Rashi <span class="fh">(optional)</span></label><input class="fi" id="brsh" placeholder="Kashyap / Kanya" oninput="updB()"></div>
+          <div class="fg"><label class="fl" id="i18nLblRelig">Religion</label><select class="fsel" id="brelig" onchange="onReligChange()"><option value="">-- Select Religion --</option><option>Hindu</option><option>Muslim</option><option>Sikh</option><option>Christian</option><option>Jain</option><option>Buddhist</option><option>Other</option></select></div>
+          <div class="fg"><label class="fl" id="i18nLblCaste">Community / Caste</label><select class="fsel" id="bcst" onchange="updB()"><option value="">-- Select religion first --</option></select></div>
+          <div class="fg"><label class="fl">Gotra <span class="fh">(optional)</span></label><input class="fi" id="bgotr" placeholder="e.g. Kashyap, Bharadwaj" list="gotrList" oninput="updB()"><datalist id="gotrList"><option value="Kashyap"><option value="Bharadwaj"><option value="Vatsa"><option value="Kaundinya"><option value="Atri"><option value="Vashishtha"><option value="Agastya"><option value="Garg"><option value="Sandilya"><option value="Gautam"><option value="Parashar"><option value="Kaushik"><option value="Jamadagni"><option value="Vishwamitra"><option value="Mudgal"><option value="Angiras"><option value="Bhrigu"><option value="Harita"><option value="Shandilya"><option value="Maudgalya"><option value="Lohit"><option value="Upamanyu"><option value="Kapi"><option value="Naitreya"><option value="Shaunaka"><option value="Aupamanyava"><option value="Bhargava"><option value="Vaidyanath"><option value="Vasishtha"></datalist></div>
+          <div class="fg"><label class="fl" id="i18nLblRashi">Rashi <span class="fh">(optional)</span></label><select class="fsel" id="brash" onchange="updB()"><option value="">-- Select Rashi --</option><option value="मेष (Aries)">मेष (Aries)</option><option value="वृषभ (Taurus)">वृषभ (Taurus)</option><option value="मिथुन (Gemini)">मिथुन (Gemini)</option><option value="कर्क (Cancer)">कर्क (Cancer)</option><option value="सिंह (Leo)">सिंह (Leo)</option><option value="कन्या (Virgo)">कन्या (Virgo)</option><option value="तुला (Libra)">तुला (Libra)</option><option value="वृश्चिक (Scorpio)">वृश्चिक (Scorpio)</option><option value="धनु (Sagittarius)">धनु (Sagittarius)</option><option value="मकर (Capricorn)">मकर (Capricorn)</option><option value="कुम्भ (Aquarius)">कुम्भ (Aquarius)</option><option value="मीन (Pisces)">मीन (Pisces)</option></select></div>
 
           <div class="sec-div"><span id="i18nSecContact">Contact</span></div>
           <div class="fg"><label class="fl" id="i18nLblCtPerson">Contact Person <span class="req-star">★ Required</span></label>
@@ -3002,7 +3004,7 @@ function trMarriedLabel(lang){return lang==='hi'?'विवाहित':(lang==
 ══════════════════════════════════════════════════════ */
 const BD={
   s:{nm:'',dd:'',mm:'',yy:'',tob:'',edu:'',occ:'',state:'',city:'',
-     fth:'',mth:'',focc:'',mocc:'',cst:'',rsh:'',ctp:'',ctm:''},
+     fth:'',mth:'',focc:'',mocc:'',relig:'',cst:'',gotr:'',rash:'',rsh:'',ctp:'',ctm:''},
 
   read(){
     const g=id=>((document.getElementById(id)||{}).value||'').trim();
@@ -3018,7 +3020,10 @@ const BD={
       fth:g('bfth'),mth:g('bmth'),focc:g('bfocc'),mocc:g('bmocc'),
       brothers:g('bbrothers'),brothersM:g('bbrothersM'),
       sisters:g('bsisters'),sistersM:g('bsistersM'),
-      cst:g('bcst'),rsh:g('brsh'),ctp:g('bctperson'),ctm:g('bctmobile')
+      relig:g('brelig'),cst:g('bcst'),
+      gotr:g('bgotr'),rash:g('brash'),
+      rsh:[g('bgotr'),g('brash')].filter(Boolean).join(' / '),
+      ctp:g('bctperson'),ctm:g('bctmobile')
     };
   },
 
@@ -3627,6 +3632,31 @@ function openWASupport(){
 }
 
 /* ── LABEL SETS ── */
+/* ── Religion → Community cascade ─────────────────────────────── */
+const RELIG_DATA={
+  'Hindu':['Brahmin','Rajput / Kshatriya','Bania / Vaishya','Kayastha','Agarwal','Gupta','Jat','Jatav','Maratha','Patel / Patidar','Yadav','Kurmi','Goswami / Vaishnav','Saini','Thakur','Nair','Pillai / Menon','Iyer / Iyengar','Reddy','Naidu','Kamma','Lingayat','Vokkaliga / Gowda','Bunt','Ezhava','Mudaliar','Chettiar','Scheduled Caste (SC)','Scheduled Tribe (ST)','Other / Not Listed'],
+  'Muslim':['General','Syed','Sheikh','Pathan / Pashtun','Ansari','Qureshi','Mughal','Rajput Muslim','Bohra','Khoja','Shia','Sunni','Other / Not Listed'],
+  'Sikh':['Jat Sikh','Khatri Sikh','Arora Sikh','Ramgarhia','Saini Sikh','Mazabi Sikh','Other / Not Listed'],
+  'Christian':['Roman Catholic','Protestant','CSI (South India)','CNI (North India)','Orthodox','Pentecostal','Baptist','Other / Not Listed'],
+  'Jain':['Digambar','Shwetambar','Sthanakvasi','Terapanthi','Other / Not Listed'],
+  'Buddhist':['Theravada','Mahayana','Ambedkarite Buddhist','Navyana','Other / Not Listed'],
+  'Other':['Other / Not Listed']
+};
+function onReligChange(){
+  const rel=(document.getElementById('brelig')||{}).value||'';
+  const cstSel=document.getElementById('bcst');
+  if(!cstSel) return;
+  cstSel.innerHTML='<option value="">-- Select Community --</option>';
+  if(rel&&RELIG_DATA[rel]){
+    RELIG_DATA[rel].forEach(c=>{
+      const o=document.createElement('option');
+      o.value=rel+' - '+c; o.textContent=c;
+      cstSel.appendChild(o);
+    });
+  }
+  updB();
+}
+
 const BL={
   hi:{
     subtitle:'विवाह बायोडाटा',
@@ -4742,9 +4772,14 @@ function persistOtherInputs(){
   updStepUI(0);
   const b=S.get('b');
   if(b){
-    const map={nm:'bnm',dd:'bdd',mm:'bmm',edu:'bedu',occ:'bocc',state:'bstate',city:'bcity',rsh:'brsh',cst:'bcst',fth:'bfth',mth:'bmth',focc:'bfocc',mocc:'bmocc',ctp:'bctperson',ctm:'bctmobile'};
+    const map={nm:'bnm',dd:'bdd',mm:'bmm',edu:'bedu',occ:'bocc',state:'bstate',city:'bcity',fth:'bfth',mth:'bmth',focc:'bfocc',mocc:'bmocc',ctp:'bctperson',ctm:'bctmobile'};
     Object.keys(map).forEach(k=>{const el=document.getElementById(map[k]);if(el&&b[k])el.value=b[k];});
     if(b.yy){const el=document.getElementById('byy');if(el)el.value=b.yy;}
+    // Restore religion → community cascade (order matters: religion first, then community)
+    if(b.relig){const rEl=document.getElementById('brelig');if(rEl){rEl.value=b.relig;onReligChange();}}
+    if(b.cst){const cEl=document.getElementById('bcst');if(cEl)cEl.value=b.cst;}
+    if(b.gotr){const gEl=document.getElementById('bgotr');if(gEl)gEl.value=b.gotr;}
+    if(b.rash){const rEl=document.getElementById('brash');if(rEl)rEl.value=b.rash;}
     BD.refresh(true);
   }
   // v2.7: restore saved design state (template, lang, colour, sym, photo opt)
