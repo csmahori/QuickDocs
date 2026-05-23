@@ -3539,6 +3539,7 @@ async function openRazorpay() {
           });
           const { verified } = await vRes.json();
           if (verified) {
+            if (btn) { btn.disabled = false; btn.textContent = orig; }
             OfferUI.recordPayment(response.razorpay_payment_id);
             closeUp();
             generateBiodataPDF();
@@ -3609,7 +3610,12 @@ function subFB(){
 }
 function closeFB(){const el=document.getElementById('fbOv');if(el)el.classList.remove('act');}
 
-function showUp(){const el=document.getElementById('upOv');if(el)el.classList.add('act');}
+function showUp(){
+  const el=document.getElementById('upOv');if(el)el.classList.add('act');
+  // Always reset pay button — it may be disabled from a previous payment session
+  const rzpBtn=document.getElementById('rzpPayBtn');
+  if(rzpBtn){rzpBtn.disabled=false;rzpBtn.innerHTML='💳 Pay '+OFFER_CONFIG.currency+OFFER_CONFIG.price+' — Instant Download';}
+}
 function closeUp(){const el=document.getElementById('upOv');if(el)el.classList.remove('act');}
 function simPay(){closeUp();showSuc();}
 function showSuc(){const el=document.getElementById('sucOv');if(el)el.classList.add('act');}
