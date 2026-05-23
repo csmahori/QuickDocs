@@ -4121,11 +4121,12 @@ function normalizeColor(val){
 }
 
 function resolveStylesheetColors(){
-  // Find all <style> elements with color-mix
+  // Find all <style> elements with color-mix OR modern color functions
   const originals=[];
   document.querySelectorAll('style').forEach(s=>{
     const txt=s.textContent||'';
-    if(txt.indexOf('color-mix')===-1) return;
+    const hasModern=txt.indexOf('color-mix')!==-1||/oklab\(|oklch\(|lab\(|lch\(|hwb\(/.test(txt);
+    if(!hasModern) return;
     originals.push({el:s, original:txt});
     
     // Find all unique color-mix(...) patterns and resolve them
@@ -4162,11 +4163,18 @@ function resolveStylesheetColors(){
     // Replace all found patterns (longest first to avoid partial replacements)
     const entries=[...seen.entries()].sort((a,b)=>b[0].length-a[0].length);
     entries.forEach(([pattern,rgb])=>{
-      // Escape special regex chars in the pattern
-      const escaped=pattern.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
       resolved=resolved.split(pattern).join(rgb);
     });
-    
+
+    // Also resolve any oklab()/oklch()/lab()/lch()/hwb() directly in stylesheet text
+    resolved=resolved.replace(/(oklab|oklch|lab|lch|hwb)\([^)]+\)/g,function(match){
+      try{
+        const _c=document.createElement('canvas').getContext('2d');
+        _c.fillStyle=match;
+        return _c.fillStyle||'#888888';
+      }catch(e){return '#888888';}
+    });
+
     s.textContent=resolved;
   });
   return originals;
@@ -4189,11 +4197,13 @@ function normalizeInlineColors(el){
   function fixOne(target){
     try{
       const cs=getComputedStyle(target);
-      // Fix color(srgb) on simple props
+      // Fix modern color functions (color(srgb), oklab, oklch, lab, lch, hwb)
+      // Chrome 115+ CSSOM returns computed colors in oklab()/oklch() form
+      const modernColorRe=/color\(|oklab\(|oklch\(|lab\(|lch\(|hwb\(/;
       colorProps.forEach(p=>{
         try{
           const v=cs.getPropertyValue(p);
-          if(v && v.indexOf('color(')!==-1)
+          if(v && modernColorRe.test(v))
             target.style.setProperty(p,normalizeColor(v),'important');
         }catch(e){}
       });
