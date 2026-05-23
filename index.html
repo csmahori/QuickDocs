@@ -4311,54 +4311,6 @@ async function generateBiodataPDF(){
 
     CanvasGradient.prototype.addColorStop = _origACS; // restore immediately
 
-    // ── Photo post-draw: html2canvas silently drops data-URI <img> in some
-    //    browsers/versions. We directly paint the photo onto the canvas instead.
-    if(_photoB64 && _includePhoto){
-      await new Promise(resolve=>{
-        const ctx=canvas.getContext('2d');
-        const sc=2; // must match scale:2 in html2canvas call above
-        // T8 uses #t8-dp; all other templates use #bdr-photo-wrap
-        const photoImg=el.querySelector('#t8-dp img')||el.querySelector('#bdr-photo-wrap img');
-        if(!photoImg){resolve();return;}
-        const elRect=el.getBoundingClientRect();
-        const iRect=photoImg.getBoundingClientRect();
-        const px=Math.round((iRect.left-elRect.left)*sc);
-        const py=Math.round((iRect.top-elRect.top)*sc);
-        const pw=Math.round(iRect.width*sc);
-        const ph=Math.round(iRect.height*sc);
-        if(pw<=0||ph<=0){resolve();return;}
-        const img=new Image();
-        img.onload=()=>{
-          ctx.save();
-          // Apply border-radius clip from the container element
-          const wrap=photoImg.parentElement;
-          const brStyle=wrap?getComputedStyle(wrap).borderRadius:'0px';
-          if(brStyle&&brStyle!=='0px'){
-            if(brStyle.includes('%')){
-              // Circular clip (T5, T7, T8 DP)
-              ctx.beginPath();
-              ctx.arc(px+pw/2,py+ph/2,Math.min(pw,ph)/2,0,Math.PI*2);
-              ctx.clip();
-            }else{
-              const br=parseFloat(brStyle)*sc||0;
-              if(br>0){
-                // Rounded-rect clip
-                ctx.beginPath();
-                ctx.moveTo(px+br,py);ctx.arcTo(px+pw,py,px+pw,py+ph,br);
-                ctx.arcTo(px+pw,py+ph,px,py+ph,br);ctx.arcTo(px,py+ph,px,py,br);
-                ctx.arcTo(px,py,px+pw,py,br);ctx.closePath();ctx.clip();
-              }
-            }
-          }
-          ctx.drawImage(img,px,py,pw,ph);
-          ctx.restore();
-          resolve();
-        };
-        img.onerror=resolve;
-        img.src=_photoB64;
-      });
-    }
-
     // Step 4: Restore original stylesheets
     restoreStylesheets(originals);
     originals=[];
