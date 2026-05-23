@@ -4303,11 +4303,16 @@ async function generateBiodataPDF(){
       }
     };
 
-    // Step 4: Run html2canvas (layout intact, no problematic colors)
+    // Step 4: Run html2canvas — hide wizard modal first so live preview
+    // doesn't bleed into the capture (modal sits at x:391-688 which is
+    // inside bdRender's 0-794px viewport zone)
+    const bMov=document.getElementById('bMov');
+    if(bMov) bMov.style.visibility='hidden';
     const canvas=await html2canvas(el,{
       scale:2,useCORS:true,allowTaint:false,logging:false,
       width:794,windowWidth:794,backgroundColor:'#ffffff',scrollX:0,scrollY:0
     });
+    if(bMov) bMov.style.visibility='';
 
     CanvasGradient.prototype.addColorStop = _origACS; // restore immediately
 
