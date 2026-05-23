@@ -4186,27 +4186,28 @@ function restoreStylesheets(originals){
 
 // Also normalize inline color(srgb) values on template elements
 function normalizeInlineColors(el){
-  // Simple color props — fix color(srgb) format
-  const colorProps=['color','background-color',
-    'border-color','border-top-color','border-bottom-color',
-    'border-left-color','border-right-color','outline-color'];
   // Gradient/complex props — ALWAYS force-set as inline so html2canvas
   // reads the resolved value instead of the stylesheet var() rule
   const gradientProps=['background-image','background','box-shadow'];
+  // Modern color function regex — covers color(srgb), oklab, oklch, lab, lch, hwb
+  // Chrome 115+ CSSOM returns computed colors in these formats
+  const modernColorRe=/color\(|oklab\(|oklch\(|lab\(|lch\(|hwb\(/;
 
   function fixOne(target){
     try{
       const cs=getComputedStyle(target);
-      // Fix modern color functions (color(srgb), oklab, oklch, lab, lch, hwb)
-      // Chrome 115+ CSSOM returns computed colors in oklab()/oklch() form
-      const modernColorRe=/color\(|oklab\(|oklch\(|lab\(|lch\(|hwb\(/;
-      colorProps.forEach(p=>{
+      // Scan ALL computed properties — not just a hardcoded list.
+      // Chrome exposes modern color values on many props (border-block-*,
+      // caret-color, text-decoration-color, column-rule-color, etc.)
+      // that a static list would miss.
+      for(let i=0;i<cs.length;i++){
+        const p=cs[i];
         try{
           const v=cs.getPropertyValue(p);
           if(v && modernColorRe.test(v))
             target.style.setProperty(p,normalizeColor(v),'important');
         }catch(e){}
-      });
+      }
       // Force-set gradient props so html2canvas always gets clean resolved colors
       gradientProps.forEach(p=>{
         try{
