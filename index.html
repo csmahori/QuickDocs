@@ -1749,9 +1749,9 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
     <div class="pcard rv rd2">
       <div class="pic">💫</div>
       <div class="pnm">Standard</div>
-      <div class="phd">After Early Access — just ₹9 launch offer!</div>
-      <div class="pamt"><sup>₹</sup>9 <span style="font-size:18px;font-weight:500;color:var(--TL);text-decoration:line-through;margin-left:4px">₹49</span></div>
-      <div class="pper">per download · launch offer (limited time)</div>
+      <div class="phd">Professional Biodata Maker</div>
+      <div class="pamt">from <sup>₹</sup>9 <span style="font-size:16px;font-weight:500;color:var(--TL)">– ₹49</span></div>
+      <div class="pper">₹9–₹49 · one-time · based on design chosen</div>
       <ul class="plist">
         <li><span class="pck">✅</span>All 8 Template Designs</li>
         <li><span class="pck">✅</span>10 Colour Themes + Custom Picker</li>
@@ -2518,8 +2518,8 @@ const OfferUI = {
         stdCard.style.margin = '0 auto';
       } else {
         if(phd) phd.textContent = 'Professional Biodata Maker';
-        if(amt) amt.innerHTML = '<sup>'+sym+'</sup>' + c.price;
-        if(per) per.textContent = 'per download · one-time';
+        if(amt) amt.innerHTML = 'from <sup>'+sym+'</sup>9 <span style="font-size:16px;font-weight:500;color:var(--TL)">– '+sym+'49</span>';
+        if(per) per.textContent = sym+'9–'+sym+'49 · one-time · based on design chosen';
         stdCard.style.maxWidth = '420px';
         stdCard.style.margin = '0 auto';
       }
