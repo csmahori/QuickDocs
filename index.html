@@ -4459,41 +4459,33 @@ async function generateBiodataPDF(){
    so nothing is lost; a console.warn fires so you'll notice in DevTools.
 */
 const FS={
-  // Either a plain email like "you@example.com" OR an obfuscated ID like "ab12cd34ef"
-  recipient:'omvedanta0@gmail.com',
-
-  _isPlaceholder(){return /YOUR_EMAIL|@example\.com$/i.test(this.recipient);},
+  // Web3Forms access key (from web3forms.com)
+  accessKey:'baa837e6-dfe9-44e0-89d9-e9c32bebcd9c',
 
   init(){
-    if(this._isPlaceholder())
-      console.warn('[EasyDocuments] FormSubmit not configured — set FS.recipient to your email. Submissions are saved to localStorage but NOT emailed.');
+    console.log('[EasyDocuments] Web3Forms ready.');
   },
 
-  // Generic JSON POST to FormSubmit's AJAX endpoint.
-  // payload: object of fields. _subject controls the email subject line.
+  // Generic JSON POST to Web3Forms API.
   _send(payload){
-    if(this._isPlaceholder()) return Promise.reject(new Error('FormSubmit not configured'));
-    const url='https://formsubmit.co/ajax/'+encodeURIComponent(this.recipient);
-    return fetch(url,{
+    return fetch('https://api.web3forms.com/submit',{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(payload),
+      body:JSON.stringify(Object.assign({access_key:this.accessKey},payload)),
     }).then(r=>{
-      if(!r.ok) throw new Error('FormSubmit HTTP '+r.status);
+      if(!r.ok) throw new Error('Web3Forms HTTP '+r.status);
       return r.json();
     }).then(data=>{
-      // FormSubmit returns {success: "true"|true, message: "..."}
-      if(data&&(data.success===true||data.success==='true')) return data;
-      throw new Error('FormSubmit error: '+(data&&data.message||'unknown'));
+      if(data&&data.success) return data;
+      throw new Error('Web3Forms error: '+(data&&data.message||'unknown'));
     });
   },
 
   sendSuggestion(text,phone){
     return this._send({
-      _subject:'🔔 New Tool Request — EasyDocuments.online',
-      _template:'table',     // pretty table layout in the email
-      _captcha:'false',      // no captcha redirect — pure AJAX
-      _honey:'',             // honeypot stays empty (spam protection)
+      subject:'🔔 New Tool Request — EasyDocuments.online',
+      message:'Suggestion: '+text+'\nWhatsApp: '+(phone||'Not provided')+'\nSubmitted: '+new Date().toLocaleString('en-IN'),
+      from_name:'EasyDocuments Visitor',
       site:'EasyDocuments.online',
       type:'Tool Request',
       suggestion_text:text,
@@ -4504,10 +4496,9 @@ const FS={
 
   sendFeedback(name,rating,stars,text,tool){
     return this._send({
-      _subject:'⭐ New Feedback ('+rating+'/5) — EasyDocuments.online',
-      _template:'table',
-      _captcha:'false',
-      _honey:'',
+      subject:'⭐ New Feedback ('+rating+'/5) — EasyDocuments.online',
+      message:stars+' by '+(name||'Anonymous')+'\nFeedback: '+text+'\nTool: '+(tool||'biodata')+'\nSubmitted: '+new Date().toLocaleString('en-IN'),
+      from_name:name||'Anonymous',
       site:'EasyDocuments.online',
       type:'Feedback',
       user_name:name||'Anonymous',
