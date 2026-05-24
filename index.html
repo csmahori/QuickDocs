@@ -3144,8 +3144,12 @@ const BD={
             +makeRow(F.city[0],loc);
 
     // ── Family: Father → F.Occ → Mother → M.Occ → Brothers → Sisters → Caste → Rashi ──
-    let fR=makeRow(F.father[0],s.fth)+makeRow(L.fOcc,tr(s.focc,bLang))
-          +makeRow(F.mother[0],s.mth)+makeRow(L.mOcc,tr(s.mocc,bLang))
+    // For Basic/Trending/Premium/Bridal (T1,T4,T6,T7): inline occupation with parent name to save rows
+    const combineParents=[1,4,6,7].includes(bTpl);
+    const fthDisp=(combineParents&&s.focc)?s.fth+' ('+tr(s.focc,bLang)+')':s.fth;
+    const mthDisp=(combineParents&&s.mocc)?s.mth+' ('+tr(s.mocc,bLang)+')':s.mth;
+    let fR=makeRow(F.father[0],fthDisp)+(combineParents?'':makeRow(L.fOcc,tr(s.focc,bLang)))
+          +makeRow(F.mother[0],mthDisp)+(combineParents?'':makeRow(L.mOcc,tr(s.mocc,bLang)))
           +makeRow(F.brothers[0],brothersStr)
           +makeRow(F.sisters[0],sistersStr)
           +makeRow(F.caste[0],trWordMap(s.cst,bLang,COMMUNITY_MAP,COMMUNITY_REVERSE))+makeRow(F.rashi[0],trWordMap(s.rsh,bLang,RASHI_MAP,RASHI_REVERSE));
