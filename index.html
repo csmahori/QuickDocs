@@ -2957,6 +2957,42 @@ const CITY_I18N = {
   'Sonipat':'सोनीपत','Patiala':'पटियाला','Jalandhar':'जालंधर','Sirsa':'सिरसा','Rewari':'रेवाड़ी',
 };
 
+/* Word-level maps for free-text community / rashi fields */
+const COMMUNITY_MAP={
+  'Hindu':'हिन्दू','Muslim':'मुस्लिम','Christian':'ईसाई','Sikh':'सिख',
+  'Jain':'जैन','Buddhist':'बौद्ध','Parsi':'पारसी',
+  'Brahmin':'ब्राह्मण','Rajput':'राजपूत','Agarwal':'अग्रवाल','Aggarwal':'अग्रवाल',
+  'Kshatriya':'क्षत्रिय','Vaishya':'वैश्य','Kayastha':'कायस्थ',
+  'Maratha':'मराठा','Bania':'बनिया','Baniya':'बनिया','Gupta':'गुप्ता',
+  'General':'सामान्य','OBC':'ओबीसी','SC':'एससी','ST':'एसटी'
+};
+const RASHI_MAP={
+  'Aries':'मेष','Taurus':'वृषभ','Gemini':'मिथुन','Cancer':'कर्क',
+  'Leo':'सिंह','Virgo':'कन्या','Libra':'तुला','Scorpio':'वृश्चिक',
+  'Sagittarius':'धनु','Capricorn':'मकर','Aquarius':'कुंभ','Pisces':'मीन',
+  'Kashyap':'कश्यप','Bharadwaj':'भारद्वाज','Atri':'अत्रि',
+  'Gautam':'गौतम','Kaushik':'कौशिक','Vashisth':'वशिष्ठ','Vashishtha':'वशिष्ठ',
+  'Garg':'गर्ग','Shandilya':'शांडिल्य','Sandilya':'शांडिल्य','Parashar':'पराशर','Agastya':'अगस्त्य'
+};
+
+/* trWordMap: word-level English→Hindi for free-text fields (community, rashi/gotra) */
+function trWordMap(val, lang, map){
+  if(!val||lang==='en') return val;
+  let out=val;
+  Object.entries(map).forEach(([en,hi])=>{
+    out=out.replace(new RegExp('\\b'+en+'\\b','gi'),hi);
+  });
+  // Remove parenthesized Hindi words that became redundant after translation
+  // e.g. "मेष (मेष)" → "मेष"
+  out=out.replace(/\(\s*([ऀ-ॿ\s]+?)\s*\)/g,(match,inner)=>{
+    const word=inner.trim();
+    return out.replace(match,'').includes(word)?'':match;
+  }).replace(/\s{2,}/g,' ').trim();
+  // bi mode: show "original | translated" only when something actually changed
+  if(lang==='bi') return out!==val ? val+' | '+out : val;
+  return out;
+}
+
 function tr(value, lang){
   if(!value) return value;
   const e=VAL_I18N[value];
@@ -3073,7 +3109,7 @@ const BD={
           +makeRow(F.mother[0],s.mth)+makeRow(L.mOcc,tr(s.mocc,bLang))
           +makeRow(F.brothers[0],brothersStr)
           +makeRow(F.sisters[0],sistersStr)
-          +makeRow(F.caste[0],s.cst)+makeRow(F.rashi[0],s.rsh);
+          +makeRow(F.caste[0],trWordMap(s.cst,bLang,COMMUNITY_MAP))+makeRow(F.rashi[0],trWordMap(s.rsh,bLang,RASHI_MAP));
     xb.forEach(x=>{fR+=makeRow(x.label,x.value);});
 
     const cR=makeRow(L.ctperson,tr(s.ctp,bLang))+makeRow(L.ctmobile,s.ctm);
