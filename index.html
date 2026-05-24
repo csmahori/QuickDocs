@@ -3154,7 +3154,10 @@ const BD={
           +makeRow(F.sisters[0],sistersStr)
           +makeRow(F.caste[0],trWordMap(s.cst,bLang,COMMUNITY_MAP,COMMUNITY_REVERSE))+makeRow(F.rashi[0],trWordMap(s.rsh,bLang,RASHI_MAP,RASHI_REVERSE));
 
-    const cR=makeRow(L.ctperson,tr(s.ctp,bLang))+makeRow(L.ctmobile,s.ctm);
+    const ctmDisp=(combineParents&&s.ctp)?s.ctm+' ('+tr(s.ctp,bLang)+')':s.ctm;
+    const cR=combineParents
+      ?makeRow(L.ctmobile,ctmDisp)
+      :makeRow(L.ctperson,tr(s.ctp,bLang))+makeRow(L.ctmobile,s.ctm);
     return{pR,fR,cR,
       name:s.nm||'Your Name',subtitle:L.subtitle,
       sec1:L.sec1,sec2:L.sec2,sec3:L.sec3,auspc:relAuspc,
