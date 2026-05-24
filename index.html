@@ -3144,8 +3144,10 @@ const BD={
             +makeRow(F.city[0],loc);
 
     // ── Family: Father → F.Occ → Mother → M.Occ → Brothers → Sisters → Caste → Rashi ──
-    // For Basic/Trending/Premium/Bridal (T1,T4,T6,T7): inline occupation with parent name to save rows
+    // T1(Basic),T4(Trending),T6(Premium),T7(Bridal): inline occupation with parent name
     const combineParents=[1,4,6,7].includes(bTpl);
+    // T1,T4,T5(Luxury),T6,T7: inline contact person with mobile number
+    const combineContact=[1,4,5,6,7].includes(bTpl);
     const fthDisp=(combineParents&&s.focc)?s.fth+' ('+tr(s.focc,bLang)+')':s.fth;
     const mthDisp=(combineParents&&s.mocc)?s.mth+' ('+tr(s.mocc,bLang)+')':s.mth;
     let fR=makeRow(F.father[0],fthDisp)+(combineParents?'':makeRow(L.fOcc,tr(s.focc,bLang)))
@@ -3154,8 +3156,8 @@ const BD={
           +makeRow(F.sisters[0],sistersStr)
           +makeRow(F.caste[0],trWordMap(s.cst,bLang,COMMUNITY_MAP,COMMUNITY_REVERSE))+makeRow(F.rashi[0],trWordMap(s.rsh,bLang,RASHI_MAP,RASHI_REVERSE));
 
-    const ctmDisp=(combineParents&&s.ctp)?s.ctm+' ('+tr(s.ctp,bLang)+')':s.ctm;
-    const cR=combineParents
+    const ctmDisp=(combineContact&&s.ctp)?s.ctm+' ('+tr(s.ctp,bLang)+')':s.ctm;
+    const cR=combineContact
       ?makeRow(L.ctmobile,ctmDisp)
       :makeRow(L.ctperson,tr(s.ctp,bLang))+makeRow(L.ctmobile,s.ctm);
     return{pR,fR,cR,
