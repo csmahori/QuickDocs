@@ -1972,17 +1972,6 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
             </select>
             <input class="fi" id="boccOther" placeholder="Specify your occupation" oninput="persistOtherInputs();updB()" style="display:none;margin-top:8px">
           </div>
-          <div class="fg"><label class="fl" id="i18nLblEmployed">Employment Status</label>
-            <select class="fsel" id="bemployed" onchange="updB()">
-              <option value="">-- Select Status --</option>
-              <option>Employed</option>
-              <option>Self-employed</option>
-              <option>Student</option>
-              <option>Homemaker</option>
-              <option>Looking for job</option>
-              <option>Retired</option>
-            </select>
-          </div>
           <div class="fg"><label class="fl" id="i18nLblSalary">Annual Income <span class="fh">(optional)</span></label>
             <select class="fsel" id="bsalary" onchange="updB()">
               <option value="">-- Select Range --</option>
@@ -2037,9 +2026,6 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           </div>
           <div class="fg"><label class="fl" id="i18nLblCtMobile">Contact Mobile <span class="req-star">★ Required</span></label><input class="fi" id="bctmobile" type="tel" placeholder="e.g. 98765 43210" maxlength="15" oninput="updB()"></div>
 
-          <div class="sec-div"><span id="i18nSecExtra">Extra Info</span></div>
-          <div id="xBlocks"></div>
-          <button class="badd-x" id="i18nAddMore" onclick="addXBlock()">➕ Add More Info (Siblings, Property, etc.)</button>
 
           <div id="bErrMsg" class="err-msg">⚠️ Please fill all ★ required fields</div>
           <div class="wnav"><button class="bbk" onclick="bPv()" id="i18nBackBtn1">← Back</button><button class="bfw" onclick="bNxValidate()" id="i18nNextBtn1">Details ✓ → Choose Design →</button></div>
@@ -3105,7 +3091,7 @@ const BD={
       nm:g('bnm'),dd:g('bdd'),mm:g('bmm'),yy:g('byy'),tob:g('btob'),
       height:g('bheight'),
       edu:edu,occ:occ,
-      employed:g('bemployed'),salary:g('bsalary'),
+      salary:g('bsalary'),
       state:g('bstate'),city:g('bcity'),
       fth:g('bfth'),mth:g('bmth'),focc:g('bfocc'),mocc:g('bmocc'),
       brothers:g('bbrothers'),brothersM:g('bbrothersM'),
@@ -3142,19 +3128,18 @@ const BD={
     const brothersStr = formatSib(s.brothers, s.brothersM);
     const sistersStr  = formatSib(s.sisters,  s.sistersM);
 
-    const L=BL[bLang],F=L.fields,xb=getXBlocks();
+    const L=BL[bLang],F=L.fields;
     // Religion-based footer text
     const curReligion=(_SYMS[_symIdx]&&_SYMS[_symIdx].religion)||'none';
     const relAuspc=(RELIGION_AUSPC[curReligion]&&RELIGION_AUSPC[curReligion][bLang])
       || RELIGION_AUSPC.none[bLang] || L.auspc;
 
-    // ── Personal: Name → DOB → Height → Education → Occupation → Employed → Salary → City/State ──
+    // ── Personal: Name → DOB → Height → Education → Occupation → Salary → City/State ──
     const pR=makeRow(F.name[0],s.nm)
             +makeRow(F.dob[0],dob)
             +makeRow(F.height[0],tr(s.height,bLang))
             +makeRow(F.edu[0],tr(s.edu,bLang))
             +makeRow(F.occ[0],tr(s.occ,bLang))
-            +makeRow(F.employed[0],tr(s.employed,bLang))
             +makeRow(F.salary[0],salaryShown)
             +makeRow(F.city[0],loc);
 
@@ -3164,7 +3149,6 @@ const BD={
           +makeRow(F.brothers[0],brothersStr)
           +makeRow(F.sisters[0],sistersStr)
           +makeRow(F.caste[0],trWordMap(s.cst,bLang,COMMUNITY_MAP,COMMUNITY_REVERSE))+makeRow(F.rashi[0],trWordMap(s.rsh,bLang,RASHI_MAP,RASHI_REVERSE));
-    xb.forEach(x=>{fR+=makeRow(x.label,x.value);});
 
     const cR=makeRow(L.ctperson,tr(s.ctp,bLang))+makeRow(L.ctmobile,s.ctm);
     return{pR,fR,cR,
