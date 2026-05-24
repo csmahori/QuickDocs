@@ -2991,6 +2991,14 @@ const COMMUNITY_MAP={
   'Maratha':'मराठा','Bania':'बनिया','Baniya':'बनिया','Gupta':'गुप्ता',
   'General':'सामान्य','OBC':'ओबीसी','SC':'एससी','ST':'एसटी'
 };
+const COMMUNITY_REVERSE={
+  'हिन्दू':'Hindu','मुस्लिम':'Muslim','ईसाई':'Christian','सिख':'Sikh',
+  'जैन':'Jain','बौद्ध':'Buddhist','पारसी':'Parsi',
+  'ब्राह्मण':'Brahmin','राजपूत':'Rajput','अग्रवाल':'Agarwal',
+  'क्षत्रिय':'Kshatriya','वैश्य':'Vaishya','कायस्थ':'Kayastha',
+  'मराठा':'Maratha','बनिया':'Bania','गुप्ता':'Gupta',
+  'सामान्य':'General','ओबीसी':'OBC','एससी':'SC','एसटी':'ST'
+};
 const RASHI_MAP={
   'Aries':'मेष','Taurus':'वृषभ','Gemini':'मिथुन','Cancer':'कर्क',
   'Leo':'सिंह','Virgo':'कन्या','Libra':'तुला','Scorpio':'वृश्चिक',
@@ -2999,16 +3007,37 @@ const RASHI_MAP={
   'Gautam':'गौतम','Kaushik':'कौशिक','Vashisth':'वशिष्ठ','Vashishtha':'वशिष्ठ',
   'Garg':'गर्ग','Shandilya':'शांडिल्य','Sandilya':'शांडिल्य','Parashar':'पराशर','Agastya':'अगस्त्य'
 };
+const RASHI_REVERSE={
+  'मेष':'Aries','वृषभ':'Taurus','मिथुन':'Gemini','कर्क':'Cancer',
+  'सिंह':'Leo','कन्या':'Virgo','तुला':'Libra','वृश्चिक':'Scorpio',
+  'धनु':'Sagittarius','मकर':'Capricorn','कुंभ':'Aquarius','मीन':'Pisces',
+  'कश्यप':'Kashyap','भारद्वाज':'Bharadwaj','अत्रि':'Atri',
+  'गौतम':'Gautam','कौशिक':'Kaushik','वशिष्ठ':'Vashisth',
+  'गर्ग':'Garg','शांडिल्य':'Shandilya','पराशर':'Parashar','अगस्त्य':'Agastya'
+};
 
-/* trWordMap: word-level English→Hindi for free-text fields (community, rashi/gotra) */
-function trWordMap(val, lang, map){
-  if(!val||lang==='en') return val;
+/* trWordMap: word-level translation for free-text fields (community, rashi/gotra).
+   map = English→Hindi, reverseMap = Hindi→English (used when lang==='en'). */
+function trWordMap(val, lang, map, reverseMap){
+  if(!val) return val;
+  if(lang==='en'){
+    if(!reverseMap) return val;
+    let out=val;
+    Object.entries(reverseMap).forEach(([hi,en])=>{
+      out=out.replace(new RegExp(hi,'g'),en);
+    });
+    // Remove redundant parenthesized English words e.g. "Aries (Aries)" → "Aries"
+    out=out.replace(/\(\s*([A-Za-z][A-Za-z\s]*?)\s*\)/g,(match,inner)=>{
+      const word=inner.trim();
+      return out.replace(match,'').includes(word)?'':match;
+    }).replace(/\s{2,}/g,' ').trim();
+    return out;
+  }
   let out=val;
   Object.entries(map).forEach(([en,hi])=>{
     out=out.replace(new RegExp('\\b'+en+'\\b','gi'),hi);
   });
-  // Remove parenthesized Hindi words that became redundant after translation
-  // e.g. "मेष (मेष)" → "मेष"
+  // Remove redundant parenthesized Devanagari e.g. "मेष (मेष)" → "मेष"
   out=out.replace(/\(\s*([ऀ-ॿ\s]+?)\s*\)/g,(match,inner)=>{
     const word=inner.trim();
     return out.replace(match,'').includes(word)?'':match;
@@ -3134,7 +3163,7 @@ const BD={
           +makeRow(F.mother[0],s.mth)+makeRow(L.mOcc,tr(s.mocc,bLang))
           +makeRow(F.brothers[0],brothersStr)
           +makeRow(F.sisters[0],sistersStr)
-          +makeRow(F.caste[0],trWordMap(s.cst,bLang,COMMUNITY_MAP))+makeRow(F.rashi[0],trWordMap(s.rsh,bLang,RASHI_MAP));
+          +makeRow(F.caste[0],trWordMap(s.cst,bLang,COMMUNITY_MAP,COMMUNITY_REVERSE))+makeRow(F.rashi[0],trWordMap(s.rsh,bLang,RASHI_MAP,RASHI_REVERSE));
     xb.forEach(x=>{fR+=makeRow(x.label,x.value);});
 
     const cR=makeRow(L.ctperson,tr(s.ctp,bLang))+makeRow(L.ctmobile,s.ctm);
@@ -3729,21 +3758,21 @@ const BL={
     subtitle:'विवाह बायोडाटा',
     sec1:'व्यक्तिगत जानकारी',sec2:'पारिवारिक जानकारी',sec3:'सम्पर्क',
     auspc:'ॐ श्री गणेशाय नमः  ·  शुभ विवाह  ·  ईश्वर की कृपा से',
-    fields:{name:['पूरा नाम',''],dob:['जन्म तिथि',''],age:['आयु',''],height:['कद / लंबाई',''],edu:['शिक्षा',''],occ:['व्यवसाय',''],employed:['रोज़गार स्थिति',''],salary:['वार्षिक आय',''],city:['शहर / राज्य',''],father:['पिता का नाम',''],mother:['माता का नाम',''],brothers:['भाई',''],sisters:['बहन',''],caste:['समुदाय',''],rashi:['राशि / गोत्र',''],contact:['सम्पर्क हेतु',''],loc:['स्थान','']},
+    fields:{name:['पूरा नाम',''],dob:['जन्म तिथि',''],age:['आयु',''],height:['कद / लंबाई',''],edu:['शिक्षा',''],occ:['व्यवसाय',''],employed:['रोज़गार स्थिति',''],salary:['वार्षिक आय',''],city:['शहर / राज्य',''],father:['पिता का नाम',''],mother:['माता का नाम',''],brothers:['भाई',''],sisters:['बहन',''],caste:['समुदाय',''],rashi:['गोत्र / राशि',''],contact:['सम्पर्क हेतु',''],loc:['स्थान','']},
     fOcc:'पिता का व्यवसाय',mOcc:'माता का व्यवसाय',ctperson:'सम्पर्क व्यक्ति',ctmobile:'मोबाइल नंबर',
   },
   en:{
     subtitle:'Marriage Biodata',
     sec1:'Personal Details',sec2:'Family Details',sec3:'Contact',
     auspc:'Om Shri Ganeshaya Namah  ·  God Bless  ·  EasyDocuments.online',
-    fields:{name:['Full Name',''],dob:['Date of Birth',''],age:['Age',''],height:['Height',''],edu:['Education',''],occ:['Occupation',''],employed:['Employment Status',''],salary:['Annual Income',''],city:['City / State',''],father:["Father's Name",''],mother:["Mother's Name",''],brothers:['Brothers',''],sisters:['Sisters',''],caste:['Community',''],rashi:['Rashi / Gotra',''],contact:['Contact Via',''],loc:['Location','']},
+    fields:{name:['Full Name',''],dob:['Date of Birth',''],age:['Age',''],height:['Height',''],edu:['Education',''],occ:['Occupation',''],employed:['Employment Status',''],salary:['Annual Income',''],city:['City / State',''],father:["Father's Name",''],mother:["Mother's Name",''],brothers:['Brothers',''],sisters:['Sisters',''],caste:['Community',''],rashi:['Gotra / Rashi',''],contact:['Contact Via',''],loc:['Location','']},
     fOcc:"Father's Occupation",mOcc:"Mother's Occupation",ctperson:'Contact Person',ctmobile:'Mobile Number',
   },
   bi:{
     subtitle:'Marriage Biodata | विवाह बायोडाटा',
     sec1:'Personal Details | व्यक्तिगत जानकारी',sec2:'Family Details | पारिवारिक जानकारी',sec3:'Contact | सम्पर्क',
     auspc:'ॐ श्री गणेशाय नमः  ·  शुभ विवाह  ·  ईश्वर की कृपा से',
-    fields:{name:['Full Name | पूरा नाम',''],dob:['Date of Birth | जन्म तिथि',''],age:['Age | आयु',''],height:['Height | कद',''],edu:['Education | शिक्षा',''],occ:['Occupation | व्यवसाय',''],employed:['Employment | रोज़गार',''],salary:['Income | आय',''],city:['City/State | शहर/राज्य',''],father:["Father's Name | पिता का नाम",''],mother:["Mother's Name | माता का नाम",''],brothers:['Brothers | भाई',''],sisters:['Sisters | बहन',''],caste:['Community | समुदाय',''],rashi:['Rashi/Gotra | राशि/गोत्र',''],contact:['Contact | सम्पर्क',''],loc:['Location | स्थान','']},
+    fields:{name:['Full Name | पूरा नाम',''],dob:['Date of Birth | जन्म तिथि',''],age:['Age | आयु',''],height:['Height | कद',''],edu:['Education | शिक्षा',''],occ:['Occupation | व्यवसाय',''],employed:['Employment | रोज़गार',''],salary:['Income | आय',''],city:['City/State | शहर/राज्य',''],father:["Father's Name | पिता का नाम",''],mother:["Mother's Name | माता का नाम",''],brothers:['Brothers | भाई',''],sisters:['Sisters | बहन',''],caste:['Community | समुदाय',''],rashi:['Gotra/Rashi | गोत्र/राशि',''],contact:['Contact | सम्पर्क',''],loc:['Location | स्थान','']},
     fOcc:"Father's Occupation | पिता का व्यवसाय",mOcc:"Mother's Occupation | माता का व्यवसाय",
     ctperson:'Contact Person | सम्पर्क व्यक्ति',ctmobile:'Mobile No. | मोबाइल नंबर',
   }
