@@ -1,126 +1,9 @@
 <!DOCTYPE html>
-<!--
-  ════════════════════════════════════════════════════════════════════
-  EasyDocuments — Marriage Biodata Maker  (v2.8 — modular offer system)
-  ════════════════════════════════════════════════════════════════════
-  TO SWITCH OFFER MODES:
-    Option A (permanent): Edit OFFER_DEFAULTS in the <script> below.
-    Option B (runtime, no code edit): Open browser console on the live
-      site and type:
-        OfferAdmin.setMode('free')     // free Early Access mode
-        OfferAdmin.setMode('mixed')    // discounted launch (₹9 was ₹49)
-        OfferAdmin.setMode('paid')     // regular paid mode (no banner, no offer)
-        OfferAdmin.setFreeSpots(50)    // change free-tier capacity
-        OfferAdmin.setPrice(19)        // current charging price
-        OfferAdmin.setRegPrice(49)     // strike-through "was" price
-        OfferAdmin.resetUsedCount()    // re-open all 100 free spots
-        OfferAdmin.reset()             // back to OFFER_DEFAULTS in code
-        OfferAdmin.status()            // print current config table
-    Changes from option B persist in localStorage and survive page reloads.
-  ════════════════════════════════════════════════════════════════════
--->
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Marriage Biodata Maker Online | EasyDocuments.online</title>
-
-<!-- SEO: Core -->
-<meta name="description" content="Create a professional marriage biodata in minutes — completely free. Fill your details, pick a template, and download as PDF instantly. No sign-up needed. Trusted by thousands across India.">
-<meta name="keywords" content="marriage biodata maker, cheapest biodata maker india, free biodata maker online, biodata for marriage, shaadi biodata PDF, Indian biodata maker, marriage biodata format, biodata download, ₹9 biodata maker, शादी बायोडाटा, बायोडाटा बनाएं, biodata banana online, biodata in hindi, biodata maker 9 rupees, document maker india">
-<meta name="author" content="EasyDocuments">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://easydocuments.online/">
-
-<!-- SEO: Open Graph (Facebook / WhatsApp previews) -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://easydocuments.online/">
-<meta property="og:title" content="Free Marriage Biodata Maker Online | EasyDocuments.online">
-<meta property="og:description" content="Create a professional marriage biodata in minutes — free, instant PDF download. No sign-up needed.">
-<meta property="og:image" content="https://easydocuments.online/og-image.jpg">
-<meta property="og:locale" content="en_IN">
-<meta property="og:site_name" content="EasyDocuments">
-
-<!-- SEO: Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Free Marriage Biodata Maker Online | EasyDocuments.online">
-<meta name="twitter:description" content="Create a professional marriage biodata in minutes — free, instant PDF download.">
-<meta name="twitter:image" content="https://easydocuments.online/og-image.jpg">
-
-<!-- SEO: Structured Data (JSON-LD) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "EasyDocuments",
-  "url": "https://easydocuments.online",
-  "description": "Free online marriage biodata maker for India — fill, preview and download PDF instantly."
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Marriage Biodata Maker",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Web Browser",
-  "url": "https://easydocuments.online",
-  "description": "Create a professional marriage biodata in minutes for free. Download as PDF instantly. No sign-up required.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "INR"
-  },
-  "inLanguage": ["en", "hi"],
-  "audience": {
-    "@type": "Audience",
-    "geographicArea": {
-      "@type": "Country",
-      "name": "India"
-    }
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the cheapest way to make a marriage biodata online?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "EasyDocuments.online is India's cheapest marriage biodata maker — starting at just ₹9. You get a professional PDF biodata with 8 template designs, Hindi/English support, photo upload, and WhatsApp sharing. No hidden charges, no subscription."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does it take to make a marriage biodata?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Just 2 minutes! Fill in your personal details, family information, and preferences — pick a template, preview it live, and download your PDF. No design skills needed."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I make a biodata in Hindi?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! EasyDocuments supports both Hindi and English biodata. Just select your preferred language, fill in your details, and download your PDF in 2 minutes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I share my biodata directly on WhatsApp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes! After downloading your PDF, you can share it directly via WhatsApp to any number instantly from the same page."
-      }
-    }
-  ]
-}
-</script>
+<title>HarMaalWala.com – विवाह बायोडाटा बनाएं</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Noto+Serif+Devanagari:wght@400;600;700&family=Baloo+2:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
@@ -154,16 +37,11 @@ input,textarea,select{font-family:var(--f);outline:none}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--C)}::-webkit-scrollbar-thumb{background:var(--M);border-radius:3px}
 
 /* BANNER */
-.banner{position:fixed;top:0;left:0;right:0;z-index:1002;background:linear-gradient(135deg,var(--GR),#0a5c04);color:#fff;text-align:center;padding:9px 44px 9px 16px;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 2px 10px rgba(0,0,0,.15);transition:transform .35s var(--e),opacity .25s}
-.banner.hidden{transform:translateY(-100%);opacity:0;pointer-events:none}
-.banner .sp{background:rgba(255,255,255,.22);padding:3px 12px;border-radius:50px;font-size:12px;font-weight:800;white-space:nowrap}
-.banner-txt{flex-shrink:1;min-width:0}
-.banner-cl{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;transition:background .2s;font-weight:800}
-.banner-cl:hover{background:rgba(255,255,255,.36)}
-@media(max-width:560px){.banner{font-size:12px;padding:8px 38px 8px 12px;gap:7px}.banner .sp{font-size:11px;padding:2px 9px}}
+.banner{position:fixed;top:0;left:0;right:0;z-index:1002;background:linear-gradient(135deg,var(--GR),#0a5c04);color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.banner .sp{background:rgba(255,255,255,.22);padding:3px 12px;border-radius:50px;font-size:12px;font-weight:800}
 
 /* NAVBAR */
-.nav{position:fixed;top:42px;left:0;right:0;z-index:1001;background:rgba(255,248,240,.96);backdrop-filter:blur(14px);border-bottom:2px solid var(--G);height:66px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 24px rgba(128,0,0,.08);transition:box-shadow .3s,top .3s}
+.nav{position:fixed;top:42px;left:0;right:0;z-index:1001;background:rgba(255,248,240,.96);backdrop-filter:blur(14px);border-bottom:2px solid var(--G);height:66px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 24px rgba(128,0,0,.08);transition:box-shadow .3s}
 .nlogo{display:flex;align-items:center;gap:11px}
 .lic{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--M),var(--ML));display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 3px 12px rgba(128,0,0,.3);flex-shrink:0}
 .lt .lb{font-size:17px;font-weight:800;color:var(--M)}
@@ -382,7 +260,7 @@ footer{background:#5a0000;color:#fff}
 }
 /* Layer 2: dense repeated text */
 .mpv::after{
-  content:'EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605 EasyDocuments.online \2605';
+  content:'HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605 HarMaalWala.com \2605';
   position:absolute;inset:0;
   font-size:10px;font-weight:900;letter-spacing:4px;
   color:rgba(128,0,0,.21);
@@ -597,18 +475,18 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 .symb{border-radius:10px;border:2px solid #e8d5c0;background:#fff;cursor:pointer;transition:all .2s;padding:8px 4px 6px;display:flex;flex-direction:column;align-items:center;gap:2px}
 .symb:hover{border-color:var(--M);transform:translateY(-2px);box-shadow:0 4px 10px rgba(128,0,0,.12)}
 .symb.sel{border-color:var(--M);background:rgba(128,0,0,.04);box-shadow:0 0 0 2px rgba(128,0,0,.15)}
-.symb-icon{font-size:28px;line-height:1;font-family:'Tiro Devanagari Hindi',serif}
+.symb-icon{font-size:20px;line-height:1;font-family:'Tiro Devanagari Hindi',serif}
 .symb-lbl{font-size:8px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.3px;text-align:center}
 
 /* ── Template picker label ── */
 .tg-label{font-size:11px;font-weight:700;color:var(--M);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-.btb-badge{font-size:12px;color:var(--M);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.btb-badge{font-size:8px;color:var(--M);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:2px;opacity:.75}
 
 /* ── Colour picker ── */
 .clrt{transition:all .2s}
 .clrt:hover{transform:scale(1.08);box-shadow:0 3px 10px rgba(0,0,0,.2)}
 .clrt.sel{outline:3px solid #222;outline-offset:2px;transform:scale(1.05)}
-.btc{border-radius:12px;overflow:hidden;cursor:pointer;border:3px solid transparent;transition:all .25s;position:relative}
+btc{border-radius:12px;overflow:hidden;cursor:pointer;border:3px solid transparent;transition:all .25s;position:relative}
 .btc:hover{transform:translateY(-4px);box-shadow:0 8px 22px rgba(0,0,0,.15)}
 .btc.sel{border-color:var(--M);box-shadow:0 0 0 2px rgba(128,0,0,.25),0 6px 20px rgba(128,0,0,.2)}
 .btc.sel::after{content:'✓';position:absolute;top:5px;right:6px;background:var(--M);color:#fff;width:18px;height:18px;border-radius:50%;font-size:12px;font-weight:900;line-height:18px;text-align:center}
@@ -808,39 +686,10 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 
 /* ── STEP PROGRESS PILLS ── */
 .bspills{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:20px}
-.bspill{width:28px;height:28px;border-radius:50%;background:#e8d5b0;color:#999;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;transition:all .3s;cursor:default;user-select:none}
+.bspill{width:28px;height:28px;border-radius:50%;background:#e8d5b0;color:#999;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;transition:all .3s}
 .bspill.act{background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;box-shadow:0 3px 10px rgba(128,0,0,.3)}
-.bspill.done{background:var(--GR);color:#fff;cursor:pointer}
-.bspill.done:hover{transform:scale(1.12);box-shadow:0 3px 12px rgba(19,136,8,.4)}
-.bspill.done:focus-visible{outline:2px solid var(--M);outline-offset:2px}
+.bspill.done{background:var(--GR);color:#fff}
 .bspdash{width:32px;height:2px;background:#e8d5b0}
-
-/* ── TOAST notifications ── */
-@keyframes toastIn{from{opacity:0;transform:translateY(20px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
-
-/* ── Symbol picker grid: tighten on small screens ── */
-@media(max-width:430px){
-  .sym-grid{grid-template-columns:repeat(4,1fr);gap:6px}
-  .symb{padding:6px 2px 4px}
-  .symb-icon{font-size:18px}
-  .btGrid{grid-template-columns:repeat(3,1fr);gap:8px}
-  .btb-prev{height:64px}
-}
-
-/* ── PRINT styles ── */
-@media print{
-  body{background:#fff!important}
-  .banner,.nav,.waf,.hbtns,.sbar,.hpat,.bl,.hvis,.scta,.bhg,.pcta,.rcard,
-  .sftr,.sfts,.sbar,.hiwbg,.pbg,.reqbg,footer,.toastHost,#toastHost{display:none!important}
-  .hero{padding-top:0!important;min-height:auto!important}
-  .hi{display:block!important;padding:20px!important}
-  .mov,.fbov,.upov,.waov,.sov,.pdf-loading{display:none!important}
-  .sw{padding:20px!important}
-  .hh1{color:#000!important;font-size:24pt!important}
-  .hdesc{color:#333!important}
-  *{box-shadow:none!important}
-  a{color:#000!important;text-decoration:none!important}
-}
 
 /* ── WhatsApp Help Float ── */
 .wa-help-tooltip{position:absolute;right:72px;bottom:0;background:#fff;border:1.5px solid #e8d5b0;border-radius:12px;padding:12px 16px;font-size:13px;font-weight:600;color:var(--T);box-shadow:var(--smd);width:200px;display:none}
@@ -985,7 +834,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   color-mix(in srgb,var(--tc1) 88%,#000),var(--tc1));
   padding:20px 28px 16px;display:flex;align-items:center;gap:16px}
 .t1-hdr-info{flex:1}
-.t1-sym{font-family:'Tiro Devanagari Hindi',serif;font-size:22px;
+.t1-sym{font-family:'Tiro Devanagari Hindi',serif;font-size:13px;
   color:rgba(255,255,255,.4);margin-bottom:5px;display:block}
 .t1-name{font-size:27px;font-weight:800;color:#fff;
   font-family:'Noto Serif',serif;margin-bottom:3px}
@@ -995,7 +844,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   border:2.5px solid rgba(255,255,255,.4);flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
   font-size:26px;background:rgba(255,255,255,.1);transition:all .3s}
-.t1-photo[style*="display"]{display:none}
+.t1-photo[style*="none"]{display:none}
 .t1-photo img{width:100%;height:100%;object-fit:cover}
 .t1-divider{height:1px;background:linear-gradient(90deg,
   transparent,rgba(255,255,255,.3),transparent)}
@@ -1034,7 +883,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   display:flex;align-items:center;justify-content:center;
   font-size:28px;background:rgba(255,255,255,.1);flex-shrink:0}
 .t2-photo img{width:100%;height:100%;object-fit:cover}
-.t2-lsym{font-family:'Tiro Devanagari Hindi',serif;font-size:38px;
+.t2-lsym{font-family:'Tiro Devanagari Hindi',serif;font-size:26px;
   color:rgba(255,255,255,.2);margin:4px 0}
 .t2-lname{font-size:13px;font-weight:800;color:#fff;
   text-align:center;line-height:1.3}
@@ -1090,11 +939,11 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   overflow:hidden;border:4px solid rgba(255,255,255,.4);flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
   font-size:26px;background:rgba(255,255,255,.12);transition:all .3s}
-.t3-photo[style*="display"]{display:none!important}
+.t3-photo[style*="none"]{display:none!important}
 .t3-photo img{width:100%;height:100%;object-fit:cover}
 .t3-hdr-txt{flex:1;text-align:center}
 .t3-hdr-txt.full{text-align:center}
-.t3-sym{font-family:'Tiro Devanagari Hindi',serif;font-size:32px;
+.t3-sym{font-family:'Tiro Devanagari Hindi',serif;font-size:22px;
   color:rgba(255,255,255,.28);margin-bottom:6px;display:block}
 .t3-name{font-size:26px;font-weight:800;color:#fff;margin-bottom:4px}
 .t3-sub{font-size:10px;color:rgba(255,255,255,.6);
@@ -1138,7 +987,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 .t4-hero::before{width:240px;height:240px;top:-60px;right:-40px}
 .t4-hero::after{width:160px;height:160px;bottom:-50px;left:30%}
 .t4-htxt{flex:1;z-index:1}
-.t4-sym{font-family:'Tiro Devanagari Hindi',serif;font-size:24px;
+.t4-sym{font-family:'Tiro Devanagari Hindi',serif;font-size:14px;
   color:rgba(255,255,255,.35);margin-bottom:6px;display:block}
 .t4-name{font-size:29px;font-weight:900;color:#fff;
   letter-spacing:-.3px;margin-bottom:4px}
@@ -1148,7 +997,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   flex-shrink:0;z-index:1;border:3px solid rgba(255,255,255,.4);
   display:flex;align-items:center;justify-content:center;
   font-size:26px;background:rgba(255,255,255,.12);transition:all .3s}
-.t4-photo[style*="display"]{display:none!important}
+.t4-photo[style*="none"]{display:none!important}
 .t4-photo img{width:100%;height:100%;object-fit:cover}
 .t4-body{flex:1;padding:0 22px 14px;margin-top:-18px;
   display:flex;flex-direction:column;gap:10px}
@@ -1182,7 +1031,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   align-items:flex-start;justify-content:space-between;gap:16px;
   border-bottom:1px solid color-mix(in srgb,var(--tc1) 16%,#ddd)}
 .t5-hdrl{flex:1}
-.t5-sym{font-family:'Tiro Devanagari Hindi',serif;font-size:22px;
+.t5-sym{font-family:'Tiro Devanagari Hindi',serif;font-size:12px;
   color:color-mix(in srgb,var(--tc1) 42%,#bbb);margin-bottom:8px;
   display:block}
 .t5-name{font-size:31px;font-weight:800;color:var(--tc1);
@@ -1194,7 +1043,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   flex-shrink:0;border:2px solid color-mix(in srgb,var(--tc1) 22%,#ddd);
   display:flex;align-items:center;justify-content:center;
   font-size:24px;background:#f0f0f0;transition:all .3s}
-.t5-photo[style*="display"]{display:none!important}
+.t5-photo[style*="none"]{display:none!important}
 .t5-photo img{width:100%;height:100%;object-fit:cover}
 .t5-body{flex:1;padding:20px 40px 16px}
 .t5-sec{margin-bottom:18px}
@@ -1239,7 +1088,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 .t6-orn{display:flex;align-items:center;gap:10px;
   width:100%;margin-bottom:10px}
 .t6-oline{flex:1;height:1px;background:rgba(255,255,255,.18)}
-.t6-osym{font-family:'Tiro Devanagari Hindi',serif;font-size:28px;
+.t6-osym{font-family:'Tiro Devanagari Hindi',serif;font-size:18px;
   color:rgba(255,255,255,.38)}
 .t6-arch-row{display:flex;align-items:center;gap:18px;z-index:1;width:100%}
 .t6-arch-row.no-photo{justify-content:center}
@@ -1248,7 +1097,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   display:flex;align-items:center;justify-content:center;
   font-size:26px;background:rgba(255,255,255,.1);
   box-shadow:0 4px 20px rgba(0,0,0,.25);flex-shrink:0;transition:all .3s}
-.t6-photo[style*="display"]{display:none!important}
+.t6-photo[style*="none"]{display:none!important}
 .t6-photo img{width:100%;height:100%;object-fit:cover}
 .t6-arch-txt{flex:1}
 .t6-arch-txt.center{text-align:center}
@@ -1292,7 +1141,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 .t7-tline{flex:1;height:1.5px;
   background:linear-gradient(90deg,transparent,
   rgba(128,0,0,.38))}
-.t7-tsym{font-family:'Tiro Devanagari Hindi',serif;font-size:32px;
+.t7-tsym{font-family:'Tiro Devanagari Hindi',serif;font-size:22px;
   color:color-mix(in srgb,var(--tc1) 52%,white)}
 .t7-ring{width:124px;height:124px;border-radius:50%;
   margin:0 auto 10px;position:relative;
@@ -1307,8 +1156,8 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   display:flex;align-items:center;justify-content:center;
   font-size:28px;background:color-mix(in srgb,var(--tc1) 8%,white);
   transition:all .3s}
-.t7-photo[style*="display"]{display:none!important}
-.t7-photo[style*="display"] ~ .t7-name{margin-top:10px}
+.t7-photo[style*="none"]{display:none!important}
+.t7-photo[style*="none"] ~ .t7-name{margin-top:10px}
 .t7-photo img{width:100%;height:100%;object-fit:cover}
 .t7-noimg{width:70px;height:70px;border-radius:50%;
   margin:8px auto 10px;background:color-mix(in srgb,var(--tc1) 10%,white);
@@ -1385,7 +1234,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 .t8-masthead{background:var(--tc1);padding:7px 28px;
   display:flex;align-items:center;justify-content:space-between}
 .t8-mh-sym{font-family:'Tiro Devanagari Hindi',serif;
-  font-size:26px;color:rgba(255,255,255,.45)}
+  font-size:16px;color:rgba(255,255,255,.45)}
 .t8-mh-site{font-size:8.5px;font-weight:800;
   color:rgba(255,255,255,.55);letter-spacing:3px;text-transform:uppercase}
 .t8-rule{height:3px;background:linear-gradient(90deg,
@@ -1445,14 +1294,14 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   font-size:13px!important}
 
 /* T7: collapse ring + name spacing when ring hidden */
-.t7-ring[style*="display"]{display:none!important}
-.t7-ring[style*="display"] + .t7-name{margin-top:0}
+.t7-ring[style*="none"]{display:none!important}
+.t7-ring[style*="none"] + .t7-name{margin-top:0}
 
 /* T6: center arch text when no photo */
 .t6-arch-txt.center{text-align:center;flex:1}
 
 /* T2: hide divider when empty sidebar */
-.t2-ldiv[style*="display"]{display:none!important}
+.t2-ldiv[style*="none"]{display:none!important}
 
 
 /* ══════════════════════════════════════════════════════════
@@ -1555,121 +1404,6 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   letter-spacing:.3px;pointer-events:none;user-select:none;
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   v2.9 — BIGGER BODY TEXT + DECORATIVE BORDERS PER TEMPLATE
-   ═══════════════════════════════════════════════════════════════ */
-
-/* ── Font size boost: all body data rows ── */
-.bdr-rows .bdr-lbl{font-size:13px!important}
-.t1-rows .bdr-row{font-size:14px!important}
-.t1-sec-hdr{font-size:13px!important}
-.t2-rows .bdr-row{font-size:14px!important}
-.t2-lcontact .bdr-val{font-size:13px!important}
-.t2-pill{font-size:12px!important}
-.t3-rows .bdr-row{font-size:13.5px!important}
-.t3-sec-hdr{font-size:13px!important}
-.t4-rows .bdr-row{font-size:14px!important}
-.t4-ctitle{font-size:13px!important}
-.t5-rows .bdr-lbl{font-size:10px!important}
-.t5-rows .bdr-val{font-size:13.5px!important}
-.t5-full .bdr-lbl{font-size:12px!important}
-.t5-full .bdr-val{font-size:13.5px!important}
-.t5-sec-hdr{font-size:11.5px!important}
-.t6-rows .bdr-row{font-size:14px!important}
-.t6-slabel{font-size:13px!important}
-.t7-rows .bdr-row{font-size:14px!important}
-.t7-shdr{font-size:13px!important}
-.t8-rows .bdr-row{font-size:13.5px!important}
-.t8-shdr{font-size:13px!important}
-
-/* ── Decorative borders — one unique style per template ──
-   All use position:absolute pseudo-elements inside .bdr-wrap
-   (overflow:hidden on .bdr-wrap keeps them fully contained).
-   opacity used for theme-colour adaptation across 10 themes.   ── */
-
-/* T1 — Classic: triple frame
-   outer hairline at 5px → 2px solid wrap at 14px → dashed inner at 18px */
-.bdr-wrap.t1::before{
-  content:'';position:absolute;inset:5px;
-  border:1px solid var(--tc1);opacity:.65;
-  pointer-events:none;z-index:20}
-.t1-wrap{border-width:2px!important}
-.t1-wrap::before{border:1px dashed rgba(128,0,0,.48)!important}
-
-/* T2 — Sidebar Split: bold top+bottom bars, hairline sides
-   Thick 5px accent bars on top & bottom, 2px lines on sides */
-.bdr-wrap.t2::before{
-  content:'';position:absolute;inset:0;
-  border-top:5px solid var(--tc1);
-  border-bottom:5px solid var(--tc1);
-  border-left:2px solid var(--tc1);
-  border-right:2px solid var(--tc1);
-  opacity:.72;pointer-events:none;z-index:20}
-
-/* T3 — Vedic Traditional: dashed ornamental inner frame
-   Sits just inside the chevron stripes for a layered Vedic look */
-.bdr-wrap.t3::before{
-  content:'';position:absolute;inset:10px;
-  border:2px dashed var(--tc1);opacity:.42;
-  pointer-events:none;z-index:5}
-
-/* T4 — Modern Card: frosted-glass double frame
-   White semi-transparent — visible on both dark hero and light cards */
-.bdr-wrap.t4::before{
-  content:'';position:absolute;inset:6px;
-  border:2px solid rgba(255,255,255,.38);
-  pointer-events:none;z-index:20}
-.bdr-wrap.t4::after{
-  content:'';position:absolute;inset:11px;
-  border:1px solid rgba(255,255,255,.2);
-  pointer-events:none;z-index:20}
-
-/* T5 — Elegant Minimal: double hairline luxury frame
-   Two ultra-thin lines spaced 5px apart — wedding-stationery feel */
-.bdr-wrap.t5::before{
-  content:'';position:absolute;inset:14px;
-  border:1px solid var(--tc1);opacity:.28;
-  pointer-events:none;z-index:5}
-.bdr-wrap.t5::after{
-  content:'';position:absolute;inset:19px;
-  border:1px solid var(--tc1);opacity:.14;
-  pointer-events:none;z-index:5}
-
-/* T6 — Royal Arch: thick outer + thin inner (royal-document style)
-   3px solid outer frame + 1px inner — Mughal-era document look */
-.bdr-wrap.t6::before{
-  content:'';position:absolute;inset:5px;
-  border:3px solid var(--tc1);opacity:.78;
-  pointer-events:none;z-index:20}
-.bdr-wrap.t6::after{
-  content:'';position:absolute;inset:11px;
-  border:1px solid var(--tc1);opacity:.42;
-  pointer-events:none;z-index:20}
-
-/* T7 — Floral Frame: double ornamental border + bigger corner ornaments
-   Existing .t7-border enhanced to 2px; inner pseudo-element adds second ring;
-   corner ❧ ornaments enlarged and brightened */
-.t7-border{border:2px solid var(--tc1)!important;opacity:.55}
-.bdr-wrap.t7::before{
-  content:'';position:absolute;inset:17px;
-  border:1px solid var(--tc1);opacity:.25;
-  pointer-events:none;z-index:2}
-.t7-corner{font-size:36px!important;color:var(--tc1)!important;opacity:.62}
-
-/* T8 — Magazine / Editorial: bold left+right sidebar bars + inner hairline
-   5px accent bars on left & right edges (editorial column-rule style),
-   with a thin hairline 9px inside each bar */
-.bdr-wrap.t8::before{
-  content:'';position:absolute;inset:0;
-  border-left:5px solid var(--tc1);
-  border-right:5px solid var(--tc1);
-  pointer-events:none;z-index:20}
-.bdr-wrap.t8::after{
-  content:'';position:absolute;top:0;bottom:0;left:9px;right:9px;
-  border-left:1px solid var(--tc1);
-  border-right:1px solid var(--tc1);
-  opacity:.3;pointer-events:none;z-index:20}
-
 
 </style>
 
@@ -1681,26 +1415,18 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 
 <!-- BANNER -->
 <div class="banner" id="banner">
-  <span class="banner-txt">🎉 Early Access: First 100 users get <strong>FREE PDF download!</strong></span>
-  <span class="sp" id="spotsLeft">⚡ 100 spots left</span>
-  <button class="banner-cl" id="bannerCl" onclick="closeBanner()" aria-label="Close banner" title="Close">✕</button>
+  🎉 Early Access: पहले 50 users को <strong>FREE downloads!</strong>
+  <span class="sp" id="spotsLeft">⚡ 50 spots left</span>
 </div>
 
 <!-- NAVBAR -->
 <nav class="nav">
-  <div class="nlogo">
-    <div class="lic">📋</div>
-    <div class="lt">
-      <div class="lb">EasyDocuments.online</div>
-      <div class="ls">Easy Biodata Maker</div>
-    </div>
+  <div class="lt">
+    <div class="lb">📋 HarMaalWala.com</div>
+    <div class="ls">बायोडाटा बनाएं आसानी से</div>
   </div>
   <div class="nr">
-    <a href="#how" class="nl">How it Works</a>
-    <a href="#pricing" class="nl">Pricing</a>
-    <a href="#request" class="nl">Request</a>
-    <a href="faq.html" class="nl">FAQ</a>
-    <button class="nc" onclick="openM('biodata')">📋 Build Biodata</button>
+    <button class="nc" onclick="openM('biodata')">📋 बायोडाटा बनाएं</button>
   </div>
 </nav>
 
@@ -1712,18 +1438,19 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   <div class="hpat"></div>
   <div class="hi">
     <div class="rv">
-      <div class="hbadge">🎉 India's Easiest Biodata Maker</div>
-      <h1 class="hh1">Build your Marriage Biodata<br><span id="heroSub">in minutes — absolutely FREE!</span></h1>
-      <div class="hhd">Professional biodata from the comfort of home</div>
-      <p class="hdesc">India's cheapest marriage biodata maker — starting at just ₹9. Create a professional shaadi biodata in Hindi or English, choose from 8 unique designs, and download as PDF instantly. No sign-up needed.</p>
+      <div class="hbadge">🎉 भारत का सबसे आसान बायोडाटा मेकर</div>
+      <h1 class="hh1">विवाह बायोडाटा बनाएं<br><span>मिनटों में — बिल्कुल FREE!</span></h1>
+      <div class="hhd">घर बैठे बनाएं professional बायोडाटा</div>
+      <p class="hdesc">सबसे सस्ता और आसान तरीका professional विवाह बायोडाटा बनाने का।
+        5 unique designs · Hindi/English/Bilingual · PDF Download · WhatsApp Share</p>
       <!-- Slots bar -->
       <div class="sbar" style="margin-bottom:22px">
-        <div class="slbl" id="stxt">⚡ 100 spots remaining — join now, download is FREE!</div>
+        <div class="slbl" id="stxt">⚡ 50 spots remaining — अभी join करें, download FREE है!</div>
         <div class="strk"><div class="sfil" id="sfil" style="width:0%"></div></div>
       </div>
       <div class="hbtns">
-        <button class="bhp" onclick="openM('biodata')">📋 Build Biodata Now →</button>
-        <a href="#how" class="bhg">How it works? ↓</a>
+        <button class="bhp" onclick="openM('biodata')">📋 अभी बायोडाटा बनाएं →</button>
+        <a href="#how" class="bhg">कैसे काम करता है? ↓</a>
       </div>
     </div>
     <!-- Floating preview cards -->
@@ -1736,15 +1463,15 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
       </div>
       <div class="fc fc2">
         <div class="fci">📋</div>
-        <div class="fct">8 Template Designs</div>
-        <div class="fcs">Classic · Royal · Vedic · Modern · Magazine + 3 more</div>
+        <div class="fct">5 Template Designs</div>
+        <div class="fcs">Classic · Royal · Vedic · Modern · Premium</div>
         <div class="fcf">🎨 Custom Colors</div>
       </div>
       <div class="fc fc3">
-        <div class="fci">⚡</div>
-        <div class="fct">Ready in 2 Minutes</div>
-        <div class="fcs">Fill form, pick design, download PDF</div>
-        <div class="fcf">✅ Instant Download</div>
+        <div class="fci">📲</div>
+        <div class="fct">WhatsApp Share</div>
+        <div class="fcs">Direct number pe bhejein</div>
+        <div class="fcf">⚡ 2 Minutes</div>
       </div>
     </div>
   </div>
@@ -1753,9 +1480,9 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 <!-- SERVICES -->
 <section class="sw" id="services">
   <div class="sh2 rv">
-    <div class="scp">Our Service</div>
-    <h2 class="st2">Marriage <span>Biodata</span> Maker</h2>
-    <p class="ss2">Choose from 8 unique designs — Classic border frame to Magazine premium</p>
+    <div class="scp">हमारी सेवा</div>
+    <h2 class="st2">विवाह <span>बायोडाटा</span> बनाएं</h2>
+    <p class="ss2">5 unique designs में से चुनें — Classic border frame से लेकर Modern premium तक</p>
   </div>
   <div class="sgrid" style="max-width:500px;margin:0 auto">
     <div class="scard rv" onclick="openM('biodata')">
@@ -1765,27 +1492,27 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           <div class="sic ibg">👰</div>
           <div class="sbw">
             <span class="sbdg bdf">FREE Early Access</span>
-            <span class="stim">⏱ Ready in 5 min</span>
+            <span class="stim">⏱ 5 min mein ready</span>
           </div>
         </div>
         <div class="snm">Marriage Biodata</div>
-        <div class="snmh">Marriage Biodata</div>
-        <p class="sdsc">8 distinct design templates — Classic Bordered, Sidebar Split, Vedic Traditional, Modern Cards, Elegant Minimal, Royal Arch, Floral Frame, Magazine Style. Photo upload, Hindi/English, PDF download.</p>
+        <div class="snmh">विवाह बायोडाटा</div>
+        <p class="sdsc">5 alag-alag design templates — Gulabi Shagun, Royal Maroon, Saffron Vedic, Emerald Royal, Midnight Blue. Photo upload, Hindi/English, PDF download.</p>
         <ul class="sfts">
-          <li><span class="fck">✓</span>8 Unique Template Designs</li>
-          <li><span class="fck">✓</span>10 Color Themes + Custom Picker</li>
-          <li><span class="fck">✓</span>Hindi / English</li>
+          <li><span class="fck">✓</span>5 Unique Template Designs</li>
+          <li><span class="fck">✓</span>Custom Color Picker</li>
+          <li><span class="fck">✓</span>Hindi / English / Bilingual</li>
           <li><span class="fck">✓</span>Photo Upload + PDF Download</li>
-          <li><span class="fck">✓</span>Instant PDF Download</li>
+          <li><span class="fck">✓</span>WhatsApp Share — number enter karein</li>
         </ul>
       </div>
       <div class="sftr">
         <div class="spr">
-          <span class="pt">🎁 First 100 Users</span>
+          <span class="pt">🎁 First 50 Users</span>
           <span class="pv"><sup>₹</sup>0</span>
-          <span class="pn">then ₹49 per download</span>
+          <span class="pn">फिर ₹49 per download</span>
         </div>
-        <button class="scta" onclick="event.stopPropagation();openM('biodata')">📋 Build →</button>
+        <button class="scta" onclick="event.stopPropagation();openM('biodata')">📋 बनाएं →</button>
       </div>
     </div>
   </div>
@@ -1795,28 +1522,28 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 <section class="hiwbg" id="how">
   <div class="hiwi">
     <div class="hiwh rv">
-      <div class="hiwcp">3 Simple Steps</div>
-      <h2 class="hiwt">How it works? <span>Super easy!</span></h2>
-      <p class="hiws2">Build a professional biodata — no technical knowledge needed</p>
+      <div class="hiwcp">3 आसान steps</div>
+      <h2 class="hiwt">कैसे काम करता है? <span>बिल्कुल आसान!</span></h2>
+      <p class="hiws2">बिना किसी technical knowledge के professional बायोडाटा बनाएं</p>
     </div>
     <div class="hiwst">
       <div class="hstep rv rd1">
-        <div class="hemp">📝</div>
+        <div class="hemp">🎨</div>
         <div class="hnum">1</div>
-        <h4>Fill Details</h4>
-        <p>Name, DOB, education, family — fill everything in easy guided steps</p>
+        <h4>Template चुनें</h4>
+        <p>5 unique designs में से पसंदीदा चुनें और अपने मनपसंद रंग customize करें</p>
       </div>
       <div class="hstep rv rd2">
-        <div class="hemp">🎨</div>
+        <div class="hemp">📝</div>
         <div class="hnum">2</div>
-        <h4>Pick a Template</h4>
-        <p>Choose from 8 unique designs and customize your colour theme</p>
+        <h4>Details भरें</h4>
+        <p>नाम, DOB, शिक्षा, परिवार — सब guided steps में आसानी से भरें</p>
       </div>
       <div class="hstep rv rd3">
         <div class="hemp">📲</div>
         <div class="hnum">3</div>
         <h4>Download / Share</h4>
-        <p>Download your professional PDF biodata instantly</p>
+        <p>PDF download करें या WhatsApp पर directly किसी भी number पर share करें</p>
       </div>
     </div>
   </div>
@@ -1826,40 +1553,41 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 <section class="pbg sw" id="pricing">
   <div class="sh2 rv">
     <div class="scp">Pricing</div>
-    <h2 class="st2">Honest <span>Pricing</span></h2>
-    <p class="ss2">Professional biodata — anywhere, anytime, in minutes</p>
+    <h2 class="st2">बिल्कुल <span>सस्ता</span></h2>
+    <p class="ss2">Professional बायोडाटा — कहीं भी, कभी भी, मिनटों में</p>
   </div>
   <div class="pgrid" style="max-width:600px;margin:0 auto">
     <div class="pcard feat rv">
       <div class="pic">🎁</div>
       <div class="pnm">Early Access</div>
-      <div class="phd">Absolutely FREE for first 100 users</div>
+      <div class="phd">पहले 50 users के लिए बिल्कुल FREE</div>
       <div class="pamt"><sup>₹</sup>0</div>
-      <div class="pper">One-time — no subscription</div>
+      <div class="pper">एकबार — कोई subscription नहीं</div>
       <ul class="plist">
-        <li><span class="pck">✅</span>All 8 Template Designs</li>
-        <li><span class="pck">✅</span>10 Colour Themes + Custom Picker</li>
-        <li><span class="pck">✅</span>Hindi / English</li>
+        <li><span class="pck">✅</span>सभी 5 Template Designs</li>
+        <li><span class="pck">✅</span>Custom Color Picker</li>
+        <li><span class="pck">✅</span>Hindi / English / Bilingual</li>
         <li><span class="pck">✅</span>Photo Upload</li>
         <li><span class="pck">✅</span>PDF Download (No Watermark)</li>
-        <li><span class="pck">✅</span>Instant PDF Download</li>
+        <li><span class="pck">✅</span>WhatsApp Share</li>
       </ul>
-      <button class="pcta ctf" onclick="openM('biodata')">📋 Build FREE Biodata Now →</button>
+      <button class="pcta ctf" onclick="openM('biodata')">📋 अभी FREE बायोडाटा बनाएं →</button>
     </div>
     <div class="pcard rv rd2">
       <div class="pic">💫</div>
       <div class="pnm">Standard</div>
-      <div class="phd">Professional Biodata Maker</div>
-      <div class="pamt">from <sup>₹</sup>9 <span style="font-size:16px;font-weight:500;color:var(--TL)">– ₹49</span></div>
-      <div class="pper">₹9–₹49 · one-time · based on design chosen</div>
+      <div class="phd">Early Access खत्म होने के बाद</div>
+      <div class="pamt"><sup>₹</sup>49</div>
+      <div class="pper">per download · एकबार</div>
       <ul class="plist">
-        <li><span class="pck">✅</span>All 8 Template Designs</li>
-        <li><span class="pck">✅</span>10 Colour Themes + Custom Picker</li>
+        <li><span class="pck">✅</span>सभी 5 Template Designs</li>
+        <li><span class="pck">✅</span>Custom Color Picker</li>
         <li><span class="pck">✅</span>PDF No Watermark</li>
+        <li><span class="pck">✅</span>WhatsApp Share</li>
         <li><span class="pck">✅</span>Instant Download</li>
-        <li><span class="pck">✅</span>🔒 UPI / Razorpay Secured</li>
+        <li><span class="pck">✅</span>🔒 Razorpay Secured</li>
       </ul>
-      <button class="pcta cto" onclick="openM('biodata')">📋 Build Biodata</button>
+      <button class="pcta cto" onclick="openM('biodata')">📋 बायोडाटा बनाएं</button>
     </div>
   </div>
 </section>
@@ -1870,9 +1598,9 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
     <div class="reqcard rv">
       <div class="reqhdr">
         <div class="rchip">💬 SUGGEST</div>
-        <h2>Want something else?</h2>
-        <p>Tell us — we keep adding new services</p>
-        <div class="rsub" style="all:initial;font-family:inherit;font-size:13px;color:rgba(255,255,255,.65);display:block;margin-top:4px;font-style:italic">Resume Builder · Wedding Card · Govt Forms — what do you need?</div>
+        <h2>कुछ और चाहिए?</h2>
+        <p>हमें बताएं — हम नई सेवाएं जोड़ते रहेंगे</p>
+        <div class="rsub" style="all:initial;font-family:inherit;font-size:13px;color:rgba(255,255,255,.65);display:block;margin-top:4px;font-style:italic">Resume Builder · Wedding Card · Govt Forms — क्या आप चाहते हैं?</div>
       </div>
       <div class="reqbdy" id="reqForm">
         <div class="rexs">
@@ -1880,139 +1608,47 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           <span class="rexc" onclick="fillEx('Wedding Invitation Card chahiye')">💌 Wedding Invite</span>
           <span class="rexc" onclick="fillEx('Govt Form fill karni hai')">🪪 Govt Forms</span>
         </div>
-        <label class="rl">Your suggestion <span>(Hindi or English)</span></label>
-        <textarea class="rta" id="reqTxt" placeholder="e.g. Resume builder, wedding card, government forms..." maxlength="300" rows="3" oninput="reqCC()"></textarea>
+        <label class="rl">आपका suggestion <span>(Hindi या English)</span></label>
+        <textarea class="rta" id="reqTxt" placeholder="जैसे: Resume builder chahiye, wedding card chahiye..." maxlength="300" rows="3" oninput="reqCC()"></textarea>
         <div class="rcc"><span id="rccN">0</span>/300</div>
         <div class="rph">
-          <input class="fi" id="reqPh" placeholder="WhatsApp number (optional — we'll notify you)">
+          <input class="fi" id="reqPh" placeholder="WhatsApp number (optional — हम notify करेंगे)">
         </div>
-        <button class="rsub" onclick="subReq()" style="all:initial;font-family:inherit;width:100%;padding:16px;border-radius:12px;background:linear-gradient(135deg,#800000,#5a0000);color:#fff;font-weight:800;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-sizing:border-box">📤 Send Request →</button>
-        <div class="rnote">🔒 Your info is safe</div>
+        <button class="rsub" onclick="subReq()" style="all:initial;font-family:inherit;width:100%;padding:16px;border-radius:12px;background:linear-gradient(135deg,#800000,#5a0000);color:#fff;font-weight:800;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-sizing:border-box">📤 Request भेजें →</button>
+        <div class="rnote">🔒 आपकी जानकारी safe है</div>
       </div>
       <div class="rsucc" id="reqSucc">
         <div style="font-size:52px;margin-bottom:12px">🙏</div>
-        <h3 style="font-size:20px;font-weight:800;color:var(--T);margin-bottom:8px">Request received!</h3>
-        <p style="color:var(--TL)">We'll reach out to you on WhatsApp soon.</p>
+        <h3 style="font-size:20px;font-weight:800;color:var(--T);margin-bottom:8px">Request मिल गई!</h3>
+        <p style="color:var(--TL)">जल्द ही आपसे WhatsApp पर संपर्क करेंगे।</p>
       </div>
     </div>
   </div>
 </section>
-
-<!-- FAQ SECTION -->
-<section class="sw" id="faq" style="background:var(--C)">
-  <div style="max-width:780px;margin:0 auto;padding:60px 24px">
-
-    <!-- Header + Language Toggle -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:8px;flex-wrap:wrap">
-      <h2 class="st2" style="margin:0">Frequently Asked <span>Questions</span></h2>
-      <div id="faqLangToggle" style="display:flex;background:#fff;border:1.5px solid var(--B);border-radius:50px;overflow:hidden;flex-shrink:0">
-        <button onclick="faqSetLang('en')" id="faqBtnEn" style="padding:6px 18px;font-size:13px;font-weight:700;border:none;cursor:pointer;background:var(--M);color:#fff;font-family:var(--f)">EN</button>
-        <button onclick="faqSetLang('hi')" id="faqBtnHi" style="padding:6px 18px;font-size:13px;font-weight:700;border:none;cursor:pointer;background:transparent;color:var(--TM);font-family:var(--fh)">हिंदी</button>
-      </div>
-    </div>
-    <p id="faqSubtitle" style="text-align:center;color:var(--TL);margin-bottom:40px;font-size:15px">Frequently asked by our users · <a href="faq.html" style="color:var(--M);font-weight:600">View all FAQs →</a></p>
-
-    <div style="display:flex;flex-direction:column;gap:16px" id="faqList">
-
-      <details class="faq-item" style="background:#fff;border:1.5px solid var(--B);border-radius:14px;padding:20px 24px;cursor:pointer">
-        <summary style="font-weight:700;font-size:16px;color:var(--MD);list-style:none;display:flex;justify-content:space-between;align-items:center">
-          <span class="faq-q"
-            data-en="What is the cheapest way to make a marriage biodata online?"
-            data-hi="ऑनलाइन शादी की बायोडाटा बनाने का सबसे सस्ता तरीका क्या है?">What is the cheapest way to make a marriage biodata online?</span>
-          <span style="font-size:20px;color:var(--G);flex-shrink:0;margin-left:12px">+</span>
-        </summary>
-        <p class="faq-a" style="margin-top:12px;color:var(--TM);line-height:1.7"
-          data-en="EasyDocuments.online is India's cheapest marriage biodata maker — starting at just ₹9. You get a professional PDF biodata with 8 template designs, Hindi/English support, photo upload, and WhatsApp sharing. No hidden charges, no subscription."
-          data-hi="EasyDocuments.online भारत का सबसे सस्ता शादी बायोडाटा मेकर है — सिर्फ ₹9 से शुरू। 8 डिज़ाइन, हिंदी/अंग्रेजी सपोर्ट, फोटो अपलोड और WhatsApp शेयरिंग — कोई छुपा चार्ज नहीं।">EasyDocuments.online is India's cheapest marriage biodata maker — starting at just ₹9. You get a professional PDF biodata with 8 template designs, Hindi/English support, photo upload, and WhatsApp sharing. No hidden charges, no subscription.</p>
-      </details>
-
-      <details class="faq-item" style="background:#fff;border:1.5px solid var(--B);border-radius:14px;padding:20px 24px;cursor:pointer">
-        <summary style="font-weight:700;font-size:16px;color:var(--MD);list-style:none;display:flex;justify-content:space-between;align-items:center">
-          <span class="faq-q"
-            data-en="How much does it cost to make a biodata?"
-            data-hi="बायोडाटा बनाने में कितना खर्चा होता है?">How much does it cost to make a biodata?</span>
-          <span style="font-size:20px;color:var(--G);flex-shrink:0;margin-left:12px">+</span>
-        </summary>
-        <p class="faq-a" style="margin-top:12px;color:var(--TM);line-height:1.7"
-          data-en="Just ₹9 per download — the lowest price you'll find anywhere online. No subscription, no watermark, no sign-up required. Pay once, download your professional PDF instantly."
-          data-hi="सिर्फ ₹9 प्रति डाउनलोड — यह भारत में सबसे कम कीमत है। कोई सब्सक्रिप्शन नहीं, कोई वॉटरमार्क नहीं, कोई साइन-अप नहीं। एक बार पेमेंट करें, तुरंत PDF डाउनलोड करें।">Just ₹9 per download — the lowest price you'll find anywhere online. No subscription, no watermark, no sign-up required. Pay once, download your professional PDF instantly.</p>
-      </details>
-
-      <details class="faq-item" style="background:#fff;border:1.5px solid var(--B);border-radius:14px;padding:20px 24px;cursor:pointer">
-        <summary style="font-weight:700;font-size:16px;color:var(--MD);list-style:none;display:flex;justify-content:space-between;align-items:center">
-          <span class="faq-q"
-            data-en="Can I make a biodata in Hindi?"
-            data-hi="क्या मैं हिंदी में बायोडाटा बना सकता/सकती हूँ?">Can I make a biodata in Hindi?</span>
-          <span style="font-size:20px;color:var(--G);flex-shrink:0;margin-left:12px">+</span>
-        </summary>
-        <p class="faq-a" style="margin-top:12px;color:var(--TM);line-height:1.7"
-          data-en="Yes! EasyDocuments supports both Hindi and English biodata. Just select your preferred language, fill in your details, and download your PDF in 2 minutes."
-          data-hi="हाँ बिल्कुल! EasyDocuments पर आप हिंदी और अंग्रेजी दोनों भाषाओं में बायोडाटा बना सकते हैं। बस अपनी भाषा चुनें, जानकारी भरें, और 2 मिनट में PDF डाउनलोड करें।">Yes! EasyDocuments supports both Hindi and English biodata. Just select your preferred language, fill in your details, and download your PDF in 2 minutes.</p>
-      </details>
-
-      <details class="faq-item" style="background:#fff;border:1.5px solid var(--B);border-radius:14px;padding:20px 24px;cursor:pointer">
-        <summary style="font-weight:700;font-size:16px;color:var(--MD);list-style:none;display:flex;justify-content:space-between;align-items:center">
-          <span class="faq-q"
-            data-en="How long does it take to make a marriage biodata?"
-            data-hi="शादी का बायोडाटा बनाने में कितना समय लगता है?">How long does it take to make a marriage biodata?</span>
-          <span style="font-size:20px;color:var(--G);flex-shrink:0;margin-left:12px">+</span>
-        </summary>
-        <p class="faq-a" style="margin-top:12px;color:var(--TM);line-height:1.7"
-          data-en="Just 2 minutes! Fill in your personal details, family information, and preferences — pick a template, preview it live, and download your PDF. No design skills needed."
-          data-hi="सिर्फ 2 मिनट! अपनी जानकारी भरें, टेम्पलेट चुनें, लाइव प्रीव्यू देखें और PDF डाउनलोड करें। कोई डिज़ाइन स्किल की ज़रूरत नहीं।">Just 2 minutes! Fill in your personal details, family information, and preferences — pick a template, preview it live, and download your PDF. No design skills needed.</p>
-      </details>
-
-      <details class="faq-item" style="background:#fff;border:1.5px solid var(--B);border-radius:14px;padding:20px 24px;cursor:pointer">
-        <summary style="font-weight:700;font-size:16px;color:var(--MD);list-style:none;display:flex;justify-content:space-between;align-items:center">
-          <span class="faq-q"
-            data-en="Can I share my biodata directly on WhatsApp?"
-            data-hi="क्या मैं अपनी बायोडाटा सीधे WhatsApp पर शेयर कर सकता/सकती हूँ?">Can I share my biodata directly on WhatsApp?</span>
-          <span style="font-size:20px;color:var(--G);flex-shrink:0;margin-left:12px">+</span>
-        </summary>
-        <p class="faq-a" style="margin-top:12px;color:var(--TM);line-height:1.7"
-          data-en="Yes! After downloading your PDF, you can share it directly via WhatsApp to any number. Many users share their biodata with matrimonial contacts, relatives, and marriage bureaus instantly from the same page."
-          data-hi="हाँ! PDF डाउनलोड करने के बाद आप उसे सीधे WhatsApp पर किसी भी नंबर पर शेयर कर सकते हैं। शादी के कॉन्टैक्ट्स, रिश्तेदार और मैट्रिमोनियल ब्यूरो — सबको तुरंत भेजें।">Yes! After downloading your PDF, you can share it directly via WhatsApp to any number. Many users share their biodata with matrimonial contacts, relatives, and marriage bureaus instantly from the same page.</p>
-      </details>
-
-    </div>
-  </div>
-</section>
-
-<script>
-function faqSetLang(lang){
-  document.querySelectorAll('.faq-q,.faq-a').forEach(el=>{
-    el.textContent = el.dataset[lang];
-  });
-  const isHi = lang === 'hi';
-  document.getElementById('faqSubtitle').textContent = isHi ? 'हमारे उपयोगकर्ताओं द्वारा अक्सर पूछे जाने वाले सवाल' : 'Frequently asked by our users';
-  document.getElementById('faqBtnEn').style.cssText  = isHi ? 'padding:6px 18px;font-size:13px;font-weight:700;border:none;cursor:pointer;background:transparent;color:var(--TM);font-family:var(--f)' : 'padding:6px 18px;font-size:13px;font-weight:700;border:none;cursor:pointer;background:var(--M);color:#fff;font-family:var(--f)';
-  document.getElementById('faqBtnHi').style.cssText  = isHi ? 'padding:6px 18px;font-size:13px;font-weight:700;border:none;cursor:pointer;background:var(--M);color:#fff;font-family:var(--fh)' : 'padding:6px 18px;font-size:13px;font-weight:700;border:none;cursor:pointer;background:transparent;color:var(--TM);font-family:var(--fh)';
-}
-</script>
 
 <!-- FOOTER -->
 <footer>
   <div class="ftop">
     <div class="fbrand">
-      <div class="fnm">📋 EasyDocuments.online</div>
-      <div class="fsb">Easy Biodata Maker</div>
-      <p>The fastest, most affordable way to build a professional marriage biodata.<br>Made with ❤️ for 🇮🇳 Bharat.</p>
+      <div class="fnm">📋 HarMaalWala.com</div>
+      <div class="fsb">बायोडाटा बनाएं आसानी से</div>
+      <p>सबसे सस्ता और आसान तरीका professional विवाह बायोडाटा बनाने का।<br>Made with ❤️ for 🇮🇳 Bharat.</p>
     </div>
     <div class="fcol">
-      <h5>Services</h5>
+      <h5>सेवाएं</h5>
       <a href="#" onclick="openM('biodata')">👰 Marriage Biodata</a>
       <a href="#request">📬 Suggest a Service</a>
     </div>
     <div class="fcol">
-      <h5>Help</h5>
-      <a href="#" onclick="openWASupport();return false;">💬 WhatsApp Support</a>
+      <h5>सहायता</h5>
+      <a href="https://wa.me/919999999999" target="_blank">💬 WhatsApp Support</a>
       <a href="#">Privacy Policy</a>
       <a href="#">Terms of Use</a>
     </div>
   </div>
   <div class="fbot">
     <div class="fboti">
-      <p>© 2024 EasyDocuments.online · All rights reserved.</p>
+      <p>© 2024 HarMaalWala.com · All rights reserved.</p>
       <p>Made with ❤️ for Bharat 🇮🇳</p>
     </div>
   </div>
@@ -2020,8 +1656,8 @@ function faqSetLang(lang){
 
 <!-- WA FLOAT -->
 <div class="waf">
-  <div class="watp" id="watp">💬 Need help? WhatsApp us</div>
-  <a href="#" onclick="openWASupport();return false;" class="wac" aria-label="WhatsApp support"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <div class="watp" id="watp">💬 Help चाहिए? WhatsApp करें</div>
+  <a href="https://wa.me/919999999999" target="_blank" class="wac"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 </div>
 
 
@@ -2032,7 +1668,7 @@ function faqSetLang(lang){
     <div class="mhd">
       <div>
         <div id="mhdStep" style="font-size:11px;opacity:.7;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px">Step 1 of 4</div>
-        <div id="mhdTitle" style="font-size:17px;font-weight:800">Choose Template &amp; Design</div>
+        <div id="mhdTitle" style="font-size:17px;font-weight:800">Template &amp; Design चुनें</div>
       </div>
       <button class="mcl" onclick="closeM('biodata')">✕</button>
     </div>
@@ -2044,43 +1680,44 @@ function faqSetLang(lang){
     <div class="mbd">
       <!-- LEFT: Steps -->
       <div class="mfrm">
-        <!-- Step nav pills — click any earlier pill to jump back -->
+        <!-- Step nav pills -->
         <div class="bspills">
-          <div class="bspill act" id="bs0" onclick="jumpToStep(0)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')jumpToStep(0)">1</div>
+          <div class="bspill act" id="bs0">1</div>
           <div class="bspdash"></div>
-          <div class="bspill" id="bs1" onclick="jumpToStep(1)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')jumpToStep(1)">2</div>
+          <div class="bspill" id="bs1">2</div>
           <div class="bspdash"></div>
-          <div class="bspill" id="bs2" onclick="jumpToStep(2)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')jumpToStep(2)">3</div>
+          <div class="bspill" id="bs2">3</div>
           <div class="bspdash"></div>
-          <div class="bspill" id="bs3" onclick="jumpToStep(3)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')jumpToStep(3)">4</div>
+          <div class="bspill" id="bs3">4</div>
         </div>
 
         <!-- STEP 0: LANGUAGE -->
         <div class="wst act" id="bd0">
-          <div class="sth" id="i18nStep0Title">Choose Language</div>
-          <div class="ssth" id="i18nStep0Sub" style="margin-bottom:16px">Which language for your PDF?</div>
+          <div class="sth" id="i18nStep0Title">भाषा चुनें</div>
+          <div class="ssth" id="i18nStep0Sub" style="margin-bottom:16px">PDF किस भाषा में बनाएं?</div>
           <div class="lpick">
-            <div class="lpc sel" id="lp-hi" onclick="selLang('hi')"><div class="li">🇮🇳</div><div class="lt2">Hindi</div><div class="ls2">Hindi Only</div></div>
+            <div class="lpc sel" id="lp-hi" onclick="selLang('hi')"><div class="li">🇮🇳</div><div class="lt2">हिंदी</div><div class="ls2">Hindi Only</div></div>
             <div class="lpc" id="lp-en" onclick="selLang('en')"><div class="li">🇬🇧</div><div class="lt2">English</div><div class="ls2">English Only</div></div>
+            <div class="lpc" id="lp-bi" onclick="selLang('bi')"><div class="li">🔤</div><div class="lt2">दोनों</div><div class="ls2">Hindi + English</div></div>
           </div>
-          <div class="wnav"><button class="bfw" onclick="bNx()" id="i18nStep0Btn">Language selected ✓ → Fill Details →</button></div>
+          <div class="wnav"><button class="bfw" onclick="bNx()" id="i18nStep0Btn">भाषा चुनी ✓ → Details भरें →</button></div>
         </div>
 
         <!-- STEP 1: PERSONAL DETAILS -->
         <div class="wst" id="bd1">
-          <div class="sth" id="i18nStep1Title">Fill Details</div><div class="ssth" id="i18nStep1Sub">Personal &amp; Family Details</div>
+          <div class="sth" id="i18nStep1Title">जानकारी भरें</div><div class="ssth" id="i18nStep1Sub">Personal &amp; Family Details</div>
 
           <!-- Language hint: only visible in HI / BI mode. Tells user to type names in target script. -->
           <div id="bLangHint" style="display:none;background:linear-gradient(180deg,#FFF8E1,#FFFAE3);border:1px solid #F4D06F;border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:13px;line-height:1.5;color:#4a3500">
-            <span style="font-weight:700">💡 <span id="bLangHintTitle">Tip:</span></span>
-            <span id="bLangHintBody">Type personal text like name, parents' name, gotra, community in your preferred script (Hindi or English). State, city, occupation, height — these convert automatically.</span>
+            <span style="font-weight:700">💡 <span id="bLangHintTitle">सुझाव:</span></span>
+            <span id="bLangHintBody">नाम, माता-पिता का नाम, गोत्र, समुदाय जैसे personal text अपनी पसंद की script में type करें (हिन्दी या English)। State, city, occupation, height — यह सब automatic हिन्दी में convert हो जाएगा।</span>
           </div>
 
-          <div class="fg"><label class="fl" id="i18nLblName">Full Name <span class="req-star">★ Required</span></label><input class="fi" id="bnm" placeholder="Neha Agarwal" oninput="updB()"></div>
+          <div class="fg"><label class="fl" id="i18nLblName">Full Name <span class="fh">(पूरा नाम)</span><span class="req-star">★ ज़रूरी</span></label><input class="fi" id="bnm" placeholder="Neha Agarwal" oninput="updB()"></div>
 
           <!-- DOB + TOB + Age in one row -->
           <div class="fg">
-            <label class="fl" id="i18nLblDOB">Date &amp; Time of Birth <span class="req-star">★ Required</span></label>
+            <label class="fl" id="i18nLblDOB">Date &amp; Time of Birth <span class="fh">(जन्म तिथि व समय)</span><span class="req-star">★ ज़रूरी</span></label>
             <div class="dob-row">
               <select class="fsel" id="bdd" onchange="updB()"><option value="">DD</option></select>
               <select class="fsel" id="bmm" onchange="updB()">
@@ -2102,10 +1739,10 @@ function faqSetLang(lang){
 
           <!-- Photo Upload with Yes/No toggle -->
           <div class="fg">
-            <label class="fl" id="i18nLblPhoto">Include Photo?</label>
+            <label class="fl" id="i18nLblPhoto">Photo include करें? <span class="fh">(फोटो)</span></label>
             <div style="display:flex;gap:10px;margin-bottom:10px">
-              <button id="photoYes" class="phopt sel" onclick="setPhotoOpt(true)">✅ Yes — Add Photo</button>
-              <button id="photoNo"  class="phopt"     onclick="setPhotoOpt(false)">❌ No — Skip Photo</button>
+              <button id="photoYes" class="phopt sel" onclick="setPhotoOpt(true)">✅ हाँ — Photo लगाएं</button>
+              <button id="photoNo"  class="phopt"     onclick="setPhotoOpt(false)">❌ नहीं — Photo नहीं</button>
             </div>
             <div id="photoUploadArea">
               <div class="pdrop" onclick="document.getElementById('bPin').click()">
@@ -2117,7 +1754,7 @@ function faqSetLang(lang){
             </div>
           </div>
 
-          <div class="fg"><label class="fl" id="i18nLblHeight">Height</label>
+          <div class="fg"><label class="fl" id="i18nLblHeight">Height <span class="fh">(कद / लंबाई)</span></label>
             <select class="fsel" id="bheight" onchange="updB()">
               <option value="">-- Select Height --</option>
               <option value="4'8&quot; (142 cm)">4'8" (142 cm)</option>
@@ -2144,27 +1781,36 @@ function faqSetLang(lang){
             </select>
           </div>
 
-          <div class="fg"><label class="fl" id="i18nLblEdu">Education <span class="req-star">★ Required</span></label>
-            <select class="fsel" id="bedu" onchange="onEduChange();updB()">
+          <div class="fg"><label class="fl" id="i18nLblEdu">Education <span class="fh">(शिक्षा)</span><span class="req-star">★ ज़रूरी</span></label>
+            <select class="fsel" id="bedu" onchange="updB()">
               <option value="">-- Select Education --</option>
               <optgroup label="School"><option>10th Pass (Matric)</option><option>12th Pass (Intermediate)</option></optgroup>
               <optgroup label="Graduation"><option>B.A.</option><option>B.Sc.</option><option>B.Com</option><option>B.Tech / B.E.</option><option>BBA</option><option>BCA</option><option>B.Ed</option><option>MBBS</option><option>B.Pharma</option><option>LLB</option></optgroup>
               <optgroup label="Post Graduation"><option>M.A.</option><option>M.Sc.</option><option>M.Com</option><option>M.Tech / M.E.</option><option>MBA</option><option>MCA</option><option>M.Ed</option><option>MD / MS (Medical)</option><option>LLM</option></optgroup>
               <optgroup label="Other"><option>Diploma / ITI</option><option>PhD / Doctorate</option><option>Other</option></optgroup>
             </select>
-            <input class="fi" id="beduOther" placeholder="Specify your education / degree" oninput="persistOtherInputs();updB()" style="display:none;margin-top:8px">
           </div>
-          <div class="fg"><label class="fl" id="i18nLblOcc">Occupation <span class="req-star">★ Required</span></label>
-            <select class="fsel" id="bocc" onchange="onOccChange();updB()">
+          <div class="fg"><label class="fl" id="i18nLblOcc">Occupation <span class="fh">(व्यवसाय)</span><span class="req-star">★ ज़रूरी</span></label>
+            <select class="fsel" id="bocc" onchange="updB()">
               <option value="">-- Select Occupation --</option>
-              <optgroup label="Government"><option>Government Employee</option><option>IAS / IPS / IFS Officer</option><option>Army / Defence</option><option>Police</option><option>Bank Employee</option><option>Teacher / Professor</option><option>Railway Employee</option></optgroup>
+              <optgroup label="Government / Sarkari"><option>Government Employee (Sarkari Naukri)</option><option>IAS / IPS / IFS Officer</option><option>Army / Defence</option><option>Police</option><option>Bank Employee</option><option>Teacher / Professor</option><option>Railway Employee</option></optgroup>
               <optgroup label="Private Job"><option>Private Job (Software / IT)</option><option>Private Job (Other)</option><option>Doctor</option><option>Engineer</option><option>CA / Accountant</option><option>Lawyer / Advocate</option><option>Nurse / Paramedic</option></optgroup>
               <optgroup label="Business"><option>Business / Self-Employed</option><option>Farming / Agriculture</option><option>Shop Owner</option><option>Contractor</option></optgroup>
               <optgroup label="Other"><option>Homemaker</option><option>Housewife</option><option>Student</option><option>Not Working</option><option>Other</option></optgroup>
             </select>
-            <input class="fi" id="boccOther" placeholder="Specify your occupation" oninput="persistOtherInputs();updB()" style="display:none;margin-top:8px">
           </div>
-          <div class="fg"><label class="fl" id="i18nLblSalary">Annual Income <span class="fh">(optional)</span></label>
+          <div class="fg"><label class="fl" id="i18nLblEmployed">Employment Status <span class="fh">(रोज़गार स्थिति)</span></label>
+            <select class="fsel" id="bemployed" onchange="updB()">
+              <option value="">-- Select Status --</option>
+              <option>Employed</option>
+              <option>Self-employed</option>
+              <option>Student</option>
+              <option>Homemaker</option>
+              <option>Looking for job</option>
+              <option>Retired</option>
+            </select>
+          </div>
+          <div class="fg"><label class="fl" id="i18nLblSalary">Annual Income <span class="fh">(वार्षिक आय — वैकल्पिक)</span></label>
             <select class="fsel" id="bsalary" onchange="updB()">
               <option value="">-- Select Range --</option>
               <option>Below ₹3 LPA</option>
@@ -2178,55 +1824,56 @@ function faqSetLang(lang){
               <option value="__skip__">Prefer not to say</option>
             </select>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblState">State <span class="req-star">★ Required</span></label>
+          <div class="fg"><label class="fl" id="i18nLblState">State <span class="fh">(राज्य)</span><span class="req-star">★ ज़रूरी</span></label>
             <select class="fsel" id="bstate" onchange="updB()">
               <option value="">-- Select State --</option>
               <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Delhi (NCT)</option><option>Jammu &amp; Kashmir</option><option>Ladakh</option><option>Chandigarh</option>
             </select>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblCity">City</label><input class="fi" id="bcity" placeholder="e.g. Lucknow, Agra, Patna" oninput="updB()"></div>
+          <div class="fg"><label class="fl" id="i18nLblCity">City <span class="fh">(शहर)</span></label><input class="fi" id="bcity" placeholder="e.g. Lucknow, Agra, Patna" oninput="updB()"></div>
 
-          <div class="sec-div"><span id="i18nSecFamily">Family</span></div>
-          <div class="fg"><label class="fl" id="i18nLblFather">Father's Name <span class="req-star">★ Required</span></label><input class="fi" id="bfth" placeholder="Ramesh Agarwal" oninput="updB()"></div>
+          <div class="sec-div"><span id="i18nSecFamily">परिवार — Family</span></div>
+          <div class="fg"><label class="fl" id="i18nLblFather">Father's Name <span class="fh">(पिता का नाम)</span><span class="req-star">★ ज़रूरी</span></label><input class="fi" id="bfth" placeholder="Ramesh Agarwal" oninput="updB()"></div>
           <div class="fg"><label class="fl" id="i18nLblFOcc">Father's Occupation</label>
             <select class="fsel" id="bfocc" onchange="updB()"><option value="">-- Select --</option><option>Government Employee</option><option>Army / Defence</option><option>Business / Self-Employed</option><option>Farmer</option><option>Doctor</option><option>Engineer</option><option>Teacher</option><option>Bank Employee</option><option>Retired</option><option>Deceased</option><option>Other</option></select>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblMother">Mother's Name</label><input class="fi" id="bmth" placeholder="Sunita Agarwal" oninput="updB()"></div>
+          <div class="fg"><label class="fl" id="i18nLblMother">Mother's Name <span class="fh">(माता का नाम)</span></label><input class="fi" id="bmth" placeholder="Sunita Agarwal" oninput="updB()"></div>
           <div class="fg"><label class="fl" id="i18nLblMOcc">Mother's Occupation</label>
             <select class="fsel" id="bmocc" onchange="updB()"><option value="">-- Select --</option><option>Homemaker</option><option>Housewife</option><option>Government Employee</option><option>Business / Self-Employed</option><option>Teacher</option><option>Doctor</option><option>Farmer</option><option>Retired</option><option>Other</option></select>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblBrothers">Brothers</label>
+          <div class="fg"><label class="fl" id="i18nLblBrothers">Brothers <span class="fh">(भाई)</span></label>
             <div class="sib-row">
-              <div class="sib-cell"><span class="sib-lbl">Total</span><input class="fi sib-num" id="bbrothers" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bbrothers','bbrothersM');updB()"></div>
-              <div class="sib-cell"><span class="sib-lbl">Married</span><input class="fi sib-num" id="bbrothersM" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bbrothers','bbrothersM');updB()"></div>
+              <div class="sib-cell"><span class="sib-lbl">Total</span><input class="fi sib-num" id="bbrothers" type="number" min="0" max="20" placeholder="0" oninput="updB()"></div>
+              <div class="sib-cell"><span class="sib-lbl">Married</span><input class="fi sib-num" id="bbrothersM" type="number" min="0" max="20" placeholder="0" oninput="updB()"></div>
             </div>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblSisters">Sisters</label>
+          <div class="fg"><label class="fl" id="i18nLblSisters">Sisters <span class="fh">(बहन)</span></label>
             <div class="sib-row">
-              <div class="sib-cell"><span class="sib-lbl">Total</span><input class="fi sib-num" id="bsisters" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bsisters','bsistersM');updB()"></div>
-              <div class="sib-cell"><span class="sib-lbl">Married</span><input class="fi sib-num" id="bsistersM" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bsisters','bsistersM');updB()"></div>
+              <div class="sib-cell"><span class="sib-lbl">Total</span><input class="fi sib-num" id="bsisters" type="number" min="0" max="20" placeholder="0" oninput="updB()"></div>
+              <div class="sib-cell"><span class="sib-lbl">Married</span><input class="fi sib-num" id="bsistersM" type="number" min="0" max="20" placeholder="0" oninput="updB()"></div>
             </div>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblRelig">Religion</label><select class="fsel" id="brelig" onchange="onReligChange()"><option value="">-- Select Religion --</option><option>Hindu</option><option>Muslim</option><option>Sikh</option><option>Christian</option><option>Jain</option><option>Buddhist</option><option>Other</option></select></div>
-          <div class="fg"><label class="fl" id="i18nLblCaste">Community / Caste</label><select class="fsel" id="bcst" onchange="updB()"><option value="">-- Select religion first --</option></select></div>
-          <div class="fg"><label class="fl">Gotra <span class="fh">(optional)</span></label><input class="fi" id="bgotr" placeholder="e.g. Kashyap, Bharadwaj" list="gotrList" oninput="updB()"><datalist id="gotrList"><option value="Kashyap"><option value="Bharadwaj"><option value="Vatsa"><option value="Kaundinya"><option value="Atri"><option value="Vashishtha"><option value="Agastya"><option value="Garg"><option value="Sandilya"><option value="Gautam"><option value="Parashar"><option value="Kaushik"><option value="Jamadagni"><option value="Vishwamitra"><option value="Mudgal"><option value="Angiras"><option value="Bhrigu"><option value="Harita"><option value="Shandilya"><option value="Maudgalya"><option value="Lohit"><option value="Upamanyu"><option value="Kapi"><option value="Naitreya"><option value="Shaunaka"><option value="Aupamanyava"><option value="Bhargava"><option value="Vaidyanath"><option value="Vasishtha"></datalist></div>
-          <div class="fg"><label class="fl" id="i18nLblRashi">Rashi <span class="fh">(optional)</span></label><select class="fsel" id="brash" onchange="updB()"><option value="">-- Select Rashi --</option><option value="मेष (Aries)">मेष (Aries)</option><option value="वृषभ (Taurus)">वृषभ (Taurus)</option><option value="मिथुन (Gemini)">मिथुन (Gemini)</option><option value="कर्क (Cancer)">कर्क (Cancer)</option><option value="सिंह (Leo)">सिंह (Leo)</option><option value="कन्या (Virgo)">कन्या (Virgo)</option><option value="तुला (Libra)">तुला (Libra)</option><option value="वृश्चिक (Scorpio)">वृश्चिक (Scorpio)</option><option value="धनु (Sagittarius)">धनु (Sagittarius)</option><option value="मकर (Capricorn)">मकर (Capricorn)</option><option value="कुम्भ (Aquarius)">कुम्भ (Aquarius)</option><option value="मीन (Pisces)">मीन (Pisces)</option></select></div>
+          <div class="fg"><label class="fl" id="i18nLblCaste">Community <span class="fh">(समुदाय / जाति)</span></label><input class="fi" id="bcst" placeholder="e.g. Hindu - Agarwal" oninput="updB()"></div>
+          <div class="fg"><label class="fl" id="i18nLblRashi">Gotra / Rashi <span class="fh">(वैकल्पिक)</span></label><input class="fi" id="brsh" placeholder="Kashyap / Kanya" oninput="updB()"></div>
 
-          <div class="sec-div"><span id="i18nSecContact">Contact</span></div>
-          <div class="fg"><label class="fl" id="i18nLblCtPerson">Contact Person <span class="req-star">★ Required</span></label>
-            <select class="fsel" id="bctperson" onchange="updB()"><option value="">-- Who to Contact? --</option><option value="Father (पिता)">Father</option><option value="Mother (माता)">Mother</option><option value="Brother (भाई)">Brother</option><option value="Sister (बहन)">Sister</option><option value="Uncle (चाचा / मामा)">Uncle</option><option value="Guardian (अभिभावक)">Guardian</option><option value="Self (स्वयं)">Self</option></select>
+          <div class="sec-div"><span id="i18nSecContact">सम्पर्क — Contact</span></div>
+          <div class="fg"><label class="fl" id="i18nLblCtPerson">Contact Person<span class="req-star">★ ज़रूरी</span></label>
+            <select class="fsel" id="bctperson" onchange="updB()"><option value="">-- Who to Contact? --</option><option>Father (पिता)</option><option>Mother (माता)</option><option>Brother (भाई)</option><option>Sister (बहन)</option><option>Uncle (चाचा / मामा)</option><option>Guardian (अभिभावक)</option><option>Self (स्वयं)</option></select>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblCtMobile">Contact Mobile <span class="req-star">★ Required</span></label><input class="fi" id="bctmobile" type="tel" placeholder="e.g. 98765 43210" maxlength="15" oninput="updB()"></div>
+          <div class="fg"><label class="fl" id="i18nLblCtMobile">Contact Mobile <span class="fh">(मोबाइल नंबर)</span><span class="req-star">★ ज़रूरी</span></label><input class="fi" id="bctmobile" type="tel" placeholder="e.g. 98765 43210" maxlength="15" oninput="updB()"></div>
 
+          <div class="sec-div"><span id="i18nSecExtra">अतिरिक्त — Extra Info</span></div>
+          <div id="xBlocks"></div>
+          <button class="badd-x" id="i18nAddMore" onclick="addXBlock()">➕ Add More Info (Siblings, Property, etc.)</button>
 
-          <div id="bErrMsg" class="err-msg">⚠️ Please fill all ★ required fields</div>
-          <div class="wnav"><button class="bbk" onclick="bPv()" id="i18nBackBtn1">← Back</button><button class="bfw" onclick="bNxValidate()" id="i18nNextBtn1">Details ✓ → Choose Design →</button></div>
+          <div id="bErrMsg" class="err-msg">⚠️ कृपया सभी ★ ज़रूरी fields भरें</div>
+          <div class="wnav"><button class="bbk" onclick="bPv()" id="i18nBackBtn1">← वापस</button><button class="bfw" onclick="bNxValidate()" id="i18nNextBtn1">Details ✓ → Design चुनें →</button></div>
         </div>
 
         <!-- STEP 2: DESIGN + COLOUR -->
         <div class="wst" id="bd2">
 
-          <div class="sth" id="i18nStep2Title">🎨 Choose Design & Style</div>
+          <div class="sth" id="i18nStep2Title">🎨 Design & Style चुनें</div>
 
           <!-- TEMPLATE GRID: visual cards with mini preview shapes -->
           <div class="tg-label" id="i18nTplLabel">📐 Template Layout</div>
@@ -2234,42 +1881,42 @@ function faqSetLang(lang){
             <div class="btb sel" id="bt1" onclick="selBT(1)" tabindex="0">
               <div class="btb-prev t1-prev"><div class="bp-hdr"></div><div class="bp-line"></div><div class="bp-line s"></div><div class="bp-line"></div></div>
               <div class="btb-name">Classic Bordered</div>
-              <div class="btb-badge">₹9 · Basic</div>
-            </div>
-            <div class="btb" id="bt3" onclick="selBT(3)" tabindex="0">
-              <div class="btb-prev t3-prev"><div class="bp-stripe"></div><div class="bp-hdr"></div><div class="bp-2col"><div class="bp-col"><div class="bp-line"></div><div class="bp-line s"></div></div><div class="bp-col"><div class="bp-line"></div><div class="bp-line s"></div></div></div><div class="bp-stripe"></div></div>
-              <div class="btb-name">Vedic Traditional</div>
-              <div class="btb-badge">₹19 · Indian</div>
-            </div>
-            <div class="btb" id="bt4" onclick="selBT(4)" tabindex="0">
-              <div class="btb-prev t4-prev"><div class="bp-hero"></div><div class="bp-cards"><div class="bp-card"></div><div class="bp-card"></div></div></div>
-              <div class="btb-name">Modern Cards</div>
-              <div class="btb-badge">₹19 · Trending</div>
-            </div>
-            <div class="btb" id="bt5" onclick="selBT(5)" tabindex="0">
-              <div class="btb-prev t5-prev"><div class="bp-topbar"></div><div class="bp-hdr light"></div><div class="bp-line slim"></div><div class="bp-line slim s"></div><div class="bp-line slim"></div></div>
-              <div class="btb-name">Elegant Minimal</div>
-              <div class="btb-badge">₹19 · Luxury</div>
+              <div class="btb-badge">Basic</div>
             </div>
             <div class="btb" id="bt2" onclick="selBT(2)" tabindex="0">
               <div class="btb-prev t2-prev"><div class="bp-sidebar"></div><div class="bp-main"><div class="bp-line"></div><div class="bp-line s"></div><div class="bp-line"></div></div></div>
               <div class="btb-name">Sidebar Split</div>
-              <div class="btb-badge">₹29 · Popular</div>
+              <div class="btb-badge">Popular</div>
+            </div>
+            <div class="btb" id="bt3" onclick="selBT(3)" tabindex="0">
+              <div class="btb-prev t3-prev"><div class="bp-stripe"></div><div class="bp-hdr"></div><div class="bp-2col"><div class="bp-col"><div class="bp-line"></div><div class="bp-line s"></div></div><div class="bp-col"><div class="bp-line"></div><div class="bp-line s"></div></div></div><div class="bp-stripe"></div></div>
+              <div class="btb-name">Vedic Traditional</div>
+              <div class="btb-badge">Indian</div>
+            </div>
+            <div class="btb" id="bt4" onclick="selBT(4)" tabindex="0">
+              <div class="btb-prev t4-prev"><div class="bp-hero"></div><div class="bp-cards"><div class="bp-card"></div><div class="bp-card"></div></div></div>
+              <div class="btb-name">Modern Cards</div>
+              <div class="btb-badge">Trending</div>
+            </div>
+            <div class="btb" id="bt5" onclick="selBT(5)" tabindex="0">
+              <div class="btb-prev t5-prev"><div class="bp-topbar"></div><div class="bp-hdr light"></div><div class="bp-line slim"></div><div class="bp-line slim s"></div><div class="bp-line slim"></div></div>
+              <div class="btb-name">Elegant Minimal</div>
+              <div class="btb-badge">Luxury</div>
             </div>
             <div class="btb" id="bt6" onclick="selBT(6)" tabindex="0">
               <div class="btb-prev t6-prev"><div class="bp-arch"><div class="bp-arch-inner"></div></div><div class="bp-line"></div><div class="bp-line s"></div><div class="bp-line"></div></div>
               <div class="btb-name">Royal Arch</div>
-              <div class="btb-badge">₹29 · Premium</div>
+              <div class="btb-badge">Premium</div>
             </div>
             <div class="btb" id="bt7" onclick="selBT(7)" tabindex="0">
               <div class="btb-prev t7-prev"><div class="bp-corner tl"></div><div class="bp-corner tr"></div><div class="bp-circle"></div><div class="bp-line"></div><div class="bp-line s"></div><div class="bp-corner bl"></div><div class="bp-corner br"></div></div>
               <div class="btb-name">Floral Frame</div>
-              <div class="btb-badge">₹29 · Bridal</div>
+              <div class="btb-badge">Bridal</div>
             </div>
             <div class="btb" id="bt8" onclick="selBT(8)" tabindex="0">
               <div class="btb-prev t8-prev"><div class="bp-photo-strip"></div><div class="bp-2col"><div class="bp-col"><div class="bp-line"></div><div class="bp-line s"></div></div><div class="bp-col"><div class="bp-line"></div><div class="bp-line s"></div></div></div></div>
               <div class="btb-name">Magazine Style</div>
-              <div class="btb-badge">₹49 · Advanced</div>
+              <div class="btb-badge">Advanced</div>
             </div>
           </div>
 
@@ -2329,7 +1976,7 @@ function faqSetLang(lang){
             <button onclick="resetColors()" id="i18nDefaultBtn" style="font-size:11px;padding:5px 12px;border-radius:20px;border:1px solid var(--M);background:transparent;color:var(--M);cursor:pointer;font-weight:600">↺ Default</button>
           </div>
 
-          <div class="wnav"><button class="bbk" onclick="bPv()" id="i18nBackBtn2">← Edit Details</button><button class="bfw" onclick="bNx()" id="i18nNextBtn2">Design selected ✓ → Preview →</button></div>
+          <div class="wnav"><button class="bbk" onclick="bPv()" id="i18nBackBtn2">← Details Edit करें</button><button class="bfw" onclick="bNx()" id="i18nNextBtn2">Design चुना ✓ → Preview देखें →</button></div>
 
         </div>
 
@@ -2337,34 +1984,33 @@ function faqSetLang(lang){
         <div class="wst" id="bd3">
           <!-- Back navigation at top — always visible -->
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-            <button onclick="bPv()" style="background:#fff;border:2px solid var(--M);color:var(--M);padding:10px 20px;border-radius:50px;font-weight:800;font-size:13px;cursor:pointer;font-family:var(--f);display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(128,0,0,.1);transition:all .2s" onmouseover="this.style.background='var(--M)';this.style.color='#fff'" onmouseout="this.style.background='#fff';this.style.color='var(--M)'" id="i18nBackBtn3Top">← Back</button>
+            <button onclick="bPv()" style="background:#fff;border:2px solid var(--M);color:var(--M);padding:10px 20px;border-radius:50px;font-weight:800;font-size:13px;cursor:pointer;font-family:var(--f);display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(128,0,0,.1);transition:all .2s" onmouseover="this.style.background='var(--M)';this.style.color='#fff'" onmouseout="this.style.background='#fff';this.style.color='var(--M)'" id="i18nBackBtn3Top">← वापस / Back</button>
             <div style="flex:1"></div>
           </div>
 
           <div class="sth" id="i18nStep3Title">🎉 Biodata Ready!</div>
-          <div class="ssth" id="step3Sub">Pay ₹9 to download</div>
 
-          <!-- EA: Direct download (free users) -->
-          <div id="eaDownloadArea" style="display:none">
+          <!-- EA: Direct download (no feedback) -->
+          <div id="eaDownloadArea">
             <div style="background:linear-gradient(135deg,#e8f5e9,#f1f8e9);border:2px solid #a5d6a7;border-radius:14px;padding:16px 18px;margin-bottom:12px;text-align:center">
-              <div style="font-size:13px;font-weight:800;color:#2e7d32;margin-bottom:4px" id="i18nEaTitle">🎁 Your Early Access is Active!</div>
-              <div style="font-size:12px;color:#388e3c" id="i18nEaSub">First 100 users get FREE PDF download</div>
+              <div style="font-size:13px;font-weight:800;color:#2e7d32;margin-bottom:4px" id="i18nEaTitle">🎁 आपका Early Access Active है!</div>
+              <div style="font-size:12px;color:#388e3c" id="i18nEaSub">पहले 100 users को FREE PDF download</div>
             </div>
-            <button class="bfdl" onclick="generateBiodataPDF()" id="i18nEaBtn">⬇️ Download FREE PDF</button>
+            <button class="bfdl" onclick="generateBiodataPDF()" id="i18nEaBtn">⬇️ FREE PDF Download करें</button>
           </div>
 
-          <!-- PAID: Razorpay payment trigger -->
+          <!-- Non-EA: Pay ₹9 -->
           <div id="paidDownloadArea" style="display:none">
-            <div style="background:linear-gradient(135deg,#fff8e1,#fff3e0);border:2px solid #d4af37;border-radius:14px;padding:16px 18px;margin-bottom:12px;text-align:center">
-              <div style="font-size:13px;font-weight:800;color:var(--M);margin-bottom:4px">Professional PDF</div>
-              <div style="font-size:22px;font-weight:800;color:var(--M)">₹9</div>
-              <div style="font-size:12px;color:var(--TL)">Instant download · No subscription</div>
+            <div style="background:linear-gradient(135deg,#fff8e1,#fff3cd);border:2px solid #ffd54f;border-radius:14px;padding:16px;margin-bottom:12px;text-align:center">
+              <div style="font-size:13px;font-weight:800;color:#e65100">Early Access खत्म हो गया</div>
+              <div style="font-size:22px;font-weight:800;color:var(--M);margin:4px 0">₹9 <span style="font-size:13px;font-weight:400;color:var(--TL);text-decoration:line-through">₹49</span></div>
+              <div style="font-size:11px;color:var(--TL)">पहले 100 users को special price</div>
             </div>
-            <button class="bfdl" onclick="showUp()">💳 Pay ₹9 &amp; Download →</button>
+            <button class="bfdl" style="background:linear-gradient(135deg,#e65100,#bf360c)" onclick="showUp()">💳 ₹9 Pay करके Download करें →</button>
           </div>
 
-          <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--TL)" id="slotsRem"></div>
-          <div class="wnav"><button class="bbk" onclick="bPv()" id="i18nBackBtn3">← Change Design</button></div>
+          <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--TL)" id="slotsRem">Loading slots...</div>
+          <div class="wnav"><button class="bbk" onclick="bPv()" id="i18nBackBtn3">← Design बदलें</button></div>
         </div>
       </div>
 
@@ -2379,7 +2025,7 @@ function faqSetLang(lang){
             </div>
           </div>
         </div>
-        <div style="font-size:10px;color:var(--TL);text-align:center;margin-top:6px;opacity:.7" id="i18nPrevHint">↑ Actual biodata design · PDF looks even better</div>
+        <div style="font-size:10px;color:var(--TL);text-align:center;margin-top:6px;opacity:.7" id="i18nPrevHint">↑ Actual biodata design · PDF aur bhi sundar hogi</div>
       </div>
     </div>
   </div>
@@ -2395,14 +2041,14 @@ function faqSetLang(lang){
     <div style="padding:16px;position:relative;overflow-y:auto;flex:1;min-height:0">
       <div style="position:sticky;top:0;left:0;right:0;height:0;overflow:visible;pointer-events:none;z-index:10">
         <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);pointer-events:none">
-          <div style="font-size:48px;font-weight:900;color:rgba(128,0,0,.12);white-space:nowrap;letter-spacing:4px">EasyDocuments.online PREVIEW</div>
+          <div style="font-size:48px;font-weight:900;color:rgba(128,0,0,.12);white-space:nowrap;letter-spacing:4px">HarMaalWala.com PREVIEW</div>
         </div>
       </div>
       <div id="bigPrevContent" style="transform:scale(0.72);transform-origin:top center;width:794px;margin:0 auto"></div>
     </div>
     <div style="padding:14px 20px 18px;display:flex;flex-direction:column;gap:10px;align-items:center;flex-shrink:0;background:#f5f0ea;border-top:1px solid #e0d5c5">
-      <button onclick="closeBigPreview();generateBiodataPDF()" style="all:initial;font-family:var(--f);background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;padding:14px 32px;border-radius:50px;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 4px 16px rgba(128,0,0,.3);width:100%;max-width:400px;text-align:center;display:block">✅ Remove Watermark — Download →</button>
-      <button onclick="closeBigPreview()" style="all:initial;font-family:var(--f);background:#fff;color:var(--M);border:2px solid var(--M);padding:12px 28px;border-radius:50px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 2px 8px rgba(128,0,0,.1);width:100%;max-width:400px;text-align:center;display:block">← Go Back</button>
+      <button onclick="closeBigPreview();generateBiodataPDF()" style="all:initial;font-family:var(--f);background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;padding:14px 32px;border-radius:50px;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 4px 16px rgba(128,0,0,.3);width:100%;max-width:400px;text-align:center;display:block">✅ Watermark हटाएं — Download →</button>
+      <button onclick="closeBigPreview()" style="all:initial;font-family:var(--f);background:#fff;color:var(--M);border:2px solid var(--M);padding:12px 28px;border-radius:50px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 2px 8px rgba(128,0,0,.1);width:100%;max-width:400px;text-align:center;display:block">← वापस जाएं / Go Back</button>
     </div>
   </div>
 </div>
@@ -2414,23 +2060,41 @@ function faqSetLang(lang){
 
 
 <!-- WA SHARE MODAL -->
+<div class="waov" id="waOv">
+  <div class="wabox">
+    <div class="wabox-icon">📲</div>
+    <div class="wabox-title">WhatsApp पर Share करें</div>
+    <div class="wabox-sub">जिस नंबर पर भेजना है वो डालें — PDF directly send होगी</div>
+    <input class="fi" id="waRecipient" type="tel" placeholder="10-digit Mobile Number (e.g. 98765 43210)" maxlength="13" style="width:100%;box-sizing:border-box;margin-bottom:8px">
+    <div class="wa-note" style="background:#e8f5e9;border-color:#a5d6a7;color:#2e7d32;margin-bottom:14px">
+      📌 WhatsApp उस नंबर की chat खुलेगी। Biodata image <strong>clipboard में copy</strong> होगी — chat में <strong>Paste (Ctrl+V)</strong> करके भेजें।
+    </div>
+    <div class="wabox-btns">
+      <button class="wabtn-cancel" onclick="closeWAModal()">Cancel</button>
+      <button class="wabtn-go" onclick="doWAShare()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp खोलें →
+      </button>
+    </div>
+  </div>
+</div>
 
 <!-- FEEDBACK MODAL (kept for non-EA, but EA users skip this) -->
 <div class="fbov" id="fbOv">
   <div class="fbbox">
     <div class="fbbox-icon">⭐</div>
-    <div class="fbbox-title">Quick Feedback</div>
-    <div class="fbbox-sub">Takes 2 minutes — your opinion matters a lot to us</div>
+    <div class="fbbox-title">Quick Feedback दें</div>
+    <div class="fbbox-sub">2 मिनट लगेंगे — आपकी राय हमारे लिए बहुत ज़रूरी है</div>
     <div class="fbst">
       <button class="sbtn" onclick="setR(1)">★</button><button class="sbtn" onclick="setR(2)">★</button>
       <button class="sbtn" onclick="setR(3)">★</button><button class="sbtn" onclick="setR(4)">★</button>
       <button class="sbtn" onclick="setR(5)">★</button>
     </div>
-    <textarea class="fbta" id="fbTxt" placeholder="How was your experience? Any suggestions? (min 10 characters)" maxlength="300" rows="3" oninput="chkFB()"></textarea>
+    <textarea class="fbta" id="fbTxt" placeholder="कैसा लगा? कोई सुझाव? (कम से कम 10 अक्षर)" maxlength="300" rows="3" oninput="chkFB()"></textarea>
     <div class="fbcc"><span id="fbCC">0</span>/300</div>
-    <div class="fbreq" id="fbReq">⚠️ Please rate and write at least 10 characters</div>
+    <div class="fbreq" id="fbReq">⚠️ Rating दें और कम से कम 10 अक्षर लिखें</div>
     <div class="fbbox-btns">
-      <button class="fbbtn-cancel" onclick="closeFB()">Later</button>
+      <button class="fbbtn-cancel" onclick="closeFB()">बाद में</button>
       <button class="fbbtn-go" id="fbSub" onclick="subFB()" disabled>✅ Submit &amp; Download</button>
     </div>
   </div>
@@ -2442,23 +2106,23 @@ function faqSetLang(lang){
     <div class="mhd">
       <div>
         <div style="font-size:11px;opacity:.7;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">💫 Upgrade</div>
-        <div style="font-size:18px;font-weight:800">Early Access ended</div>
+        <div style="font-size:18px;font-weight:800">Early Access खत्म हो गया</div>
       </div>
       <button class="mcl" onclick="closeUp()">✕</button>
     </div>
     <div style="padding:28px 28px 32px;text-align:center">
       <div style="font-size:52px;margin-bottom:12px">🎉</div>
-      <h3 style="font-size:22px;font-weight:800;color:var(--T);margin-bottom:8px">Special Offer for First 100 Users!</h3>
-      <p style="color:var(--TL);margin-bottom:24px;font-size:14px">Download professional PDF Biodata for just <strong style="color:var(--M);font-size:22px">₹9</strong></p>
+      <h3 style="font-size:22px;font-weight:800;color:var(--T);margin-bottom:8px">पहले 100 Users को Special Offer!</h3>
+      <p style="color:var(--TL);margin-bottom:24px;font-size:14px">सिर्फ <strong style="color:var(--M);font-size:22px">₹9</strong> में professional PDF Biodata download करें</p>
       <!-- Razorpay Payment -->
       <div style="background:linear-gradient(135deg,#f8f3ff,#ffe8f5);border:2px solid #d4af37;border-radius:16px;padding:24px;margin-bottom:20px">
         <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px">
-          <img src="https://razorpay.com/favicon.ico" width="16" height="16" alt="" style="border-radius:3px" onerror="this.style.display='none'">
+          <img src="https://razorpay.com/favicon.ico" width="16" height="16" alt="" style="border-radius:3px">
           <span style="font-size:12px;color:var(--TL)">Secured by <strong>Razorpay</strong></span>
         </div>
-        <div style="font-size:11px;color:var(--TL);margin-bottom:18px">UPI · Cards · NetBanking · Wallets — all accepted</div>
-        <button id="rzpPayBtn" onclick="openRazorpay()" style="all:initial;font-family:var(--f);background:linear-gradient(135deg,#528FF0,#2563EB);color:#fff;padding:16px 32px;border-radius:12px;font-weight:800;font-size:16px;cursor:pointer;width:100%;box-sizing:border-box;text-align:center;box-shadow:0 6px 20px rgba(37,99,235,.35)">
-          💳 Pay ₹9 — Instant Download
+        <div style="font-size:11px;color:var(--TL);margin-bottom:18px">UPI · Cards · NetBanking · Wallets — सब accept होते हैं</div>
+        <button id="rzpPayBtn" onclick="openRazorpay()" style="all:initial;font-family:var(--f);background:linear-gradient(135deg,#528FF0,#2563EB);color:#fff;padding:16px 32px;border-radius:12px;font-weight:800;font-size:16px;cursor:pointer;width:100%;box-sizing:border-box;text-align:center;box-shadow:0 6px 20px rgba(37,99,235,.35);transition:opacity .2s">
+          💳 ₹9 में Pay करें
         </button>
       </div>
       <div style="font-size:11px;color:var(--TL)">🔒 256-bit SSL · Instant access · No subscription</div>
@@ -2472,12 +2136,16 @@ function faqSetLang(lang){
   <div class="mod" style="max-width:360px;text-align:center">
     <div style="padding:36px 28px">
       <div style="font-size:56px;margin-bottom:12px">✅</div>
-      <div style="font-size:20px;font-weight:800;color:var(--M);margin-bottom:8px">PDF Ready!</div>
+      <div style="font-size:20px;font-weight:800;color:var(--M);margin-bottom:8px">PDF तैयार है!</div>
       <div style="font-size:14px;color:var(--TL);margin-bottom:20px">
-        Your Biodata PDF is downloading.<br>
-        <span style="font-size:12px;opacity:.75">Check your Downloads folder.</span>
+        आपका Biodata PDF download हो रहा है।<br>
+        <span style="font-size:12px;opacity:.75">Downloads folder check करें।</span>
       </div>
-      <button onclick="closeSuc()" style="all:unset;cursor:pointer;background:var(--M);color:#fff;padding:11px 28px;border-radius:30px;font-weight:700;font-size:14px">✅ Done, Close</button>
+      <button onclick="handleWAShare()" style="all:unset;cursor:pointer;background:#25D366;color:#fff;padding:11px 28px;border-radius:30px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px;justify-content:center;width:100%;box-sizing:border-box;margin-bottom:10px">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp पर Share करें
+      </button>
+      <button onclick="closeSuc()" style="all:unset;cursor:pointer;background:var(--M);color:#fff;padding:11px 28px;border-radius:30px;font-weight:700;font-size:14px;display:block;width:100%;box-sizing:border-box;text-align:center">✅ ठीक है, बंद करें</button>
     </div>
   </div>
 </div>
@@ -2486,22 +2154,22 @@ function faqSetLang(lang){
 <div class="pdf-loading" id="pdfLoading">
   <div style="background:rgba(255,255,255,.95);border-radius:18px;padding:36px 40px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.2)">
     <div style="font-size:40px;margin-bottom:12px">⏳</div>
-    <div style="font-size:17px;font-weight:800;color:var(--M);margin-bottom:6px">Generating PDF...</div>
-    <div style="font-size:13px;color:var(--TL)">Please wait</div>
+    <div style="font-size:17px;font-weight:800;color:var(--M);margin-bottom:6px">PDF बन रही है...</div>
+    <div style="font-size:13px;color:var(--TL)">कृपया प्रतीक्षा करें</div>
   </div>
 </div>
 
 
 <script>
 const _TPLS={
-  1:`<div class="bdr-wrap t1" id="bdTemplate"><div class="t1-wrap"><div class="t1-hdr"><div class="t1-hdr-info"><span class="t1-sym" id="bdr-om">ॐ</span><div class="t1-name" id="bdr-name">Your Name</div><div class="t1-sub" id="bdr-subtitle">विवाह बायोडाटा</div></div><div class="t1-photo" id="bdr-photo-wrap">📷</div></div><div class="t1-divider"></div><div class="t1-body"><div class="t1-sec"><div class="t1-sec-hdr" id="bdr-sec1-title">व्यक्तिगत जानकारी</div><div class="bdr-rows t1-rows" id="bdr-personal-rows"></div></div><div class="t1-sec"><div class="t1-sec-hdr" id="bdr-sec2-title">पारिवारिक जानकारी</div><div class="bdr-rows t1-rows" id="bdr-family-rows"></div></div><div class="t1-sec"><div class="t1-sec-hdr" id="bdr-sec3-title">सम्पर्क</div><div class="bdr-rows t1-rows" id="bdr-contact-rows"></div></div></div><div class="t1-footer"><div class="t1-aus" id="bdr-auspc-main">ॐ श्री गणेशाय नमः · शुभ विवाह · EasyDocuments.online</div></div></div></div>`,
+  1:`<div class="bdr-wrap t1" id="bdTemplate"><div class="t1-wrap"><div class="t1-hdr"><div class="t1-hdr-info"><span class="t1-sym" id="bdr-om">ॐ</span><div class="t1-name" id="bdr-name">Your Name</div><div class="t1-sub" id="bdr-subtitle">विवाह बायोडाटा</div></div><div class="t1-photo" id="bdr-photo-wrap">📷</div></div><div class="t1-divider"></div><div class="t1-body"><div class="t1-sec"><div class="t1-sec-hdr" id="bdr-sec1-title">व्यक्तिगत जानकारी</div><div class="bdr-rows t1-rows" id="bdr-personal-rows"></div></div><div class="t1-sec"><div class="t1-sec-hdr" id="bdr-sec2-title">पारिवारिक जानकारी</div><div class="bdr-rows t1-rows" id="bdr-family-rows"></div></div><div class="t1-sec"><div class="t1-sec-hdr" id="bdr-sec3-title">सम्पर्क</div><div class="bdr-rows t1-rows" id="bdr-contact-rows"></div></div></div><div class="t1-footer"><div class="t1-aus" id="bdr-auspc-main">ॐ श्री गणेशाय नमः · शुभ विवाह · HarMaalWala.com</div></div></div></div>`,
   2:`<div class="bdr-wrap t2" id="bdTemplate"><div class="t2-left" id="t2-left-panel"><div class="t2-photo" id="bdr-photo-wrap">📷</div><span class="t2-lsym" id="bdr-om">ॐ</span><div class="t2-lname" id="bdr-name">Your Name</div><div class="t2-lsub" id="bdr-subtitle">विवाह बायोडाटा</div><div class="t2-ldiv"></div><div class="t2-lcontact bdr-rows" id="bdr-contact-rows"></div><div class="t2-lfoot" id="bdr-auspc-main">शुभ विवाह</div></div><div class="t2-right" id="t2-right-panel"><div class="t2-rhdr"><div class="t2-rtitle" id="bdr-name-r">विवाह बायोडाटा</div></div><div class="t2-rbody"><div class="t2-pill" id="bdr-sec1-title">व्यक्तिगत जानकारी</div><div class="bdr-rows t2-rows" id="bdr-personal-rows"></div><div class="t2-pill" id="bdr-sec2-title">पारिवारिक जानकारी</div><div class="bdr-rows t2-rows" id="bdr-family-rows"></div></div></div></div>`,
   3:`<div class="bdr-wrap t3" id="bdTemplate"><div class="t3-stripe"></div><div class="t3-hdr"><div class="t3-photo" id="bdr-photo-wrap">📷</div><div class="t3-hdr-txt"><span class="t3-sym" id="bdr-om">ॐ</span><div class="t3-name" id="bdr-name">Your Name</div><div class="t3-sub" id="bdr-subtitle">विवाह बायोडाटा</div><div class="t3-deco"><div class="t3-dline"></div><span class="t3-dstar">✦</span><div class="t3-dline"></div></div></div></div><div class="t3-body"><div class="t3-grid"><div><div class="t3-sec"><div class="t3-sec-hdr" id="bdr-sec1-title">व्यक्तिगत जानकारी</div><div class="bdr-rows t3-rows" id="bdr-personal-rows"></div></div></div><div><div class="t3-sec"><div class="t3-sec-hdr" id="bdr-sec2-title">पारिवारिक जानकारी</div><div class="bdr-rows t3-rows" id="bdr-family-rows"></div><div class="t3-sec" style="margin-top:10px"><div class="t3-sec-hdr" id="bdr-sec3-title">सम्पर्क</div><div class="bdr-rows t3-rows" id="bdr-contact-rows"></div></div></div></div></div></div><div class="t3-stripe"></div><div class="t3-footer"><div class="t3-aus" id="bdr-auspc-main">ॐ श्री गणेशाय नमः · शुभ विवाह · ईश्वर की कृपा से</div></div></div>`,
   4:`<div class="bdr-wrap t4" id="bdTemplate"><div class="t4-hero"><div class="t4-htxt"><span class="t4-sym" id="bdr-om">ॐ</span><div class="t4-name" id="bdr-name">Your Name</div><div class="t4-sub" id="bdr-subtitle">विवाह बायोडाटा</div></div><div class="t4-photo" id="bdr-photo-wrap">📷</div></div><div class="t4-body"><div class="t4-card"><div class="t4-chdr"><div class="t4-ctitle" id="bdr-sec1-title">व्यक्तिगत जानकारी</div></div><div class="t4-cbody"><div class="bdr-rows t4-rows" id="bdr-personal-rows"></div></div></div><div class="t4-card"><div class="t4-chdr"><div class="t4-ctitle" id="bdr-sec2-title">पारिवारिक जानकारी</div></div><div class="t4-cbody"><div class="bdr-rows t4-rows" id="bdr-family-rows"></div></div></div><div class="t4-card"><div class="t4-chdr"><div class="t4-ctitle" id="bdr-sec3-title">सम्पर्क जानकारी</div></div><div class="t4-cbody"><div class="bdr-rows t4-rows" id="bdr-contact-rows"></div></div></div></div><div class="t4-footer"><div class="t4-aus" id="bdr-auspc-main">ॐ श्री गणेशाय नमः · शुभ विवाह · ईश्वर की कृपा से</div></div></div>`,
-  5:`<div class="bdr-wrap t5" id="bdTemplate"><div class="t5-topbar"></div><div class="t5-hdr"><div class="t5-hdrl"><span class="t5-sym" id="bdr-om">ॐ</span><div class="t5-name" id="bdr-name">Your Name</div><div class="t5-sub" id="bdr-subtitle">VIVAH BIODATA</div></div><div class="t5-photo" id="bdr-photo-wrap">📷</div></div><div class="t5-body"><div class="t5-sec"><div class="t5-sec-hdr" id="bdr-sec1-title">Personal Details</div><div class="t5-2col"><div class="bdr-rows t5-rows" id="bdr-personal-rows"></div></div></div><div class="t5-sec"><div class="t5-sec-hdr" id="bdr-sec2-title">Family Details</div><div class="t5-2col"><div class="bdr-rows t5-rows" id="bdr-family-rows"></div></div></div><div class="t5-sec"><div class="t5-sec-hdr" id="bdr-sec3-title">Contact</div><div class="bdr-rows t5-full" id="bdr-contact-rows"></div></div></div><div class="t5-footer"><div class="t5-frule"></div><div class="t5-aus" id="bdr-auspc-main">ॐ श्री गणेशाय नमः · शुभ विवाह · EasyDocuments.online</div><div class="t5-frule"></div></div></div>`,
+  5:`<div class="bdr-wrap t5" id="bdTemplate"><div class="t5-topbar"></div><div class="t5-hdr"><div class="t5-hdrl"><span class="t5-sym" id="bdr-om">ॐ</span><div class="t5-name" id="bdr-name">Your Name</div><div class="t5-sub" id="bdr-subtitle">VIVAH BIODATA</div></div><div class="t5-photo" id="bdr-photo-wrap">📷</div></div><div class="t5-body"><div class="t5-sec"><div class="t5-sec-hdr" id="bdr-sec1-title">Personal Details</div><div class="t5-2col"><div class="bdr-rows t5-rows" id="bdr-personal-rows"></div></div></div><div class="t5-sec"><div class="t5-sec-hdr" id="bdr-sec2-title">Family Details</div><div class="t5-2col"><div class="bdr-rows t5-rows" id="bdr-family-rows"></div></div></div><div class="t5-sec"><div class="t5-sec-hdr" id="bdr-sec3-title">Contact</div><div class="bdr-rows t5-full" id="bdr-contact-rows"></div></div></div><div class="t5-footer"><div class="t5-frule"></div><div class="t5-aus" id="bdr-auspc-main">ॐ श्री गणेशाय नमः · शुभ विवाह · HarMaalWala.com</div><div class="t5-frule"></div></div></div>`,
   6:`<div class="bdr-wrap t6" id="bdTemplate"><div class="t6-hdr"><div class="t6-orn"><div class="t6-oline"></div><span class="t6-osym" id="bdr-om">ॐ</span><div class="t6-oline"></div></div><div class="t6-arch-row"><div class="t6-photo" id="bdr-photo-wrap">📷</div><div class="t6-arch-txt"><div class="t6-name" id="bdr-name">Your Name</div><div class="t6-sub" id="bdr-subtitle">विवाह बायोडाटा</div></div></div></div><div class="t6-body"><div class="t6-sec"><div class="t6-shdr"><div class="t6-sline"></div><span class="t6-slabel" id="bdr-sec1-title">व्यक्तिगत जानकारी</span><div class="t6-sline"></div></div><div class="bdr-rows t6-rows" id="bdr-personal-rows"></div></div><div class="t6-sec"><div class="t6-shdr"><div class="t6-sline"></div><span class="t6-slabel" id="bdr-sec2-title">पारिवारिक जानकारी</span><div class="t6-sline"></div></div><div class="bdr-rows t6-rows" id="bdr-family-rows"></div></div><div class="t6-sec"><div class="t6-shdr"><div class="t6-sline"></div><span class="t6-slabel" id="bdr-sec3-title">सम्पर्क</span><div class="t6-sline"></div></div><div class="bdr-rows t6-rows" id="bdr-contact-rows"></div></div></div><div class="t6-footer"><div class="t6-aus" id="bdr-auspc-main">ॐ श्री गणेशाय नमः · शुभ विवाह · ईश्वर की कृपा से</div></div></div>`,
   7:`<div class="bdr-wrap t7" id="bdTemplate"><div class="t7-border"></div><div class="t7-corner tl">❧</div><div class="t7-corner tr">❧</div><div class="t7-corner bl">❧</div><div class="t7-corner br">❧</div><div class="t7-top"><div class="t7-tdeco"><div class="t7-tline"></div><span class="t7-tsym" id="bdr-om">ॐ</span><div class="t7-tline"></div></div><div class="t7-ring"><div class="t7-photo" id="bdr-photo-wrap">📷</div></div><div class="t7-name" id="bdr-name">Your Name</div><div class="t7-sub" id="bdr-subtitle">विवाह बायोडाटा</div></div><div class="t7-body"><div class="t7-div"><div class="t7-dline"></div><div class="t7-ddot"></div><div class="t7-dline"></div></div><div class="t7-shdr" id="bdr-sec1-title">व्यक्तिगत जानकारी</div><div class="bdr-rows t7-rows" id="bdr-personal-rows"></div><div class="t7-div"><div class="t7-dline"></div><div class="t7-ddot"></div><div class="t7-dline"></div></div><div class="t7-shdr" id="bdr-sec2-title">पारिवारिक जानकारी</div><div class="bdr-rows t7-rows" id="bdr-family-rows"></div><div class="t7-div"><div class="t7-dline"></div><div class="t7-ddot"></div><div class="t7-dline"></div></div><div class="t7-shdr" id="bdr-sec3-title">सम्पर्क</div><div class="bdr-rows t7-rows" id="bdr-contact-rows"></div></div><div class="t7-footer"><div class="t7-aus" id="bdr-auspc-main">ॐ श्री गणेशाय नमः · शुभ विवाह · ईश्वर की कृपा से</div></div></div>`,
-  8:`<div class="bdr-wrap t8" id="bdTemplate"><div class="t8-banner" id="t8-banner"></div><div class="t8-banner-overlay"><div class="t8-strip-txt"><div class="t8-name" id="bdr-name">Your Name</div><div class="t8-sub" id="bdr-subtitle">विवाह बायोडाटा</div></div></div><div id="bdr-photo-wrap" style="display:none"></div><div class="t8-masthead"><span class="t8-mh-sym" id="bdr-om">ॐ</span><span class="t8-mh-site">EasyDocuments.online</span></div><div class="t8-rule"></div><div class="t8-dp-strip" id="t8-dp-strip"><div class="t8-dp" id="t8-dp"></div><div class="t8-dp-meta"><div class="t8-dp-name" id="t8-dp-name">Your Name</div><div class="t8-dp-sub" id="t8-dp-sub">विवाह बायोडाटा</div></div></div><div class="t8-cols"><div class="t8-col"><div class="t8-shdr" id="bdr-sec1-title">व्यक्तिगत जानकारी</div><div class="bdr-rows t8-rows" id="bdr-personal-rows"></div><div class="t8-shdr" id="bdr-sec3-title">सम्पर्क</div><div class="bdr-rows t8-rows" id="bdr-contact-rows"></div></div><div class="t8-col"><div class="t8-shdr" id="bdr-sec2-title">पारिवारिक जानकारी</div><div class="bdr-rows t8-rows" id="bdr-family-rows"></div></div></div><div class="t8-footer"><div class="t8-aus" id="bdr-auspc-main">ॐ श्री गणेशाय नमः · शुभ विवाह · ईश्वर की कृपा से</div></div></div>`,
+  8:`<div class="bdr-wrap t8" id="bdTemplate"><div class="t8-banner" id="t8-banner"></div><div class="t8-banner-overlay"><div class="t8-strip-txt"><div class="t8-name" id="bdr-name">Your Name</div><div class="t8-sub" id="bdr-subtitle">विवाह बायोडाटा</div></div></div><div id="bdr-photo-wrap" style="display:none"></div><div class="t8-masthead"><span class="t8-mh-sym" id="bdr-om">ॐ</span><span class="t8-mh-site">HarMaalWala.com</span></div><div class="t8-rule"></div><div class="t8-dp-strip" id="t8-dp-strip"><div class="t8-dp" id="t8-dp"></div><div class="t8-dp-meta"><div class="t8-dp-name" id="t8-dp-name">Your Name</div><div class="t8-dp-sub" id="t8-dp-sub">विवाह बायोडाटा</div></div></div><div class="t8-cols"><div class="t8-col"><div class="t8-shdr" id="bdr-sec1-title">व्यक्तिगत जानकारी</div><div class="bdr-rows t8-rows" id="bdr-personal-rows"></div><div class="t8-shdr" id="bdr-sec3-title">सम्पर्क</div><div class="bdr-rows t8-rows" id="bdr-contact-rows"></div></div><div class="t8-col"><div class="t8-shdr" id="bdr-sec2-title">पारिवारिक जानकारी</div><div class="bdr-rows t8-rows" id="bdr-family-rows"></div></div></div><div class="t8-footer"><div class="t8-aus" id="bdr-auspc-main">ॐ श्री गणेशाय नमः · शुभ विवाह · ईश्वर की कृपा से</div></div></div>`,
 };
 
 
@@ -2518,390 +2186,28 @@ const S={
   get:k=>{try{return JSON.parse(localStorage.getItem('hw_'+k))}catch(e){return null}}
 };
 
-/* ══════════════════════════════════════════════════════════════════
-   OFFER CONFIGURATION — v2.8 modular pricing/offer system
-   ──────────────────────────────────────────────────────────────────
-   To switch offer modes, edit OFFER_DEFAULTS below OR call from
-   browser console:
-     OfferAdmin.setMode('free')   // Free Early Access mode
-     OfferAdmin.setMode('mixed')  // Discounted launch (₹9 was ₹49)
-     OfferAdmin.setMode('paid')   // Regular paid mode (no offer)
-     OfferAdmin.setFreeSpots(50)  // Change free-tier capacity
-     OfferAdmin.setPrice(19)      // Set current price
-     OfferAdmin.setRegPrice(49)   // Set regular (strikethrough) price
-     OfferAdmin.reset()           // Restore code defaults
-     OfferAdmin.status()          // Print current config
-   Console overrides persist in localStorage under hw_offerOverride.
-══════════════════════════════════════════════════════════════════ */
+const MAX=100;
 
-const OFFER_DEFAULTS = {
-  mode: 'paid',         // 'free' | 'mixed' | 'paid'
-  freeSpots: 100,       // free tier capacity (mode='free' only)
-  price: 9,             // current charging price (mode='mixed'|'paid')
-  regularPrice: 49,     // strike-through "was" price (mode='mixed' only)
-  currency: '₹',
-  brandName: 'EasyDocuments',
-  upiId: 'csmahori@okhdfcbank',
-  supportNumber: '919677344874',  // WhatsApp support (no +, no spaces)
-  // Optional copy overrides — leave '' to use auto-generated copy
-  bannerHeadlineHi: '',
-  bannerHeadlineEn: '',
-};
+function getUsed(){return S.get('used')||0}
 
-const OFFER_CONFIG = (function buildConfig(){
-  // Allow localStorage to override defaults so admin can toggle at runtime.
-  const override = S.get('offerOverride') || {};
-  return Object.assign({}, OFFER_DEFAULTS, override);
-})();
+function isEA(){return getUsed()<MAX}
 
-/* ── Helper: get remaining free slots (only meaningful in 'free' mode) ── */
-function getUsed(){return S.get('used')||0;}
-function getRemaining(){return Math.max(0, OFFER_CONFIG.freeSpots - getUsed());}
+function consume(){S.set('used',getUsed()+1);updSlots()}
 
-/* ── Is the user currently entitled to a FREE download? ── */
-function isEA(){
-  return OFFER_CONFIG.mode === 'free' && getRemaining() > 0;
+function updSlots(){
+  const used=getUsed(),left=Math.max(0,MAX-used),pct=Math.min(100,(used/MAX)*100);
+  const fil=document.getElementById('sfil');
+  const txt=document.getElementById('stxt');
+  const sp=document.getElementById('spotsLeft');
+  if(fil) fil.style.width=pct+'%';
+  if(txt) txt.innerHTML=left>0
+    ?'<strong style="color:var(--GR)">'+left+' spots remaining</strong> — अभी join करें, download FREE है!'
+    :'<strong style="color:var(--M)">Early Access भर गया</strong> — अब ₹49 per download';
+  if(sp) sp.textContent=left>0?'⚡ '+left+' spots left':'🔒 Full';
+  const banner=document.getElementById('banner');
+  if(banner && left===0) banner.style.display='none';
 }
-
-/* ── Consume one free slot (called on successful FREE download) ── */
-function consume(){
-  if(OFFER_CONFIG.mode !== 'free') return;
-  S.set('used', getUsed()+1);
-  OfferUI.apply();
-}
-
-/* ──────────────────────────────────────────────────────────────────
-   OfferUI — Applies the current OFFER_CONFIG to every DOM surface.
-   Call OfferUI.apply() whenever config changes; also runs once at load.
-─────────────────────────────────────────────────────────────────── */
-const OfferUI = {
-  apply(){
-    const c = OFFER_CONFIG;
-    const mode = c.mode;
-    const left = getRemaining();
-    const sym = c.currency;
-
-    // ── 1. Top banner ──
-    const banner = document.getElementById('banner');
-    const bannerTxt = document.querySelector('#banner .banner-txt');
-    const spotsLeft = document.getElementById('spotsLeft');
-    if(banner){
-      if(mode === 'free' && left > 0){
-        banner.style.display = '';
-        if(bannerTxt){
-          bannerTxt.innerHTML = c.bannerHeadlineHi
-            || '🎉 Early Access: First ' + c.freeSpots + ' users get <strong>FREE PDF download!</strong>';
-        }
-        if(spotsLeft) spotsLeft.textContent = '⚡ ' + left + ' spots left';
-      } else if(mode === 'mixed'){
-        banner.style.display = '';
-        if(bannerTxt){
-          bannerTxt.innerHTML = '🚀 Launch Offer: just <strong>' + sym + c.price
-            + '</strong> PDF Download <span style="text-decoration:line-through;opacity:.7">'
-            + sym + c.regularPrice + '</span>';
-        }
-        if(spotsLeft) spotsLeft.textContent = '💫 Limited time';
-        const navEl = document.querySelector('.nav');
-        if(navEl) navEl.style.top = '42px';
-      } else {
-        // 'paid' mode OR free-with-zero-spots: hide banner, move nav to top
-        banner.style.display = 'none';
-        const nav=document.querySelector('.nav');
-        if(nav) nav.style.top='0px';
-        const hero=document.querySelector('.hero');
-        if(hero) hero.style.paddingTop='66px';
-      }
-    }
-
-    // ── 2. Hero slots bar ──
-    const stxt = document.getElementById('stxt');
-    const sfil = document.getElementById('sfil');
-    if(stxt){
-      if(mode === 'free' && left > 0){
-        stxt.innerHTML = '<strong style="color:var(--GR)">' + left
-          + ' spots remaining</strong> — join now, download is FREE!';
-      } else if(mode === 'free' && left === 0){
-        stxt.innerHTML = '<strong style="color:var(--M)">Early Access full</strong> — now '
-          + sym + c.price + ' per download';
-      } else if(mode === 'mixed'){
-        stxt.innerHTML = '<strong style="color:var(--M)">Launch Offer Active</strong> — just '
-          + sym + c.price + ' (regular ' + sym + c.regularPrice + ')';
-      } else {
-        stxt.innerHTML = 'Professional Biodata Maker — just <strong>' + sym + c.price + '</strong> to download';
-      }
-    }
-    if(sfil){
-      if(mode === 'free'){
-        const pct = Math.min(100, (getUsed()/c.freeSpots)*100);
-        sfil.style.width = pct + '%';
-        sfil.parentElement.style.display = '';
-      } else {
-        // Hide the slots-progress track entirely in non-free modes
-        if(sfil.parentElement) sfil.parentElement.style.display = 'none';
-      }
-    }
-
-    // ── 3a. Hero headline sub-text ──
-    const heroSub = document.getElementById('heroSub');
-    if(heroSub){
-      if(mode === 'free' && left > 0) heroSub.textContent = 'in minutes — absolutely FREE!';
-      else if(mode === 'mixed')       heroSub.textContent = 'in minutes — just ' + sym + c.price + '!';
-      else                            heroSub.textContent = 'in minutes — just ' + sym + c.price + '!';
-    }
-
-    // ── 3. Services card pricing chip + footer pricing ──
-    const sbadge = document.querySelector('.scard .sbdg.bdf');
-    if(sbadge){
-      sbadge.textContent = (mode === 'free' && left > 0) ? 'FREE Early Access'
-                         : (mode === 'mixed') ? '🚀 Launch Offer'
-                         : 'Affordable Pricing';
-    }
-    const spt = document.querySelector('.scard .spr .pt');
-    const spv = document.querySelector('.scard .spr .pv');
-    const spn = document.querySelector('.scard .spr .pn');
-    if(spt && spv && spn){
-      if(mode === 'free' && left > 0){
-        spt.textContent = '🎁 First ' + c.freeSpots + ' Users';
-        spv.innerHTML = '<sup>' + sym + '</sup>0';
-        spn.textContent = 'then ' + sym + c.regularPrice + ' per download';
-      } else if(mode === 'mixed'){
-        spt.textContent = '🚀 Launch Offer';
-        spv.innerHTML = '<sup>' + sym + '</sup>' + c.price;
-        spn.innerHTML = '<span style="text-decoration:line-through;opacity:.7">'+sym+c.regularPrice+'</span> per download';
-      } else {
-        spt.textContent = '💼 Standard Price';
-        spv.innerHTML = '<sup>' + sym + '</sup>' + c.price;
-        spn.textContent = 'per download · one-time';
-      }
-    }
-
-    // ── 4. Pricing section: show/hide the Early Access card ──
-    const eaCard = document.querySelector('#pricing .pcard.feat');
-    const stdCard = document.querySelector('#pricing .pcard.rd2');
-    if(eaCard){
-      if(mode === 'free'){
-        eaCard.style.display = '';
-        const phd = eaCard.querySelector('.phd');
-        const amt = eaCard.querySelector('.pamt');
-        if(phd) phd.textContent = 'Absolutely FREE for first ' + c.freeSpots + ' users';
-        if(amt) amt.innerHTML = '<sup>' + sym + '</sup>0';
-      } else {
-        eaCard.style.display = 'none';
-      }
-    }
-    if(stdCard){
-      // In 'free' mode: Standard card is shown as a "what comes after"
-      // In 'mixed' mode: Standard card is the launch offer (₹9 with strike)
-      // In 'paid' mode: Standard card is the only card, centered, plain price
-      const phd = stdCard.querySelector('.phd');
-      const amt = stdCard.querySelector('.pamt');
-      const per = stdCard.querySelector('.pper');
-      if(mode === 'free'){
-        if(phd) phd.textContent = 'After Early Access';
-        if(amt) amt.innerHTML = '<sup>'+sym+'</sup>' + c.regularPrice;
-        if(per) per.textContent = 'per download · one-time';
-        stdCard.style.maxWidth = '';
-        stdCard.style.margin = '';
-      } else if(mode === 'mixed'){
-        if(phd) phd.textContent = '🚀 Launch Offer (limited time)';
-        if(amt) amt.innerHTML = '<sup>'+sym+'</sup>' + c.price
-          + ' <span style="font-size:18px;font-weight:500;color:var(--TL);text-decoration:line-through;margin-left:4px">'
-          + sym + c.regularPrice + '</span>';
-        if(per) per.textContent = 'per download · launch offer (limited time)';
-        stdCard.style.maxWidth = '420px';
-        stdCard.style.margin = '0 auto';
-      } else {
-        if(phd) phd.textContent = 'Professional Biodata Maker';
-        if(amt) amt.innerHTML = 'from <sup>'+sym+'</sup>9 <span style="font-size:16px;font-weight:500;color:var(--TL)">– '+sym+'49</span>';
-        if(per) per.textContent = sym+'9–'+sym+'49 · one-time · based on design chosen';
-        stdCard.style.maxWidth = '420px';
-        stdCard.style.margin = '0 auto';
-      }
-    }
-
-    // ── 5. Step-3 download area ──
-    const eaArea = document.getElementById('eaDownloadArea');
-    const paidArea = document.getElementById('paidDownloadArea');
-    const slotsRem = document.getElementById('slotsRem');
-    const isFreeForUser = isEA();
-    if(eaArea) eaArea.style.display = isFreeForUser ? 'block' : 'none';
-    if(paidArea){
-      paidArea.style.display = isFreeForUser ? 'none' : 'block';
-      // Update the paid-area inner copy according to mode
-      const titleEl = paidArea.querySelector('div > div:nth-child(1)');
-      const priceEl = paidArea.querySelector('div > div:nth-child(2)');
-      const noteEl  = paidArea.querySelector('div > div:nth-child(3)');
-      const btn     = paidArea.querySelector('button.bfdl');
-      if(mode === 'mixed'){
-        if(titleEl) titleEl.textContent = '🚀 Launch Offer Active';
-        if(priceEl) priceEl.innerHTML = sym + c.price
-          + ' <span style="font-size:13px;font-weight:400;color:var(--TL);text-decoration:line-through">'
-          + sym + c.regularPrice + '</span>';
-        if(noteEl) noteEl.textContent = 'Limited time offer';
-        if(btn) btn.innerHTML = '💳 Pay ' + sym + c.price + ' &amp; Download →';
-      } else if(mode === 'paid'){
-        if(titleEl) titleEl.textContent = 'Professional PDF';
-        if(priceEl) priceEl.innerHTML = sym + c.price;
-        if(noteEl) noteEl.textContent = 'Instant download · No subscription';
-        if(btn) btn.innerHTML = '💳 Pay ' + sym + c.price + ' &amp; Download →';
-      } else {
-        // mode='free' but spots exhausted
-        if(titleEl) titleEl.textContent = 'Early Access ended';
-        if(priceEl) priceEl.innerHTML = sym + c.price
-          + ' <span style="font-size:13px;font-weight:400;color:var(--TL);text-decoration:line-through">'
-          + sym + c.regularPrice + '</span>';
-        if(noteEl) noteEl.textContent = 'Special price for first ' + c.freeSpots + ' users';
-        if(btn) btn.innerHTML = '💳 Pay ' + sym + c.price + ' &amp; Download →';
-      }
-    }
-    if(slotsRem){
-      if(isFreeForUser){
-        slotsRem.textContent = (bLang==='en')
-          ? left + ' Free spots remaining — hurry!'
-          : left + ' Free spots remaining — hurry!';
-      } else if(mode === 'mixed'){
-        slotsRem.textContent = (bLang==='en')
-          ? 'Launch offer: ' + sym + c.price + ' (regular ' + sym + c.regularPrice + ')'
-          : 'Launch offer: just ' + sym + c.price + ' (regular ' + sym + c.regularPrice + ')';
-      } else {
-        slotsRem.textContent = (bLang==='en')
-          ? 'Professional PDF for just ' + sym + c.price
-          : 'Professional PDF for just ' + sym + c.price;
-      }
-    }
-
-    // ── 6. Upgrade modal ──
-    const upTitle = document.querySelector('#upOv .mhd > div > div:nth-child(2)');
-    const upHeadline = document.querySelector('#upOv h3');
-    const upPara = document.querySelector('#upOv h3 + p');
-    if(upTitle && upHeadline && upPara){
-      if(mode === 'free'){
-        upTitle.textContent = 'Early Access ended';
-        upHeadline.textContent = 'Special Offer for First ' + c.freeSpots + ' Users!';
-      } else if(mode === 'mixed'){
-        upTitle.textContent = '🚀 Launch Offer';
-        upHeadline.textContent = 'Download for just ' + sym + c.price + '!';
-      } else {
-        upTitle.textContent = 'Download Your PDF';
-        upHeadline.textContent = 'Professional Biodata PDF';
-      }
-      upPara.innerHTML = (mode === 'mixed')
-        ? 'Download professional PDF Biodata for just <strong style="color:var(--M);font-size:22px">'+sym+c.price+'</strong> <span style="font-size:13px;color:var(--TL);text-decoration:line-through">'+sym+c.regularPrice+'</span>'
-        : 'Download professional PDF Biodata for just <strong style="color:var(--M);font-size:22px">'+sym+c.price+'</strong>';
-      // Sync the Razorpay button label with the actual price
-      const rzpBtn = document.getElementById('rzpPayBtn');
-      if(rzpBtn) rzpBtn.innerHTML = '💳 Pay ' + sym + c.price + ' — Instant Download';
-    }
-
-    // ── 7. UPI QR (regenerate so amount in the deeplink matches new price) ──
-    const qr = document.getElementById('upiQRImg');
-    if(qr){
-      const upiUrl = 'upi://pay?pa=' + encodeURIComponent(c.upiId)
-        + '&pn=' + encodeURIComponent(c.brandName)
-        + '&am=' + c.price.toFixed(2)
-        + '&cu=INR&tn=' + encodeURIComponent('Biodata PDF');
-      qr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=160x160&margin=2&data='
-        + encodeURIComponent(upiUrl);
-    }
-    const upiDisplay = document.getElementById('upiIdDisplay');
-    if(upiDisplay) upiDisplay.textContent = c.upiId;
-    // Amount text inside the UPI block
-    const amtTexts = document.querySelectorAll('#upOv [data-amt]');
-    amtTexts.forEach(el => el.innerHTML = el.getAttribute('data-amt').replace(/\{amt\}/g, sym + c.price));
-
-    // ── 8. Footer / support number ──
-    const paySupport = document.getElementById('paySupportNum');
-    if(paySupport){
-      const n = c.supportNumber;
-      const formatted = n.length >= 12
-        ? '+' + n.slice(0,2) + ' ' + n.slice(2,7) + ' ' + n.slice(7)
-        : n;
-      paySupport.textContent = formatted;
-    }
-  },
-
-  /* Save current paid transaction record (called by confirmPayment) */
-  recordPayment(utr){
-    S.set('paid', {utr: utr, ts: Date.now(), amt: OFFER_CONFIG.price, mode: OFFER_CONFIG.mode});
-  },
-};
-
-/* ──────────────────────────────────────────────────────────────────
-   OfferAdmin — Console API for switching offer modes at runtime.
-─────────────────────────────────────────────────────────────────── */
-const OfferAdmin = {
-  _save(){
-    const o = {};
-    ['mode','freeSpots','price','regularPrice','currency','brandName','upiId','supportNumber',
-     'bannerHeadlineHi','bannerHeadlineEn'].forEach(k => o[k] = OFFER_CONFIG[k]);
-    S.set('offerOverride', o);
-  },
-  setMode(mode){
-    if(!['free','mixed','paid'].includes(mode)){
-      console.error('[OfferAdmin] Invalid mode. Use: free | mixed | paid');
-      return;
-    }
-    OFFER_CONFIG.mode = mode;
-    this._save(); OfferUI.apply();
-    console.log('[OfferAdmin] Mode →', mode); this.status();
-  },
-  setFreeSpots(n){
-    n = parseInt(n, 10);
-    if(isNaN(n) || n < 0){ console.error('[OfferAdmin] Bad number'); return; }
-    OFFER_CONFIG.freeSpots = n;
-    this._save(); OfferUI.apply();
-    console.log('[OfferAdmin] Free spots →', n);
-  },
-  setPrice(p){
-    p = parseFloat(p);
-    if(isNaN(p) || p < 0){ console.error('[OfferAdmin] Bad price'); return; }
-    OFFER_CONFIG.price = p;
-    this._save(); OfferUI.apply();
-    console.log('[OfferAdmin] Price →', OFFER_CONFIG.currency + p);
-  },
-  setRegPrice(p){
-    p = parseFloat(p);
-    if(isNaN(p) || p < 0){ console.error('[OfferAdmin] Bad price'); return; }
-    OFFER_CONFIG.regularPrice = p;
-    this._save(); OfferUI.apply();
-    console.log('[OfferAdmin] Regular price →', OFFER_CONFIG.currency + p);
-  },
-  resetUsedCount(){
-    S.set('used', 0);
-    OfferUI.apply();
-    console.log('[OfferAdmin] Free-tier usage reset to 0');
-  },
-  reset(){
-    localStorage.removeItem('hw_offerOverride');
-    ['mode','freeSpots','price','regularPrice','currency','brandName','upiId','supportNumber',
-     'bannerHeadlineHi','bannerHeadlineEn'].forEach(k => OFFER_CONFIG[k] = OFFER_DEFAULTS[k]);
-    OfferUI.apply();
-    console.log('[OfferAdmin] Reset to code defaults'); this.status();
-  },
-  status(){
-    console.table({
-      mode: OFFER_CONFIG.mode,
-      price: OFFER_CONFIG.currency + OFFER_CONFIG.price,
-      regularPrice: OFFER_CONFIG.currency + OFFER_CONFIG.regularPrice,
-      freeSpots: OFFER_CONFIG.freeSpots,
-      used: getUsed(),
-      remaining: getRemaining(),
-      isEA: isEA(),
-    });
-  },
-};
-// Expose to console
-if(typeof window !== 'undefined'){
-  window.OfferAdmin = OfferAdmin;
-  window.OFFER_CONFIG = OFFER_CONFIG;
-}
-
-/* ── Legacy compatibility — keep MAX symbol pointing at config.freeSpots ── */
-const MAX = OFFER_CONFIG.freeSpots;
-
-/* ── Replace legacy updSlots() with a thin wrapper around OfferUI.apply() ── */
-function updSlots(){ OfferUI.apply(); }
-
+updSlots();
 
 /* ── MODALS ── */
 
@@ -2963,18 +2269,6 @@ const BT_META={
   8:{name:'Magazine Style',   icon:'📰',cls:'t8',sub:'Photo strip · Editorial',primaryHex:'#212121',bgHex:'#fffef9'},
 };
 
-
-/* ══════════════════════════════════════════════════════
-   TEMPLATE PRICING — per-template price in paid/mixed mode
-   1=₹9 Basic, 2=₹29 Popular, 3-5=₹19 Standard, 6-7=₹29 Premium, 8=₹49 Luxury
-══════════════════════════════════════════════════════ */
-const TPL_PRICE = {1:9, 2:29, 3:19, 4:19, 5:19, 6:29, 7:29, 8:49};
-
-function applyTplPrice(n){
-  if(OFFER_CONFIG.mode === 'free') return; // free mode — price irrelevant
-  OFFER_CONFIG.price = TPL_PRICE[n] || OFFER_DEFAULTS.price;
-  OfferUI.apply();
-}
 
 /* ══════════════════════════════════════════════════════
    COLOR THEMES
@@ -3047,31 +2341,6 @@ const VAL_I18N={
   'Uncle (चाचा / मामा)'                   :{hi:'चाचा / मामा',                     en:'Uncle',                       bi:'Uncle | चाचा / मामा'},
   'Guardian (अभिभावक)'                     :{hi:'अभिभावक',                         en:'Guardian',                    bi:'Guardian | अभिभावक'},
   'Self (स्वयं)'                           :{hi:'स्वयं',                           en:'Self',                        bi:'Self | स्वयं'},
-
-  // ── Education ──
-  '10th Pass (Matric)'      :{hi:'हाई स्कूल (10वीं)',          en:'10th Pass (Matric)',       bi:'10th | हाई स्कूल (10वीं)'},
-  '12th Pass (Intermediate)':{hi:'इंटरमीडिएट (12वीं)',         en:'12th Pass (Intermediate)', bi:'12th | इंटरमीडिएट (12वीं)'},
-  'B.A.'                    :{hi:'बी.ए.',                       en:'B.A.',                     bi:'B.A. | बी.ए.'},
-  'B.Sc.'                   :{hi:'बी.एससी.',                    en:'B.Sc.',                    bi:'B.Sc. | बी.एससी.'},
-  'B.Com'                   :{hi:'बी.कॉम',                      en:'B.Com',                    bi:'B.Com | बी.कॉम'},
-  'B.Tech / B.E.'           :{hi:'बी.टेक / बी.ई.',              en:'B.Tech / B.E.',            bi:'B.Tech | बी.टेक'},
-  'BBA'                     :{hi:'बीबीए',                       en:'BBA',                      bi:'BBA | बीबीए'},
-  'BCA'                     :{hi:'बीसीए',                       en:'BCA',                      bi:'BCA | बीसीए'},
-  'B.Ed'                    :{hi:'बी.एड',                       en:'B.Ed',                     bi:'B.Ed | बी.एड'},
-  'MBBS'                    :{hi:'एमबीबीएस',                    en:'MBBS',                     bi:'MBBS | एमबीबीएस'},
-  'B.Pharma'                :{hi:'बी.फार्मा',                   en:'B.Pharma',                 bi:'B.Pharma | बी.फार्मा'},
-  'LLB'                     :{hi:'एलएलबी',                      en:'LLB',                      bi:'LLB | एलएलबी'},
-  'M.A.'                    :{hi:'एम.ए.',                       en:'M.A.',                     bi:'M.A. | एम.ए.'},
-  'M.Sc.'                   :{hi:'एम.एससी.',                    en:'M.Sc.',                    bi:'M.Sc. | एम.एससी.'},
-  'M.Com'                   :{hi:'एम.कॉम',                      en:'M.Com',                    bi:'M.Com | एम.कॉम'},
-  'M.Tech / M.E.'           :{hi:'एम.टेक / एम.ई.',              en:'M.Tech / M.E.',            bi:'M.Tech | एम.टेक'},
-  'MBA'                     :{hi:'एमबीए',                       en:'MBA',                      bi:'MBA | एमबीए'},
-  'MCA'                     :{hi:'एमसीए',                       en:'MCA',                      bi:'MCA | एमसीए'},
-  'M.Ed'                    :{hi:'एम.एड',                       en:'M.Ed',                     bi:'M.Ed | एम.एड'},
-  'MD / MS (Medical)'       :{hi:'एमडी / एमएस (मेडिकल)',        en:'MD / MS (Medical)',        bi:'MD/MS | एमडी/एमएस'},
-  'LLM'                     :{hi:'एलएलएम',                      en:'LLM',                      bi:'LLM | एलएलएम'},
-  'Diploma / ITI'           :{hi:'डिप्लोमा / आईटीआई',           en:'Diploma / ITI',            bi:'Diploma | डिप्लोमा'},
-  'PhD / Doctorate'         :{hi:'पीएचडी / डॉक्टरेट',           en:'PhD / Doctorate',          bi:'PhD | पीएचडी'},
 
   // ── States & Union Territories ──
   'Andhra Pradesh'    :{hi:'आंध्र प्रदेश',     en:'Andhra Pradesh',     bi:'Andhra Pradesh | आंध्र प्रदेश'},
@@ -3162,71 +2431,6 @@ const CITY_I18N = {
   'Sonipat':'सोनीपत','Patiala':'पटियाला','Jalandhar':'जालंधर','Sirsa':'सिरसा','Rewari':'रेवाड़ी',
 };
 
-/* Word-level maps for free-text community / rashi fields */
-const COMMUNITY_MAP={
-  'Hindu':'हिन्दू','Muslim':'मुस्लिम','Christian':'ईसाई','Sikh':'सिख',
-  'Jain':'जैन','Buddhist':'बौद्ध','Parsi':'पारसी',
-  'Brahmin':'ब्राह्मण','Rajput':'राजपूत','Agarwal':'अग्रवाल','Aggarwal':'अग्रवाल',
-  'Kshatriya':'क्षत्रिय','Vaishya':'वैश्य','Kayastha':'कायस्थ',
-  'Maratha':'मराठा','Bania':'बनिया','Baniya':'बनिया','Gupta':'गुप्ता',
-  'General':'सामान्य','OBC':'ओबीसी','SC':'एससी','ST':'एसटी'
-};
-const COMMUNITY_REVERSE={
-  'हिन्दू':'Hindu','मुस्लिम':'Muslim','ईसाई':'Christian','सिख':'Sikh',
-  'जैन':'Jain','बौद्ध':'Buddhist','पारसी':'Parsi',
-  'ब्राह्मण':'Brahmin','राजपूत':'Rajput','अग्रवाल':'Agarwal',
-  'क्षत्रिय':'Kshatriya','वैश्य':'Vaishya','कायस्थ':'Kayastha',
-  'मराठा':'Maratha','बनिया':'Bania','गुप्ता':'Gupta',
-  'सामान्य':'General','ओबीसी':'OBC','एससी':'SC','एसटी':'ST'
-};
-const RASHI_MAP={
-  'Aries':'मेष','Taurus':'वृषभ','Gemini':'मिथुन','Cancer':'कर्क',
-  'Leo':'सिंह','Virgo':'कन्या','Libra':'तुला','Scorpio':'वृश्चिक',
-  'Sagittarius':'धनु','Capricorn':'मकर','Aquarius':'कुंभ','Pisces':'मीन',
-  'Kashyap':'कश्यप','Bharadwaj':'भारद्वाज','Atri':'अत्रि',
-  'Gautam':'गौतम','Kaushik':'कौशिक','Vashisth':'वशिष्ठ','Vashishtha':'वशिष्ठ',
-  'Garg':'गर्ग','Shandilya':'शांडिल्य','Sandilya':'शांडिल्य','Parashar':'पराशर','Agastya':'अगस्त्य'
-};
-const RASHI_REVERSE={
-  'मेष':'Aries','वृषभ':'Taurus','मिथुन':'Gemini','कर्क':'Cancer',
-  'सिंह':'Leo','कन्या':'Virgo','तुला':'Libra','वृश्चिक':'Scorpio',
-  'धनु':'Sagittarius','मकर':'Capricorn','कुंभ':'Aquarius','मीन':'Pisces',
-  'कश्यप':'Kashyap','भारद्वाज':'Bharadwaj','अत्रि':'Atri',
-  'गौतम':'Gautam','कौशिक':'Kaushik','वशिष्ठ':'Vashisth',
-  'गर्ग':'Garg','शांडिल्य':'Shandilya','पराशर':'Parashar','अगस्त्य':'Agastya'
-};
-
-/* trWordMap: word-level translation for free-text fields (community, rashi/gotra).
-   map = English→Hindi, reverseMap = Hindi→English (used when lang==='en'). */
-function trWordMap(val, lang, map, reverseMap){
-  if(!val) return val;
-  if(lang==='en'){
-    if(!reverseMap) return val;
-    let out=val;
-    Object.entries(reverseMap).forEach(([hi,en])=>{
-      out=out.replace(new RegExp(hi,'g'),en);
-    });
-    // Remove redundant parenthesized English words e.g. "Aries (Aries)" → "Aries"
-    out=out.replace(/\(\s*([A-Za-z][A-Za-z\s]*?)\s*\)/g,(match,inner)=>{
-      const word=inner.trim();
-      return out.replace(match,'').includes(word)?'':match;
-    }).replace(/\s{2,}/g,' ').trim();
-    return out;
-  }
-  let out=val;
-  Object.entries(map).forEach(([en,hi])=>{
-    out=out.replace(new RegExp('\\b'+en+'\\b','gi'),hi);
-  });
-  // Remove redundant parenthesized Devanagari e.g. "मेष (मेष)" → "मेष"
-  out=out.replace(/\(\s*([ऀ-ॿ\s]+?)\s*\)/g,(match,inner)=>{
-    const word=inner.trim();
-    return out.replace(match,'').includes(word)?'':match;
-  }).replace(/\s{2,}/g,' ').trim();
-  // bi mode: show "original | translated" only when something actually changed
-  if(lang==='bi') return out!==val ? val+' | '+out : val;
-  return out;
-}
-
 function tr(value, lang){
   if(!value) return value;
   const e=VAL_I18N[value];
@@ -3274,26 +2478,20 @@ function trMarriedLabel(lang){return lang==='hi'?'विवाहित':(lang==
 ══════════════════════════════════════════════════════ */
 const BD={
   s:{nm:'',dd:'',mm:'',yy:'',tob:'',edu:'',occ:'',state:'',city:'',
-     fth:'',mth:'',focc:'',mocc:'',relig:'',cst:'',gotr:'',rash:'',rsh:'',ctp:'',ctm:''},
+     fth:'',mth:'',focc:'',mocc:'',cst:'',rsh:'',ctp:'',ctm:''},
 
   read(){
     const g=id=>((document.getElementById(id)||{}).value||'').trim();
-    // v2.7: If user picked "Other" in education/occupation, prefer their custom text.
-    let edu=g('bedu'); if(edu==='Other'){const t=g('beduOther'); if(t) edu=t;}
-    let occ=g('bocc'); if(occ==='Other'){const t=g('boccOther'); if(t) occ=t;}
     this.s={
       nm:g('bnm'),dd:g('bdd'),mm:g('bmm'),yy:g('byy'),tob:g('btob'),
       height:g('bheight'),
-      edu:edu,occ:occ,
-      salary:g('bsalary'),
+      edu:g('bedu'),occ:g('bocc'),
+      employed:g('bemployed'),salary:g('bsalary'),
       state:g('bstate'),city:g('bcity'),
       fth:g('bfth'),mth:g('bmth'),focc:g('bfocc'),mocc:g('bmocc'),
       brothers:g('bbrothers'),brothersM:g('bbrothersM'),
       sisters:g('bsisters'),sistersM:g('bsistersM'),
-      relig:g('brelig'),cst:g('bcst'),
-      gotr:g('bgotr'),rash:g('brash'),
-      rsh:[g('bgotr'),g('brash')].filter(Boolean).join(' / '),
-      ctp:g('bctperson'),ctm:g('bctmobile')
+      cst:g('bcst'),rsh:g('brsh'),ctp:g('bctperson'),ctm:g('bctmobile')
     };
   },
 
@@ -3322,38 +2520,31 @@ const BD={
     const brothersStr = formatSib(s.brothers, s.brothersM);
     const sistersStr  = formatSib(s.sisters,  s.sistersM);
 
-    const L=BL[bLang],F=L.fields;
+    const L=BL[bLang],F=L.fields,xb=getXBlocks();
     // Religion-based footer text
     const curReligion=(_SYMS[_symIdx]&&_SYMS[_symIdx].religion)||'none';
     const relAuspc=(RELIGION_AUSPC[curReligion]&&RELIGION_AUSPC[curReligion][bLang])
       || RELIGION_AUSPC.none[bLang] || L.auspc;
 
-    // ── Personal: Name → DOB → Height → Education → Occupation → Salary → City/State ──
+    // ── Personal: Name → DOB → Height → Education → Occupation → Employed → Salary → City/State ──
     const pR=makeRow(F.name[0],s.nm)
             +makeRow(F.dob[0],dob)
             +makeRow(F.height[0],tr(s.height,bLang))
             +makeRow(F.edu[0],tr(s.edu,bLang))
             +makeRow(F.occ[0],tr(s.occ,bLang))
+            +makeRow(F.employed[0],tr(s.employed,bLang))
             +makeRow(F.salary[0],salaryShown)
             +makeRow(F.city[0],loc);
 
     // ── Family: Father → F.Occ → Mother → M.Occ → Brothers → Sisters → Caste → Rashi ──
-    // T1(Basic),T4(Trending),T6(Premium),T7(Bridal): inline occupation with parent name
-    const combineParents=[1,4,6,7].includes(bTpl);
-    // T1,T4,T5(Luxury),T6,T7: inline contact person with mobile number
-    const combineContact=[1,4,5,6,7].includes(bTpl);
-    const fthDisp=(combineParents&&s.focc)?s.fth+' ('+tr(s.focc,bLang)+')':s.fth;
-    const mthDisp=(combineParents&&s.mocc)?s.mth+' ('+tr(s.mocc,bLang)+')':s.mth;
-    let fR=makeRow(F.father[0],fthDisp)+(combineParents?'':makeRow(L.fOcc,tr(s.focc,bLang)))
-          +makeRow(F.mother[0],mthDisp)+(combineParents?'':makeRow(L.mOcc,tr(s.mocc,bLang)))
+    let fR=makeRow(F.father[0],s.fth)+makeRow(L.fOcc,tr(s.focc,bLang))
+          +makeRow(F.mother[0],s.mth)+makeRow(L.mOcc,tr(s.mocc,bLang))
           +makeRow(F.brothers[0],brothersStr)
           +makeRow(F.sisters[0],sistersStr)
-          +makeRow(F.caste[0],trWordMap(s.cst,bLang,COMMUNITY_MAP,COMMUNITY_REVERSE))+makeRow(F.rashi[0],trWordMap(s.rsh,bLang,RASHI_MAP,RASHI_REVERSE));
+          +makeRow(F.caste[0],s.cst)+makeRow(F.rashi[0],s.rsh);
+    xb.forEach(x=>{fR+=makeRow(x.label,x.value);});
 
-    const ctmDisp=(combineContact&&s.ctp)?s.ctm+' ('+tr(s.ctp,bLang)+')':s.ctm;
-    const cR=combineContact
-      ?makeRow(L.ctmobile,ctmDisp)
-      :makeRow(L.ctperson,tr(s.ctp,bLang))+makeRow(L.ctmobile,s.ctm);
+    const cR=makeRow(L.ctperson,tr(s.ctp,bLang))+makeRow(L.ctmobile,s.ctm);
     return{pR,fR,cR,
       name:s.nm||'Your Name',subtitle:L.subtitle,
       sec1:L.sec1,sec2:L.sec2,sec3:L.sec3,auspc:relAuspc,
@@ -3425,7 +2616,7 @@ const BD={
         // Has photo
         if(dpStrip) dpStrip.style.display = '';
         if(dpEl) dpEl.innerHTML =
-          `<img src="${_photoB64}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+          `<img src="${_photoB64}" crossorigin="anonymous" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
         if(dpName) dpName.textContent = rows.name || '';
         if(dpSub)  dpSub.textContent  = rows.subtitle || '';
       } else if(_includePhoto && !_photoB64){
@@ -3535,14 +2726,11 @@ const BD={
     this.read();
     const rows=this.buildRows();
     const ph=(_includePhoto&&_photoB64)
-      ?`<img src="${_photoB64}" style="width:100%;height:100%;object-fit:cover">`
+      ?`<img src="${_photoB64}" crossorigin="anonymous" style="width:100%;height:100%;object-fit:cover">`
       :(_includePhoto?'📷':'');
 
     // Write to hidden render element (for PDF generation)
-    // IMPORTANT: always query inside bdRender — document.getElementById('bdTemplate')
-    // returns the lpvInner copy first because lpvInner appears earlier in the DOM.
-    const rd2=document.getElementById('bdRender');
-    const tplEl=rd2 ? rd2.querySelector('#bdTemplate')||rd2.querySelector('.bdr-wrap') : null;
+    const tplEl=document.getElementById('bdTemplate');
     if(tplEl){
       this.inject(tplEl,rows,ph);
       /* v2 fix: apply vars on the .bdr-wrap itself — the hardcoded
@@ -3565,10 +2753,8 @@ const BD={
     const inner=document.getElementById('lpvInner');
     if(!wrap||!inner)return;
     const ww=Math.max(wrap.offsetWidth||0,wrap.clientWidth||0,280);
-    const sc=Math.max(0.25,Math.min(0.75,(ww-8)/794));
-    // Centre the scaled template horizontally so no white gap appears on the right
-    const leftOff=Math.max(0,Math.round((ww-794*sc)/2));
-    inner.style.cssText=`position:absolute;top:0;left:${leftOff}px;width:794px;pointer-events:none;`+
+    const sc=Math.max(0.25,Math.min(0.50,(ww-8)/794));
+    inner.style.cssText=`position:absolute;top:0;left:0;width:794px;pointer-events:none;`+
       `transform:scale(${sc});transform-origin:top left;`;
     wrap.style.height=Math.round(1060*sc+8)+'px';
   },
@@ -3626,7 +2812,6 @@ function _applyColorVars(){
 
 function selBT(n){
   bTpl=n;
-  applyTplPrice(n);
   for(var i=1;i<=8;i++){
     var btn=document.getElementById('bt'+i);
     if(btn) btn.classList.toggle('sel',i===n);
@@ -3688,14 +2873,13 @@ function applyPreset(el,primary,bg,isDefault){
 function openBigPreview(){
   swapTemplate(bTpl);
   buildBdTemplate();
-  const rd=document.getElementById('bdRender');
-  const src=rd ? rd.querySelector('#bdTemplate')||rd.querySelector('.bdr-wrap') : document.getElementById('bdTemplate');
+  const src=document.getElementById('bdTemplate');
   const dest=document.getElementById('bigPrevContent');
   if(src&&dest){
     dest.innerHTML=src.outerHTML;
     const wm=document.createElement('div');
     wm.style.cssText='position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:20;transform:rotate(-30deg);';
-    wm.innerHTML='<div style="font-size:36px;font-weight:900;color:rgba(128,0,0,.15);white-space:nowrap;letter-spacing:3px">EasyDocuments.online PREVIEW</div>';
+    wm.innerHTML='<div style="font-size:36px;font-weight:900;color:rgba(128,0,0,.15);white-space:nowrap;letter-spacing:3px">HarMaalWala.com PREVIEW</div>';
     dest.style.position='relative';
     dest.appendChild(wm);
   }
@@ -3771,79 +2955,34 @@ function handleWAShare(){
   openWAModal('biodata');
 }
 
-// ── Razorpay Standard Checkout ───────────────────────────────────────────────
-// Update WORKER_URL after deploying the Cloudflare Worker (worker/index.js)
-const WORKER_URL = 'https://easydocuments-worker.csmahori.workers.dev';
-const RZP_KEY    = 'rzp_live_StCu6CKkDVuORy';
-
-async function openRazorpay() {
-  const btn  = document.getElementById('rzpPayBtn');
-  const orig = btn ? btn.textContent : '';
-  if (btn) { btn.disabled = true; btn.textContent = '⏳ Loading...'; }
-
-  try {
-    // 1. Create order on the server (keeps secret key off the client)
-    const res = await fetch(WORKER_URL + '/create-order', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: OFFER_CONFIG.price * 100 }), // paise
+function copyUPI(e){
+  const id='csmahori@okhdfcbank';
+  // Capture the button BEFORE going async — `event` is undefined inside .then() in
+  // strict mode / Firefox, and can't be relied on even in Chromium once a Promise resolves.
+  const btn=(e&&e.currentTarget)||(e&&e.target)||(typeof window!=='undefined'&&window.event&&window.event.target)||null;
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(id).then(()=>{
+      if(btn){const orig=btn.textContent;btn.textContent='✅ Copied!';setTimeout(()=>{btn.textContent=orig||'📋 Copy UPI ID';},2000);}
+    }).catch(()=>{
+      if(btn){btn.textContent='⚠️ Copy failed — long-press the UPI ID above';setTimeout(()=>btn.textContent='📋 Copy UPI ID',2500);}
     });
-    const { order_id, amount, currency, error } = await res.json();
-    if (error || !order_id) throw new Error(error || 'Order creation failed');
-
-    // 2. Open Razorpay checkout popup
-    const rzp = new Razorpay({
-      key:      RZP_KEY,
-      amount,
-      currency,
-      order_id,
-      name:        'EasyDocuments',
-      description: 'Biodata PDF Download',
-      theme:       { color: '#800026' },
-      prefill:     { name: (document.getElementById('bnm') || {}).value || '' },
-
-      // 3. On successful payment → verify signature server-side
-      handler: async function(response) {
-        try {
-          const vRes = await fetch(WORKER_URL + '/verify-payment', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              razorpay_order_id:  response.razorpay_order_id,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_signature:  response.razorpay_signature,
-            }),
-          });
-          const { verified } = await vRes.json();
-          if (verified) {
-            if (btn) { btn.disabled = false; btn.textContent = orig; }
-            OfferUI.recordPayment(response.razorpay_payment_id);
-            closeUp();
-            generateBiodataPDF();
-          } else {
-            toast('Payment verification failed — please contact support', 'warn');
-            if (btn) { btn.disabled = false; btn.textContent = orig; }
-          }
-        } catch (e) {
-          toast('Verification error: ' + e.message, 'warn');
-          if (btn) { btn.disabled = false; btn.textContent = orig; }
-        }
-      },
-
-      modal: { ondismiss() { if (btn) { btn.disabled = false; btn.textContent = orig; } } },
-    });
-
-    rzp.on('payment.failed', function(resp) {
-      toast('Payment failed: ' + (resp.error.description || 'Unknown error'), 'warn');
-      if (btn) { btn.disabled = false; btn.textContent = orig; }
-    });
-
-    rzp.open();
-
-  } catch (e) {
-    toast('Error: ' + e.message, 'warn');
-    if (btn) { btn.disabled = false; btn.textContent = orig; }
+  } else if(btn){
+    // No clipboard API — tell the user to copy manually
+    btn.textContent='⚠️ Long-press the UPI ID to copy';setTimeout(()=>btn.textContent='📋 Copy UPI ID',2500);
   }
+}
+
+function confirmPayment(){
+  const utr=(document.getElementById('utrInput')||{}).value?.trim()||'';
+  if(!utr){
+    const inp=document.getElementById('utrInput');
+    if(inp){inp.style.borderColor='#e53935';setTimeout(()=>inp.style.borderColor='',2500);}
+    alert('UTR number ya transaction ID enter karein');
+    return;
+  }
+  S.set('paid',{utr,ts:Date.now(),amt:9});
+  closeUp();
+  generateBiodataPDF();
 }
 
 let curFB=null,selR=0;
@@ -3887,12 +3026,78 @@ function subFB(){
 }
 function closeFB(){const el=document.getElementById('fbOv');if(el)el.classList.remove('act');}
 
-function showUp(){
-  const el=document.getElementById('upOv');if(el)el.classList.add('act');
-  // Always reset pay button — it may be disabled from a previous payment session
-  const rzpBtn=document.getElementById('rzpPayBtn');
-  if(rzpBtn){rzpBtn.disabled=false;rzpBtn.innerHTML='💳 Pay '+OFFER_CONFIG.currency+OFFER_CONFIG.price+' — Instant Download';}
+// ── WORKER URL — replace after deploying the Cloudflare Worker ──────────────
+const WORKER_URL = 'https://harmaalwala-worker.YOUR_SUBDOMAIN.workers.dev';
+// ── RAZORPAY KEY — use test key (rzp_test_...) until ready for live ──────────
+const RZP_KEY = 'rzp_test_XXXXXXXXXXXXXXXX';
+
+async function openRazorpay() {
+  const btn = document.getElementById('rzpPayBtn');
+  const orig = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ Loading...'; }
+
+  try {
+    const res = await fetch(WORKER_URL + '/create-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: 900 }),
+    });
+    const { order_id, amount, currency, error } = await res.json();
+    if (error || !order_id) throw new Error(error || 'Order creation failed');
+
+    const rzp = new Razorpay({
+      key: RZP_KEY,
+      amount,
+      currency,
+      order_id,
+      name: 'HarMaalWala',
+      description: 'Biodata PDF Download',
+      theme: { color: '#800026' },
+      prefill: { name: (document.getElementById('bnm') || {}).value || '' },
+      handler: async function(response) {
+        try {
+          const vRes = await fetch(WORKER_URL + '/verify-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+            }),
+          });
+          const { verified } = await vRes.json();
+          if (verified) {
+            S.set('paid', { payment_id: response.razorpay_payment_id, ts: Date.now(), amt: 9 });
+            closeUp();
+            generateBiodataPDF();
+          } else {
+            alert('Payment verification failed. Please contact support on WhatsApp.');
+            if (btn) { btn.disabled = false; btn.textContent = orig; }
+          }
+        } catch (e) {
+          alert('Verification error: ' + e.message);
+          if (btn) { btn.disabled = false; btn.textContent = orig; }
+        }
+      },
+      modal: {
+        ondismiss: function() {
+          if (btn) { btn.disabled = false; btn.textContent = orig; }
+        },
+      },
+    });
+    rzp.on('payment.failed', function(resp) {
+      alert('Payment failed: ' + (resp.error.description || 'Unknown error'));
+      if (btn) { btn.disabled = false; btn.textContent = orig; }
+    });
+    rzp.open();
+
+  } catch (e) {
+    alert('Error: ' + e.message + '\nPlease try again or contact support on WhatsApp.');
+    if (btn) { btn.disabled = false; btn.textContent = orig; }
+  }
 }
+
+function showUp(){const el=document.getElementById('upOv');if(el)el.classList.add('act');}
 function closeUp(){const el=document.getElementById('upOv');if(el)el.classList.remove('act');}
 function simPay(){closeUp();showSuc();}
 function showSuc(){const el=document.getElementById('sucOv');if(el)el.classList.add('act');}
@@ -3911,55 +3116,30 @@ function subReq(){
 }
 
 function openWASupport(){
-  window.open('https://wa.me/919677344874?text='+encodeURIComponent('Namaste! EasyDocuments.online se help chahiye.'),'_blank');
+  window.open('https://wa.me/919677344874?text='+encodeURIComponent('Namaste! HarMaalWala.com se help chahiye.'),'_blank');
 }
 
 /* ── LABEL SETS ── */
-/* ── Religion → Community cascade ─────────────────────────────── */
-const RELIG_DATA={
-  'Hindu':['Brahmin','Rajput / Kshatriya','Bania / Vaishya','Kayastha','Agarwal','Gupta','Jat','Jatav','Maratha','Patel / Patidar','Yadav','Kurmi','Goswami / Vaishnav','Saini','Thakur','Nair','Pillai / Menon','Iyer / Iyengar','Reddy','Naidu','Kamma','Lingayat','Vokkaliga / Gowda','Bunt','Ezhava','Mudaliar','Chettiar','Scheduled Caste (SC)','Scheduled Tribe (ST)','Other / Not Listed'],
-  'Muslim':['General','Syed','Sheikh','Pathan / Pashtun','Ansari','Qureshi','Mughal','Rajput Muslim','Bohra','Khoja','Shia','Sunni','Other / Not Listed'],
-  'Sikh':['Jat Sikh','Khatri Sikh','Arora Sikh','Ramgarhia','Saini Sikh','Mazabi Sikh','Other / Not Listed'],
-  'Christian':['Roman Catholic','Protestant','CSI (South India)','CNI (North India)','Orthodox','Pentecostal','Baptist','Other / Not Listed'],
-  'Jain':['Digambar','Shwetambar','Sthanakvasi','Terapanthi','Other / Not Listed'],
-  'Buddhist':['Theravada','Mahayana','Ambedkarite Buddhist','Navyana','Other / Not Listed'],
-  'Other':['Other / Not Listed']
-};
-function onReligChange(){
-  const rel=(document.getElementById('brelig')||{}).value||'';
-  const cstSel=document.getElementById('bcst');
-  if(!cstSel) return;
-  cstSel.innerHTML='<option value="">-- Select Community --</option>';
-  if(rel&&RELIG_DATA[rel]){
-    RELIG_DATA[rel].forEach(c=>{
-      const o=document.createElement('option');
-      o.value=rel+' - '+c; o.textContent=c;
-      cstSel.appendChild(o);
-    });
-  }
-  updB();
-}
-
 const BL={
   hi:{
     subtitle:'विवाह बायोडाटा',
     sec1:'व्यक्तिगत जानकारी',sec2:'पारिवारिक जानकारी',sec3:'सम्पर्क',
     auspc:'ॐ श्री गणेशाय नमः  ·  शुभ विवाह  ·  ईश्वर की कृपा से',
-    fields:{name:['पूरा नाम',''],dob:['जन्म तिथि',''],age:['आयु',''],height:['कद / लंबाई',''],edu:['शिक्षा',''],occ:['व्यवसाय',''],employed:['रोज़गार स्थिति',''],salary:['वार्षिक आय',''],city:['शहर / राज्य',''],father:['पिता का नाम',''],mother:['माता का नाम',''],brothers:['भाई',''],sisters:['बहन',''],caste:['समुदाय',''],rashi:['गोत्र / राशि',''],contact:['सम्पर्क हेतु',''],loc:['स्थान','']},
+    fields:{name:['पूरा नाम',''],dob:['जन्म तिथि',''],age:['आयु',''],height:['कद / लंबाई',''],edu:['शिक्षा',''],occ:['व्यवसाय',''],employed:['रोज़गार स्थिति',''],salary:['वार्षिक आय',''],city:['शहर / राज्य',''],father:['पिता का नाम',''],mother:['माता का नाम',''],brothers:['भाई',''],sisters:['बहन',''],caste:['समुदाय',''],rashi:['राशि / गोत्र',''],contact:['सम्पर्क हेतु',''],loc:['स्थान','']},
     fOcc:'पिता का व्यवसाय',mOcc:'माता का व्यवसाय',ctperson:'सम्पर्क व्यक्ति',ctmobile:'मोबाइल नंबर',
   },
   en:{
     subtitle:'Marriage Biodata',
     sec1:'Personal Details',sec2:'Family Details',sec3:'Contact',
-    auspc:'Om Shri Ganeshaya Namah  ·  God Bless  ·  EasyDocuments.online',
-    fields:{name:['Full Name',''],dob:['Date of Birth',''],age:['Age',''],height:['Height',''],edu:['Education',''],occ:['Occupation',''],employed:['Employment Status',''],salary:['Annual Income',''],city:['City / State',''],father:["Father's Name",''],mother:["Mother's Name",''],brothers:['Brothers',''],sisters:['Sisters',''],caste:['Community',''],rashi:['Gotra / Rashi',''],contact:['Contact Via',''],loc:['Location','']},
+    auspc:'Om Shri Ganeshaya Namah  ·  God Bless  ·  HarMaalWala.com',
+    fields:{name:['Full Name',''],dob:['Date of Birth',''],age:['Age',''],height:['Height',''],edu:['Education',''],occ:['Occupation',''],employed:['Employment Status',''],salary:['Annual Income',''],city:['City / State',''],father:["Father's Name",''],mother:["Mother's Name",''],brothers:['Brothers',''],sisters:['Sisters',''],caste:['Community',''],rashi:['Rashi / Gotra',''],contact:['Contact Via',''],loc:['Location','']},
     fOcc:"Father's Occupation",mOcc:"Mother's Occupation",ctperson:'Contact Person',ctmobile:'Mobile Number',
   },
   bi:{
     subtitle:'Marriage Biodata | विवाह बायोडाटा',
     sec1:'Personal Details | व्यक्तिगत जानकारी',sec2:'Family Details | पारिवारिक जानकारी',sec3:'Contact | सम्पर्क',
     auspc:'ॐ श्री गणेशाय नमः  ·  शुभ विवाह  ·  ईश्वर की कृपा से',
-    fields:{name:['Full Name | पूरा नाम',''],dob:['Date of Birth | जन्म तिथि',''],age:['Age | आयु',''],height:['Height | कद',''],edu:['Education | शिक्षा',''],occ:['Occupation | व्यवसाय',''],employed:['Employment | रोज़गार',''],salary:['Income | आय',''],city:['City/State | शहर/राज्य',''],father:["Father's Name | पिता का नाम",''],mother:["Mother's Name | माता का नाम",''],brothers:['Brothers | भाई',''],sisters:['Sisters | बहन',''],caste:['Community | समुदाय',''],rashi:['Gotra/Rashi | गोत्र/राशि',''],contact:['Contact | सम्पर्क',''],loc:['Location | स्थान','']},
+    fields:{name:['Full Name | पूरा नाम',''],dob:['Date of Birth | जन्म तिथि',''],age:['Age | आयु',''],height:['Height | कद',''],edu:['Education | शिक्षा',''],occ:['Occupation | व्यवसाय',''],employed:['Employment | रोज़गार',''],salary:['Income | आय',''],city:['City/State | शहर/राज्य',''],father:["Father's Name | पिता का नाम",''],mother:["Mother's Name | माता का नाम",''],brothers:['Brothers | भाई',''],sisters:['Sisters | बहन',''],caste:['Community | समुदाय',''],rashi:['Rashi/Gotra | राशि/गोत्र',''],contact:['Contact | सम्पर्क',''],loc:['Location | स्थान','']},
     fOcc:"Father's Occupation | पिता का व्यवसाय",mOcc:"Mother's Occupation | माता का व्यवसाय",
     ctperson:'Contact Person | सम्पर्क व्यक्ति',ctmobile:'Mobile No. | मोबाइल नंबर',
   }
@@ -4114,7 +3294,7 @@ const UI_I18N={
 
 function selLang(l){
   bLang=l;
-  ['hi','en'].forEach(x=>{
+  ['hi','en','bi'].forEach(x=>{
     const el=document.getElementById('lp-'+x);
     if(el) el.classList.toggle('sel',x===l);
   });
@@ -4277,14 +3457,23 @@ function updStepUI(s){
   }
   if(s===1||s===2){ setTimeout(()=>BD.swapLayout(bTpl),80); }
   if(s===3){
-    // v2.8: OfferUI controls all step-3 surfaces now. Just update the step subtitle.
-    const sub=document.getElementById('step3Sub');
-    const T=UI_I18N[bLang]||UI_I18N.hi;
     const ea=isEA();
-    if(sub) sub.textContent = ea
-      ? (T.step3Sub||'')
-      : ('Pay '+OFFER_CONFIG.currency+OFFER_CONFIG.price+' to download');
-    OfferUI.apply();
+    const eaArea=document.getElementById('eaDownloadArea');
+    const paidArea=document.getElementById('paidDownloadArea');
+    const sub=document.getElementById('step3Sub');
+    if(eaArea) eaArea.style.display=ea?'block':'none';
+    if(paidArea) paidArea.style.display=ea?'none':'block';
+    const T=UI_I18N[bLang]||UI_I18N.hi;
+    if(sub) sub.textContent=ea?(T.step3Sub||''):(bLang==='en'?'Pay ₹9 to download':'₹9 mein download karein');
+    const slotsRem=document.getElementById('slotsRem');
+    if(slotsRem){
+      const left=Math.max(0,MAX-getUsed());
+      if(bLang==='en'){
+        slotsRem.textContent=ea?left+' Free spots remaining — hurry!':'Offer: ₹9 only for first 100 users';
+      } else {
+        slotsRem.textContent=ea?left+' Free spots बचे हैं — जल्दी करें!':'Offer: ₹9 only for first 100 users';
+      }
+    }
   }
 }
 
@@ -4301,24 +3490,25 @@ function hPhoto(inp){
   if(!(inp.files&&inp.files[0])) return;
   const f=inp.files[0];
   const MAX=5*1024*1024; // 5MB — match the UI hint
+  // Reject non-images defensively (accept="image/*" is just a UI hint, not a guarantee)
   if(f.type&&f.type.indexOf('image/')!==0){
-    toast(bLang==='en'?'Please choose a JPG or PNG image':'कृपया केवल JPG या PNG photo चुनें','warn');
+    alert('कृपया केवल JPG या PNG photo चुनें / Please choose a JPG or PNG image.');
     inp.value=''; return;
   }
   if(f.size>MAX){
     const mb=(f.size/1024/1024).toFixed(1);
-    toast((bLang==='en'?'Photo too large ('+mb+' MB) — Max 5 MB':'Photo बहुत बड़ी है ('+mb+' MB) — अधिकतम 5 MB'),'warn');
+    alert('Photo बहुत बड़ी है ('+mb+' MB). अधिकतम 5 MB allowed है.\nPhoto too large ('+mb+' MB). Max 5 MB allowed.');
     inp.value=''; return;
   }
   const r=new FileReader();
   r.onload=e=>{
     _photoB64=e.target.result;
-    refreshPhotoDropState();
-    toast(bLang==='en'?'Photo uploaded successfully':'Photo upload हो गई','ok');
+    const pdi=document.getElementById('pdi');
+    if(pdi) pdi.textContent='✅';
     BD.refresh(true);
   };
   r.onerror=()=>{
-    toast(bLang==='en'?'Could not read the photo — try another file':'Photo पढ़ने में समस्या — दूसरी file try करें','err');
+    alert('Photo पढ़ने में समस्या / Could not read the photo. Please try a different file.');
   };
   r.readAsDataURL(f);
 }
@@ -4359,8 +3549,7 @@ function updB(){ BD.refresh(); }
 
 function resolveColorMixValue(colorMixExpr){
   // Append temp element INSIDE the template so it inherits --tc1, --tc2 etc.
-  const rd2=document.getElementById('bdRender');
-  const tpl=(rd2&&(rd2.querySelector('#bdTemplate')||rd2.querySelector('.bdr-wrap')))||document.querySelector('.bdr-wrap')||document.body;
+  const tpl=document.getElementById('bdTemplate')||document.querySelector('.bdr-wrap')||document.body;
   const tmp=document.createElement('div');
   tmp.style.cssText='position:absolute;left:-9999px;top:-9999px;width:0;height:0;overflow:hidden;pointer-events:none;';
   tpl.appendChild(tmp);
@@ -4386,34 +3575,29 @@ function normalizeColor(val){
       const A=a!==undefined?parseFloat(a):1;
       return A<1?'rgba('+R+','+G+','+B+','+A+')':'rgb('+R+','+G+','+B+')';
     });
-  // Second pass: if result still contains modern color funcs, convert via getImageData
-  // IMPORTANT: do NOT use ctx.fillStyle getter — Chrome 115+ Canvas preserves oklab/oklch
-  // in the getter, so we must use getImageData() to get actual R,G,B,A bytes instead.
+  // Second pass: if result still contains modern color funcs, canvas-paint them to rgb
   if(/(color\(|oklch\(|lab\(|lch\(|hwb\(|oklab\()/.test(result)){
     result = result.replace(/(color\([^)]+\)|oklch\([^)]+\)|lab\([^)]+\)|lch\([^)]+\)|hwb\([^)]+\)|oklab\([^)]+\))/g,
       function(match){
         try{
           const c=document.createElement('canvas'); c.width=c.height=1;
           const ctx=c.getContext('2d');
+          ctx.fillStyle='#000';
           ctx.fillStyle=match;
-          ctx.fillRect(0,0,1,1);
-          const d=ctx.getImageData(0,0,1,1).data; // always returns [R,G,B,A] 0-255
-          return d[3]<255
-            ?'rgba('+d[0]+','+d[1]+','+d[2]+','+(d[3]/255).toFixed(3)+')'
-            :'rgb('+d[0]+','+d[1]+','+d[2]+')';
-        }catch(e){ return '#888888'; }
+          // ctx.fillStyle returns the computed color in rgb/rgba form
+          return ctx.fillStyle || match;
+        }catch(e){ return '#888'; }
       });
   }
   return result;
 }
 
 function resolveStylesheetColors(){
-  // Find all <style> elements with color-mix OR modern color functions
+  // Find all <style> elements with color-mix
   const originals=[];
   document.querySelectorAll('style').forEach(s=>{
     const txt=s.textContent||'';
-    const hasModern=txt.indexOf('color-mix')!==-1||/oklab\(|oklch\(|lab\(|lch\(|hwb\(/.test(txt);
-    if(!hasModern) return;
+    if(txt.indexOf('color-mix')===-1) return;
     originals.push({el:s, original:txt});
     
     // Find all unique color-mix(...) patterns and resolve them
@@ -4450,21 +3634,11 @@ function resolveStylesheetColors(){
     // Replace all found patterns (longest first to avoid partial replacements)
     const entries=[...seen.entries()].sort((a,b)=>b[0].length-a[0].length);
     entries.forEach(([pattern,rgb])=>{
+      // Escape special regex chars in the pattern
+      const escaped=pattern.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
       resolved=resolved.split(pattern).join(rgb);
     });
-
-    // Also resolve any oklab()/oklch()/lab()/lch()/hwb() directly in stylesheet text
-    // Use getImageData() — NOT fillStyle getter which preserves modern formats in Chrome 115+
-    resolved=resolved.replace(/(oklab|oklch|lab|lch|hwb)\([^)]+\)/g,function(match){
-      try{
-        const c=document.createElement('canvas'); c.width=c.height=1;
-        const ctx=c.getContext('2d');
-        ctx.fillStyle=match; ctx.fillRect(0,0,1,1);
-        const d=ctx.getImageData(0,0,1,1).data;
-        return d[3]<255?'rgba('+d[0]+','+d[1]+','+d[2]+','+(d[3]/255).toFixed(3)+')':'rgb('+d[0]+','+d[1]+','+d[2]+')';
-      }catch(e){return '#888888';}
-    });
-
+    
     s.textContent=resolved;
   });
   return originals;
@@ -4476,36 +3650,18 @@ function restoreStylesheets(originals){
 
 // Also normalize inline color(srgb) values on template elements
 function normalizeInlineColors(el){
-  // Gradient/complex props — ALWAYS force-set as inline so html2canvas
-  // reads the resolved value instead of the stylesheet var() rule
-  const gradientProps=['background-image','background','box-shadow'];
-  // Modern color function regex — covers color(srgb), oklab, oklch, lab, lch, hwb
-  // Chrome 115+ CSSOM returns computed colors in these formats
-  const modernColorRe=/color\(|oklab\(|oklch\(|lab\(|lch\(|hwb\(/;
-
+  const colorProps=['color','background-color','background','background-image',
+    'border-color','border-top-color','border-bottom-color','border-left-color','border-right-color',
+    'box-shadow','outline-color'];
   function fixOne(target){
     try{
       const cs=getComputedStyle(target);
-      // Scan ALL computed properties — not just a hardcoded list.
-      // Chrome exposes modern color values on many props (border-block-*,
-      // caret-color, text-decoration-color, column-rule-color, etc.)
-      // that a static list would miss.
-      for(let i=0;i<cs.length;i++){
-        const p=cs[i];
+      colorProps.forEach(p=>{
         try{
           const v=cs.getPropertyValue(p);
-          if(v && modernColorRe.test(v))
-            target.style.setProperty(p,normalizeColor(v),'important');
-        }catch(e){}
-      }
-      // Force-set gradient props so html2canvas always gets clean resolved colors
-      gradientProps.forEach(p=>{
-        try{
-          const v=cs.getPropertyValue(p);
-          if(!v || v==='none' || v==='normal') return;
-          // Always normalize + inline so var(--tc1) is never seen by html2canvas
-          const normalized=normalizeColor(v);
-          target.style.setProperty(p,normalized,'important');
+          if(v && (v.indexOf('color(')!==-1)){
+            target.style.setProperty(p,normalizeColor(v));
+          }
         }catch(e){}
       });
     }catch(e){}
@@ -4519,17 +3675,6 @@ async function generateBiodataPDF(){
   if(loadEl) loadEl.classList.add('act');
   swapTemplate(bTpl);
   BD.refresh(true);
-  // Wait for photo image to fully decode before capturing
-  await (async()=>{
-    const rd0=document.getElementById('bdRender');
-    if(rd0){
-      const imgs=Array.from(rd0.querySelectorAll('img'));
-      await Promise.all(imgs.map(img=>{
-        if(img.complete && img.naturalWidth>0) return Promise.resolve();
-        return new Promise(res=>{img.onload=res;img.onerror=res;});
-      }));
-    }
-  })();
   await new Promise(r=>setTimeout(r,600));
   let success=false;
   let originals=[];
@@ -4538,9 +3683,7 @@ async function generateBiodataPDF(){
     const jsPDFLib=window.jspdf&&window.jspdf.jsPDF;
     if(!jsPDFLib) throw new Error('jsPDF load nahi hua. Page refresh karein.');
     const rd=document.getElementById('bdRender');
-    // Always use the template inside bdRender — NOT document.getElementById('bdTemplate')
-    // which returns the live-preview copy first (lpvInner appears before bdRender in DOM)
-    const el=rd ? rd.querySelector('#bdTemplate')||rd.querySelector('.bdr-wrap') : null;
+    const el=document.getElementById('bdTemplate');
     if(!el) throw new Error('Template element nahi mila.');
     const origStyle=rd?rd.getAttribute('style'):'';
     if(rd) rd.style.cssText='position:fixed;left:0;top:0;z-index:9999;width:794px;overflow:visible;background:#fff;pointer-events:none;';
@@ -4551,7 +3694,7 @@ async function generateBiodataPDF(){
     if(!isPaid){
       brandStamp=document.createElement('div');
       brandStamp.className='bdr-brand-stamp';
-      brandStamp.textContent='Created with EasyDocuments.online';
+      brandStamp.textContent='Created with HarMaalWala.com';
       el.appendChild(brandStamp);
     }
 
@@ -4568,36 +3711,11 @@ async function generateBiodataPDF(){
     normalizeInlineColors(el);
     await new Promise(r=>setTimeout(r,50));
 
-    // Step 3: Patch CanvasGradient.addColorStop to survive any unparseable
-    // color format Chrome returns (color(srgb…), oklch, etc.)
-    const _origACS = CanvasGradient.prototype.addColorStop;
-    CanvasGradient.prototype.addColorStop = function(offset, color) {
-      try {
-        _origACS.call(this, offset, color);
-      } catch(e) {
-        try {
-          // Ask canvas to normalise the color string
-          const _c = document.createElement('canvas').getContext('2d');
-          _c.fillStyle = color;
-          _origACS.call(this, offset, _c.fillStyle);
-        } catch(e2) {
-          _origACS.call(this, offset, '#888888'); // safe fallback
-        }
-      }
-    };
-
-    // Step 4: Run html2canvas — hide wizard modal first so live preview
-    // doesn't bleed into the capture (modal sits at x:391-688 which is
-    // inside bdRender's 0-794px viewport zone)
-    const bMov=document.getElementById('bMov');
-    if(bMov) bMov.style.visibility='hidden';
+    // Step 3: Run html2canvas (layout intact, no problematic colors)
     const canvas=await html2canvas(el,{
       scale:2,useCORS:true,allowTaint:false,logging:false,
       width:794,windowWidth:794,backgroundColor:'#ffffff',scrollX:0,scrollY:0
     });
-    if(bMov) bMov.style.visibility='';
-
-    CanvasGradient.prototype.addColorStop = _origACS; // restore immediately
 
     // Step 4: Restore original stylesheets
     restoreStylesheets(originals);
@@ -4609,7 +3727,7 @@ async function generateBiodataPDF(){
     pdf.addImage(imgData,'JPEG',0,0,210,297);
     const nm=(document.getElementById('bnm')||{}).value||'Biodata';
     const safe=nm.replace(/[^a-zA-Z0-9 ]/g,'').trim().replace(/\s+/g,'_')||'Biodata';
-    pdf.save('Biodata_'+safe+'_EasyDocuments.pdf');
+    pdf.save('Biodata_'+safe+'_HarMaalWala.pdf');
     success=true;
   }catch(err){
     console.error('PDF error:',err);
@@ -4627,8 +3745,6 @@ async function generateBiodataPDF(){
     if(originals.length) restoreStylesheets(originals);
     if(brandStamp&&brandStamp.parentNode) brandStamp.parentNode.removeChild(brandStamp);
     if(loadEl) loadEl.classList.remove('act');
-    // Always restore addColorStop patch (in case html2canvas threw mid-run)
-    if(typeof _origACS!=='undefined') CanvasGradient.prototype.addColorStop=_origACS;
   }
   if(success){ if(isEA()) consume(); showSuc(); }
 }
@@ -4653,34 +3769,42 @@ async function generateBiodataPDF(){
    so nothing is lost; a console.warn fires so you'll notice in DevTools.
 */
 const FS={
-  // Web3Forms access key (from web3forms.com)
-  accessKey:'baa837e6-dfe9-44e0-89d9-e9c32bebcd9c',
+  // Either a plain email like "you@example.com" OR an obfuscated ID like "ab12cd34ef"
+  recipient:'omvedanta0@gmail.com',
+
+  _isPlaceholder(){return /YOUR_EMAIL|@example\.com$/i.test(this.recipient);},
 
   init(){
-    console.log('[EasyDocuments] Web3Forms ready.');
+    if(this._isPlaceholder())
+      console.warn('[HarMaalWala] FormSubmit not configured — set FS.recipient to your email. Submissions are saved to localStorage but NOT emailed.');
   },
 
-  // Generic JSON POST to Web3Forms API.
+  // Generic JSON POST to FormSubmit's AJAX endpoint.
+  // payload: object of fields. _subject controls the email subject line.
   _send(payload){
-    return fetch('https://api.web3forms.com/submit',{
+    if(this._isPlaceholder()) return Promise.reject(new Error('FormSubmit not configured'));
+    const url='https://formsubmit.co/ajax/'+encodeURIComponent(this.recipient);
+    return fetch(url,{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(Object.assign({access_key:this.accessKey},payload)),
+      body:JSON.stringify(payload),
     }).then(r=>{
-      if(!r.ok) throw new Error('Web3Forms HTTP '+r.status);
+      if(!r.ok) throw new Error('FormSubmit HTTP '+r.status);
       return r.json();
     }).then(data=>{
-      if(data&&data.success) return data;
-      throw new Error('Web3Forms error: '+(data&&data.message||'unknown'));
+      // FormSubmit returns {success: "true"|true, message: "..."}
+      if(data&&(data.success===true||data.success==='true')) return data;
+      throw new Error('FormSubmit error: '+(data&&data.message||'unknown'));
     });
   },
 
   sendSuggestion(text,phone){
     return this._send({
-      subject:'🔔 New Tool Request — EasyDocuments.online',
-      message:'Suggestion: '+text+'\nWhatsApp: '+(phone||'Not provided')+'\nSubmitted: '+new Date().toLocaleString('en-IN'),
-      from_name:'EasyDocuments Visitor',
-      site:'EasyDocuments.online',
+      _subject:'🔔 New Tool Request — HarMaalWala.com',
+      _template:'table',     // pretty table layout in the email
+      _captcha:'false',      // no captcha redirect — pure AJAX
+      _honey:'',             // honeypot stays empty (spam protection)
+      site:'HarMaalWala.com',
       type:'Tool Request',
       suggestion_text:text,
       user_phone:phone||'Not provided',
@@ -4690,10 +3814,11 @@ const FS={
 
   sendFeedback(name,rating,stars,text,tool){
     return this._send({
-      subject:'⭐ New Feedback ('+rating+'/5) — EasyDocuments.online',
-      message:stars+' by '+(name||'Anonymous')+'\nFeedback: '+text+'\nTool: '+(tool||'biodata')+'\nSubmitted: '+new Date().toLocaleString('en-IN'),
-      from_name:name||'Anonymous',
-      site:'EasyDocuments.online',
+      _subject:'⭐ New Feedback ('+rating+'/5) — HarMaalWala.com',
+      _template:'table',
+      _captcha:'false',
+      _honey:'',
+      site:'HarMaalWala.com',
       type:'Feedback',
       user_name:name||'Anonymous',
       rating_number:rating,
@@ -4862,214 +3987,17 @@ const RELIGION_AUSPC={
     bi:'✡ Mazel Tov  ·  शुभ विवाह / Blessed Marriage  ·  By Divine Grace',
   },
   none:{
-    hi:'शुभ विवाह  ·  मंगल कामना  ·  EasyDocuments.online',
-    en:'Blessed Marriage  ·  Best Wishes  ·  EasyDocuments.online',
-    bi:'शुभ विवाह / Blessed Marriage  ·  मंगल कामना / Best Wishes  ·  EasyDocuments.online',
+    hi:'शुभ विवाह  ·  मंगल कामना  ·  HarMaalWala.com',
+    en:'Blessed Marriage  ·  Best Wishes  ·  HarMaalWala.com',
+    bi:'शुभ विवाह / Blessed Marriage  ·  मंगल कामना / Best Wishes  ·  HarMaalWala.com',
   },
 };
 let _symIdx=0;
 function selSym(n){
   _symIdx=n;
   document.querySelectorAll('.symb').forEach((el,i)=>el.classList.toggle('sel',i===n));
-  if(typeof S!=='undefined') S.set('symIdx',n);
   BD.refresh(true);
 }
-
-/* ══════════════════════════════════════════════════════════════════
-   v2.7 PATCH — Audit fixes (deploy-readiness pass)
-   All additions below are additive — no original function rewritten.
-══════════════════════════════════════════════════════════════════ */
-
-/* ── 1. Banner close (sticky preference) ── */
-function closeBanner(){
-  const b=document.getElementById('banner');
-  if(!b) return;
-  b.classList.add('hidden');
-  S.set('bannerDismissed',1);
-  // Banner consumes 42px of vertical space — collapse navbar + hero padding.
-  const nav=document.querySelector('.nav');
-  if(nav){nav.style.top='0px';}
-  const hero=document.querySelector('.hero');
-  if(hero){hero.style.paddingTop='66px';}
-}
-function applyBannerPreference(){
-  if(S.get('bannerDismissed')) closeBanner();
-}
-
-/* ── 2. Education / Occupation "Other" reveal ── */
-function onEduChange(){
-  const sel=document.getElementById('bedu');
-  const other=document.getElementById('beduOther');
-  if(!sel||!other) return;
-  if(sel.value==='Other'){other.style.display='';setTimeout(()=>other.focus(),50);}
-  else{other.style.display='none';other.value='';persistOtherInputs();}
-}
-function onOccChange(){
-  const sel=document.getElementById('bocc');
-  const other=document.getElementById('boccOther');
-  if(!sel||!other) return;
-  if(sel.value==='Other'){other.style.display='';setTimeout(()=>other.focus(),50);}
-  else{other.style.display='none';other.value='';persistOtherInputs();}
-}
-
-/* ── 3. Sibling validation (Married <= Total, both <= 20) ── */
-function clampSibling(totalId,marriedId){
-  const t=document.getElementById(totalId);
-  const m=document.getElementById(marriedId);
-  if(!t||!m) return;
-  let tn=parseInt(t.value||'0',10); if(isNaN(tn)) tn=0;
-  let mn=parseInt(m.value||'0',10); if(isNaN(mn)) mn=0;
-  if(tn>20){t.value='20';tn=20;}
-  if(mn>20){m.value='20';mn=20;}
-  if(mn>tn){
-    m.value=String(tn);
-    m.classList.add('req-err');
-    setTimeout(()=>m.classList.remove('req-err'),1800);
-    toast(bLang==='en'
-      ?'Married count cannot exceed total siblings'
-      :'विवाहित संख्या कुल भाई/बहन से ज़्यादा नहीं हो सकती','warn');
-  }
-}
-
-/* ── 4. Toast notifications (non-blocking, auto-dismiss) ── */
-function toast(msg,type){
-  type=type||'info';
-  let host=document.getElementById('toastHost');
-  if(!host){
-    host=document.createElement('div');
-    host.id='toastHost';
-    host.style.cssText='position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:5500;display:flex;flex-direction:column;gap:8px;pointer-events:none;width:max-content;max-width:90vw';
-    document.body.appendChild(host);
-  }
-  const t=document.createElement('div');
-  const colors={
-    info :{bg:'#1a1a1a',fg:'#fff',ic:'\u2139\ufe0f'},
-    ok   :{bg:'#138808',fg:'#fff',ic:'\u2705'},
-    warn :{bg:'#e65100',fg:'#fff',ic:'\u26a0\ufe0f'},
-    err  :{bg:'#c62828',fg:'#fff',ic:'\u274c'},
-  };
-  const c=colors[type]||colors.info;
-  t.style.cssText='background:'+c.bg+';color:'+c.fg+';padding:11px 18px;border-radius:50px;'+
-    'font-size:13.5px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.28);'+
-    'display:flex;align-items:center;gap:8px;pointer-events:auto;'+
-    'animation:toastIn .25s var(--e);max-width:100%;text-align:center';
-  t.innerHTML='<span>'+c.ic+'</span><span>'+msg+'</span>';
-  host.appendChild(t);
-  setTimeout(()=>{
-    t.style.transition='all .3s var(--e)';
-    t.style.opacity='0';t.style.transform='translateY(10px)';
-    setTimeout(()=>t.remove(),320);
-  },2600);
-}
-
-/* ── 5. Photo dropzone label state (after upload / removal) ── */
-function refreshPhotoDropState(){
-  const pdi=document.getElementById('pdi');
-  const pdt=document.getElementById('i18nPhotoClick');
-  const pdh=document.getElementById('i18nPhotoHint');
-  if(!pdi) return;
-  const has=!!_photoB64;
-  const T=(typeof UI_I18N!=='undefined' && UI_I18N[bLang]) || (UI_I18N && UI_I18N.hi) || {};
-  if(has){
-    pdi.textContent='\u2705';
-    if(pdt){
-      pdt.textContent=(bLang==='en')
-        ? 'Photo uploaded — Click to change'
-        : (bLang==='hi') ? 'Photo uploaded — बदलने के लिए click करें'
-        : 'Photo uploaded — Click to change / बदलने के लिए click करें';
-    }
-    if(pdh){pdh.textContent='';}
-  } else {
-    pdi.textContent='\ud83d\udcf7';
-    if(pdt){pdt.textContent=T.photoClick||'Click to upload photo';}
-    if(pdh){pdh.textContent=T.photoHint||'JPG / PNG \u00b7 Max 5MB';}
-  }
-}
-
-/* ── 6. Step-progress pills clickable (back-nav only) ── */
-function jumpToStep(target){
-  if(target===bS) return;
-  if(target>bS) return;  // never skip forward without validation
-  goS('b',bS,target);
-  bS=target;
-  updStepUI(bS);
-  if(typeof BD!=='undefined') BD.refresh(true);
-}
-
-/* ── 7. Persist + restore design state (template, lang, sym, photo, colour) ── */
-function saveDesignState(){
-  try{
-    S.set('design',{
-      tpl:bTpl,
-      lang:bLang,
-      sym:_symIdx,
-      inclP:_includePhoto,
-      clrTheme:_selClrTheme,
-      clr:{primary:_clrCustom.primary||'',bg:_clrCustom.bg||'',userSet:!!_clrCustom.userSet},
-    });
-  }catch(e){}
-}
-function restoreDesignState(){
-  const d=S.get('design'); if(!d) return;
-  try{
-    if(d.lang && ['hi','en'].includes(d.lang)) selLang(d.lang);
-    if(typeof d.sym==='number' && _SYMS[d.sym]) selSym(d.sym);
-    if(typeof d.inclP==='boolean') setPhotoOpt(d.inclP);
-    if(d.clr && d.clr.userSet && d.clr.primary){
-      _clrCustom.primary=d.clr.primary;
-      _clrCustom.bg=d.clr.bg||_clrCustom.bg;
-      _clrCustom.userSet=true;
-      const cp=document.getElementById('cpPrimary'); if(cp) cp.value=_clrCustom.primary;
-      const cb=document.getElementById('cpBg'); if(cb && _clrCustom.bg) cb.value=_clrCustom.bg;
-      const lbl=document.getElementById('clrThemeName');
-      if(lbl) lbl.textContent='Custom रंग';
-    } else if(typeof d.clrTheme==='number' && d.clrTheme>=0 && d.clrTheme<CLR_THEMES.length){
-      selClrTheme(d.clrTheme);
-    }
-    if(d.tpl && BT_META[d.tpl]) selBT(d.tpl);
-    // Restore "Other" custom text values from 'b' storage
-    const b=S.get('b')||{};
-    if(b.eduOther){const el=document.getElementById('beduOther'); if(el){el.value=b.eduOther;}}
-    if(b.occOther){const el=document.getElementById('boccOther'); if(el){el.value=b.occOther;}}
-    onEduChange(); onOccChange();
-    if(typeof BD!=='undefined') BD.refresh(true);
-  }catch(e){console.warn('Design restore failed:',e);}
-}
-
-/* ── 8. Auto-persist on every design setter call. Wraps existing functions. ── */
-(function wrapDesignSetters(){
-  if(typeof selBT==='function'){
-    const o=selBT; window.selBT=function(n){o(n);saveDesignState();};
-  }
-  if(typeof selSym==='function'){
-    const o=selSym; window.selSym=function(n){o(n);saveDesignState();};
-  }
-  if(typeof selLang==='function'){
-    const o=selLang; window.selLang=function(l){o(l);saveDesignState();};
-  }
-  if(typeof setPhotoOpt==='function'){
-    const o=setPhotoOpt; window.setPhotoOpt=function(y){o(y);refreshPhotoDropState();saveDesignState();};
-  }
-  if(typeof selClrTheme==='function'){
-    const o=selClrTheme; window.selClrTheme=function(n){o(n);saveDesignState();};
-  }
-  if(typeof applyCustomColors==='function'){
-    const o=applyCustomColors; window.applyCustomColors=function(){o();saveDesignState();};
-  }
-})();
-
-/* ── 9. Persist beduOther / boccOther custom text into 'b' storage ── */
-function persistOtherInputs(){
-  try{
-    const b=S.get('b')||{};
-    const ed=document.getElementById('beduOther');
-    const oc=document.getElementById('boccOther');
-    if(ed) b.eduOther=ed.value||'';
-    if(oc) b.occOther=oc.value||'';
-    S.set('b',b);
-  }catch(e){}
-}
-
 
 (function(){
   FS.init();
@@ -5080,22 +4008,11 @@ function persistOtherInputs(){
   updStepUI(0);
   const b=S.get('b');
   if(b){
-    const map={nm:'bnm',dd:'bdd',mm:'bmm',edu:'bedu',occ:'bocc',state:'bstate',city:'bcity',fth:'bfth',mth:'bmth',focc:'bfocc',mocc:'bmocc',ctp:'bctperson',ctm:'bctmobile'};
+    const map={nm:'bnm',dd:'bdd',mm:'bmm',edu:'bedu',occ:'bocc',state:'bstate',city:'bcity',rsh:'brsh',cst:'bcst',fth:'bfth',mth:'bmth',focc:'bfocc',mocc:'bmocc',ctp:'bctperson',ctm:'bctmobile'};
     Object.keys(map).forEach(k=>{const el=document.getElementById(map[k]);if(el&&b[k])el.value=b[k];});
     if(b.yy){const el=document.getElementById('byy');if(el)el.value=b.yy;}
-    // Restore religion → community cascade (order matters: religion first, then community)
-    if(b.relig){const rEl=document.getElementById('brelig');if(rEl){rEl.value=b.relig;onReligChange();}}
-    if(b.cst){const cEl=document.getElementById('bcst');if(cEl)cEl.value=b.cst;}
-    if(b.gotr){const gEl=document.getElementById('bgotr');if(gEl)gEl.value=b.gotr;}
-    if(b.rash){const rEl=document.getElementById('brash');if(rEl)rEl.value=b.rash;}
     BD.refresh(true);
   }
-  // v2.7: restore saved design state (template, lang, colour, sym, photo opt)
-  try{ restoreDesignState(); }catch(e){console.warn('design restore failed',e);}
-  // v2.8: apply offer config to every DOM surface
-  try{ OfferUI.apply(); }catch(e){console.warn('OfferUI.apply failed',e);}
-  // v2.7: apply banner-dismissed preference (after offer UI so banner is in correct state first)
-  try{ applyBannerPreference(); }catch(e){}
   try{
     const ro=new IntersectionObserver((e,obs)=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');obs.unobserve(x.target);}}),{threshold:0.05});
     document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
@@ -5113,6 +4030,5 @@ function persistOtherInputs(){
   });
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "67e1a1c5a0ad4184964383e99927fdf2"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
