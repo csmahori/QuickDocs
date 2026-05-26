@@ -99,7 +99,7 @@
       "name": "Is EasyDocuments really free? What's the catch?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! The first 100 users get their biodata completely free. After that, it's just ₹9 per download — the lowest price you'll find anywhere online. No subscription, no watermark, no sign-up required."
+        "text": "It's just ₹9 per download — the lowest price you'll find anywhere online. No subscription, no watermark, no sign-up required. Pay once, download your professional PDF instantly."
       }
     },
     {
@@ -170,7 +170,7 @@ input,textarea,select{font-family:var(--f);outline:none}
 @media(max-width:560px){.banner{font-size:12px;padding:8px 38px 8px 12px;gap:7px}.banner .sp{font-size:11px;padding:2px 9px}}
 
 /* NAVBAR */
-.nav{position:fixed;top:42px;left:0;right:0;z-index:1001;background:rgba(255,248,240,.96);backdrop-filter:blur(14px);border-bottom:2px solid var(--G);height:66px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 24px rgba(128,0,0,.08);transition:box-shadow .3s}
+.nav{position:fixed;top:42px;left:0;right:0;z-index:1001;background:rgba(255,248,240,.96);backdrop-filter:blur(14px);border-bottom:2px solid var(--G);height:66px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 24px rgba(128,0,0,.08);transition:box-shadow .3s,top .3s}
 .nlogo{display:flex;align-items:center;gap:11px}
 .lic{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--M),var(--ML));display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 3px 12px rgba(128,0,0,.3);flex-shrink:0}
 .lt .lb{font-size:17px;font-weight:800;color:var(--M)}
@@ -1805,7 +1805,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           Is EasyDocuments really free? What's the catch?
           <span style="font-size:20px;color:var(--G)">+</span>
         </summary>
-        <p style="margin-top:12px;color:var(--TM);line-height:1.7">Yes! The first 100 users get their biodata completely free. After that, it's just ₹9 per download — the lowest price you'll find anywhere online. No subscription, no watermark, no sign-up required.</p>
+        <p style="margin-top:12px;color:var(--TM);line-height:1.7">It's just ₹9 per download — the lowest price you'll find anywhere online. No subscription, no watermark, no sign-up required. Pay once, download your professional PDF instantly.</p>
       </details>
 
       <details style="background:#fff;border:1.5px solid var(--B);border-radius:14px;padding:20px 24px;cursor:pointer">
@@ -2511,9 +2511,13 @@ const OfferUI = {
             + sym + c.regularPrice + '</span>';
         }
         if(spotsLeft) spotsLeft.textContent = '💫 Limited time';
+        const navEl = document.querySelector('.nav');
+        if(navEl) navEl.style.top = '42px';
       } else {
-        // 'paid' mode OR free-with-zero-spots: hide banner unless user manually un-dismissed
+        // 'paid' mode OR free-with-zero-spots: hide banner, move nav to top
         banner.style.display = 'none';
+        const navEl = document.querySelector('.nav');
+        if(navEl) navEl.style.top = '0px';
       }
     }
 
