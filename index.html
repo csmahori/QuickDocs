@@ -3682,8 +3682,11 @@ function handleWAShare(){
 
 // ── Razorpay Standard Checkout ───────────────────────────────────────────────
 // Update WORKER_URL after deploying the Cloudflare Worker (worker/index.js)
-const WORKER_URL = 'https://easydocuments-worker.csmahori.workers.dev';
-const RZP_KEY    = 'rzp_live_StCu6CKkDVuORy';
+const IS_DEV     = window.location.hostname.includes('netlify.app') || window.location.hostname === 'localhost';
+const WORKER_URL = IS_DEV ? 'https://easydocuments-worker-test.csmahori.workers.dev'
+                          : 'https://easydocuments-worker.csmahori.workers.dev';
+const RZP_KEY    = IS_DEV ? 'rzp_test_SuH3hzp0CLubEg'
+                          : 'rzp_live_StCu6CKkDVuORy';
 
 async function openRazorpay() {
   const btn  = document.getElementById('rzpPayBtn');
