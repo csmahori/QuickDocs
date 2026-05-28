@@ -2600,8 +2600,8 @@ const OfferUI = {
     }
     if(stdCard){
       // In 'free' mode: Standard card is shown as a "what comes after"
-      // In 'mixed' mode: Standard card is the launch offer (₹9 with strike)
-      // In 'paid' mode: Standard card is the only card, centered, plain price
+      // In 'mixed' mode: Standard card is the launch offer (price with strike)
+      // In 'paid' mode: Standard card is the only card, centered, range price
       const phd = stdCard.querySelector('.phd');
       const amt = stdCard.querySelector('.pamt');
       const per = stdCard.querySelector('.pper');
@@ -2621,8 +2621,8 @@ const OfferUI = {
         stdCard.style.margin = '0 auto';
       } else {
         if(phd) phd.textContent = 'Professional Biodata Maker';
-        if(amt) amt.innerHTML = 'from <sup>'+sym+'</sup>9 <span style="font-size:16px;font-weight:500;color:var(--TL)">– '+sym+'49</span>';
-        if(per) per.textContent = sym+'9–'+sym+'49 · one-time · based on design chosen';
+        if(amt) amt.innerHTML = 'from <sup>'+sym+'</sup>'+c.price+' <span style="font-size:16px;font-weight:500;color:var(--TL)">– '+sym+c.regularPrice+'</span>';
+        if(per) per.textContent = sym+c.price+'–'+sym+c.regularPrice+' · one-time · based on design chosen';
         stdCard.style.maxWidth = '420px';
         stdCard.style.margin = '0 auto';
       }
