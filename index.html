@@ -1783,7 +1783,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
         <div class="spr">
           <span class="pt">🎁 First 100 Users</span>
           <span class="pv"><sup>₹</sup>0</span>
-          <span class="pn">then ₹49 per download</span>
+          <span class="pn">then ₹21–₹71 per download</span>
         </div>
         <button class="scta" onclick="event.stopPropagation();openM('biodata')">📋 Build →</button>
       </div>
@@ -2251,7 +2251,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           </div>
 
           <div class="sth" id="i18nStep3Title">🎉 Biodata Ready!</div>
-          <div class="ssth" id="step3Sub">Pay ₹9 to download</div>
+          <div class="ssth" id="step3Sub">Pay ₹21 to download</div>
 
           <!-- EA: Direct download (free users) -->
           <div id="eaDownloadArea" style="display:none">
@@ -2266,10 +2266,10 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           <div id="paidDownloadArea" style="display:none">
             <div style="background:linear-gradient(135deg,#fff8e1,#fff3e0);border:2px solid #d4af37;border-radius:14px;padding:16px 18px;margin-bottom:12px;text-align:center">
               <div style="font-size:13px;font-weight:800;color:var(--M);margin-bottom:4px">Professional PDF</div>
-              <div style="font-size:22px;font-weight:800;color:var(--M)">₹9</div>
+              <div style="font-size:22px;font-weight:800;color:var(--M)" id="payAmtDisplay">₹21</div>
               <div style="font-size:12px;color:var(--TL)">Instant download · No subscription</div>
             </div>
-            <button class="bfdl" onclick="showUp()">💳 Pay ₹9 &amp; Download →</button>
+            <button class="bfdl" id="payBtn" onclick="showUp()">💳 Pay ₹21 &amp; Download →</button>
           </div>
 
           <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--TL)" id="slotsRem"></div>
@@ -2357,8 +2357,8 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
     </div>
     <div style="padding:28px 28px 32px;text-align:center">
       <div style="font-size:52px;margin-bottom:12px">🎉</div>
-      <h3 style="font-size:22px;font-weight:800;color:var(--T);margin-bottom:8px">Special Offer for First 100 Users!</h3>
-      <p style="color:var(--TL);margin-bottom:24px;font-size:14px">Download professional PDF Biodata for just <strong style="color:var(--M);font-size:22px">₹9</strong></p>
+      <h3 style="font-size:22px;font-weight:800;color:var(--T);margin-bottom:8px">Download Your Biodata</h3>
+      <p style="color:var(--TL);margin-bottom:24px;font-size:14px">Download professional PDF Biodata for just <strong style="color:var(--M);font-size:22px" id="modalPayAmt">₹21</strong></p>
       <!-- Razorpay Payment -->
       <div style="background:linear-gradient(135deg,#f8f3ff,#ffe8f5);border:2px solid #d4af37;border-radius:16px;padding:24px;margin-bottom:20px">
         <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px">
@@ -2367,7 +2367,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
         </div>
         <div style="font-size:11px;color:var(--TL);margin-bottom:18px">UPI · Cards · NetBanking · Wallets — all accepted</div>
         <button id="rzpPayBtn" onclick="openRazorpay()" style="all:initial;font-family:var(--f);background:linear-gradient(135deg,#528FF0,#2563EB);color:#fff;padding:16px 32px;border-radius:12px;font-weight:800;font-size:16px;cursor:pointer;width:100%;box-sizing:border-box;text-align:center;box-shadow:0 6px 20px rgba(37,99,235,.35)">
-          💳 Pay ₹9 — Instant Download
+          💳 Pay ₹21 — Instant Download
         </button>
       </div>
       <div style="font-size:11px;color:var(--TL)">🔒 256-bit SSL · Instant access · No subscription</div>
@@ -2446,8 +2446,8 @@ const S={
 const OFFER_DEFAULTS = {
   mode: 'paid',         // 'free' | 'mixed' | 'paid'
   freeSpots: 100,       // free tier capacity (mode='free' only)
-  price: 9,             // current charging price (mode='mixed'|'paid')
-  regularPrice: 49,     // strike-through "was" price (mode='mixed' only)
+  price: 21,            // current charging price (mode='mixed'|'paid')
+  regularPrice: 71,     // strike-through "was" price (mode='mixed' only)
   currency: '₹',
   brandName: 'EasyDocuments',
   upiId: 'csmahori@okhdfcbank',
