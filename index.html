@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
   ════════════════════════════════════════════════════════════════════
   EasyDocuments — Marriage Biodata Maker  (v2.8 — modular offer system)
@@ -1395,11 +1395,11 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 .t8 #bdr-photo-wrap{display:none!important}
 
 /* DP-name in Devanagari needs different treatment (no uppercase, no letter-spacing) */
-.bdr-wrap.t8.lang-hi .t8-dp-sub{
+.bdr-wrap.t8.lang-hi .t8-dp-sub,.bdr-wrap.t8.lang-bi .t8-dp-sub{
   text-transform:none!important;letter-spacing:.2px!important;
   font-family:var(--fh),sans-serif!important;font-weight:500!important;
   font-size:11.5px!important}
-.bdr-wrap.t8.lang-hi .t8-sub{
+.bdr-wrap.t8.lang-hi .t8-sub,.bdr-wrap.t8.lang-bi .t8-sub{
   text-transform:none!important;letter-spacing:.3px!important;
   font-family:var(--fh),sans-serif!important;font-weight:500!important;
   font-size:13px!important}
@@ -1432,15 +1432,15 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 .t5-full .bdr-lbl{width:40%;min-width:40%}
 
 /* ─── Fix 3: Devanagari subtitles were broken by uppercase+letter-spacing ─── */
-.bdr-wrap.lang-hi .t1-sub,
-.bdr-wrap.lang-hi .t2-lsub,
-.bdr-wrap.lang-hi .t3-sub,
-.bdr-wrap.lang-hi .t4-sub,
-.bdr-wrap.lang-hi .t5-sub,
-.bdr-wrap.lang-hi .t6-sub,
-.bdr-wrap.lang-hi .t7-sub,
-.bdr-wrap.lang-hi .t8-sub,
-.bdr-wrap.lang-hi .t2-rtitle{
+.bdr-wrap.lang-hi .t1-sub,.bdr-wrap.lang-bi .t1-sub,
+.bdr-wrap.lang-hi .t2-lsub,.bdr-wrap.lang-bi .t2-lsub,
+.bdr-wrap.lang-hi .t3-sub,.bdr-wrap.lang-bi .t3-sub,
+.bdr-wrap.lang-hi .t4-sub,.bdr-wrap.lang-bi .t4-sub,
+.bdr-wrap.lang-hi .t5-sub,.bdr-wrap.lang-bi .t5-sub,
+.bdr-wrap.lang-hi .t6-sub,.bdr-wrap.lang-bi .t6-sub,
+.bdr-wrap.lang-hi .t7-sub,.bdr-wrap.lang-bi .t7-sub,
+.bdr-wrap.lang-hi .t8-sub,.bdr-wrap.lang-bi .t8-sub,
+.bdr-wrap.lang-hi .t2-rtitle,.bdr-wrap.lang-bi .t2-rtitle{
   text-transform:none!important;
   letter-spacing:.2px!important;
   font-family:var(--fh),'Noto Serif Devanagari',serif!important;
@@ -1451,15 +1451,15 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 }
 
 /* ─── Fix 3b: Devanagari-safe SECTION HEADERS (broken by uppercase+letter-spacing) ─── */
-.bdr-wrap.lang-hi .t1-sec-hdr,
-.bdr-wrap.lang-hi .t3-sec-hdr,
-.bdr-wrap.lang-hi .t4-ctitle,
-.bdr-wrap.lang-hi .t5-sec-hdr,
-.bdr-wrap.lang-hi .t6-slabel,
-.bdr-wrap.lang-hi .t7-shdr,
-.bdr-wrap.lang-hi .t8-shdr,
-.bdr-wrap.lang-hi .t2-pill,
-.bdr-wrap.lang-hi .t2-rtitle{
+.bdr-wrap.lang-hi .t1-sec-hdr,.bdr-wrap.lang-bi .t1-sec-hdr,
+.bdr-wrap.lang-hi .t3-sec-hdr,.bdr-wrap.lang-bi .t3-sec-hdr,
+.bdr-wrap.lang-hi .t4-ctitle,.bdr-wrap.lang-bi .t4-ctitle,
+.bdr-wrap.lang-hi .t5-sec-hdr,.bdr-wrap.lang-bi .t5-sec-hdr,
+.bdr-wrap.lang-hi .t6-slabel,.bdr-wrap.lang-bi .t6-slabel,
+.bdr-wrap.lang-hi .t7-shdr,.bdr-wrap.lang-bi .t7-shdr,
+.bdr-wrap.lang-hi .t8-shdr,.bdr-wrap.lang-bi .t8-shdr,
+.bdr-wrap.lang-hi .t2-pill,.bdr-wrap.lang-bi .t2-pill,
+.bdr-wrap.lang-hi .t2-rtitle,.bdr-wrap.lang-bi .t2-rtitle{
   text-transform:none!important;
   letter-spacing:.1px!important;
   font-family:var(--fh),'Noto Serif Devanagari',sans-serif!important;
@@ -1467,17 +1467,17 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   font-weight:700!important;
 }
 /* T5 section header is smaller — size up so Devanagari is readable */
-.bdr-wrap.lang-hi .t5-sec-hdr{
+.bdr-wrap.lang-hi .t5-sec-hdr,.bdr-wrap.lang-bi .t5-sec-hdr{
   font-size:11.5px!important;
 }
 /* T2 pill: needs padding adjustment because it's a button-like element */
-.bdr-wrap.lang-hi .t2-pill{
+.bdr-wrap.lang-hi .t2-pill,.bdr-wrap.lang-bi .t2-pill{
   padding:4px 10px!important;font-size:11.5px!important;
 }
 
 /* ─── Fix 3c: Devanagari-safe ROW LABELS in T5 & T2-contact (micro 7-8px + uppercase) ─── */
-.bdr-wrap.lang-hi .t5-rows .bdr-lbl,
-.bdr-wrap.lang-hi .t2-lcontact .bdr-lbl{
+.bdr-wrap.lang-hi .t5-rows .bdr-lbl,.bdr-wrap.lang-bi .t5-rows .bdr-lbl,
+.bdr-wrap.lang-hi .t2-lcontact .bdr-lbl,.bdr-wrap.lang-bi .t2-lcontact .bdr-lbl{
   text-transform:none!important;
   letter-spacing:.1px!important;
   font-size:10px!important;
@@ -1885,7 +1885,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 
 <!-- WA FLOAT -->
 <div class="waf">
-  <div class="watp" id="watp" onclick="openWASupport()" style="cursor:pointer">💬 Need help? WhatsApp us</div>
+  <div class="watp" id="watp">💬 Need help? WhatsApp us</div>
   <a href="#" onclick="openWASupport();return false;" class="wac" aria-label="WhatsApp support"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 </div>
 
@@ -2246,6 +2246,28 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
         </div>
         <div style="font-size:10px;color:var(--TL);text-align:center;margin-top:6px;opacity:.7" id="i18nPrevHint">↑ Actual biodata design · PDF looks even better</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- BIG PREVIEW MODAL (watermark) -->
+<div class="mov" id="bigPrevOv">
+  <div class="mod" style="max-width:860px;background:#f5f0ea;overflow:visible;display:flex;flex-direction:column;max-height:90vh">
+    <div class="mhd" style="flex-shrink:0">
+      <div style="font-size:16px;font-weight:800">🔍 Biodata Preview (Watermark)</div>
+      <button class="mcl" onclick="closeBigPreview()">✕</button>
+    </div>
+    <div style="padding:16px;position:relative;overflow-y:auto;flex:1;min-height:0">
+      <div style="position:sticky;top:0;left:0;right:0;height:0;overflow:visible;pointer-events:none;z-index:10">
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);pointer-events:none">
+          <div style="font-size:48px;font-weight:900;color:rgba(128,0,0,.12);white-space:nowrap;letter-spacing:4px">EasyDocuments.online PREVIEW</div>
+        </div>
+      </div>
+      <div id="bigPrevContent" style="transform:scale(0.72);transform-origin:top center;width:794px;margin:0 auto"></div>
+    </div>
+    <div style="padding:14px 20px 18px;display:flex;flex-direction:column;gap:10px;align-items:center;flex-shrink:0;background:#f5f0ea;border-top:1px solid #e0d5c5">
+      <button onclick="closeBigPreview();generateBiodataPDF()" style="all:initial;font-family:var(--f);background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;padding:14px 32px;border-radius:50px;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 4px 16px rgba(128,0,0,.3);width:100%;max-width:400px;text-align:center;display:block">✅ Remove Watermark — Download →</button>
+      <button onclick="closeBigPreview()" style="all:initial;font-family:var(--f);background:#fff;color:var(--M);border:2px solid var(--M);padding:12px 28px;border-radius:50px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 2px 8px rgba(128,0,0,.1);width:100%;max-width:400px;text-align:center;display:block">← Go Back</button>
     </div>
   </div>
 </div>
@@ -2846,123 +2868,123 @@ let _selClrTheme=0;
 ══════════════════════════════════════════════════════ */
 const VAL_I18N={
   // ── Occupation (self / father / mother) ──
-  'Government Employee'                    :{hi:'सरकारी कर्मचारी',                en:'Government Employee'},
-  'Government Employee (Sarkari Naukri)'   :{hi:'सरकारी कर्मचारी',                en:'Government Employee'},
-  'IAS / IPS / IFS Officer'                :{hi:'IAS / IPS / IFS अधिकारी',         en:'IAS / IPS / IFS Officer'},
-  'Army / Defence'                         :{hi:'सेना / रक्षा',                    en:'Army / Defence'},
-  'Police'                                 :{hi:'पुलिस',                           en:'Police'},
-  'Bank Employee'                          :{hi:'बैंक कर्मचारी',                   en:'Bank Employee'},
-  'Teacher / Professor'                    :{hi:'शिक्षक / प्रोफेसर',               en:'Teacher / Professor'},
-  'Teacher'                                :{hi:'शिक्षक',                          en:'Teacher'},
-  'Railway Employee'                       :{hi:'रेलवे कर्मचारी',                  en:'Railway Employee'},
-  'Private Job (Software / IT)'            :{hi:'प्राइवेट जॉब (Software / IT)',     en:'Private Job (Software / IT)'},
-  'Private Job (Other)'                    :{hi:'प्राइवेट जॉब',                    en:'Private Job'},
-  'Doctor'                                 :{hi:'डॉक्टर',                          en:'Doctor'},
-  'Engineer'                               :{hi:'इंजीनियर',                        en:'Engineer'},
-  'CA / Accountant'                        :{hi:'CA / अकाउंटेंट',                  en:'CA / Accountant'},
-  'Lawyer / Advocate'                      :{hi:'वकील',                            en:'Lawyer / Advocate'},
-  'Nurse / Paramedic'                      :{hi:'नर्स / पैरामेडिक',                en:'Nurse / Paramedic'},
-  'Business / Self-Employed'               :{hi:'व्यापार / स्वरोज़गार',            en:'Business / Self-Employed'},
-  'Farming / Agriculture'                  :{hi:'खेती / कृषि',                     en:'Farming / Agriculture'},
-  'Farmer'                                 :{hi:'किसान',                           en:'Farmer'},
-  'Shop Owner'                             :{hi:'दुकानदार',                        en:'Shop Owner'},
-  'Contractor'                             :{hi:'ठेकेदार',                         en:'Contractor'},
-  'Housewife'                              :{hi:'गृहिणी',                          en:'Homemaker'},
-  'Homemaker'                              :{hi:'गृहिणी',                          en:'Homemaker'},
-  'Student'                                :{hi:'विद्यार्थी',                      en:'Student'},
-  'Not Working'                            :{hi:'अभी कार्यरत नहीं',                en:'Not Working'},
-  'Retired'                                :{hi:'सेवानिवृत्त',                     en:'Retired'},
-  'Deceased'                               :{hi:'स्वर्गीय',                        en:'Late'},
-  'Other'                                  :{hi:'अन्य',                            en:'Other'},
+  'Government Employee'                    :{hi:'सरकारी कर्मचारी',                en:'Government Employee',         bi:'Government Employee | सरकारी कर्मचारी'},
+  'Government Employee (Sarkari Naukri)'   :{hi:'सरकारी कर्मचारी',                en:'Government Employee',         bi:'Government Employee | सरकारी कर्मचारी'},
+  'IAS / IPS / IFS Officer'                :{hi:'IAS / IPS / IFS अधिकारी',         en:'IAS / IPS / IFS Officer',     bi:'IAS / IPS / IFS Officer | अधिकारी'},
+  'Army / Defence'                         :{hi:'सेना / रक्षा',                    en:'Army / Defence',              bi:'Army / Defence | सेना'},
+  'Police'                                 :{hi:'पुलिस',                           en:'Police',                      bi:'Police | पुलिस'},
+  'Bank Employee'                          :{hi:'बैंक कर्मचारी',                   en:'Bank Employee',               bi:'Bank Employee | बैंक कर्मचारी'},
+  'Teacher / Professor'                    :{hi:'शिक्षक / प्रोफेसर',               en:'Teacher / Professor',         bi:'Teacher / Professor | शिक्षक'},
+  'Teacher'                                :{hi:'शिक्षक',                          en:'Teacher',                     bi:'Teacher | शिक्षक'},
+  'Railway Employee'                       :{hi:'रेलवे कर्मचारी',                  en:'Railway Employee',            bi:'Railway Employee | रेलवे कर्मचारी'},
+  'Private Job (Software / IT)'            :{hi:'प्राइवेट जॉब (Software / IT)',     en:'Private Job (Software / IT)', bi:'Private Job (IT) | प्राइवेट जॉब'},
+  'Private Job (Other)'                    :{hi:'प्राइवेट जॉब',                    en:'Private Job',                 bi:'Private Job | प्राइवेट जॉब'},
+  'Doctor'                                 :{hi:'डॉक्टर',                          en:'Doctor',                      bi:'Doctor | डॉक्टर'},
+  'Engineer'                               :{hi:'इंजीनियर',                        en:'Engineer',                    bi:'Engineer | इंजीनियर'},
+  'CA / Accountant'                        :{hi:'CA / अकाउंटेंट',                  en:'CA / Accountant',             bi:'CA / Accountant | अकाउंटेंट'},
+  'Lawyer / Advocate'                      :{hi:'वकील',                            en:'Lawyer / Advocate',           bi:'Lawyer | वकील'},
+  'Nurse / Paramedic'                      :{hi:'नर्स / पैरामेडिक',                en:'Nurse / Paramedic',           bi:'Nurse | नर्स'},
+  'Business / Self-Employed'               :{hi:'व्यापार / स्वरोज़गार',            en:'Business / Self-Employed',    bi:'Business / Self-Employed | व्यापार'},
+  'Farming / Agriculture'                  :{hi:'खेती / कृषि',                     en:'Farming / Agriculture',       bi:'Farming | खेती'},
+  'Farmer'                                 :{hi:'किसान',                           en:'Farmer',                      bi:'Farmer | किसान'},
+  'Shop Owner'                             :{hi:'दुकानदार',                        en:'Shop Owner',                  bi:'Shop Owner | दुकानदार'},
+  'Contractor'                             :{hi:'ठेकेदार',                         en:'Contractor',                  bi:'Contractor | ठेकेदार'},
+  'Housewife'                              :{hi:'गृहिणी',                          en:'Homemaker',                   bi:'Homemaker | गृहिणी'},
+  'Homemaker'                              :{hi:'गृहिणी',                          en:'Homemaker',                   bi:'Homemaker | गृहिणी'},
+  'Student'                                :{hi:'विद्यार्थी',                      en:'Student',                     bi:'Student | विद्यार्थी'},
+  'Not Working'                            :{hi:'अभी कार्यरत नहीं',                en:'Not Working',                 bi:'Not Working | अभी कार्यरत नहीं'},
+  'Retired'                                :{hi:'सेवानिवृत्त',                     en:'Retired',                     bi:'Retired | सेवानिवृत्त'},
+  'Deceased'                               :{hi:'स्वर्गीय',                        en:'Late',                        bi:'Late | स्वर्गीय'},
+  'Other'                                  :{hi:'अन्य',                            en:'Other',                       bi:'Other | अन्य'},
 
   // ── Employment Status ──
-  'Employed'                               :{hi:'नौकरी में',                       en:'Employed'},
-  'Self-employed'                          :{hi:'स्वरोज़गार',                      en:'Self-employed'},
-  'Looking for job'                        :{hi:'नौकरी की तलाश में',               en:'Looking for job'},
+  'Employed'                               :{hi:'नौकरी में',                       en:'Employed',                    bi:'Employed | नौकरी में'},
+  'Self-employed'                          :{hi:'स्वरोज़गार',                      en:'Self-employed',               bi:'Self-employed | स्वरोज़गार'},
+  'Looking for job'                        :{hi:'नौकरी की तलाश में',               en:'Looking for job',             bi:'Looking for job | नौकरी की तलाश'},
 
   // ── Contact Person ──
-  'Father (पिता)'                          :{hi:'पिता',                            en:'Father'},
-  'Mother (माता)'                          :{hi:'माता',                            en:'Mother'},
-  'Brother (भाई)'                          :{hi:'भाई',                             en:'Brother'},
-  'Sister (बहन)'                           :{hi:'बहन',                             en:'Sister'},
-  'Uncle (चाचा / मामा)'                   :{hi:'चाचा / मामा',                     en:'Uncle'},
-  'Guardian (अभिभावक)'                     :{hi:'अभिभावक',                         en:'Guardian'},
-  'Self (स्वयं)'                           :{hi:'स्वयं',                           en:'Self'},
+  'Father (पिता)'                          :{hi:'पिता',                            en:'Father',                      bi:'Father | पिता'},
+  'Mother (माता)'                          :{hi:'माता',                            en:'Mother',                      bi:'Mother | माता'},
+  'Brother (भाई)'                          :{hi:'भाई',                             en:'Brother',                     bi:'Brother | भाई'},
+  'Sister (बहन)'                           :{hi:'बहन',                             en:'Sister',                      bi:'Sister | बहन'},
+  'Uncle (चाचा / मामा)'                   :{hi:'चाचा / मामा',                     en:'Uncle',                       bi:'Uncle | चाचा / मामा'},
+  'Guardian (अभिभावक)'                     :{hi:'अभिभावक',                         en:'Guardian',                    bi:'Guardian | अभिभावक'},
+  'Self (स्वयं)'                           :{hi:'स्वयं',                           en:'Self',                        bi:'Self | स्वयं'},
 
   // ── Education ──
-  '10th Pass (Matric)'      :{hi:'हाई स्कूल (10वीं)',          en:'10th Pass (Matric)'},
-  '12th Pass (Intermediate)':{hi:'इंटरमीडिएट (12वीं)',         en:'12th Pass (Intermediate)'},
-  'B.A.'                    :{hi:'बी.ए.',                       en:'B.A.'},
-  'B.Sc.'                   :{hi:'बी.एससी.',                    en:'B.Sc.'},
-  'B.Com'                   :{hi:'बी.कॉम',                      en:'B.Com'},
-  'B.Tech / B.E.'           :{hi:'बी.टेक / बी.ई.',              en:'B.Tech / B.E.'},
-  'BBA'                     :{hi:'बीबीए',                       en:'BBA'},
-  'BCA'                     :{hi:'बीसीए',                       en:'BCA'},
-  'B.Ed'                    :{hi:'बी.एड',                       en:'B.Ed'},
-  'MBBS'                    :{hi:'एमबीबीएस',                    en:'MBBS'},
-  'B.Pharma'                :{hi:'बी.फार्मा',                   en:'B.Pharma'},
-  'LLB'                     :{hi:'एलएलबी',                      en:'LLB'},
-  'M.A.'                    :{hi:'एम.ए.',                       en:'M.A.'},
-  'M.Sc.'                   :{hi:'एम.एससी.',                    en:'M.Sc.'},
-  'M.Com'                   :{hi:'एम.कॉम',                      en:'M.Com'},
-  'M.Tech / M.E.'           :{hi:'एम.टेक / एम.ई.',              en:'M.Tech / M.E.'},
-  'MBA'                     :{hi:'एमबीए',                       en:'MBA'},
-  'MCA'                     :{hi:'एमसीए',                       en:'MCA'},
-  'M.Ed'                    :{hi:'एम.एड',                       en:'M.Ed'},
-  'MD / MS (Medical)'       :{hi:'एमडी / एमएस (मेडिकल)',        en:'MD / MS (Medical)'},
-  'LLM'                     :{hi:'एलएलएम',                      en:'LLM'},
-  'Diploma / ITI'           :{hi:'डिप्लोमा / आईटीआई',           en:'Diploma / ITI'},
-  'PhD / Doctorate'         :{hi:'पीएचडी / डॉक्टरेट',           en:'PhD / Doctorate'},
+  '10th Pass (Matric)'      :{hi:'हाई स्कूल (10वीं)',          en:'10th Pass (Matric)',       bi:'10th | हाई स्कूल (10वीं)'},
+  '12th Pass (Intermediate)':{hi:'इंटरमीडिएट (12वीं)',         en:'12th Pass (Intermediate)', bi:'12th | इंटरमीडिएट (12वीं)'},
+  'B.A.'                    :{hi:'बी.ए.',                       en:'B.A.',                     bi:'B.A. | बी.ए.'},
+  'B.Sc.'                   :{hi:'बी.एससी.',                    en:'B.Sc.',                    bi:'B.Sc. | बी.एससी.'},
+  'B.Com'                   :{hi:'बी.कॉम',                      en:'B.Com',                    bi:'B.Com | बी.कॉम'},
+  'B.Tech / B.E.'           :{hi:'बी.टेक / बी.ई.',              en:'B.Tech / B.E.',            bi:'B.Tech | बी.टेक'},
+  'BBA'                     :{hi:'बीबीए',                       en:'BBA',                      bi:'BBA | बीबीए'},
+  'BCA'                     :{hi:'बीसीए',                       en:'BCA',                      bi:'BCA | बीसीए'},
+  'B.Ed'                    :{hi:'बी.एड',                       en:'B.Ed',                     bi:'B.Ed | बी.एड'},
+  'MBBS'                    :{hi:'एमबीबीएस',                    en:'MBBS',                     bi:'MBBS | एमबीबीएस'},
+  'B.Pharma'                :{hi:'बी.फार्मा',                   en:'B.Pharma',                 bi:'B.Pharma | बी.फार्मा'},
+  'LLB'                     :{hi:'एलएलबी',                      en:'LLB',                      bi:'LLB | एलएलबी'},
+  'M.A.'                    :{hi:'एम.ए.',                       en:'M.A.',                     bi:'M.A. | एम.ए.'},
+  'M.Sc.'                   :{hi:'एम.एससी.',                    en:'M.Sc.',                    bi:'M.Sc. | एम.एससी.'},
+  'M.Com'                   :{hi:'एम.कॉम',                      en:'M.Com',                    bi:'M.Com | एम.कॉम'},
+  'M.Tech / M.E.'           :{hi:'एम.टेक / एम.ई.',              en:'M.Tech / M.E.',            bi:'M.Tech | एम.टेक'},
+  'MBA'                     :{hi:'एमबीए',                       en:'MBA',                      bi:'MBA | एमबीए'},
+  'MCA'                     :{hi:'एमसीए',                       en:'MCA',                      bi:'MCA | एमसीए'},
+  'M.Ed'                    :{hi:'एम.एड',                       en:'M.Ed',                     bi:'M.Ed | एम.एड'},
+  'MD / MS (Medical)'       :{hi:'एमडी / एमएस (मेडिकल)',        en:'MD / MS (Medical)',        bi:'MD/MS | एमडी/एमएस'},
+  'LLM'                     :{hi:'एलएलएम',                      en:'LLM',                      bi:'LLM | एलएलएम'},
+  'Diploma / ITI'           :{hi:'डिप्लोमा / आईटीआई',           en:'Diploma / ITI',            bi:'Diploma | डिप्लोमा'},
+  'PhD / Doctorate'         :{hi:'पीएचडी / डॉक्टरेट',           en:'PhD / Doctorate',          bi:'PhD | पीएचडी'},
 
   // ── States & Union Territories ──
-  'Andhra Pradesh'    :{hi:'आंध्र प्रदेश',     en:'Andhra Pradesh'},
-  'Arunachal Pradesh' :{hi:'अरुणाचल प्रदेश',   en:'Arunachal Pradesh'},
-  'Assam'             :{hi:'असम',               en:'Assam'},
-  'Bihar'             :{hi:'बिहार',             en:'Bihar'},
-  'Chhattisgarh'      :{hi:'छत्तीसगढ़',        en:'Chhattisgarh'},
-  'Goa'               :{hi:'गोवा',              en:'Goa'},
-  'Gujarat'           :{hi:'गुजरात',            en:'Gujarat'},
-  'Haryana'           :{hi:'हरियाणा',           en:'Haryana'},
-  'Himachal Pradesh'  :{hi:'हिमाचल प्रदेश',    en:'Himachal Pradesh'},
-  'Jharkhand'         :{hi:'झारखंड',            en:'Jharkhand'},
-  'Karnataka'         :{hi:'कर्नाटक',           en:'Karnataka'},
-  'Kerala'            :{hi:'केरल',              en:'Kerala'},
-  'Madhya Pradesh'    :{hi:'मध्य प्रदेश',      en:'Madhya Pradesh'},
-  'Maharashtra'       :{hi:'महाराष्ट्र',       en:'Maharashtra'},
-  'Manipur'           :{hi:'मणिपुर',            en:'Manipur'},
-  'Meghalaya'         :{hi:'मेघालय',            en:'Meghalaya'},
-  'Mizoram'           :{hi:'मिज़ोरम',           en:'Mizoram'},
-  'Nagaland'          :{hi:'नागालैंड',          en:'Nagaland'},
-  'Odisha'            :{hi:'ओडिशा',             en:'Odisha'},
-  'Punjab'            :{hi:'पंजाब',             en:'Punjab'},
-  'Rajasthan'         :{hi:'राजस्थान',          en:'Rajasthan'},
-  'Sikkim'            :{hi:'सिक्किम',           en:'Sikkim'},
-  'Tamil Nadu'        :{hi:'तमिलनाडु',          en:'Tamil Nadu'},
-  'Telangana'         :{hi:'तेलंगाना',          en:'Telangana'},
-  'Tripura'           :{hi:'त्रिपुरा',          en:'Tripura'},
-  'Uttar Pradesh'     :{hi:'उत्तर प्रदेश',      en:'Uttar Pradesh'},
-  'Uttarakhand'       :{hi:'उत्तराखंड',         en:'Uttarakhand'},
-  'West Bengal'       :{hi:'पश्चिम बंगाल',      en:'West Bengal'},
-  'Delhi (NCT)'       :{hi:'दिल्ली (NCT)',     en:'Delhi (NCT)'},
-  'Jammu & Kashmir'   :{hi:'जम्मू और कश्मीर',   en:'Jammu & Kashmir'},
-  'Ladakh'            :{hi:'लद्दाख',            en:'Ladakh'},
-  'Chandigarh'        :{hi:'चंडीगढ़',           en:'Chandigarh'},
+  'Andhra Pradesh'    :{hi:'आंध्र प्रदेश',     en:'Andhra Pradesh',     bi:'Andhra Pradesh | आंध्र प्रदेश'},
+  'Arunachal Pradesh' :{hi:'अरुणाचल प्रदेश',   en:'Arunachal Pradesh',  bi:'Arunachal Pradesh | अरुणाचल प्रदेश'},
+  'Assam'             :{hi:'असम',               en:'Assam',              bi:'Assam | असम'},
+  'Bihar'             :{hi:'बिहार',             en:'Bihar',              bi:'Bihar | बिहार'},
+  'Chhattisgarh'      :{hi:'छत्तीसगढ़',        en:'Chhattisgarh',       bi:'Chhattisgarh | छत्तीसगढ़'},
+  'Goa'               :{hi:'गोवा',              en:'Goa',                bi:'Goa | गोवा'},
+  'Gujarat'           :{hi:'गुजरात',            en:'Gujarat',            bi:'Gujarat | गुजरात'},
+  'Haryana'           :{hi:'हरियाणा',           en:'Haryana',            bi:'Haryana | हरियाणा'},
+  'Himachal Pradesh'  :{hi:'हिमाचल प्रदेश',    en:'Himachal Pradesh',   bi:'Himachal Pradesh | हिमाचल प्रदेश'},
+  'Jharkhand'         :{hi:'झारखंड',            en:'Jharkhand',          bi:'Jharkhand | झारखंड'},
+  'Karnataka'         :{hi:'कर्नाटक',           en:'Karnataka',          bi:'Karnataka | कर्नाटक'},
+  'Kerala'            :{hi:'केरल',              en:'Kerala',             bi:'Kerala | केरल'},
+  'Madhya Pradesh'    :{hi:'मध्य प्रदेश',      en:'Madhya Pradesh',     bi:'Madhya Pradesh | मध्य प्रदेश'},
+  'Maharashtra'       :{hi:'महाराष्ट्र',       en:'Maharashtra',        bi:'Maharashtra | महाराष्ट्र'},
+  'Manipur'           :{hi:'मणिपुर',            en:'Manipur',            bi:'Manipur | मणिपुर'},
+  'Meghalaya'         :{hi:'मेघालय',            en:'Meghalaya',          bi:'Meghalaya | मेघालय'},
+  'Mizoram'           :{hi:'मिज़ोरम',           en:'Mizoram',            bi:'Mizoram | मिज़ोरम'},
+  'Nagaland'          :{hi:'नागालैंड',          en:'Nagaland',           bi:'Nagaland | नागालैंड'},
+  'Odisha'            :{hi:'ओडिशा',             en:'Odisha',             bi:'Odisha | ओडिशा'},
+  'Punjab'            :{hi:'पंजाब',             en:'Punjab',             bi:'Punjab | पंजाब'},
+  'Rajasthan'         :{hi:'राजस्थान',          en:'Rajasthan',          bi:'Rajasthan | राजस्थान'},
+  'Sikkim'            :{hi:'सिक्किम',           en:'Sikkim',             bi:'Sikkim | सिक्किम'},
+  'Tamil Nadu'        :{hi:'तमिलनाडु',          en:'Tamil Nadu',         bi:'Tamil Nadu | तमिलनाडु'},
+  'Telangana'         :{hi:'तेलंगाना',          en:'Telangana',          bi:'Telangana | तेलंगाना'},
+  'Tripura'           :{hi:'त्रिपुरा',          en:'Tripura',            bi:'Tripura | त्रिपुरा'},
+  'Uttar Pradesh'     :{hi:'उत्तर प्रदेश',      en:'Uttar Pradesh',      bi:'Uttar Pradesh | उत्तर प्रदेश'},
+  'Uttarakhand'       :{hi:'उत्तराखंड',         en:'Uttarakhand',        bi:'Uttarakhand | उत्तराखंड'},
+  'West Bengal'       :{hi:'पश्चिम बंगाल',      en:'West Bengal',        bi:'West Bengal | पश्चिम बंगाल'},
+  'Delhi (NCT)'       :{hi:'दिल्ली (NCT)',     en:'Delhi (NCT)',        bi:'Delhi | दिल्ली'},
+  'Jammu & Kashmir'   :{hi:'जम्मू और कश्मीर',   en:'Jammu & Kashmir',    bi:'J&K | जम्मू और कश्मीर'},
+  'Ladakh'            :{hi:'लद्दाख',            en:'Ladakh',             bi:'Ladakh | लद्दाख'},
+  'Chandigarh'        :{hi:'चंडीगढ़',           en:'Chandigarh',         bi:'Chandigarh | चंडीगढ़'},
 
   // ── Salary ranges ──
-  'Below ₹3 LPA'      :{hi:'₹3 लाख से कम',      en:'Below ₹3 LPA'},
-  '₹3 - 5 LPA'        :{hi:'₹3 - 5 लाख',        en:'₹3 - 5 LPA'},
-  '₹5 - 8 LPA'        :{hi:'₹5 - 8 लाख',        en:'₹5 - 8 LPA'},
-  '₹8 - 12 LPA'       :{hi:'₹8 - 12 लाख',       en:'₹8 - 12 LPA'},
-  '₹12 - 20 LPA'      :{hi:'₹12 - 20 लाख',      en:'₹12 - 20 LPA'},
-  '₹20 - 35 LPA'      :{hi:'₹20 - 35 लाख',      en:'₹20 - 35 LPA'},
-  '₹35 - 50 LPA'      :{hi:'₹35 - 50 लाख',      en:'₹35 - 50 LPA'},
-  'Above ₹50 LPA'     :{hi:'₹50 लाख से अधिक',   en:'Above ₹50 LPA'},
+  'Below ₹3 LPA'      :{hi:'₹3 लाख से कम',      en:'Below ₹3 LPA',       bi:'Below ₹3 LPA | ₹3 लाख से कम'},
+  '₹3 - 5 LPA'        :{hi:'₹3 - 5 लाख',        en:'₹3 - 5 LPA',         bi:'₹3-5 LPA | ₹3-5 लाख'},
+  '₹5 - 8 LPA'        :{hi:'₹5 - 8 लाख',        en:'₹5 - 8 LPA',         bi:'₹5-8 LPA | ₹5-8 लाख'},
+  '₹8 - 12 LPA'       :{hi:'₹8 - 12 लाख',       en:'₹8 - 12 LPA',        bi:'₹8-12 LPA | ₹8-12 लाख'},
+  '₹12 - 20 LPA'      :{hi:'₹12 - 20 लाख',      en:'₹12 - 20 LPA',       bi:'₹12-20 LPA | ₹12-20 लाख'},
+  '₹20 - 35 LPA'      :{hi:'₹20 - 35 लाख',      en:'₹20 - 35 LPA',       bi:'₹20-35 LPA | ₹20-35 लाख'},
+  '₹35 - 50 LPA'      :{hi:'₹35 - 50 लाख',      en:'₹35 - 50 LPA',       bi:'₹35-50 LPA | ₹35-50 लाख'},
+  'Above ₹50 LPA'     :{hi:'₹50 लाख से अधिक',   en:'Above ₹50 LPA',      bi:'Above ₹50 LPA | ₹50 लाख+'},
 
   // ── Education (descriptive ones; degree codes like B.Tech / MBBS stay English by convention) ──
-  '10th Pass (Matric)'       :{hi:'10वीं पास',                  en:'10th Pass'},
-  '12th Pass (Intermediate)' :{hi:'12वीं पास (इंटर)',           en:'12th Pass'},
-  'Diploma / ITI'            :{hi:'डिप्लोमा / ITI',             en:'Diploma / ITI'},
-  'PhD / Doctorate'          :{hi:'PhD / डॉक्टरेट',             en:'PhD / Doctorate'},
+  '10th Pass (Matric)'       :{hi:'10वीं पास',                  en:'10th Pass',                bi:'10th Pass | 10वीं पास'},
+  '12th Pass (Intermediate)' :{hi:'12वीं पास (इंटर)',           en:'12th Pass',                bi:'12th Pass | 12वीं पास'},
+  'Diploma / ITI'            :{hi:'डिप्लोमा / ITI',             en:'Diploma / ITI',            bi:'Diploma / ITI | डिप्लोमा'},
+  'PhD / Doctorate'          :{hi:'PhD / डॉक्टरेट',             en:'PhD / Doctorate',          bi:'PhD | डॉक्टरेट'},
 };
 
 /* ── HEIGHT translation: build entries programmatically — every option in bheight ── */
@@ -2973,7 +2995,7 @@ const VAL_I18N={
       const cm = Math.round((ft*12 + inch) * 2.54);
       const en = ft+"'"+inch+'" ('+cm+' cm)';
       const hi = ft+' फुट '+inch+' इंच ('+cm+' सेमी)';
-      VAL_I18N[en] = { hi, en };
+      VAL_I18N[en] = { hi, en, bi: en+' | '+hi };
     }
   }
 })();
@@ -3064,6 +3086,7 @@ function trWordMap(val, lang, map, reverseMap){
     return out.replace(match,'').includes(word)?'':match;
   }).replace(/\s{2,}/g,' ').trim();
   // bi mode: show "original | translated" only when something actually changed
+  if(lang==='bi') return out!==val ? val+' | '+out : val;
   return out;
 }
 
@@ -3098,12 +3121,13 @@ function trCity(loc, lang){
 function trTime(t, lang){
   if(!t||lang==='en') return t;
   if(lang==='hi') return t.replace(/\bAM\b/gi,'सुबह').replace(/\bPM\b/gi,'शाम');
+  if(lang==='bi') return t.replace(/\bAM\b/gi,'AM/सुबह').replace(/\bPM\b/gi,'PM/शाम');
   return t;
 }
 
 /* trYearsLabel / trMarriedLabel: localized suffixes for DOB age and sibling counts */
-function trYearsLabel(lang){return lang==='hi'?'वर्ष':'Years';}
-function trMarriedLabel(lang){return lang==='hi'?'विवाहित':'married';}
+function trYearsLabel(lang){return lang==='hi'?'वर्ष':(lang==='bi'?'Yrs / वर्ष':'Years');}
+function trMarriedLabel(lang){return lang==='hi'?'विवाहित':(lang==='bi'?'married / विवाहित':'married');}
 
 /* ══════════════════════════════════════════════════════
    BD — REACTIVE PREVIEW ENGINE
@@ -3359,7 +3383,7 @@ const BD={
     el.style.setProperty('--tc3',p+'cc');
     el.style.setProperty('--tc4',p+'22');
     /* v2 fix: toggle language class so CSS can style Devanagari subtitles correctly */
-    el.classList.remove('lang-hi','lang-en');
+    el.classList.remove('lang-hi','lang-en','lang-bi');
     el.classList.add('lang-'+(bLang||'hi'));
   },
 
@@ -3522,6 +3546,28 @@ function applyPreset(el,primary,bg,isDefault){
   if(isDefault){resetColors();return;}
   _clrCustom.primary=primary; _clrCustom.bg=bg;
   _applyColorVars();
+}
+
+function openBigPreview(){
+  swapTemplate(bTpl);
+  buildBdTemplate();
+  const rd=document.getElementById('bdRender');
+  const src=rd ? rd.querySelector('#bdTemplate')||rd.querySelector('.bdr-wrap') : document.getElementById('bdTemplate');
+  const dest=document.getElementById('bigPrevContent');
+  if(src&&dest){
+    dest.innerHTML=src.outerHTML;
+    const wm=document.createElement('div');
+    wm.style.cssText='position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:20;transform:rotate(-30deg);';
+    wm.innerHTML='<div style="font-size:36px;font-weight:900;color:rgba(128,0,0,.15);white-space:nowrap;letter-spacing:3px">EasyDocuments.online PREVIEW</div>';
+    dest.style.position='relative';
+    dest.appendChild(wm);
+  }
+  const ov=document.getElementById('bigPrevOv');
+  if(ov){ov.classList.add('act');document.body.style.overflow='hidden';}
+}
+function closeBigPreview(){
+  const ov=document.getElementById('bigPrevOv');
+  if(ov){ov.classList.remove('act');document.body.style.overflow='';}
 }
 
 var _waTool=null;
@@ -3772,6 +3818,14 @@ const BL={
     fields:{name:['Full Name',''],dob:['Date of Birth',''],age:['Age',''],height:['Height',''],edu:['Education',''],occ:['Occupation',''],employed:['Employment Status',''],salary:['Annual Income',''],city:['City / State',''],father:["Father's Name",''],mother:["Mother's Name",''],brothers:['Brothers',''],sisters:['Sisters',''],caste:['Community',''],rashi:['Gotra / Rashi',''],contact:['Contact Via',''],loc:['Location','']},
     fOcc:"Father's Occupation",mOcc:"Mother's Occupation",ctperson:'Contact Person',ctmobile:'Mobile Number',
   },
+  bi:{
+    subtitle:'Marriage Biodata | विवाह बायोडाटा',
+    sec1:'Personal Details | व्यक्तिगत जानकारी',sec2:'Family Details | पारिवारिक जानकारी',sec3:'Contact | सम्पर्क',
+    auspc:'ॐ श्री गणेशाय नमः  ·  शुभ विवाह  ·  ईश्वर की कृपा से',
+    fields:{name:['Full Name | पूरा नाम',''],dob:['Date of Birth | जन्म तिथि',''],age:['Age | आयु',''],height:['Height | कद',''],edu:['Education | शिक्षा',''],occ:['Occupation | व्यवसाय',''],employed:['Employment | रोज़गार',''],salary:['Income | आय',''],city:['City/State | शहर/राज्य',''],father:["Father's Name | पिता का नाम",''],mother:["Mother's Name | माता का नाम",''],brothers:['Brothers | भाई',''],sisters:['Sisters | बहन',''],caste:['Community | समुदाय',''],rashi:['Gotra/Rashi | गोत्र/राशि',''],contact:['Contact | सम्पर्क',''],loc:['Location | स्थान','']},
+    fOcc:"Father's Occupation | पिता का व्यवसाय",mOcc:"Mother's Occupation | माता का व्यवसाय",
+    ctperson:'Contact Person | सम्पर्क व्यक्ति',ctmobile:'Mobile No. | मोबाइल नंबर',
+  }
 };
 
 function isBlank(v){return !v||v==='–'||!v.trim();}
@@ -3836,6 +3890,7 @@ const UI_I18N={
     backBtn2:'← Details बदलें', nextBtn2:'Design चुना ✓ → Preview देखें →',
     // Step 3
     step3Title:'🎉 बायोडाटा तैयार है!', step3Sub:'नीचे बड़ा preview देखें',
+    bigPrevBtn:'🔍 बड़ा Preview देखें (Watermark के साथ)',
     eaTitle:'🎁 आपका Early Access Active है!', eaSub:'पहले 100 users को FREE PDF download',
     eaBtn:'⬇️ FREE PDF Download करें',
     waBtn:'WhatsApp पर Share करें', backBtn3:'← Design बदलें',
@@ -3874,10 +3929,49 @@ const UI_I18N={
     clrLabel:'🎨 Colour Theme', accentLbl:'Accent:', bgLbl:'Background:', defaultBtn:'↺ Default',
     backBtn2:'← Edit Details', nextBtn2:'Design Selected ✓ → See Preview →',
     step3Title:'🎉 Biodata Ready!', step3Sub:'See full preview below',
+    bigPrevBtn:'🔍 See Big Preview (with Watermark)',
     eaTitle:'🎁 Your Early Access is Active!', eaSub:'FREE PDF download for first 100 users',
     eaBtn:'⬇️ FREE PDF Download',
     waBtn:'Share on WhatsApp', backBtn3:'← Change Design',
     prevLabel:'🖼️ Live Preview', prevHint:'↑ Actual biodata design · PDF will look even better',
+  },
+  bi:{
+    step0Title:'भाषा चुनें / Choose Language', step0Sub:'PDF किस भाषा में बनाएं?',
+    step0Btn:'भाषा चुनी ✓ → Details भरें →',
+    step1Title:'जानकारी भरें / Enter Details', step1Sub:'Personal & Family Details / व्यक्तिगत विवरण',
+    lblName:'Full Name (पूरा नाम)', lblNamePh:'e.g. Neha Agarwal',
+    lblDOB:'Date & Time of Birth (जन्म तिथि)', lblTOBPh:'Time of Birth (जन्म समय) — Optional',
+    lblPhoto:'Photo include करें?', photoYes:'✅ हाँ — Photo लगाएं', photoNo:'❌ नहीं — Photo नहीं',
+    photoClick:'Click to upload photo / फोटो अपलोड करें', photoHint:'JPG / PNG · Max 5MB',
+    lblEdu:'Education (शिक्षा)', eduPh:'-- Select Education --',
+    lblOcc:'Occupation (व्यवसाय)', occPh:'-- Select Occupation --',
+    lblState:'State (राज्य)', statePh:'-- Select State --',
+    lblCity:'City (शहर)', cityPh:'e.g. Lucknow, Agra, Patna',
+    secFamily:'परिवार / Family',
+    lblFather:"Father's Name (पिता का नाम)", fatherPh:'e.g. Ramesh Agarwal',
+    lblFOcc:"Father's Occupation (पिता का व्यवसाय)", foccPh:'-- Select --',
+    lblMother:"Mother's Name (माता का नाम)", motherPh:'e.g. Sunita Agarwal',
+    lblMOcc:"Mother's Occupation (माता का व्यवसाय)", moccPh:'-- Select --',
+    lblCaste:'Community (समुदाय / जाति)', castePh:'e.g. Hindu - Agarwal',
+    lblRashi:'Gotra / Rashi (गोत्र / राशि)', rashiPh:'Kashyap / Kanya',
+    secContact:'सम्पर्क / Contact',
+    lblCtPerson:'Contact Person (सम्पर्क व्यक्ति)', ctpPh:'-- Who to Contact? --',
+    lblCtMobile:'Mobile Number (मोबाइल नंबर)', ctmPh:'e.g. 98765 43210',
+    secExtra:'अतिरिक्त / Extra Info',
+    addMore:'➕ Add More Info (भाई-बहन, Property, etc.)',
+    errMsg:'⚠️ कृपया सभी ★ required fields भरें',
+    backBtn:'← वापस / Back', nextBtn1:'Details ✓ → Design चुनें →',
+    reqStar:'★ ज़रूरी',
+    step2Title:'🎨 Design & Style चुनें',
+    tplLabel:'📐 Template Layout', symLabel:'🕌 Auspicious Symbol / शुभ चिह्न',
+    clrLabel:'🎨 Colour Theme / रंग', accentLbl:'Accent:', bgLbl:'Background:', defaultBtn:'↺ Default',
+    backBtn2:'← Details Edit करें', nextBtn2:'Design चुना ✓ → Preview देखें →',
+    step3Title:'🎉 Biodata Ready! / बायोडाटा तैयार है!', step3Sub:'नीचे बड़ा preview देखें',
+    bigPrevBtn:'🔍 बड़ा Preview देखें (Watermark)',
+    eaTitle:'🎁 Early Access Active!', eaSub:'FREE PDF download',
+    eaBtn:'⬇️ FREE PDF Download करें',
+    waBtn:'WhatsApp पर Share करें', backBtn3:'← Design बदलें',
+    prevLabel:'🖼️ Live Preview', prevHint:'↑ Actual design · PDF aur bhi sundar hogi',
   },
 };
 
@@ -3900,6 +3994,9 @@ function selLang(l){
       if(l==='hi'){
         title.textContent='सुझाव:';
         body.textContent='नाम, माता-पिता का नाम, गोत्र, समुदाय जैसे personal text अपनी पसंद की script में type करें (हिन्दी या English)। State, city, occupation, height — यह सब automatic हिन्दी में convert हो जाएगा।';
+      } else { // bi
+        title.textContent='Tip / सुझाव:';
+        body.textContent='Personal text (name, parents\' names, gotra, community) appears as you type — use the script you prefer. Lookup fields (state, city, occupation, height, salary) are shown automatically in both languages.';
       }
     }
   }
@@ -3956,6 +4053,7 @@ function selLang(l){
 
   // Step 3
   setT('i18nStep3Title',T.step3Title);
+  setT('i18nBigPrevBtn',T.bigPrevBtn);
   setT('i18nEaTitle',T.eaTitle); setT('i18nEaSub',T.eaSub);
   setT('i18nEaBtn',T.eaBtn); setT('i18nWaBtn',T.waBtn);
   setT('i18nBackBtn3',T.backBtn3);
@@ -4003,11 +4101,6 @@ function bNxValidate(){
         errs.push({id:'byy',label:bLang==='hi'?'वर्ष (1940–2010)':'Year (1940–2010)'});
     }
   }
-  const mobVal=(document.getElementById('bctmobile')?.value||'').replace(/\D/g,'');
-  if(mobVal && !/^\d{10}$/.test(mobVal)){
-    if(!errs.find(e=>e.id==='bctmobile'))
-      errs.push({id:'bctmobile',label:bLang==='hi'?'मोबाइल नंबर (10 अंक)':'Mobile (10 digits)'});
-  }
   if(errs.length){
     errs.forEach(f=>{const el=document.getElementById(f.id);if(el){el.classList.add('req-err');setTimeout(()=>el.classList.remove('req-err'),2500);}});
     const msg=document.getElementById('bErrMsg');
@@ -4025,10 +4118,12 @@ function updStepUI(s){
   const titlesMap={
     hi:['भाषा चुनें','जानकारी भरें','Design & Colour चुनें','Preview & Download'],
     en:['Choose Language','Enter Details','Choose Design & Colour','Preview & Download'],
+    bi:['भाषा / Language','Details भरें','Design चुनें','Preview & Download'],
   };
   const stepsMap={
     hi:['चरण 1 / 4 — भाषा','चरण 2 / 4 — विवरण','चरण 3 / 4 — Design','चरण 4 / 4 — Preview'],
     en:['Step 1 of 4 — Language','Step 2 of 4 — Details','Step 3 of 4 — Design','Step 4 of 4 — Preview'],
+    bi:['Step 1/4 — भाषा','Step 2/4 — Details','Step 3/4 — Design','Step 4/4 — Preview'],
   };
   const titles=(titlesMap[bLang]||titlesMap.hi);
   const steps=(stepsMap[bLang]||stepsMap.hi);
@@ -4602,30 +4697,37 @@ const RELIGION_AUSPC={
   hindu:{
     hi:'ॐ श्री गणेशाय नमः  ·  शुभ विवाह  ·  ईश्वर की कृपा से',
     en:'Om Shri Ganeshaya Namah  ·  Shubh Vivah  ·  By Divine Grace',
+    bi:'ॐ श्री गणेशाय नमः  ·  शुभ विवाह / Shubh Vivah  ·  By Divine Grace',
   },
   muslim:{
     hi:'بِسْمِ ٱللَّٰهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ  ·  शुभ निकाह  ·  अल्लाह की मेहरबानी से',
     en:'Bismillah ir-Rahman ir-Rahim  ·  Blessed Nikah  ·  By Allah\'s Mercy',
+    bi:'بِسْمِ ٱللَّٰهِ ٱلرَّحْمٰنِ ٱلرَّحِيمِ  ·  शुभ निकाह / Blessed Nikah  ·  अल्लाह की मेहरबानी',
   },
   christian:{
     hi:'✝ प्रभु यीशु की कृपा  ·  पवित्र विवाह  ·  ईश्वर का आशीर्वाद',
     en:'✝ By the Grace of Lord Jesus  ·  Holy Matrimony  ·  God Bless This Union',
+    bi:'✝ प्रभु यीशु की कृपा / By Grace of Lord Jesus  ·  Holy Matrimony  ·  God Bless This Union',
   },
   sikh:{
     hi:'ੴ ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖ਼ਾਲਸਾ  ·  शुभ अनंद कारज  ·  वाहेगुरू की कृपा से',
-    en:'ੴ Waheguru Ji Ka Khalsa  ·  Blessed Anand Karaj  ·  By Waheguru\'s Grace's Blessings',
+    en:'ੴ Waheguru Ji Ka Khalsa  ·  Blessed Anand Karaj  ·  By Waheguru\'s Grace',
+    bi:'ੴ ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖ਼ਾਲਸਾ  ·  आनंद कारज / Anand Karaj  ·  Waheguru\'s Blessings',
   },
   buddhist:{
     hi:'☸ बुद्धं शरणं गच्छामि  ·  शुभ विवाह  ·  मंगल कामना',
     en:'☸ Buddham Saranam Gacchami  ·  Blessed Marriage  ·  Best Wishes',
+    bi:'☸ बुद्धं शरणं गच्छामि / Buddham Saranam  ·  शुभ विवाह / Blessed Marriage  ·  मंगल कामना',
   },
   jewish:{
     hi:'✡ मज़ल टोव  ·  शुभ विवाह  ·  ईश्वर की कृपा से',
     en:'✡ Mazel Tov  ·  Blessed Marriage  ·  By Divine Grace',
+    bi:'✡ Mazel Tov  ·  शुभ विवाह / Blessed Marriage  ·  By Divine Grace',
   },
   none:{
     hi:'शुभ विवाह  ·  मंगल कामना  ·  EasyDocuments.online',
     en:'Blessed Marriage  ·  Best Wishes  ·  EasyDocuments.online',
+    bi:'शुभ विवाह / Blessed Marriage  ·  मंगल कामना / Best Wishes  ·  EasyDocuments.online',
   },
 };
 let _symIdx=0;
