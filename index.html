@@ -4945,7 +4945,7 @@ function persistOtherInputs(){
     entries.forEach(e=>{e.isIntersecting?visible.add(e.target.id):visible.delete(e.target.id);});
     const active=sectionIds.find(id=>visible.has(id));
     history.replaceState(null,'',active?'#'+active:window.location.pathname);
-  },{threshold:0.2});
+  },{threshold:0,rootMargin:'-35% 0px -35% 0px'});
   sectionIds.forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el);});
 })();
 </script>
