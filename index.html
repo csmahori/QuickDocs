@@ -729,7 +729,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 .bdr-lbl.hi-only .en-lbl{display:none}
 
 /* LOADING overlay */
-.pdf-loading{display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.7);align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.pdf-loading{display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.7);align-items:center;justify-content:center;flex-direction:column;gap:16px}
 .pdf-loading.act{display:flex}
 .pdf-spin{width:52px;height:52px;border:5px solid rgba(255,255,255,.2);border-top-color:#D4AF37;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -4801,7 +4801,7 @@ function toast(msg,type){
   if(!host){
     host=document.createElement('div');
     host.id='toastHost';
-    host.style.cssText='position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:5500;display:flex;flex-direction:column;gap:8px;pointer-events:none;width:max-content;max-width:90vw';
+    host.style.cssText='position:fixed;left:50%;bottom:88px;transform:translateX(-50%);z-index:10001;display:flex;flex-direction:column;gap:8px;pointer-events:none;width:max-content;max-width:90vw';
     document.body.appendChild(host);
   }
   const t=document.createElement('div');
