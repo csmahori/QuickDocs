@@ -4378,6 +4378,10 @@ function normalizeInlineColors(el){
 }
 
 async function generateBiodataPDF(){
+  // Hide form modal so its backdrop-filter compositing layer
+  // doesn't paint above the loading overlay (Chrome z-index quirk)
+  const bMovEl=document.getElementById('bMov');
+  if(bMovEl) bMovEl.style.display='none';
   const loadEl=document.getElementById('pdfLoading');
   if(loadEl) loadEl.classList.add('act');
   swapTemplate(bTpl);
@@ -4490,6 +4494,8 @@ async function generateBiodataPDF(){
     if(originals.length) restoreStylesheets(originals);
     if(brandStamp&&brandStamp.parentNode) brandStamp.parentNode.removeChild(brandStamp);
     if(loadEl) loadEl.classList.remove('act');
+    // Restore form modal
+    if(bMovEl) bMovEl.style.display='';
     // Always restore addColorStop patch (in case html2canvas threw mid-run)
     if(typeof _origACS!=='undefined') CanvasGradient.prototype.addColorStop=_origACS;
   }
