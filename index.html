@@ -130,10 +130,11 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Noto+Serif+Devanagari:wght@400;600;700&family=Baloo+2:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<!-- Critical fonts (hero text + headings) — loaded synchronously -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,700&display=swap" rel="stylesheet">
+<!-- Non-critical fonts (Hindi, fallback serifs) — loaded async after page paint -->
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Noto+Serif+Devanagari:wght@400;600;700&family=Baloo+2:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Noto+Serif+Devanagari:wght@400;600;700&family=Baloo+2:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet"></noscript>
 <style>
 
 :root{
@@ -2410,6 +2411,16 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 
 
 <script>
+/* Dynamically load a script only once — returns a Promise */
+function loadScript(src){
+  return new Promise((res,rej)=>{
+    if(document.querySelector('script[src="'+src+'"]')){res();return;}
+    const s=document.createElement('script');
+    s.src=src;s.onload=res;s.onerror=rej;
+    document.head.appendChild(s);
+  });
+}
+
 const _TPLS={
   1:`<div class="bdr-wrap t1" id="bdTemplate"><div class="t1-wrap"><div class="t1-hdr"><div class="t1-hdr-info"><span class="t1-sym" id="bdr-om">ॐ</span><div class="t1-name" id="bdr-name">Your Name</div><div class="t1-sub" id="bdr-subtitle">विवाह बायोडाटा</div></div><div class="t1-photo" id="bdr-photo-wrap">📷</div></div><div class="t1-divider"></div><div class="t1-body"><div class="t1-sec"><div class="t1-sec-hdr" id="bdr-sec1-title">व्यक्तिगत जानकारी</div><div class="bdr-rows t1-rows" id="bdr-personal-rows"></div></div><div class="t1-sec"><div class="t1-sec-hdr" id="bdr-sec2-title">पारिवारिक जानकारी</div><div class="bdr-rows t1-rows" id="bdr-family-rows"></div></div><div class="t1-sec"><div class="t1-sec-hdr" id="bdr-sec3-title">सम्पर्क</div><div class="bdr-rows t1-rows" id="bdr-contact-rows"></div></div></div><div class="t1-footer"><div class="t1-aus" id="bdr-auspc-main">ॐ श्री गणेशाय नमः · शुभ विवाह · EasyDocuments.online</div></div></div></div>`,
   2:`<div class="bdr-wrap t2" id="bdTemplate"><div class="t2-left" id="t2-left-panel"><div class="t2-photo" id="bdr-photo-wrap">📷</div><span class="t2-lsym" id="bdr-om">ॐ</span><div class="t2-lname" id="bdr-name">Your Name</div><div class="t2-lsub" id="bdr-subtitle">विवाह बायोडाटा</div><div class="t2-ldiv"></div><div class="t2-lcontact bdr-rows" id="bdr-contact-rows"></div><div class="t2-lfoot" id="bdr-auspc-main">शुभ विवाह</div></div><div class="t2-right" id="t2-right-panel"><div class="t2-rhdr"><div class="t2-rtitle" id="bdr-name-r">विवाह बायोडाटा</div></div><div class="t2-rbody"><div class="t2-pill" id="bdr-sec1-title">व्यक्तिगत जानकारी</div><div class="bdr-rows t2-rows" id="bdr-personal-rows"></div><div class="t2-pill" id="bdr-sec2-title">पारिवारिक जानकारी</div><div class="bdr-rows t2-rows" id="bdr-family-rows"></div></div></div></div>`,
@@ -3570,7 +3581,7 @@ function selBT(n){
     if(cp) cp.value=_clrCustom.primary||'#880038';
     if(cb) cb.value=_clrCustom.bg||'#FFF5F8';
   }
-  BD.swapLayout(n);
+  requestAnimationFrame(()=>BD.swapLayout(n));
 }
 
 function selClrTheme(n){
@@ -3692,6 +3703,8 @@ async function openRazorpay() {
   const btn  = document.getElementById('rzpPayBtn');
   const orig = btn ? btn.textContent : '';
   if (btn) { btn.disabled = true; btn.textContent = '⏳ Loading...'; }
+  // Load Razorpay checkout on demand (not at page load)
+  await loadScript('https://checkout.razorpay.com/v1/checkout.js');
 
   try {
     // 1. Create order on the server (keeps secret key off the client)
@@ -4384,6 +4397,11 @@ async function generateBiodataPDF(){
   if(bMovEl) bMovEl.style.display='none';
   const loadEl=document.getElementById('pdfLoading');
   if(loadEl) loadEl.classList.add('act');
+  // Load heavy PDF libraries on demand (not at page load)
+  await Promise.all([
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'),
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js')
+  ]);
   swapTemplate(bTpl);
   BD.refresh(true);
   // Wait for photo image to fully decode before capturing
