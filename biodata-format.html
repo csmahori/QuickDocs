@@ -52,7 +52,7 @@
       "name": "What should be included in a marriage biodata?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A marriage biodata should include: personal details (name, date of birth, height, complexion, religion, caste, gotra), education and career, family details (parents' names, siblings, family type), hobbies and interests, expected partner details, and contact information."
+        "text": "A marriage biodata should include: personal details (name, date of birth, height, religion, caste, rashi), education and occupation, family details (father's name and occupation, mother's name, brothers, sisters), and contact information (contact person, mobile number, city, state). A photo is strongly recommended."
       }
     },
     {
@@ -275,32 +275,22 @@ footer .fl{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bo
       <tbody>
         <tr>
           <td><strong>Personal Details</strong></td>
-          <td>Name, Date of Birth, Time of Birth, Age, Height, Complexion, Blood Group, Religion, Caste, Gotra, Mother Tongue</td>
+          <td>Name, Date of Birth, Time of Birth, Age, Height, Religion, Caste, Rashi</td>
           <td><span class="req">Required</span></td>
         </tr>
         <tr>
           <td><strong>Education & Career</strong></td>
-          <td>Highest qualification, college/university, current job/business, designation, annual income (optional)</td>
+          <td>Highest qualification, current job/occupation, annual income</td>
           <td><span class="req">Required</span></td>
         </tr>
         <tr>
           <td><strong>Family Details</strong></td>
-          <td>Father's name & occupation, Mother's name & occupation, siblings (brothers/sisters, married/unmarried), family type (nuclear/joint)</td>
+          <td>Father's name & occupation, Mother's name & occupation, brothers (total/married), sisters (total/married)</td>
           <td><span class="req">Required</span></td>
         </tr>
         <tr>
-          <td><strong>Hobbies & Interests</strong></td>
-          <td>Personal hobbies, cooking/travel/sports interests</td>
-          <td><span class="opt">Optional</span></td>
-        </tr>
-        <tr>
-          <td><strong>Expected Partner</strong></td>
-          <td>Age range, height, education, caste preference (open/same caste), location preference</td>
-          <td><span class="opt">Optional</span></td>
-        </tr>
-        <tr>
           <td><strong>Contact Details</strong></td>
-          <td>Mobile number (WhatsApp preferred), email, city/state</td>
+          <td>Contact person name, mobile number (WhatsApp preferred), city, state</td>
           <td><span class="req">Required</span></td>
         </tr>
         <tr>
@@ -323,12 +313,10 @@ footer .fl{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bo
       <li><strong>Auspicious symbol / OM / Cross / Bismillah</strong> — based on religion, placed at the top</li>
       <li><strong>Title</strong> — "Vivah Biodata" / "Marriage Biodata" / "विवाह बायोडाटा"</li>
       <li><strong>Photo</strong> — top right corner is the most common placement</li>
-      <li><strong>Personal Information</strong> — name, DOB, height, complexion, etc.</li>
-      <li><strong>Educational & Professional Details</strong></li>
-      <li><strong>Family Information</strong></li>
-      <li><strong>Hobbies & Interests</strong> (optional)</li>
-      <li><strong>Expected Partner Details</strong> (optional)</li>
-      <li><strong>Contact Information</strong> — always at the bottom</li>
+      <li><strong>Personal Information</strong> — name, DOB, height, religion, caste, rashi</li>
+      <li><strong>Educational & Professional Details</strong> — education, occupation, annual income</li>
+      <li><strong>Family Information</strong> — father, mother, brothers, sisters</li>
+      <li><strong>Contact Information</strong> — contact person, mobile, city, state</li>
     </ol>
 
     <div class="tip">
@@ -400,21 +388,19 @@ footer .fl{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bo
       <div class="sample-row"><span class="sl">Name</span><span class="sv">Priya Sharma</span></div>
       <div class="sample-row"><span class="sl">Date of Birth</span><span class="sv">15 March 2000 (Age: 26)</span></div>
       <div class="sample-row"><span class="sl">Height</span><span class="sv">5 ft 4 in</span></div>
-      <div class="sample-row"><span class="sl">Complexion</span><span class="sv">Fair</span></div>
-      <div class="sample-row"><span class="sl">Blood Group</span><span class="sv">B+</span></div>
       <div class="sample-row"><span class="sl">Religion / Caste</span><span class="sv">Hindu / Brahmin</span></div>
-      <div class="sample-row"><span class="sl">Gotra</span><span class="sv">Kashyap</span></div>
-      <div class="sample-row"><span class="sl">Rashi / Nakshatra</span><span class="sv">Meen / Revati</span></div>
-      <div class="sample-row"><span class="sl">Manglik</span><span class="sv">No</span></div>
-      <div class="sample-row"><span class="sl">Education</span><span class="sv">B.Com (Hons.), Mumbai University</span></div>
-      <div class="sample-row"><span class="sl">Occupation</span><span class="sv">Accounts Manager, ABC Pvt Ltd, Mumbai</span></div>
-      <div class="sample-row"><span class="sl">Father's Name</span><span class="sv">Ramesh Sharma (Retired Govt. Officer)</span></div>
-      <div class="sample-row"><span class="sl">Mother's Name</span><span class="sv">Sunita Sharma (Homemaker)</span></div>
-      <div class="sample-row"><span class="sl">Siblings</span><span class="sv">1 Brother (Married)</span></div>
-      <div class="sample-row"><span class="sl">Family Type</span><span class="sv">Nuclear Family</span></div>
-      <div class="sample-row"><span class="sl">Hobbies</span><span class="sv">Reading, Cooking, Classical Dance</span></div>
-      <div class="sample-row"><span class="sl">Expected Partner</span><span class="sv">26–31 yrs, Graduate, Employed, Hindu Brahmin preferred</span></div>
-      <div class="sample-row"><span class="sl">Contact</span><span class="sv">+91 98765 43210 (WhatsApp) · priya@email.com</span></div>
+      <div class="sample-row"><span class="sl">Rashi</span><span class="sv">मीन (Pisces)</span></div>
+      <div class="sample-row"><span class="sl">Education</span><span class="sv">B.Com (Hons.)</span></div>
+      <div class="sample-row"><span class="sl">Occupation</span><span class="sv">CA / Accountant</span></div>
+      <div class="sample-row"><span class="sl">Annual Income</span><span class="sv">₹5–7 LPA</span></div>
+      <div class="sample-row"><span class="sl">Father's Name</span><span class="sv">Ramesh Sharma</span></div>
+      <div class="sample-row"><span class="sl">Father's Occupation</span><span class="sv">Government Employee</span></div>
+      <div class="sample-row"><span class="sl">Mother's Name</span><span class="sv">Sunita Sharma</span></div>
+      <div class="sample-row"><span class="sl">Mother's Occupation</span><span class="sv">Homemaker</span></div>
+      <div class="sample-row"><span class="sl">Brothers</span><span class="sv">1 (1 Married)</span></div>
+      <div class="sample-row"><span class="sl">Sisters</span><span class="sv">0</span></div>
+      <div class="sample-row"><span class="sl">City / State</span><span class="sv">Mumbai, Maharashtra</span></div>
+      <div class="sample-row"><span class="sl">Contact Person</span><span class="sv">Ramesh Sharma (Father) · +91 98765 43210</span></div>
     </div>
 
     <!-- Section 6 -->
@@ -422,10 +408,10 @@ footer .fl{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bo
     <ul>
       <li><strong>Keep it to 1 page</strong> — families shortlist quickly; concise wins</li>
       <li><strong>Use a recent, clear photo</strong> — formal attire, clean background, good lighting</li>
-      <li><strong>Be honest about height and complexion</strong> — avoids awkward first meetings</li>
+      <li><strong>Be honest about height</strong> — avoids awkward first meetings</li>
       <li><strong>Include WhatsApp number</strong> — it is the fastest way families connect in India</li>
-      <li><strong>Mention gotra clearly</strong> — important for kundali matching in Hindu biodata</li>
-      <li><strong>Keep expected partner section brief</strong> — being too specific can reduce responses</li>
+      <li><strong>Mention Rashi clearly</strong> — important for kundali matching in Hindu biodata</li>
+      <li><strong>Fill father's occupation</strong> — families always check parents' background</li>
       <li><strong>Use a professional PDF format</strong> — avoid Word files; they look different on every device</li>
       <li><strong>Match the language to your audience</strong> — Hindi biodata for families preferring Hindi, English for urban families</li>
     </ul>
@@ -439,7 +425,7 @@ footer .fl{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bo
           <li>Writing 2–3 pages</li>
           <li>Using a Word .doc file</li>
           <li>No photo or blurry photo</li>
-          <li>Missing gotra / rashi details</li>
+          <li>Missing rashi details</li>
           <li>Outdated information</li>
           <li>No WhatsApp contact</li>
           <li>Overly strict partner requirements</li>
