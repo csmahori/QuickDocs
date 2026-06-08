@@ -212,15 +212,50 @@ input,textarea,select{font-family:var(--f);outline:none}
 .stxt{font-size:12px;color:var(--TL)}
 .stxt strong{color:var(--GR)}
 
-/* hero float cards */
-.hvis{position:relative;height:360px;display:none}
-@media(min-width:769px){.hvis{display:block}}
-.fc{position:absolute;background:#fff;border-radius:16px;padding:16px 20px;box-shadow:0 8px 32px rgba(128,0,0,.12);border:1.5px solid var(--B);animation:fa 4s ease-in-out infinite}
-.fc:nth-child(2){animation-delay:1.3s}.fc:nth-child(3){animation-delay:2.6s}
-@keyframes fa{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.fc1{top:10px;left:10px;width:195px}.fc2{top:100px;right:10px;width:200px}.fc3{bottom:10px;left:60px;width:185px}
-.fci{font-size:26px;margin-bottom:8px}.fct{font-size:13px;font-weight:800;color:var(--T);margin-bottom:4px}.fcs{font-size:11px;color:var(--TL)}
-.fcf{display:inline-block;background:rgba(19,136,8,.1);color:var(--GR);font-size:12px;font-weight:800;padding:3px 10px;border-radius:50px;margin-top:8px}
+/* ── Live animated biodata preview (hero) ── */
+.hvis{position:relative;display:none;align-items:center;justify-content:center}
+@media(min-width:769px){.hvis{display:flex}}
+.lbp{width:280px;background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(128,0,0,.18);border:1.5px solid var(--B);overflow:hidden;position:relative;animation:lbpFloat 4s ease-in-out infinite}
+@keyframes lbpFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.lbp-bar{height:5px;width:100%;background:linear-gradient(90deg,var(--M),var(--G),var(--S));transition:background .8s}
+.lbp-hdr{padding:14px 16px 10px;border-bottom:1px solid #f0e5cc;display:flex;align-items:center;gap:10px}
+.lbp-photo{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#f9d5d5,#ffd6a5);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;border:2px solid var(--B)}
+.lbp-name{font-weight:800;font-size:13px;color:var(--MD);min-height:16px}
+.lbp-sub{font-size:11px;color:var(--TL);margin-top:2px}
+.lbp-body{padding:12px 16px}
+.lbp-row{display:flex;gap:6px;margin-bottom:9px;align-items:flex-start}
+.lbp-lbl{font-size:10px;font-weight:700;color:var(--TL);min-width:68px;padding-top:1px;text-transform:uppercase;letter-spacing:.3px}
+.lbp-val{font-size:11px;color:var(--T);font-weight:600;min-height:14px;border-bottom:1.5px solid #f0e5cc;flex:1;padding-bottom:2px}
+.lbp-val.typing::after{content:'|';animation:blink .7s step-end infinite;color:var(--M)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.lbp-footer{background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;text-align:center;padding:8px;font-size:10px;font-weight:700;letter-spacing:.5px;opacity:.9}
+.lbp-badge{position:absolute;top:12px;right:-8px;background:linear-gradient(135deg,var(--GR),#22c55e);color:#fff;font-size:10px;font-weight:800;padding:4px 10px;border-radius:50px 0 0 50px;box-shadow:0 3px 12px rgba(0,0,0,.2)}
+.lbp-tpl-dots{display:flex;justify-content:center;gap:6px;margin-top:14px}
+.lbp-dot{width:7px;height:7px;border-radius:50%;background:var(--B);transition:background .4s,transform .3s}
+.lbp-dot.act{background:var(--M);transform:scale(1.3)}
+
+/* ── Template Showcase section ── */
+.tshowcase{max-width:1100px;margin:0 auto;padding:80px 24px}
+.ts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;margin-top:40px}
+.ts-card{background:#fff;border-radius:var(--r);border:1.5px solid var(--B);overflow:hidden;box-shadow:0 4px 20px rgba(128,0,0,.07);transition:all .3s var(--e);cursor:pointer;position:relative}
+.ts-card:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(128,0,0,.15);border-color:var(--M)}
+.ts-prev{padding:16px;min-height:240px;position:relative}
+.ts-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(128,0,0,.85),rgba(90,0,0,.92));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:0;transition:opacity .25s var(--e);border-radius:calc(var(--r) - 2px)}
+.ts-card:hover .ts-overlay{opacity:1}
+.ts-overlay span{color:#fff;font-weight:800;font-size:14px}
+.ts-overlay small{color:rgba(255,255,255,.7);font-size:12px}
+.ts-overlay button{background:linear-gradient(135deg,var(--G),var(--GD));color:var(--MD);border:none;padding:9px 20px;border-radius:50px;font-weight:800;font-size:13px;cursor:pointer;margin-top:4px}
+.ts-info{padding:12px 16px;border-top:1px solid var(--B);display:flex;align-items:center;justify-content:space-between}
+.ts-name{font-weight:800;font-size:13px;color:var(--T)}
+.ts-price{font-size:12px;font-weight:700;color:var(--M);background:rgba(128,0,0,.07);padding:3px 10px;border-radius:50px}
+/* mini biodata inside showcase cards */
+.mb{font-size:9px;color:var(--TM);line-height:1.6}
+.mb-hdr{text-align:center;padding:8px 4px 6px;border-bottom:1px solid currentColor;margin-bottom:6px}
+.mb-name{font-weight:800;font-size:11px;color:var(--MD)}
+.mb-sub{font-size:9px;color:var(--TL);margin-top:1px}
+.mb-row{display:flex;gap:4px;margin-bottom:3px}
+.mb-l{color:var(--TL);min-width:52px;font-weight:600}
+.mb-v{color:var(--T)}
 
 /* SECTIONS */
 .sw{max-width:1100px;margin:0 auto;padding:80px 24px}
@@ -1770,25 +1805,33 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
         <a href="#how" class="bhg">How it works? ↓</a>
       </div>
     </div>
-    <!-- Floating preview cards -->
+    <!-- Live animated biodata preview -->
     <div class="hvis rv rd2">
-      <div class="fc fc1">
-        <div class="fci">👰</div>
-        <div class="fct">Priya Sharma</div>
-        <div class="fcs">B.Tech · Software Engineer</div>
-        <div class="fcf">✅ Biodata Ready</div>
-      </div>
-      <div class="fc fc2">
-        <div class="fci">📋</div>
-        <div class="fct">8 Template Designs</div>
-        <div class="fcs">Classic · Royal · Vedic · Modern · Magazine + 3 more</div>
-        <div class="fcf">🎨 Custom Colors</div>
-      </div>
-      <div class="fc fc3">
-        <div class="fci">⚡</div>
-        <div class="fct">Ready in 2 Minutes</div>
-        <div class="fcs">Fill form, pick design, download PDF</div>
-        <div class="fcf">✅ Instant Download</div>
+      <div style="position:relative">
+        <div class="lbp" id="lbpCard">
+          <div class="lbp-bar" id="lbpBar"></div>
+          <div class="lbp-hdr">
+            <div class="lbp-photo" id="lbpPhoto">👰</div>
+            <div>
+              <div class="lbp-name" id="lbpName"></div>
+              <div class="lbp-sub" id="lbpSub">विवाह बायोडाटा</div>
+            </div>
+          </div>
+          <div class="lbp-body">
+            <div class="lbp-row"><span class="lbp-lbl">Age</span><span class="lbp-val" id="lbpAge"></span></div>
+            <div class="lbp-row"><span class="lbp-lbl">Education</span><span class="lbp-val" id="lbpEdu"></span></div>
+            <div class="lbp-row"><span class="lbp-lbl">Occupation</span><span class="lbp-val" id="lbpOcc"></span></div>
+            <div class="lbp-row"><span class="lbp-lbl">City</span><span class="lbp-val" id="lbpCity"></span></div>
+            <div class="lbp-row"><span class="lbp-lbl">Religion</span><span class="lbp-val" id="lbpRelig"></span></div>
+          </div>
+          <div class="lbp-footer" id="lbpFooter">ॐ श्री गणेशाय नमः · EasyDocuments.online</div>
+          <div class="lbp-badge">✅ Ready!</div>
+        </div>
+        <div class="lbp-tpl-dots" id="lbpDots">
+          <div class="lbp-dot act"></div>
+          <div class="lbp-dot"></div>
+          <div class="lbp-dot"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1816,6 +1859,114 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
     <div class="sp-item"><span class="sp-dot"></span>Vikram from Chandigarh created Sidebar Split design</div>
   </div>
 </div>
+
+<!-- TEMPLATE SHOWCASE -->
+<section style="background:#fff;border-top:1px solid #e8d5b0">
+  <div class="tshowcase rv-anim">
+    <div class="sh2">
+      <div class="scp">8 Designs to Choose From</div>
+      <h2 class="st2">Professional <span>Templates</span> — Real Biodata Preview</h2>
+      <p class="ss2">Every template filled with real data — what you see is exactly what you get as a PDF</p>
+    </div>
+    <div class="ts-grid">
+
+      <!-- T1: Classic Bordered -->
+      <div class="ts-card" onclick="openM('biodata')">
+        <div class="ts-prev" style="background:linear-gradient(135deg,#fff8f0,#fff2e2)">
+          <div style="border:2px solid #800000;border-radius:8px;padding:10px;height:100%">
+            <div class="mb-hdr" style="border-color:#800000">
+              <div style="font-size:10px;color:#800000;font-weight:800;margin-bottom:2px">ॐ</div>
+              <div class="mb-name">Priya Sharma</div>
+              <div class="mb-sub">विवाह बायोडाटा</div>
+            </div>
+            <div class="mb">
+              <div class="mb-row"><span class="mb-l">Age</span><span class="mb-v">26 yrs</span></div>
+              <div class="mb-row"><span class="mb-l">Height</span><span class="mb-v">5'4"</span></div>
+              <div class="mb-row"><span class="mb-l">Education</span><span class="mb-v">B.Com</span></div>
+              <div class="mb-row"><span class="mb-l">Occupation</span><span class="mb-v">CA / Accountant</span></div>
+              <div class="mb-row"><span class="mb-l">Religion</span><span class="mb-v">Hindu / Brahmin</span></div>
+              <div class="mb-row"><span class="mb-l">City</span><span class="mb-v">Lucknow, UP</span></div>
+              <div class="mb-row"><span class="mb-l">Father</span><span class="mb-v">Ramesh Sharma</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ts-overlay"><span>Classic Bordered</span><small>Clean · Traditional · Timeless</small><button onclick="event.stopPropagation();openM('biodata')">Use This Template</button></div>
+        <div class="ts-info"><span class="ts-name">Classic Bordered</span><span class="ts-price">₹31</span></div>
+      </div>
+
+      <!-- T3: Vedic Traditional -->
+      <div class="ts-card" onclick="openM('biodata')">
+        <div class="ts-prev" style="background:linear-gradient(135deg,#fffcf0,#fff8e1)">
+          <div style="border-top:4px solid #c8860a;border-bottom:4px solid #c8860a;padding:10px;height:100%">
+            <div class="mb-hdr" style="border-color:#c8860a">
+              <div style="font-size:10px;color:#c8860a;font-weight:800;margin-bottom:2px">🕉️ शुभ विवाह</div>
+              <div class="mb-name" style="color:#7a3500">Anjali Gupta</div>
+              <div class="mb-sub">विवाह बायोडाटा</div>
+            </div>
+            <div class="mb" style="display:grid;grid-template-columns:1fr 1fr;gap:0 8px">
+              <div class="mb-row"><span class="mb-l">उम्र</span><span class="mb-v">24</span></div>
+              <div class="mb-row"><span class="mb-l">ऊँचाई</span><span class="mb-v">5'3"</span></div>
+              <div class="mb-row"><span class="mb-l">शिक्षा</span><span class="mb-v">B.Ed</span></div>
+              <div class="mb-row"><span class="mb-l">पेशा</span><span class="mb-v">Teacher</span></div>
+              <div class="mb-row"><span class="mb-l">धर्म</span><span class="mb-v">Hindu</span></div>
+              <div class="mb-row"><span class="mb-l">गोत्र</span><span class="mb-v">Kashyap</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ts-overlay"><span>Vedic Traditional</span><small>Hindi · Cultural · Elegant</small><button onclick="event.stopPropagation();openM('biodata')">Use This Template</button></div>
+        <div class="ts-info"><span class="ts-name">Vedic Traditional</span><span class="ts-price">₹41</span></div>
+      </div>
+
+      <!-- T2: Sidebar Split -->
+      <div class="ts-card" onclick="openM('biodata')">
+        <div class="ts-prev" style="background:#f8f9fa;display:flex;gap:0;padding:0">
+          <div style="width:70px;background:linear-gradient(180deg,#800000,#5a0000);padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:18px">👰</div>
+            <div style="color:#D4AF37;font-size:9px;font-weight:800;text-align:center;line-height:1.3">Neha<br>Singh</div>
+            <div style="color:rgba(255,255,255,.6);font-size:8px;text-align:center">Jaipur, RJ</div>
+          </div>
+          <div style="padding:10px;flex:1">
+            <div class="mb-name" style="margin-bottom:6px">Neha Singh</div>
+            <div class="mb">
+              <div class="mb-row"><span class="mb-l">Age</span><span class="mb-v">27 yrs</span></div>
+              <div class="mb-row"><span class="mb-l">Education</span><span class="mb-v">MBA</span></div>
+              <div class="mb-row"><span class="mb-l">Job</span><span class="mb-v">Bank Employee</span></div>
+              <div class="mb-row"><span class="mb-l">Religion</span><span class="mb-v">Hindu</span></div>
+              <div class="mb-row"><span class="mb-l">Father</span><span class="mb-v">R.K. Singh</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ts-overlay"><span>Sidebar Split</span><small>Modern · Bold · Popular</small><button onclick="event.stopPropagation();openM('biodata')">Use This Template</button></div>
+        <div class="ts-info"><span class="ts-name">Sidebar Split</span><span class="ts-price">₹51</span></div>
+      </div>
+
+      <!-- T8: Magazine Style -->
+      <div class="ts-card" onclick="openM('biodata')">
+        <div class="ts-prev" style="background:#1a1a2e;padding:10px">
+          <div style="background:linear-gradient(135deg,#800000,#5a0000);border-radius:8px;padding:8px;margin-bottom:8px;display:flex;align-items:center;gap:8px">
+            <div style="width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px">👰</div>
+            <div>
+              <div style="color:#fff;font-weight:800;font-size:11px">Kavya Reddy</div>
+              <div style="color:#D4AF37;font-size:9px">विवाह बायोडाटा</div>
+            </div>
+          </div>
+          <div class="mb" style="color:#ccc">
+            <div class="mb-row"><span class="mb-l" style="color:#888">Age</span><span class="mb-v" style="color:#fff">25 yrs</span></div>
+            <div class="mb-row"><span class="mb-l" style="color:#888">Education</span><span class="mb-v" style="color:#fff">M.Tech</span></div>
+            <div class="mb-row"><span class="mb-l" style="color:#888">Job</span><span class="mb-v" style="color:#fff">Software Engineer</span></div>
+            <div class="mb-row"><span class="mb-l" style="color:#888">City</span><span class="mb-v" style="color:#fff">Hyderabad</span></div>
+          </div>
+        </div>
+        <div class="ts-overlay"><span>Magazine Style</span><small>Premium · Bold · Advanced</small><button onclick="event.stopPropagation();openM('biodata')">Use This Template</button></div>
+        <div class="ts-info"><span class="ts-name">Magazine Style</span><span class="ts-price">₹71</span></div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <button onclick="openM('biodata')" style="background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;border:none;padding:13px 32px;border-radius:50px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 6px 24px rgba(128,0,0,.28)">View All 8 Templates →</button>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES -->
 <section class="sw rv-anim" id="services">
@@ -5170,6 +5321,88 @@ function persistOtherInputs(){
   sectionIds.forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el);});
 })();
 </script>
+<!-- Live animated biodata preview -->
+<script>
+(function(){
+  const profiles = [
+    {
+      name:'Priya Sharma', photo:'👰', age:'26 yrs', edu:'B.Com (Hons.)',
+      occ:'CA / Accountant', city:'Lucknow, UP', relig:'Hindu / Brahmin',
+      bar:'linear-gradient(90deg,#800000,#D4AF37,#FF9933)',
+      footer:'ॐ श्री गणेशाय नमः · EasyDocuments.online'
+    },
+    {
+      name:'Anjali Gupta', photo:'🌸', age:'24 yrs', edu:'B.Ed',
+      occ:'Teacher / Professor', city:'Jaipur, Rajasthan', relig:'Hindu / Gupta',
+      bar:'linear-gradient(90deg,#c8860a,#fffcf0,#c8860a)',
+      footer:'🕉️ शुभ विवाह · ईश्वर की कृपा से'
+    },
+    {
+      name:'Kavya Reddy', photo:'💐', age:'25 yrs', edu:'M.Tech',
+      occ:'Private Job (IT)', city:'Hyderabad, TS', relig:'Hindu / Reddy',
+      bar:'linear-gradient(90deg,#1a1a2e,#800000,#D4AF37)',
+      footer:'✦ Marriage Biodata · EasyDocuments.online ✦'
+    }
+  ];
+
+  function typeVal(el, text, cb){
+    el.classList.add('typing');
+    el.textContent = '';
+    let i = 0;
+    const t = setInterval(()=>{
+      el.textContent += text[i++];
+      if(i >= text.length){ clearInterval(t); el.classList.remove('typing'); if(cb) cb(); }
+    }, 38);
+  }
+
+  function loadProfile(idx){
+    const p = profiles[idx];
+    const fields = [
+      ['lbpAge', p.age],
+      ['lbpEdu', p.edu],
+      ['lbpOcc', p.occ],
+      ['lbpCity', p.city],
+      ['lbpRelig', p.relig]
+    ];
+    // Reset all fields
+    fields.forEach(([id])=>{ const el=document.getElementById(id); if(el){el.textContent='';el.classList.remove('typing');} });
+    const nameEl = document.getElementById('lbpName');
+    const photoEl = document.getElementById('lbpPhoto');
+    const barEl = document.getElementById('lbpBar');
+    const footerEl = document.getElementById('lbpFooter');
+    const dotsEl = document.getElementById('lbpDots');
+    if(nameEl) nameEl.textContent = '';
+    if(photoEl) photoEl.textContent = p.photo;
+    if(barEl) barEl.style.background = p.bar;
+    if(footerEl) footerEl.textContent = p.footer;
+    // Update dots
+    if(dotsEl){ dotsEl.querySelectorAll('.lbp-dot').forEach((d,i)=>d.classList.toggle('act',i===idx)); }
+    // Type name first
+    if(nameEl){
+      typeVal(nameEl, p.name, ()=>{
+        let fi = 0;
+        function nextField(){
+          if(fi >= fields.length) return;
+          const [id, val] = fields[fi++];
+          const el = document.getElementById(id);
+          if(el) typeVal(el, val, ()=>setTimeout(nextField, 120));
+        }
+        setTimeout(nextField, 200);
+      });
+    }
+  }
+
+  let cur = 0;
+  // Only run if preview card exists
+  if(!document.getElementById('lbpCard')) return;
+  loadProfile(0);
+  setInterval(()=>{
+    cur = (cur + 1) % profiles.length;
+    loadProfile(cur);
+  }, 5000);
+})();
+</script>
+
 <!-- Scroll animations -->
 <script>
 (function(){
