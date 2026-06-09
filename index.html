@@ -1803,7 +1803,6 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   <div class="nr">
     <a href="#templates" class="nl">Templates</a>
     <a href="#pricing" class="nl">Pricing</a>
-    <a href="faq.html" class="nl">FAQ</a>
     <button class="nc" onclick="openM('biodata')">📋 Build Biodata</button>
     <button class="hbtn" id="hbtn" onclick="toggleDrawer()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -2016,8 +2015,91 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
       </div>
 
     </div>
+
+    <!-- 4 hidden templates, shown on "View All" click -->
+    <div class="ts-grid" id="tsMore" style="display:none;margin-top:0">
+
+      <!-- T4: Modern Cards -->
+      <div class="ts-card" onclick="openM('biodata')">
+        <div class="ts-prev" style="background:linear-gradient(135deg,#f0f4ff,#e8eeff);padding:10px">
+          <div style="background:#fff;border-radius:8px;padding:8px;margin-bottom:6px;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+              <div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#3a7bd5,#00d2ff);display:flex;align-items:center;justify-content:center;font-size:14px">👰</div>
+              <div><div class="mb-name" style="font-size:11px">Riya Patel</div><div style="font-size:8px;color:#666">विवाह बायोडाटा</div></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+            <div style="background:#fff;border-radius:6px;padding:5px;box-shadow:0 1px 4px rgba(0,0,0,.06)"><div style="font-size:7px;color:#888">Age</div><div style="font-size:9px;font-weight:700">25 yrs</div></div>
+            <div style="background:#fff;border-radius:6px;padding:5px;box-shadow:0 1px 4px rgba(0,0,0,.06)"><div style="font-size:7px;color:#888">City</div><div style="font-size:9px;font-weight:700">Surat</div></div>
+            <div style="background:#fff;border-radius:6px;padding:5px;box-shadow:0 1px 4px rgba(0,0,0,.06)"><div style="font-size:7px;color:#888">Education</div><div style="font-size:9px;font-weight:700">B.Pharm</div></div>
+            <div style="background:#fff;border-radius:6px;padding:5px;box-shadow:0 1px 4px rgba(0,0,0,.06)"><div style="font-size:7px;color:#888">Job</div><div style="font-size:9px;font-weight:700">Pharmacist</div></div>
+          </div>
+        </div>
+        <div class="ts-overlay"><span>Modern Cards</span><small>Fresh · Clean · Contemporary</small><button onclick="event.stopPropagation();openM('biodata')">Use This Template</button></div>
+        <div class="ts-info"><span class="ts-name">Modern Cards</span><span class="ts-price">₹41</span></div>
+      </div>
+
+      <!-- T5: Elegant Minimal -->
+      <div class="ts-card" onclick="openM('biodata')">
+        <div class="ts-prev" style="background:#fafafa;padding:14px">
+          <div style="border-bottom:1px solid #ddd;padding-bottom:10px;margin-bottom:10px;text-align:center">
+            <div class="mb-name" style="font-size:12px;letter-spacing:.05em">Sneha Joshi</div>
+            <div style="font-size:8px;color:#999;letter-spacing:.1em;text-transform:uppercase">Marriage Biodata</div>
+          </div>
+          <div class="mb">
+            <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dotted #eee"><span style="font-size:8px;color:#aaa">Date of Birth</span><span style="font-size:8px;font-weight:600">15 March 2000</span></div>
+            <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dotted #eee"><span style="font-size:8px;color:#aaa">Height</span><span style="font-size:8px;font-weight:600">5'5"</span></div>
+            <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dotted #eee"><span style="font-size:8px;color:#aaa">Education</span><span style="font-size:8px;font-weight:600">M.Sc Chemistry</span></div>
+            <div style="display:flex;justify-content:space-between;padding:3px 0"><span style="font-size:8px;color:#aaa">City</span><span style="font-size:8px;font-weight:600">Nashik, MH</span></div>
+          </div>
+        </div>
+        <div class="ts-overlay"><span>Elegant Minimal</span><small>Simple · Refined · Classic</small><button onclick="event.stopPropagation();openM('biodata')">Use This Template</button></div>
+        <div class="ts-info"><span class="ts-name">Elegant Minimal</span><span class="ts-price">₹31</span></div>
+      </div>
+
+      <!-- T6: Royal Arch -->
+      <div class="ts-card" onclick="openM('biodata')">
+        <div class="ts-prev" style="background:linear-gradient(180deg,#2c0a37,#4a1060);padding:10px">
+          <div style="text-align:center;margin-bottom:8px">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#D4AF37,#b8961e);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-size:18px">👰</div>
+            <div style="color:#D4AF37;font-size:10px;font-weight:800">Pooja Verma</div>
+            <div style="color:rgba(212,175,55,.6);font-size:7px;letter-spacing:.1em">✦ विवाह बायोडाटा ✦</div>
+          </div>
+          <div class="mb">
+            <div class="mb-row"><span class="mb-l" style="color:#D4AF37;opacity:.7">Age</span><span class="mb-v" style="color:#fff">23 yrs</span></div>
+            <div class="mb-row"><span class="mb-l" style="color:#D4AF37;opacity:.7">Education</span><span class="mb-v" style="color:#fff">BA LLB</span></div>
+            <div class="mb-row"><span class="mb-l" style="color:#D4AF37;opacity:.7">City</span><span class="mb-v" style="color:#fff">Indore</span></div>
+          </div>
+        </div>
+        <div class="ts-overlay"><span>Royal Arch</span><small>Regal · Rich · Grand</small><button onclick="event.stopPropagation();openM('biodata')">Use This Template</button></div>
+        <div class="ts-info"><span class="ts-name">Royal Arch</span><span class="ts-price">₹61</span></div>
+      </div>
+
+      <!-- T7: Floral Frame -->
+      <div class="ts-card" onclick="openM('biodata')">
+        <div class="ts-prev" style="background:linear-gradient(135deg,#fff0f5,#ffe8f0);padding:10px;position:relative">
+          <div style="border:1.5px solid #e91e8c;border-radius:12px;padding:10px;height:100%;position:relative">
+            <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#fff0f5;padding:0 6px;font-size:14px">🌸</div>
+            <div class="mb-hdr" style="border-color:#e91e8c;text-align:center">
+              <div class="mb-name" style="color:#c2185b">Meera Iyer</div>
+              <div class="mb-sub" style="color:#e91e8c">विवाह बायोडाटा</div>
+            </div>
+            <div class="mb">
+              <div class="mb-row"><span class="mb-l">Age</span><span class="mb-v">24 yrs</span></div>
+              <div class="mb-row"><span class="mb-l">Education</span><span class="mb-v">BCA</span></div>
+              <div class="mb-row"><span class="mb-l">City</span><span class="mb-v">Chennai</span></div>
+            </div>
+            <div style="position:absolute;bottom:4px;right:8px;font-size:12px">🌸</div>
+          </div>
+        </div>
+        <div class="ts-overlay"><span>Floral Frame</span><small>Feminine · Soft · Delicate</small><button onclick="event.stopPropagation();openM('biodata')">Use This Template</button></div>
+        <div class="ts-info"><span class="ts-name">Floral Frame</span><span class="ts-price">₹51</span></div>
+      </div>
+
+    </div>
+
     <div style="text-align:center;margin-top:32px">
-      <button onclick="openM('biodata')" style="background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;border:none;padding:13px 32px;border-radius:50px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 6px 24px rgba(128,0,0,.28)">View All 8 Templates →</button>
+      <button id="tsMoreBtn" onclick="toggleMoreTemplates()" style="background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;border:none;padding:13px 32px;border-radius:50px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 6px 24px rgba(128,0,0,.28)">View All 8 Templates →</button>
     </div>
   </div>
 </section>
@@ -3202,6 +3284,22 @@ const MAX = OFFER_CONFIG.freeSpots;
 /* ── Replace legacy updSlots() with a thin wrapper around OfferUI.apply() ── */
 function updSlots(){ OfferUI.apply(); }
 
+
+/* ── TEMPLATE SHOWCASE TOGGLE ── */
+
+function toggleMoreTemplates(){
+  const more=document.getElementById('tsMore');
+  const btn=document.getElementById('tsMoreBtn');
+  const open=more.style.display!=='none';
+  if(open){
+    more.style.display='none';
+    btn.textContent='View All 8 Templates →';
+    document.getElementById('templates').scrollIntoView({behavior:'smooth'});
+  } else {
+    more.style.display='grid';
+    btn.textContent='Show Less ↑';
+  }
+}
 
 /* ── DRAWER NAV ── */
 
