@@ -176,12 +176,39 @@ input,textarea,select{font-family:var(--f);outline:none}
 .lic{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--M),var(--ML));display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 3px 12px rgba(128,0,0,.3);flex-shrink:0}
 .lt .lb{font-size:17px;font-weight:800;color:var(--M)}
 .lt .ls{font-size:10px;color:var(--G);font-weight:700}
-.nr{display:flex;align-items:center;gap:10px}
+.nr{display:flex;align-items:center;gap:8px}
 .nl{font-size:14px;font-weight:600;color:var(--TM);padding:8px 14px;border-radius:8px;transition:all .2s;display:none}
 .nl:hover{color:var(--M);background:rgba(128,0,0,.06)}
-@media(min-width:900px){.nl{display:block}}
+@media(min-width:700px){.nl{display:block}}
 .nc{background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;padding:10px 22px;border-radius:50px;font-weight:800;font-size:14px;box-shadow:0 3px 16px rgba(128,0,0,.28);transition:all .25s}
 .nc:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(128,0,0,.38)}
+
+/* HAMBURGER BUTTON */
+.hbtn{width:40px;height:40px;border-radius:10px;background:transparent;border:1.5px solid var(--B);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:all .2s;flex-shrink:0}
+.hbtn:hover{background:rgba(128,0,0,.06);border-color:var(--M)}
+.hbtn span{display:block;width:18px;height:2px;background:var(--M);border-radius:2px;transition:all .3s var(--e)}
+.hbtn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbtn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hbtn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* DRAWER */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:280px;background:#fff;z-index:1100;box-shadow:-8px 0 40px rgba(128,0,0,.15);transform:translateX(100%);transition:transform .35s var(--eo);display:flex;flex-direction:column;overflow-y:auto}
+.drawer.open{transform:translateX(0)}
+.drawer-head{padding:20px 20px 16px;border-bottom:1.5px solid var(--B);display:flex;align-items:center;justify-content:space-between}
+.drawer-logo{font-size:15px;font-weight:800;color:var(--M)}
+.drawer-close{width:34px;height:34px;border-radius:8px;border:1.5px solid var(--B);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--TM);transition:all .2s}
+.drawer-close:hover{background:rgba(128,0,0,.06);border-color:var(--M);color:var(--M)}
+.drawer-section{padding:16px 20px 6px;font-size:10px;font-weight:800;color:var(--TL);text-transform:uppercase;letter-spacing:1px}
+.drawer-link{display:flex;align-items:center;gap:12px;padding:11px 16px;border-radius:10px;margin:2px 8px;font-size:14px;font-weight:600;color:var(--TM);transition:all .2s;cursor:pointer;text-decoration:none;border:none;background:transparent;width:calc(100% - 16px);text-align:left}
+.drawer-link:hover,.drawer-link:focus{background:rgba(128,0,0,.06);color:var(--M);outline:none}
+.drawer-link .dl-icon{font-size:16px;width:22px;text-align:center;flex-shrink:0}
+.drawer-cta{margin:16px 16px 8px;background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;border:none;padding:13px;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;width:calc(100% - 32px);box-shadow:0 4px 16px rgba(128,0,0,.28);transition:all .25s}
+.drawer-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(128,0,0,.38)}
+.drawer-footer{margin-top:auto;padding:16px 20px;border-top:1.5px solid var(--B);display:flex;gap:16px;font-size:12px}
+.drawer-footer a{color:var(--TL);font-weight:600;transition:color .2s;text-decoration:none}
+.drawer-footer a:hover{color:var(--M)}
+.drawer-ov{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:1099;opacity:0;pointer-events:none;transition:opacity .35s}
+.drawer-ov.open{opacity:1;pointer-events:all}
 
 /* HERO */
 .hero{padding-top:108px;min-height:100vh;background:linear-gradient(150deg,#fff8f0,#fff2e2 50%,#ffe8cc);position:relative;overflow:hidden;display:flex;align-items:center}
@@ -1774,14 +1801,41 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
     </div>
   </div>
   <div class="nr">
-    <a href="#how" class="nl">How it Works</a>
+    <a href="#templates" class="nl">Templates</a>
     <a href="#pricing" class="nl">Pricing</a>
-    <a href="#request" class="nl">Request</a>
-    <a href="biodata-format.html" class="nl">Biodata Guide</a>
     <a href="faq.html" class="nl">FAQ</a>
     <button class="nc" onclick="openM('biodata')">📋 Build Biodata</button>
+    <button class="hbtn" id="hbtn" onclick="toggleDrawer()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- DRAWER -->
+<div class="drawer-ov" id="drawerOv" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer" role="dialog" aria-label="Navigation menu">
+  <div class="drawer-head">
+    <div class="drawer-logo">📋 EasyDocuments</div>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">✕</button>
+  </div>
+
+  <div class="drawer-section">Navigate</div>
+  <a href="#templates" class="drawer-link" onclick="closeDrawer()"><span class="dl-icon">🎨</span>Templates</a>
+  <a href="#how" class="drawer-link" onclick="closeDrawer()"><span class="dl-icon">⚡</span>How it Works</a>
+  <a href="#pricing" class="drawer-link" onclick="closeDrawer()"><span class="dl-icon">💰</span>Pricing</a>
+  <a href="#request" class="drawer-link" onclick="closeDrawer()"><span class="dl-icon">💬</span>Request a Feature</a>
+
+  <div class="drawer-section">Learn</div>
+  <a href="biodata-format.html" class="drawer-link"><span class="dl-icon">📖</span>Biodata Format Guide</a>
+  <a href="faq.html" class="drawer-link"><span class="dl-icon">❓</span>FAQ</a>
+
+  <button class="drawer-cta" onclick="closeDrawer();openM('biodata')">📋 Build My Biodata Now →</button>
+
+  <div class="drawer-footer">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -3148,6 +3202,26 @@ const MAX = OFFER_CONFIG.freeSpots;
 /* ── Replace legacy updSlots() with a thin wrapper around OfferUI.apply() ── */
 function updSlots(){ OfferUI.apply(); }
 
+
+/* ── DRAWER NAV ── */
+
+function toggleDrawer(){
+  const open=document.getElementById('drawer').classList.contains('open');
+  open ? closeDrawer() : openDrawer();
+}
+function openDrawer(){
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawerOv').classList.add('open');
+  document.getElementById('hbtn').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeDrawer(){
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawerOv').classList.remove('open');
+  document.getElementById('hbtn').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer();});
 
 /* ── MODALS ── */
 

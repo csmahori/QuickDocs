@@ -32,9 +32,32 @@ a:hover{text-decoration:underline}
 .nr{display:flex;align-items:center;gap:10px}
 .nl{font-size:14px;font-weight:600;color:var(--TM);padding:8px 14px;border-radius:8px;transition:all .2s;display:none}
 .nl:hover{color:var(--M);background:rgba(128,0,0,.06)}
-@media(min-width:900px){.nl{display:block}}
+@media(min-width:700px){.nl{display:block}}
 .nc{background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;padding:10px 22px;border-radius:50px;font-weight:800;font-size:14px;text-decoration:none;box-shadow:0 3px 16px rgba(128,0,0,.28);transition:all .25s}
 .nc:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(128,0,0,.38);text-decoration:none}
+.hbtn{display:flex;flex-direction:column;justify-content:center;align-items:center;width:42px;height:42px;border:none;background:transparent;cursor:pointer;gap:5px;padding:4px;border-radius:8px;transition:background .2s}
+.hbtn:hover{background:rgba(128,0,0,.06)}
+.hbtn span{display:block;width:22px;height:2px;background:var(--M);border-radius:2px;transition:all .3s}
+.hbtn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbtn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hbtn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.drawer-ov{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:199;opacity:0;pointer-events:none;transition:opacity .3s}
+.drawer-ov.open{opacity:1;pointer-events:all}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:280px;background:#fff;z-index:200;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);box-shadow:-4px 0 32px rgba(0,0,0,.15);display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--CD);flex-shrink:0}
+.drawer-logo{font-size:15px;font-weight:800;color:var(--M)}
+.drawer-close{border:none;background:transparent;font-size:20px;cursor:pointer;color:var(--TL);padding:4px 8px;border-radius:6px;line-height:1}
+.drawer-close:hover{background:var(--CD);color:var(--M)}
+.drawer-section{font-size:10px;font-weight:800;color:var(--TL);text-transform:uppercase;letter-spacing:.1em;padding:16px 20px 6px}
+.drawer-link{display:flex;align-items:center;gap:12px;padding:12px 20px;font-size:14.5px;font-weight:600;color:var(--T);text-decoration:none;transition:all .18s}
+.drawer-link:hover{background:var(--CD);color:var(--M);padding-left:26px}
+.dl-icon{width:24px;text-align:center;font-size:16px}
+.drawer-cta{margin:20px 16px 8px;background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;border:none;border-radius:50px;padding:13px 20px;font-size:14px;font-weight:800;cursor:pointer;transition:all .25s;text-align:center;text-decoration:none;display:block}
+.drawer-cta:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(128,0,0,.38);text-decoration:none}
+.drawer-footer{margin-top:auto;padding:16px 20px;border-top:1px solid var(--CD);display:flex;gap:16px}
+.drawer-footer a{font-size:12px;color:var(--TL);text-decoration:none}
+.drawer-footer a:hover{color:var(--M)}
 
 /* PAGE */
 .page{max-width:780px;margin:0 auto;padding:56px 24px 80px}
@@ -76,14 +99,36 @@ footer{background:#5a0000;color:#fff}
     </div>
   </a>
   <div class="nr">
-    <a href="index.html#how" class="nl">How it Works</a>
+    <a href="index.html#templates" class="nl">Templates</a>
     <a href="index.html#pricing" class="nl">Pricing</a>
-    <a href="index.html#request" class="nl">Request</a>
-    <a href="biodata-format.html" class="nl">Biodata Guide</a>
     <a href="faq.html" class="nl">FAQ</a>
     <a href="index.html" class="nc">📋 Build Biodata</a>
+    <button class="hbtn" id="hbtn" onclick="toggleDrawer()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<div class="drawer-ov" id="drawerOv" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer" role="dialog" aria-label="Navigation menu">
+  <div class="drawer-head">
+    <div class="drawer-logo">📋 EasyDocuments</div>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">✕</button>
+  </div>
+  <div class="drawer-section">Navigate</div>
+  <a href="index.html#templates" class="drawer-link"><span class="dl-icon">🎨</span>Templates</a>
+  <a href="index.html#how" class="drawer-link"><span class="dl-icon">⚡</span>How it Works</a>
+  <a href="index.html#pricing" class="drawer-link"><span class="dl-icon">💰</span>Pricing</a>
+  <a href="index.html#request" class="drawer-link"><span class="dl-icon">💬</span>Request a Feature</a>
+  <div class="drawer-section">Learn</div>
+  <a href="biodata-format.html" class="drawer-link"><span class="dl-icon">📖</span>Biodata Format Guide</a>
+  <a href="faq.html" class="drawer-link"><span class="dl-icon">❓</span>FAQ</a>
+  <a href="index.html" class="drawer-cta">📋 Build My Biodata Now →</a>
+  <div class="drawer-footer">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html" style="color:var(--M)">Terms of Use</a>
+  </div>
+</div>
 
 <div class="page">
   <div class="page-header">
@@ -217,5 +262,11 @@ footer{background:#5a0000;color:#fff}
   </div>
 </footer>
 
+<script>
+function toggleDrawer(){const o=document.getElementById('drawer').classList.contains('open');o?closeDrawer():openDrawer();}
+function openDrawer(){document.getElementById('drawer').classList.add('open');document.getElementById('drawerOv').classList.add('open');document.getElementById('hbtn').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('drawer').classList.remove('open');document.getElementById('drawerOv').classList.remove('open');document.getElementById('hbtn').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer();});
+</script>
 </body>
 </html>
