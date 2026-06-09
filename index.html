@@ -276,14 +276,16 @@ input,textarea,select{font-family:var(--f);outline:none}
 .ts-name{font-weight:800;font-size:13px;color:var(--T)}
 .ts-price{font-size:12px;font-weight:700;color:var(--M);background:rgba(128,0,0,.07);padding:3px 10px;border-radius:50px}
 /* ── Template Preview Modal ── */
-.tpm-wrap{background:#fff;border-radius:22px;width:100%;max-width:820px;box-shadow:0 40px 100px rgba(0,0,0,.35);overflow:hidden;margin:auto;animation:mi .4s var(--e);position:relative}
+.tpm-wrap{background:#fff;border-radius:22px;width:100%;max-width:900px;box-shadow:0 40px 100px rgba(0,0,0,.35);overflow:hidden;margin:auto;animation:mi .4s var(--e);position:relative}
 .tpm-close{position:absolute;top:14px;right:16px;background:var(--CD);border:none;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:17px;color:var(--T);z-index:10;line-height:1;transition:background .2s}
 .tpm-close:hover{background:var(--B)}
-.tpm-body{display:grid;grid-template-columns:1fr 1fr;min-height:460px}
-@media(max-width:620px){.tpm-body{grid-template-columns:1fr}}
-.tpm-left{background:var(--C);display:flex;align-items:center;justify-content:center;padding:32px 24px}
-.tpm-card{width:100%;max-width:260px;background:#fff;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.12);overflow:hidden;transform:scale(1.55);transform-origin:center center}
-@media(max-width:620px){.tpm-card{transform:scale(1.1)}}.tpm-right{padding:32px 28px;display:flex;flex-direction:column;justify-content:center}
+.tpm-body{display:grid;grid-template-columns:1fr 1fr;min-height:500px}
+@media(max-width:680px){.tpm-body{grid-template-columns:1fr}}
+.tpm-left{background:#f2f4f8;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;overflow:hidden;min-height:500px}
+.tpm-viewport{width:340px;height:480px;overflow:hidden;flex-shrink:0;position:relative;border-radius:6px;box-shadow:0 8px 32px rgba(0,0,0,.18)}
+.tpm-viewport .bdr-wrap{transform:scale(0.43);transform-origin:top left;width:794px;position:absolute;top:0;left:0}
+@media(max-width:680px){.tpm-left{min-height:320px}.tpm-viewport{width:260px;height:360px}.tpm-viewport .bdr-wrap{transform:scale(0.327)}}
+.tpm-right{padding:32px 28px;display:flex;flex-direction:column;justify-content:center;overflow-y:auto}
 .tpm-badge{font-size:10px;font-weight:800;color:var(--M);background:rgba(128,0,0,.08);padding:4px 12px;border-radius:50px;display:inline-block;margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em}
 .tpm-name{font-size:22px;font-weight:800;color:var(--MD);margin-bottom:6px}
 .tpm-desc{font-size:13.5px;color:var(--TM);line-height:1.6;margin-bottom:16px}
@@ -2278,7 +2280,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
     <button class="tpm-close" onclick="closeM('t')">✕</button>
     <div class="tpm-body">
       <div class="tpm-left">
-        <div class="tpm-card" id="tpmCard"><!-- injected --></div>
+        <div class="tpm-viewport" id="tpmViewport"><!-- actual template rendered here --></div>
       </div>
       <div class="tpm-right">
         <div class="tpm-badge" id="tpmBadge">Template</div>
@@ -3325,6 +3327,89 @@ function updSlots(){ OfferUI.apply(); }
 
 
 /* ── TEMPLATE PREVIEW MODAL ── */
+
+const TPL_META_UI = {
+  1:{badge:'Traditional',  desc:'A clean double-bordered layout — timeless and trusted. The most chosen template across India.',         feats:['Elegant border frame','Hindi & English support','Best for all communities'],       price:'₹31'},
+  2:{badge:'Modern',       desc:'Bold two-column layout with a rich maroon sidebar. Instantly eye-catching and professional.',            feats:['Photo sidebar column','Two-column structure','Bold professional look'],             price:'₹51'},
+  3:{badge:'Cultural',     desc:'Rich Hindi-first layout with gold accents and traditional top/bottom borders. Authentic sanatani feel.', feats:['Full Hindi language support','Gold & saffron accents','Auspicious symbols'],         price:'₹41'},
+  4:{badge:'Contemporary', desc:'Fresh card-based layout with individual info blocks. Clean white cards on a soft background.',            feats:['Info card blocks','Light & airy design','Great for young professionals'],           price:'₹51'},
+  5:{badge:'Minimal',      desc:'Clean typography, dotted dividers, and generous white space. Sophisticated and easy to read.',           feats:['Ultra-clean typography','Dotted row dividers','Reads perfectly in English'],         price:'₹41'},
+  6:{badge:'Regal',        desc:'Royal dark-purple and gold layout with ornamental flourishes and circular photo placement.',             feats:['Dark royal color scheme','Gold & purple accents','Ornamental flourishes'],           price:'₹51'},
+  7:{badge:'Feminine',     desc:'Soft floral-bordered design with corner ornaments. Warm, welcoming and delicate.',                      feats:['Floral corner ornaments','Soft feminine styling','Loved by South Indian families'],   price:'₹51'},
+  8:{badge:'Premium',      desc:'Stunning dark magazine-style layout with bold typography. For biodatas that truly stand out.',           feats:['Dark premium design','Bold editorial typography','Most premium look'],               price:'₹71'},
+};
+
+const SAMPLE_DATA = {
+  nm:'Priya Sharma', dd:'15', mm:'03', yy:'1998',
+  height:"5'4\"", edu:'B.Com Graduate', occ:'Accountant / CA', salary:'₹3–5 Lakh / Year',
+  city:'Lucknow', state:'Uttar Pradesh',
+  fth:'Ramesh Sharma', focc:'Business', mth:'Sunita Sharma', mocc:'Homemaker',
+  brothers:'1', brothersM:'0', sisters:'1', sistersM:'0',
+  relig:'Hindu', cst:'Brahmin', gotr:'Kashyap', rash:'Vrishabh',
+  ctp:'Father', ctm:'98765 43210'
+};
+
+function _buildSampleRows(n){
+  // Use English labels always for the preview
+  const F={
+    name:'Name', dob:'Date of Birth', height:'Height', edu:'Education',
+    occ:'Occupation', salary:'Annual Income', city:'City / State',
+    father:'Father\'s Name', fOcc:'Father\'s Occupation',
+    mother:'Mother\'s Name', mOcc:'Mother\'s Occupation',
+    brothers:'Brothers', sisters:'Sisters',
+    caste:'Religion / Caste', rashi:'Gotra / Rashi',
+    ctperson:'Contact Person', ctmobile:'Contact Number'
+  };
+  const s=SAMPLE_DATA;
+  const age=new Date().getFullYear()-parseInt(s.yy);
+  const dob=`${s.dd}/${s.mm}/${s.yy} (${age} Years)`;
+  const loc=`${s.city}, ${s.state}`;
+  const combineParents=[1,4,6,7].includes(n);
+  const combineContact=[1,4,5,6,7].includes(n);
+  const fthDisp=combineParents?`${s.fth} (${s.focc})`:s.fth;
+  const mthDisp=combineParents?`${s.mth} (${s.mocc})`:s.mth;
+  const pR=makeRow(F.name,s.nm)+makeRow(F.dob,dob)+makeRow(F.height,s.height)
+          +makeRow(F.edu,s.edu)+makeRow(F.occ,s.occ)+makeRow(F.salary,s.salary)+makeRow(F.city,loc);
+  let fR=makeRow(F.father,fthDisp)+(combineParents?'':makeRow(F.fOcc,s.focc))
+        +makeRow(F.mother,mthDisp)+(combineParents?'':makeRow(F.mOcc,s.mocc))
+        +makeRow(F.brothers,'1')+makeRow(F.sisters,'1')
+        +makeRow(F.caste,`${s.relig} – ${s.cst}`)+makeRow(F.rashi,`${s.gotr} / ${s.rash}`);
+  const ctmDisp=combineContact?`${s.ctm} (${s.ctp})`:s.ctm;
+  const cR=combineContact?makeRow(F.ctmobile,ctmDisp):makeRow(F.ctperson,s.ctp)+makeRow(F.ctmobile,s.ctm);
+  return{pR,fR,cR,name:s.nm,subtitle:'विवाह बायोडाटा',sec1:'Personal Details',sec2:'Family Details',sec3:'Contact Details',auspc:'ॐ'};
+}
+
+function showTplPreview(id){
+  const n = parseInt(id.replace('t',''),10);
+  const meta = BT_META[n];
+  const ui = TPL_META_UI[n];
+  if(!meta||!ui||!_TPLS||!_TPLS[n]) return;
+
+  // Render actual template with sample data
+  const tmp=document.createElement('div');
+  tmp.innerHTML=_TPLS[n];
+  const tplEl=tmp.firstElementChild;
+  if(tplEl){
+    const rows=_buildSampleRows(n);
+    BD.inject(tplEl,rows,'');
+    tplEl.style.setProperty('--tc1',meta.primaryHex);
+    tplEl.style.setProperty('--tc2',meta.bgHex);
+    tplEl.style.setProperty('--tc3',meta.primaryHex+'cc');
+    tplEl.style.setProperty('--tc4',meta.primaryHex+'22');
+    tplEl.classList.add('lang-en');
+    const vp=document.getElementById('tpmViewport');
+    vp.innerHTML='';
+    vp.appendChild(tplEl);
+  }
+
+  // Right panel info
+  document.getElementById('tpmBadge').textContent=ui.badge+' Design';
+  document.getElementById('tpmName').textContent=meta.name;
+  document.getElementById('tpmDesc').textContent=ui.desc;
+  document.getElementById('tpmPrice').innerHTML=ui.price+'<span>one-time</span>';
+  document.getElementById('tpmFeats').innerHTML=ui.feats.map(f=>'<li>'+f+'</li>').join('');
+  openM('t');
+}
 
 const TPL_DATA = {
   t1:{name:'Classic Bordered',badge:'Traditional',price:'₹31',priceNote:'one-time',desc:'A clean, double-bordered layout with a central header. Timeless and trusted — the most chosen template across India.',feats:['Elegant border frame','Works in Hindi & English','Best for all communities'],card:`<div style="border:2px solid #800000;border-radius:8px;padding:14px;background:#fff8f0">
