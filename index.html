@@ -3411,25 +3411,9 @@ function showTplPreview(id){
   openM('t');
 }
 
-const TPL_DATA = {
-  t1:{name:'Classic Bordered',badge:'Traditional',price:'₹31',priceNote:'one-time',desc:'A clean, double-bordered layout with a central header. Timeless and trusted — the most chosen template across India.',feats:['Elegant border frame','Works in Hindi & English','Best for all communities'],card:`<div style="border:2px solid #800000;border-radius:8px;padding:14px;background:#fff8f0">
-    <div style="text-align:center;border-bottom:1px solid #800000;padding-bottom:10px;margin-bottom:10px">
-      <div style="font-size:14px;color:#800000;font-weight:800">ॐ</div>
-      <div style="font-size:14px;font-weight:800;color:#5a0000">Priya Sharma</div>
-      <div style="font-size:10px;color:#777">विवाह बायोडाटा</div>
-    </div>
-    <div style="font-size:10px;color:#444;line-height:1.9">
-      <div style="display:flex;gap:6px"><span style="color:#800000;font-weight:700;min-width:70px">Age</span><span>26 Years</span></div>
-      <div style="display:flex;gap:6px"><span style="color:#800000;font-weight:700;min-width:70px">Height</span><span>5 feet 4 inches</span></div>
-      <div style="display:flex;gap:6px"><span style="color:#800000;font-weight:700;min-width:70px">Education</span><span>B.Com Graduate</span></div>
-      <div style="display:flex;gap:6px"><span style="color:#800000;font-weight:700;min-width:70px">Occupation</span><span>CA / Accountant</span></div>
-      <div style="display:flex;gap:6px"><span style="color:#800000;font-weight:700;min-width:70px">Religion</span><span>Hindu – Brahmin</span></div>
-      <div style="display:flex;gap:6px"><span style="color:#800000;font-weight:700;min-width:70px">City</span><span>Lucknow, UP</span></div>
-      <div style="display:flex;gap:6px"><span style="color:#800000;font-weight:700;min-width:70px">Father</span><span>Ramesh Sharma (Business)</span></div>
-      <div style="display:flex;gap:6px"><span style="color:#800000;font-weight:700;min-width:70px">Mother</span><span>Sunita Sharma (Homemaker)</span></div>
-    </div>
-  </div>`},
-  t3:{name:'Vedic Traditional',badge:'Cultural',price:'₹41',priceNote:'one-time',desc:'A rich Hindi-first layout with gold accents and traditional borders. Perfect for families wanting an authentic sanatani feel.',feats:['Full Hindi language support','Gold & saffron accents','Auspicious symbols included'],card:`<div style="border-top:4px solid #c8860a;border-bottom:4px solid #c8860a;padding:14px;background:linear-gradient(135deg,#fffcf0,#fff8e1)">
+const TPL_DATA = { // legacy — kept only so old references don't crash; showTplPreview now uses real render
+  t1:{},t2:{},t3:{},t4:{},t5:{},t6:{},t7:{},t8:{}
+  _dead:`<div style="display:none">
     <div style="text-align:center;border-bottom:1px solid #c8860a;padding-bottom:10px;margin-bottom:10px">
       <div style="font-size:12px;color:#c8860a;font-weight:800">🕉️ शुभ विवाह</div>
       <div style="font-size:14px;font-weight:800;color:#7a3500">अंजलि गुप्ता</div>
@@ -3533,16 +3517,7 @@ const TPL_DATA = {
   </div>`}
 };
 
-function showTplPreview(id){
-  const d=TPL_DATA[id]; if(!d) return;
-  document.getElementById('tpmCard').innerHTML=d.card;
-  document.getElementById('tpmBadge').textContent=d.badge+' Design';
-  document.getElementById('tpmName').textContent=d.name;
-  document.getElementById('tpmDesc').textContent=d.desc;
-  document.getElementById('tpmPrice').innerHTML=d.price+'<span>'+d.priceNote+'</span>';
-  document.getElementById('tpmFeats').innerHTML=d.feats.map(f=>'<li>'+f+'</li>').join('');
-  openM('t');
-}
+/* old showTplPreview removed — replaced by real-render version above */
 
 /* ── TEMPLATE SHOWCASE TOGGLE ── */
 
