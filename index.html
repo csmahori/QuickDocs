@@ -5575,6 +5575,7 @@ function persistOtherInputs(){
   if(dd){for(let i=1;i<=31;i++){const o=document.createElement('option');o.value=String(i).padStart(2,'0');o.textContent=String(i).padStart(2,'0');dd.appendChild(o);}}
   selBT(1);
   updStepUI(0);
+  if(location.hash==='#build'){openM('biodata');history.replaceState(null,'',location.pathname);}
   const b=S.get('b');
   if(b){
     const map={nm:'bnm',dd:'bdd',mm:'bmm',edu:'bedu',occ:'bocc',state:'bstate',city:'bcity',fth:'bfth',mth:'bmth',focc:'bfocc',mocc:'bmocc',ctp:'bctperson',ctm:'bctmobile'};
