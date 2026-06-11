@@ -176,12 +176,39 @@ input,textarea,select{font-family:var(--f);outline:none}
 .lic{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--M),var(--ML));display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 3px 12px rgba(128,0,0,.3);flex-shrink:0}
 .lt .lb{font-size:17px;font-weight:800;color:var(--M)}
 .lt .ls{font-size:10px;color:var(--G);font-weight:700}
-.nr{display:flex;align-items:center;gap:10px}
+.nr{display:flex;align-items:center;gap:8px}
 .nl{font-size:14px;font-weight:600;color:var(--TM);padding:8px 14px;border-radius:8px;transition:all .2s;display:none}
 .nl:hover{color:var(--M);background:rgba(128,0,0,.06)}
-@media(min-width:900px){.nl{display:block}}
+@media(min-width:700px){.nl{display:block}}
 .nc{background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;padding:10px 22px;border-radius:50px;font-weight:800;font-size:14px;box-shadow:0 3px 16px rgba(128,0,0,.28);transition:all .25s}
 .nc:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(128,0,0,.38)}
+
+/* HAMBURGER BUTTON */
+.hbtn{width:40px;height:40px;border-radius:10px;background:transparent;border:1.5px solid var(--B);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:all .2s;flex-shrink:0}
+.hbtn:hover{background:rgba(128,0,0,.06);border-color:var(--M)}
+.hbtn span{display:block;width:18px;height:2px;background:var(--M);border-radius:2px;transition:all .3s var(--e)}
+.hbtn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbtn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hbtn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* DRAWER */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:280px;background:#fff;z-index:1100;box-shadow:-8px 0 40px rgba(128,0,0,.15);transform:translateX(100%);transition:transform .35s var(--eo);display:flex;flex-direction:column;overflow-y:auto}
+.drawer.open{transform:translateX(0)}
+.drawer-head{padding:20px 20px 16px;border-bottom:1.5px solid var(--B);display:flex;align-items:center;justify-content:space-between}
+.drawer-logo{font-size:15px;font-weight:800;color:var(--M)}
+.drawer-close{width:34px;height:34px;border-radius:8px;border:1.5px solid var(--B);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--TM);transition:all .2s}
+.drawer-close:hover{background:rgba(128,0,0,.06);border-color:var(--M);color:var(--M)}
+.drawer-section{padding:16px 20px 6px;font-size:10px;font-weight:800;color:var(--TL);text-transform:uppercase;letter-spacing:1px}
+.drawer-link{display:flex;align-items:center;gap:12px;padding:11px 16px;border-radius:10px;margin:2px 8px;font-size:14px;font-weight:600;color:var(--TM);transition:all .2s;cursor:pointer;text-decoration:none;border:none;background:transparent;width:calc(100% - 16px);text-align:left}
+.drawer-link:hover,.drawer-link:focus{background:rgba(128,0,0,.06);color:var(--M);outline:none}
+.drawer-link .dl-icon{font-size:16px;width:22px;text-align:center;flex-shrink:0}
+.drawer-cta{margin:16px 16px 8px;background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;border:none;padding:13px;border-radius:12px;font-weight:800;font-size:14px;cursor:pointer;width:calc(100% - 32px);box-shadow:0 4px 16px rgba(128,0,0,.28);transition:all .25s}
+.drawer-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(128,0,0,.38)}
+.drawer-footer{margin-top:auto;padding:16px 20px;border-top:1.5px solid var(--B);display:flex;gap:16px;font-size:12px}
+.drawer-footer a{color:var(--TL);font-weight:600;transition:color .2s;text-decoration:none}
+.drawer-footer a:hover{color:var(--M)}
+.drawer-ov{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:1099;opacity:0;pointer-events:none;transition:opacity .35s}
+.drawer-ov.open{opacity:1;pointer-events:all}
 
 /* HERO */
 .hero{padding-top:108px;min-height:100vh;background:linear-gradient(150deg,#fff8f0,#fff2e2 50%,#ffe8cc);position:relative;overflow:hidden;display:flex;align-items:center}
@@ -248,6 +275,27 @@ input,textarea,select{font-family:var(--f);outline:none}
 .ts-info{padding:12px 16px;border-top:1px solid var(--B);display:flex;align-items:center;justify-content:space-between}
 .ts-name{font-weight:800;font-size:13px;color:var(--T)}
 .ts-price{font-size:12px;font-weight:700;color:var(--M);background:rgba(128,0,0,.07);padding:3px 10px;border-radius:50px}
+/* ── Template Preview Modal ── */
+.tpm-wrap{background:#fff;border-radius:22px;width:100%;max-width:900px;box-shadow:0 40px 100px rgba(0,0,0,.35);overflow:hidden;margin:auto;animation:mi .4s var(--e);position:relative}
+.tpm-close{position:absolute;top:14px;right:16px;background:var(--CD);border:none;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:17px;color:var(--T);z-index:10;line-height:1;transition:background .2s}
+.tpm-close:hover{background:var(--B)}
+.tpm-body{display:grid;grid-template-columns:1fr 1fr;min-height:500px}
+@media(max-width:680px){.tpm-body{grid-template-columns:1fr}}
+.tpm-left{background:#f2f4f8;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;overflow:hidden;min-height:500px}
+.tpm-viewport{width:340px;height:480px;overflow:hidden;flex-shrink:0;position:relative;border-radius:6px;box-shadow:0 8px 32px rgba(0,0,0,.18)}
+.tpm-viewport .bdr-wrap{transform:scale(0.43);transform-origin:top left;width:794px;position:absolute;top:0;left:0}
+@media(max-width:680px){.tpm-left{min-height:320px}.tpm-viewport{width:260px;height:360px}.tpm-viewport .bdr-wrap{transform:scale(0.327)}}
+.tpm-right{padding:32px 28px;display:flex;flex-direction:column;justify-content:center;overflow-y:auto}
+.tpm-badge{font-size:10px;font-weight:800;color:var(--M);background:rgba(128,0,0,.08);padding:4px 12px;border-radius:50px;display:inline-block;margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em}
+.tpm-name{font-size:22px;font-weight:800;color:var(--MD);margin-bottom:6px}
+.tpm-desc{font-size:13.5px;color:var(--TM);line-height:1.6;margin-bottom:16px}
+.tpm-price{font-size:28px;font-weight:800;color:var(--M);margin-bottom:4px}
+.tpm-price span{font-size:14px;font-weight:600;color:var(--TL);margin-left:4px}
+.tpm-feats{list-style:none;margin:0 0 24px;padding:0;display:flex;flex-direction:column;gap:6px}
+.tpm-feats li{font-size:13px;color:var(--TM);display:flex;align-items:center;gap:8px}
+.tpm-feats li::before{content:'✓';color:var(--M);font-weight:800;font-size:12px}
+.tpm-cta{background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;border:none;padding:13px 24px;border-radius:50px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 6px 24px rgba(128,0,0,.28);transition:all .25s;text-align:center}
+.tpm-cta:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(128,0,0,.38)}
 /* mini biodata inside showcase cards */
 .mb{font-size:9px;color:var(--TM);line-height:1.6}
 .mb-hdr{text-align:center;padding:8px 4px 6px;border-bottom:1px solid currentColor;margin-bottom:6px}
@@ -1774,14 +1822,38 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
     </div>
   </div>
   <div class="nr">
-    <a href="#how" class="nl">How it Works</a>
+    <a href="#templates" class="nl">Templates</a>
     <a href="#pricing" class="nl">Pricing</a>
-    <a href="#request" class="nl">Request</a>
-    <a href="biodata-format.html" class="nl">Biodata Guide</a>
     <a href="faq.html" class="nl">FAQ</a>
     <button class="nc" onclick="openM('biodata')">📋 Build Biodata</button>
+    <button class="hbtn" id="hbtn" onclick="toggleDrawer()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- DRAWER -->
+<div class="drawer-ov" id="drawerOv" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer" role="dialog" aria-label="Navigation menu">
+  <div class="drawer-head">
+    <div class="drawer-logo">📋 EasyDocuments</div>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">✕</button>
+  </div>
+
+  <div class="drawer-section">Navigate</div>
+  <a href="#how" class="drawer-link" onclick="closeDrawer()"><span class="dl-icon">⚡</span>How it Works</a>
+  <a href="#request" class="drawer-link" onclick="closeDrawer()"><span class="dl-icon">💬</span>Request a Feature</a>
+
+  <div class="drawer-section">Learn</div>
+  <a href="biodata-format.html" class="drawer-link"><span class="dl-icon">📖</span>Biodata Format Guide</a>
+
+  <button class="drawer-cta" onclick="closeDrawer();openM('biodata')">📋 Build My Biodata Now →</button>
+
+  <div class="drawer-footer">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1861,7 +1933,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 </div>
 
 <!-- TEMPLATE SHOWCASE -->
-<section style="background:#fff;border-top:1px solid #e8d5b0">
+<section id="templates" style="background:#fff;border-top:1px solid #e8d5b0">
   <div class="tshowcase rv-anim">
     <div class="sh2">
       <div class="scp">8 Designs to Choose From</div>
@@ -1871,7 +1943,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
     <div class="ts-grid">
 
       <!-- T1: Classic Bordered -->
-      <div class="ts-card" onclick="openM('biodata')">
+      <div class="ts-card" onclick="showTplPreview('t1')">
         <div class="ts-prev" style="background:linear-gradient(135deg,#fff8f0,#fff2e2)">
           <div style="border:2px solid #800000;border-radius:8px;padding:10px;height:100%">
             <div class="mb-hdr" style="border-color:#800000">
@@ -1890,12 +1962,12 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
             </div>
           </div>
         </div>
-        <div class="ts-overlay"><span>Classic Bordered</span><small>Clean · Traditional · Timeless</small><button onclick="event.stopPropagation();openM('biodata')">Use This Template</button></div>
+        <div class="ts-overlay"><span>Classic Bordered</span><small>Clean · Traditional · Timeless</small><button onclick="event.stopPropagation();showTplPreview('t1')">Preview →</button></div>
         <div class="ts-info"><span class="ts-name">Classic Bordered</span><span class="ts-price">₹31</span></div>
       </div>
 
       <!-- T3: Vedic Traditional -->
-      <div class="ts-card" onclick="openM('biodata')">
+      <div class="ts-card" onclick="showTplPreview('t3')">
         <div class="ts-prev" style="background:linear-gradient(135deg,#fffcf0,#fff8e1)">
           <div style="border-top:4px solid #c8860a;border-bottom:4px solid #c8860a;padding:10px;height:100%">
             <div class="mb-hdr" style="border-color:#c8860a">
@@ -1913,12 +1985,12 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
             </div>
           </div>
         </div>
-        <div class="ts-overlay"><span>Vedic Traditional</span><small>Hindi · Cultural · Elegant</small><button onclick="event.stopPropagation();openM('biodata')">Use This Template</button></div>
+        <div class="ts-overlay"><span>Vedic Traditional</span><small>Hindi · Cultural · Elegant</small><button onclick="event.stopPropagation();showTplPreview('t3')">Preview →</button></div>
         <div class="ts-info"><span class="ts-name">Vedic Traditional</span><span class="ts-price">₹41</span></div>
       </div>
 
       <!-- T2: Sidebar Split -->
-      <div class="ts-card" onclick="openM('biodata')">
+      <div class="ts-card" onclick="showTplPreview('t2')">
         <div class="ts-prev" style="background:#f8f9fa;display:flex;gap:0;padding:0">
           <div style="width:70px;background:linear-gradient(180deg,#800000,#5a0000);padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0">
             <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:18px">👰</div>
@@ -1936,12 +2008,12 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
             </div>
           </div>
         </div>
-        <div class="ts-overlay"><span>Sidebar Split</span><small>Modern · Bold · Popular</small><button onclick="event.stopPropagation();openM('biodata')">Use This Template</button></div>
+        <div class="ts-overlay"><span>Sidebar Split</span><small>Modern · Bold · Popular</small><button onclick="event.stopPropagation();showTplPreview('t2')">Preview →</button></div>
         <div class="ts-info"><span class="ts-name">Sidebar Split</span><span class="ts-price">₹51</span></div>
       </div>
 
       <!-- T8: Magazine Style -->
-      <div class="ts-card" onclick="openM('biodata')">
+      <div class="ts-card" onclick="showTplPreview('t8')">
         <div class="ts-prev" style="background:#1a1a2e;padding:10px">
           <div style="background:linear-gradient(135deg,#800000,#5a0000);border-radius:8px;padding:8px;margin-bottom:8px;display:flex;align-items:center;gap:8px">
             <div style="width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:16px">👰</div>
@@ -1957,13 +2029,96 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
             <div class="mb-row"><span class="mb-l" style="color:#888">City</span><span class="mb-v" style="color:#fff">Hyderabad</span></div>
           </div>
         </div>
-        <div class="ts-overlay"><span>Magazine Style</span><small>Premium · Bold · Advanced</small><button onclick="event.stopPropagation();openM('biodata')">Use This Template</button></div>
+        <div class="ts-overlay"><span>Magazine Style</span><small>Premium · Bold · Advanced</small><button onclick="event.stopPropagation();showTplPreview('t8')">Preview →</button></div>
         <div class="ts-info"><span class="ts-name">Magazine Style</span><span class="ts-price">₹71</span></div>
       </div>
 
     </div>
+
+    <!-- 4 hidden templates, shown on "View All" click -->
+    <div class="ts-grid" id="tsMore" style="display:none;margin-top:0">
+
+      <!-- T4: Modern Cards -->
+      <div class="ts-card" onclick="showTplPreview('t4')">
+        <div class="ts-prev" style="background:linear-gradient(135deg,#f0f4ff,#e8eeff);padding:10px">
+          <div style="background:#fff;border-radius:8px;padding:8px;margin-bottom:6px;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+              <div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#3a7bd5,#00d2ff);display:flex;align-items:center;justify-content:center;font-size:14px">👰</div>
+              <div><div class="mb-name" style="font-size:11px">Riya Patel</div><div style="font-size:8px;color:#666">विवाह बायोडाटा</div></div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+            <div style="background:#fff;border-radius:6px;padding:5px;box-shadow:0 1px 4px rgba(0,0,0,.06)"><div style="font-size:7px;color:#888">Age</div><div style="font-size:9px;font-weight:700">25 yrs</div></div>
+            <div style="background:#fff;border-radius:6px;padding:5px;box-shadow:0 1px 4px rgba(0,0,0,.06)"><div style="font-size:7px;color:#888">City</div><div style="font-size:9px;font-weight:700">Surat</div></div>
+            <div style="background:#fff;border-radius:6px;padding:5px;box-shadow:0 1px 4px rgba(0,0,0,.06)"><div style="font-size:7px;color:#888">Education</div><div style="font-size:9px;font-weight:700">B.Pharm</div></div>
+            <div style="background:#fff;border-radius:6px;padding:5px;box-shadow:0 1px 4px rgba(0,0,0,.06)"><div style="font-size:7px;color:#888">Job</div><div style="font-size:9px;font-weight:700">Pharmacist</div></div>
+          </div>
+        </div>
+        <div class="ts-overlay"><span>Modern Cards</span><small>Fresh · Clean · Contemporary</small><button onclick="event.stopPropagation();showTplPreview('t4')">Preview →</button></div>
+        <div class="ts-info"><span class="ts-name">Modern Cards</span><span class="ts-price">₹41</span></div>
+      </div>
+
+      <!-- T5: Elegant Minimal -->
+      <div class="ts-card" onclick="showTplPreview('t5')">
+        <div class="ts-prev" style="background:#fafafa;padding:14px">
+          <div style="border-bottom:1px solid #ddd;padding-bottom:10px;margin-bottom:10px;text-align:center">
+            <div class="mb-name" style="font-size:12px;letter-spacing:.05em">Sneha Joshi</div>
+            <div style="font-size:8px;color:#999;letter-spacing:.1em;text-transform:uppercase">Marriage Biodata</div>
+          </div>
+          <div class="mb">
+            <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dotted #eee"><span style="font-size:8px;color:#aaa">Date of Birth</span><span style="font-size:8px;font-weight:600">15 March 2000</span></div>
+            <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dotted #eee"><span style="font-size:8px;color:#aaa">Height</span><span style="font-size:8px;font-weight:600">5'5"</span></div>
+            <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dotted #eee"><span style="font-size:8px;color:#aaa">Education</span><span style="font-size:8px;font-weight:600">M.Sc Chemistry</span></div>
+            <div style="display:flex;justify-content:space-between;padding:3px 0"><span style="font-size:8px;color:#aaa">City</span><span style="font-size:8px;font-weight:600">Nashik, MH</span></div>
+          </div>
+        </div>
+        <div class="ts-overlay"><span>Elegant Minimal</span><small>Simple · Refined · Classic</small><button onclick="event.stopPropagation();showTplPreview('t5')">Preview →</button></div>
+        <div class="ts-info"><span class="ts-name">Elegant Minimal</span><span class="ts-price">₹31</span></div>
+      </div>
+
+      <!-- T6: Royal Arch -->
+      <div class="ts-card" onclick="showTplPreview('t6')">
+        <div class="ts-prev" style="background:linear-gradient(180deg,#2c0a37,#4a1060);padding:10px">
+          <div style="text-align:center;margin-bottom:8px">
+            <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#D4AF37,#b8961e);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-size:18px">👰</div>
+            <div style="color:#D4AF37;font-size:10px;font-weight:800">Pooja Verma</div>
+            <div style="color:rgba(212,175,55,.6);font-size:7px;letter-spacing:.1em">✦ विवाह बायोडाटा ✦</div>
+          </div>
+          <div class="mb">
+            <div class="mb-row"><span class="mb-l" style="color:#D4AF37;opacity:.7">Age</span><span class="mb-v" style="color:#fff">23 yrs</span></div>
+            <div class="mb-row"><span class="mb-l" style="color:#D4AF37;opacity:.7">Education</span><span class="mb-v" style="color:#fff">BA LLB</span></div>
+            <div class="mb-row"><span class="mb-l" style="color:#D4AF37;opacity:.7">City</span><span class="mb-v" style="color:#fff">Indore</span></div>
+          </div>
+        </div>
+        <div class="ts-overlay"><span>Royal Arch</span><small>Regal · Rich · Grand</small><button onclick="event.stopPropagation();showTplPreview('t6')">Preview →</button></div>
+        <div class="ts-info"><span class="ts-name">Royal Arch</span><span class="ts-price">₹61</span></div>
+      </div>
+
+      <!-- T7: Floral Frame -->
+      <div class="ts-card" onclick="showTplPreview('t7')">
+        <div class="ts-prev" style="background:linear-gradient(135deg,#fff0f5,#ffe8f0);padding:10px;position:relative">
+          <div style="border:1.5px solid #e91e8c;border-radius:12px;padding:10px;height:100%;position:relative">
+            <div style="position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:#fff0f5;padding:0 6px;font-size:14px">🌸</div>
+            <div class="mb-hdr" style="border-color:#e91e8c;text-align:center">
+              <div class="mb-name" style="color:#c2185b">Meera Iyer</div>
+              <div class="mb-sub" style="color:#e91e8c">विवाह बायोडाटा</div>
+            </div>
+            <div class="mb">
+              <div class="mb-row"><span class="mb-l">Age</span><span class="mb-v">24 yrs</span></div>
+              <div class="mb-row"><span class="mb-l">Education</span><span class="mb-v">BCA</span></div>
+              <div class="mb-row"><span class="mb-l">City</span><span class="mb-v">Chennai</span></div>
+            </div>
+            <div style="position:absolute;bottom:4px;right:8px;font-size:12px">🌸</div>
+          </div>
+        </div>
+        <div class="ts-overlay"><span>Floral Frame</span><small>Feminine · Soft · Delicate</small><button onclick="event.stopPropagation();showTplPreview('t7')">Preview →</button></div>
+        <div class="ts-info"><span class="ts-name">Floral Frame</span><span class="ts-price">₹51</span></div>
+      </div>
+
+    </div>
+
     <div style="text-align:center;margin-top:32px">
-      <button onclick="openM('biodata')" style="background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;border:none;padding:13px 32px;border-radius:50px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 6px 24px rgba(128,0,0,.28)">View All 8 Templates →</button>
+      <button id="tsMoreBtn" onclick="toggleMoreTemplates()" style="background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;border:none;padding:13px 32px;border-radius:50px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:0 6px 24px rgba(128,0,0,.28)">View All 8 Templates →</button>
     </div>
   </div>
 </section>
@@ -2116,6 +2271,26 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   </div>
 </section>
 
+
+<!-- TEMPLATE PREVIEW MODAL -->
+<div class="mov" id="tMov">
+  <div class="tpm-wrap">
+    <button class="tpm-close" onclick="closeM('t')">✕</button>
+    <div class="tpm-body">
+      <div class="tpm-left">
+        <div class="tpm-viewport" id="tpmViewport"><!-- actual template rendered here --></div>
+      </div>
+      <div class="tpm-right">
+        <div class="tpm-badge" id="tpmBadge">Template</div>
+        <div class="tpm-name" id="tpmName"></div>
+        <div class="tpm-desc" id="tpmDesc"></div>
+        <div class="tpm-price" id="tpmPrice"></div>
+        <ul class="tpm-feats" id="tpmFeats"></ul>
+        <button class="tpm-cta" onclick="closeM('t');openM('biodata')">📋 Build My Biodata with This Template →</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <section class="sw" style="background:#fff8f0;border-top:1px solid #e8d5b0">
@@ -3148,6 +3323,130 @@ const MAX = OFFER_CONFIG.freeSpots;
 /* ── Replace legacy updSlots() with a thin wrapper around OfferUI.apply() ── */
 function updSlots(){ OfferUI.apply(); }
 
+
+/* ── TEMPLATE PREVIEW MODAL ── */
+
+const TPL_META_UI = {
+  1:{badge:'Traditional',  desc:'A clean double-bordered layout — timeless and trusted. The most chosen template across India.',         feats:['Elegant border frame','Hindi & English support','Best for all communities'],       price:'₹31'},
+  2:{badge:'Modern',       desc:'Bold two-column layout with a rich maroon sidebar. Instantly eye-catching and professional.',            feats:['Photo sidebar column','Two-column structure','Bold professional look'],             price:'₹51'},
+  3:{badge:'Cultural',     desc:'Rich Hindi-first layout with gold accents and traditional top/bottom borders. Authentic sanatani feel.', feats:['Full Hindi language support','Gold & saffron accents','Auspicious symbols'],         price:'₹41'},
+  4:{badge:'Contemporary', desc:'Fresh card-based layout with individual info blocks. Clean white cards on a soft background.',            feats:['Info card blocks','Light & airy design','Great for young professionals'],           price:'₹51'},
+  5:{badge:'Minimal',      desc:'Clean typography, dotted dividers, and generous white space. Sophisticated and easy to read.',           feats:['Ultra-clean typography','Dotted row dividers','Reads perfectly in English'],         price:'₹41'},
+  6:{badge:'Regal',        desc:'Royal dark-purple and gold layout with ornamental flourishes and circular photo placement.',             feats:['Dark royal color scheme','Gold & purple accents','Ornamental flourishes'],           price:'₹51'},
+  7:{badge:'Feminine',     desc:'Soft floral-bordered design with corner ornaments. Warm, welcoming and delicate.',                      feats:['Floral corner ornaments','Soft feminine styling','Loved by South Indian families'],   price:'₹51'},
+  8:{badge:'Premium',      desc:'Stunning dark magazine-style layout with bold typography. For biodatas that truly stand out.',           feats:['Dark premium design','Bold editorial typography','Most premium look'],               price:'₹71'},
+};
+
+const SAMPLE_DATA = {
+  nm:'Priya Sharma', dd:'15', mm:'03', yy:'1998',
+  height:"5'4\"", edu:'B.Com Graduate', occ:'Accountant / CA', salary:'₹3–5 Lakh / Year',
+  city:'Lucknow', state:'Uttar Pradesh',
+  fth:'Ramesh Sharma', focc:'Business', mth:'Sunita Sharma', mocc:'Homemaker',
+  brothers:'1', brothersM:'0', sisters:'1', sistersM:'0',
+  relig:'Hindu', cst:'Brahmin', gotr:'Kashyap', rash:'Vrishabh',
+  ctp:'Father', ctm:'98765 43210'
+};
+
+function _buildSampleRows(n){
+  // Use English labels always for the preview
+  const F={
+    name:'Name', dob:'Date of Birth', height:'Height', edu:'Education',
+    occ:'Occupation', salary:'Annual Income', city:'City / State',
+    father:'Father\'s Name', fOcc:'Father\'s Occupation',
+    mother:'Mother\'s Name', mOcc:'Mother\'s Occupation',
+    brothers:'Brothers', sisters:'Sisters',
+    caste:'Religion / Caste', rashi:'Gotra / Rashi',
+    ctperson:'Contact Person', ctmobile:'Contact Number'
+  };
+  const s=SAMPLE_DATA;
+  const age=new Date().getFullYear()-parseInt(s.yy);
+  const dob=`${s.dd}/${s.mm}/${s.yy} (${age} Years)`;
+  const loc=`${s.city}, ${s.state}`;
+  const combineParents=[1,4,6,7].includes(n);
+  const combineContact=[1,4,5,6,7].includes(n);
+  const fthDisp=combineParents?`${s.fth} (${s.focc})`:s.fth;
+  const mthDisp=combineParents?`${s.mth} (${s.mocc})`:s.mth;
+  const pR=makeRow(F.name,s.nm)+makeRow(F.dob,dob)+makeRow(F.height,s.height)
+          +makeRow(F.edu,s.edu)+makeRow(F.occ,s.occ)+makeRow(F.salary,s.salary)+makeRow(F.city,loc);
+  let fR=makeRow(F.father,fthDisp)+(combineParents?'':makeRow(F.fOcc,s.focc))
+        +makeRow(F.mother,mthDisp)+(combineParents?'':makeRow(F.mOcc,s.mocc))
+        +makeRow(F.brothers,'1')+makeRow(F.sisters,'1')
+        +makeRow(F.caste,`${s.relig} – ${s.cst}`)+makeRow(F.rashi,`${s.gotr} / ${s.rash}`);
+  const ctmDisp=combineContact?`${s.ctm} (${s.ctp})`:s.ctm;
+  const cR=combineContact?makeRow(F.ctmobile,ctmDisp):makeRow(F.ctperson,s.ctp)+makeRow(F.ctmobile,s.ctm);
+  return{pR,fR,cR,name:s.nm,subtitle:'विवाह बायोडाटा',sec1:'Personal Details',sec2:'Family Details',sec3:'Contact Details',auspc:'ॐ'};
+}
+
+function showTplPreview(id){
+  const n = parseInt(id.replace('t',''),10);
+  const meta = BT_META[n];
+  const ui = TPL_META_UI[n];
+  if(!meta||!ui||!_TPLS||!_TPLS[n]) return;
+
+  // Render actual template with sample data
+  const tmp=document.createElement('div');
+  tmp.innerHTML=_TPLS[n];
+  const tplEl=tmp.firstElementChild;
+  if(tplEl){
+    const rows=_buildSampleRows(n);
+    BD.inject(tplEl,rows,'');
+    tplEl.style.setProperty('--tc1',meta.primaryHex);
+    tplEl.style.setProperty('--tc2',meta.bgHex);
+    tplEl.style.setProperty('--tc3',meta.primaryHex+'cc');
+    tplEl.style.setProperty('--tc4',meta.primaryHex+'22');
+    tplEl.classList.add('lang-en');
+    const vp=document.getElementById('tpmViewport');
+    vp.innerHTML='';
+    vp.appendChild(tplEl);
+  }
+
+  // Right panel info
+  document.getElementById('tpmBadge').textContent=ui.badge+' Design';
+  document.getElementById('tpmName').textContent=meta.name;
+  document.getElementById('tpmDesc').textContent=ui.desc;
+  document.getElementById('tpmPrice').innerHTML=ui.price+'<span>one-time</span>';
+  document.getElementById('tpmFeats').innerHTML=ui.feats.map(f=>'<li>'+f+'</li>').join('');
+  openM('t');
+}
+
+const TPL_DATA={};// legacy stub — real preview uses showTplPreview with _TPLS
+/* old showTplPreview removed — replaced by real-render version above */
+
+/* ── TEMPLATE SHOWCASE TOGGLE ── */
+
+function toggleMoreTemplates(){
+  const more=document.getElementById('tsMore');
+  const btn=document.getElementById('tsMoreBtn');
+  const open=more.style.display!=='none';
+  if(open){
+    more.style.display='none';
+    btn.textContent='View All 8 Templates →';
+    document.getElementById('templates').scrollIntoView({behavior:'smooth'});
+  } else {
+    more.style.display='grid';
+    btn.textContent='Show Less ↑';
+  }
+}
+
+/* ── DRAWER NAV ── */
+
+function toggleDrawer(){
+  const open=document.getElementById('drawer').classList.contains('open');
+  open ? closeDrawer() : openDrawer();
+}
+function openDrawer(){
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawerOv').classList.add('open');
+  document.getElementById('hbtn').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeDrawer(){
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawerOv').classList.remove('open');
+  document.getElementById('hbtn').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer();});
 
 /* ── MODALS ── */
 
@@ -5276,6 +5575,7 @@ function persistOtherInputs(){
   if(dd){for(let i=1;i<=31;i++){const o=document.createElement('option');o.value=String(i).padStart(2,'0');o.textContent=String(i).padStart(2,'0');dd.appendChild(o);}}
   selBT(1);
   updStepUI(0);
+  if(location.hash==='#build'){openM('biodata');history.replaceState(null,'',location.pathname);}
   const b=S.get('b');
   if(b){
     const map={nm:'bnm',dd:'bdd',mm:'bmm',edu:'bedu',occ:'bocc',state:'bstate',city:'bcity',fth:'bfth',mth:'bmth',focc:'bfocc',mocc:'bmocc',ctp:'bctperson',ctm:'bctmobile'};
