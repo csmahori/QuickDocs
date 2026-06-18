@@ -2775,6 +2775,12 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           <div class="sth" id="i18nStep3Title">🎉 Biodata Ready!</div>
           <div class="ssth" id="step3Sub">Pay ₹31 to download</div>
 
+          <!-- Output format toggle (PDF / Image) -->
+          <div style="display:flex;gap:8px;margin:6px 0 14px">
+            <button type="button" id="fmtPdf" onclick="setDlFmt('pdf')" style="flex:1;padding:11px;border-radius:10px;border:2px solid var(--M);background:var(--M);color:#fff;font-weight:800;font-size:13.5px;cursor:pointer;font-family:var(--f);display:flex;align-items:center;justify-content:center;gap:6px;transition:all .2s">📄 PDF</button>
+            <button type="button" id="fmtImg" onclick="setDlFmt('img')" style="flex:1;padding:11px;border-radius:10px;border:2px solid var(--M);background:#fff;color:var(--M);font-weight:800;font-size:13.5px;cursor:pointer;font-family:var(--f);display:flex;align-items:center;justify-content:center;gap:6px;transition:all .2s">🖼️ Image (PNG)</button>
+          </div>
+
           <!-- EA: Direct download (free users) -->
           <div id="eaDownloadArea" style="display:none">
             <div style="background:linear-gradient(135deg,#e8f5e9,#f1f8e9);border:2px solid #a5d6a7;border-radius:14px;padding:16px 18px;margin-bottom:12px;text-align:center">
@@ -2895,7 +2901,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 <div class="pdf-loading" id="pdfLoading">
   <div style="background:rgba(255,255,255,.95);border-radius:18px;padding:36px 40px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.2)">
     <div style="font-size:40px;margin-bottom:12px">⏳</div>
-    <div style="font-size:17px;font-weight:800;color:var(--M);margin-bottom:6px">Generating PDF...</div>
+    <div style="font-size:17px;font-weight:800;color:var(--M);margin-bottom:6px" id="pdfLoadingTitle">Generating PDF...</div>
     <div style="font-size:13px;color:var(--TL)">Please wait</div>
   </div>
 </div>
@@ -3159,7 +3165,7 @@ const OfferUI = {
         if(noteEl) noteEl.textContent = 'Limited time offer';
         if(btn) btn.innerHTML = '💳 Pay ' + sym + c.price + ' &amp; Download →';
       } else if(mode === 'paid'){
-        if(titleEl) titleEl.textContent = 'Professional PDF';
+        if(titleEl) titleEl.textContent = 'Professional ' + (_dlFmt==='img'?'Image':'PDF');
         if(priceEl) priceEl.innerHTML = sym + c.price;
         if(noteEl) noteEl.textContent = 'Instant download · No subscription';
         if(btn) btn.innerHTML = '💳 Pay ' + sym + c.price + ' &amp; Download →';
@@ -3184,8 +3190,8 @@ const OfferUI = {
           : 'Launch offer: just ' + sym + c.price + ' (regular ' + sym + c.regularPrice + ')';
       } else {
         slotsRem.textContent = (bLang==='en')
-          ? 'Professional PDF for just ' + sym + c.price
-          : 'Professional PDF for just ' + sym + c.price;
+          ? 'Professional ' + (_dlFmt==='img'?'Image':'PDF') + ' for just ' + sym + c.price
+          : 'Professional ' + (_dlFmt==='img'?'Image':'PDF') + ' for just ' + sym + c.price;
       }
     }
 
@@ -5005,6 +5011,20 @@ function normalizeInlineColors(el){
   el.querySelectorAll('*').forEach(child=>fixOne(child));
 }
 
+let _dlFmt='pdf';  // 'pdf' or 'img' (PNG) — chosen output format; persists through payment
+function setDlFmt(f){
+  _dlFmt = (f==='img') ? 'img' : 'pdf';
+  const pb=document.getElementById('fmtPdf'), ib=document.getElementById('fmtImg');
+  if(pb){ pb.style.background=_dlFmt==='pdf'?'var(--M)':'#fff'; pb.style.color=_dlFmt==='pdf'?'#fff':'var(--M)'; }
+  if(ib){ ib.style.background=_dlFmt==='img'?'var(--M)':'#fff'; ib.style.color=_dlFmt==='img'?'#fff':'var(--M)'; }
+  const word=_dlFmt==='img'?'Image':'PDF';
+  const eaBtn=document.getElementById('i18nEaBtn');
+  if(eaBtn) eaBtn.textContent='⬇️ Download FREE '+word;
+  const pa=document.getElementById('paidDownloadArea');
+  const lbl=pa?pa.querySelector('div > div:nth-child(1)'):null;
+  if(lbl) lbl.textContent='Professional '+word;
+}
+
 async function generateBiodataPDF(){
   // Hide form modal so its backdrop-filter compositing layer
   // doesn't paint above the loading overlay (Chrome z-index quirk)
@@ -5012,6 +5032,8 @@ async function generateBiodataPDF(){
   if(bMovEl) bMovEl.style.display='none';
   const loadEl=document.getElementById('pdfLoading');
   if(loadEl) loadEl.classList.add('act');
+  const loadTitle=document.getElementById('pdfLoadingTitle');
+  if(loadTitle) loadTitle.textContent = _dlFmt==='img' ? 'Generating Image...' : 'Generating PDF...';
   // Load heavy PDF libraries on demand (not at page load)
   await Promise.all([
     loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'),
@@ -5036,7 +5058,6 @@ async function generateBiodataPDF(){
   let brandStamp=null;  /* v2 fix: track watermark to remove in finally */
   try{
     const jsPDFLib=window.jspdf&&window.jspdf.jsPDF;
-    if(!jsPDFLib) throw new Error('jsPDF load nahi hua. Page refresh karein.');
     const rd=document.getElementById('bdRender');
     // Always use the template inside bdRender — NOT document.getElementById('bdTemplate')
     // which returns the live-preview copy first (lpvInner appears before bdRender in DOM)
@@ -5104,12 +5125,21 @@ async function generateBiodataPDF(){
     originals=[];
 
     if(rd) rd.setAttribute('style',origStyle||'position:fixed;left:-9999px;top:0;z-index:-1;overflow:hidden;background:#fff');
-    const imgData=canvas.toDataURL('image/jpeg',0.92);
-    const pdf=new jsPDFLib({unit:'mm',format:'a4',orientation:'portrait'});
-    pdf.addImage(imgData,'JPEG',0,0,210,297);
     const nm=(document.getElementById('bnm')||{}).value||'Biodata';
     const safe=nm.replace(/[^a-zA-Z0-9 ]/g,'').trim().replace(/\s+/g,'_')||'Biodata';
-    pdf.save('Biodata_'+safe+'_EasyDocuments.pdf');
+    if(_dlFmt==='img'){
+      // PNG image export — same canvas, downloaded directly (no jsPDF needed)
+      const a=document.createElement('a');
+      a.href=canvas.toDataURL('image/png');
+      a.download='Biodata_'+safe+'_EasyDocuments.png';
+      document.body.appendChild(a); a.click(); a.remove();
+    }else{
+      if(!jsPDFLib) throw new Error('jsPDF load nahi hua. Page refresh karein.');
+      const imgData=canvas.toDataURL('image/jpeg',0.92);
+      const pdf=new jsPDFLib({unit:'mm',format:'a4',orientation:'portrait'});
+      pdf.addImage(imgData,'JPEG',0,0,210,297);
+      pdf.save('Biodata_'+safe+'_EasyDocuments.pdf');
+    }
     success=true;
   }catch(err){
     console.error('PDF error:',err);
