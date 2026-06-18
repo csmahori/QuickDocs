@@ -31,6 +31,9 @@
 <meta name="author" content="EasyDocuments">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://easydocuments.online/">
+<link rel="alternate" hreflang="en-in" href="https://easydocuments.online/">
+<link rel="alternate" hreflang="hi-in" href="https://easydocuments.online/">
+<link rel="alternate" hreflang="x-default" href="https://easydocuments.online/">
 
 <!-- SEO: Open Graph (Facebook / WhatsApp previews) -->
 <meta property="og:type" content="website">
@@ -39,6 +42,7 @@
 <meta property="og:description" content="Professional marriage biodata in 2 minutes — 8 templates, Hindi & English, instant PDF from ₹31. No sign-up needed.">
 <meta property="og:image" content="https://easydocuments.online/og-image.jpg">
 <meta property="og:locale" content="en_IN">
+<meta property="og:locale:alternate" content="hi_IN">
 <meta property="og:site_name" content="EasyDocuments">
 
 <!-- SEO: Twitter Card -->
@@ -79,13 +83,6 @@
       "@type": "Country",
       "name": "India"
     }
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "1500",
-    "bestRating": "5",
-    "worstRating": "1"
   }
 }
 </script>
@@ -3985,7 +3982,7 @@ const BD={
         // Has photo
         if(dpStrip) dpStrip.style.display = '';
         if(dpEl) dpEl.innerHTML =
-          `<img src="${_photoB64}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
+          `<img src="${_photoB64}" alt="Profile photo" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`;
         if(dpName) dpName.textContent = rows.name || '';
         if(dpSub)  dpSub.textContent  = rows.subtitle || '';
       } else if(_includePhoto && !_photoB64){
@@ -4095,7 +4092,7 @@ const BD={
     this.read();
     const rows=this.buildRows();
     const ph=(_includePhoto&&_photoB64)
-      ?`<img src="${_photoB64}" style="width:100%;height:100%;object-fit:cover">`
+      ?`<img src="${_photoB64}" alt="Profile photo" style="width:100%;height:100%;object-fit:cover">`
       :(_includePhoto?'📷':'');
 
     // Write to hidden render element (for PDF generation)
