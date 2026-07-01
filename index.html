@@ -24,6 +24,13 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+if(!/netlify\.app$/i.test(location.hostname)&&location.hostname!=='localhost'){
+  window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
+  var _gt=document.createElement('script');_gt.async=true;_gt.src='https://www.googletagmanager.com/gtag/js?id=G-3LZGMZV5V1';document.head.appendChild(_gt);
+  gtag('js',new Date());gtag('config','G-3LZGMZV5V1');
+}
+</script>
 <title>Cheapest Marriage Biodata Maker — from ₹31 | EasyDocuments</title>
 
 <!-- SEO: Core -->
@@ -4365,6 +4372,13 @@ async function openRazorpay() {
           if (verified) {
             if (btn) { btn.disabled = false; btn.textContent = orig; }
             OfferUI.recordPayment(response.razorpay_payment_id);
+            if (typeof gtag === 'function') {
+              gtag('event', 'purchase', {
+                transaction_id: response.razorpay_payment_id,
+                value: OFFER_CONFIG.price,
+                currency: 'INR'
+              });
+            }
             closeUp();
             generateBiodataPDF();
           } else {
