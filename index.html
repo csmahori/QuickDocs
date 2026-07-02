@@ -2606,13 +2606,15 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           <div class="fg"><label class="fl" id="i18nLblSalary">Annual Income <span class="fh">(optional)</span></label>
             <select class="fsel" id="bsalary" onchange="updB()">
               <option value="">-- Select Range --</option>
-              <option>Below ₹3 LPA</option>
+              <option>Below ₹2 LPA</option>
+              <option>₹2 - 3 LPA</option>
               <option>₹3 - 5 LPA</option>
-              <option>₹5 - 8 LPA</option>
-              <option>₹8 - 12 LPA</option>
-              <option>₹12 - 20 LPA</option>
-              <option>₹20 - 35 LPA</option>
-              <option>₹35 - 50 LPA</option>
+              <option>₹5 - 7 LPA</option>
+              <option>₹7 - 10 LPA</option>
+              <option>₹10 - 15 LPA</option>
+              <option>₹15 - 20 LPA</option>
+              <option>₹20 - 30 LPA</option>
+              <option>₹30 - 50 LPA</option>
               <option>Above ₹50 LPA</option>
               <option value="__skip__">Prefer not to say</option>
             </select>
@@ -3665,14 +3667,23 @@ const VAL_I18N={
   'Chandigarh'        :{hi:'चंडीगढ़',           en:'Chandigarh'},
 
   // ── Salary ranges ──
-  'Below ₹3 LPA'      :{hi:'₹3 लाख से कम',      en:'Below ₹3 LPA'},
+  'Below ₹2 LPA'      :{hi:'₹2 लाख से कम',      en:'Below ₹2 LPA'},
+  '₹2 - 3 LPA'        :{hi:'₹2 - 3 लाख',        en:'₹2 - 3 LPA'},
   '₹3 - 5 LPA'        :{hi:'₹3 - 5 लाख',        en:'₹3 - 5 LPA'},
+  '₹5 - 7 LPA'        :{hi:'₹5 - 7 लाख',        en:'₹5 - 7 LPA'},
+  '₹7 - 10 LPA'       :{hi:'₹7 - 10 लाख',       en:'₹7 - 10 LPA'},
+  '₹10 - 15 LPA'      :{hi:'₹10 - 15 लाख',      en:'₹10 - 15 LPA'},
+  '₹15 - 20 LPA'      :{hi:'₹15 - 20 लाख',      en:'₹15 - 20 LPA'},
+  '₹20 - 30 LPA'      :{hi:'₹20 - 30 लाख',      en:'₹20 - 30 LPA'},
+  '₹30 - 50 LPA'      :{hi:'₹30 - 50 लाख',      en:'₹30 - 50 LPA'},
+  'Above ₹50 LPA'     :{hi:'₹50 लाख से अधिक',   en:'Above ₹50 LPA'},
+  // legacy ranges — kept so old saved drafts still translate
+  'Below ₹3 LPA'      :{hi:'₹3 लाख से कम',      en:'Below ₹3 LPA'},
   '₹5 - 8 LPA'        :{hi:'₹5 - 8 लाख',        en:'₹5 - 8 LPA'},
   '₹8 - 12 LPA'       :{hi:'₹8 - 12 लाख',       en:'₹8 - 12 LPA'},
   '₹12 - 20 LPA'      :{hi:'₹12 - 20 लाख',      en:'₹12 - 20 LPA'},
   '₹20 - 35 LPA'      :{hi:'₹20 - 35 लाख',      en:'₹20 - 35 LPA'},
   '₹35 - 50 LPA'      :{hi:'₹35 - 50 लाख',      en:'₹35 - 50 LPA'},
-  'Above ₹50 LPA'     :{hi:'₹50 लाख से अधिक',   en:'Above ₹50 LPA'},
 
   // ── Education (descriptive ones; degree codes like B.Tech / MBBS stay English by convention) ──
   '10th Pass (Matric)'       :{hi:'10वीं पास',                  en:'10th Pass'},
@@ -4836,7 +4847,7 @@ function hPhoto(inp){
 }
 
 let xC=0;
-const X_SUGG=['Brothers: 2 (Elder: Married, Younger: Student)','Sisters: 1 (Married)','Own House: Yes (Pucca, 3BHK)','Property: Agricultural land (5 acres)','Annual Income: ₹5–8 Lakh','Manglik: No','Hobbies: Reading, Cooking, Travel'];
+const X_SUGG=['Brothers: 2 (Elder: Married, Younger: Student)','Sisters: 1 (Married)','Own House: Yes (Pucca, 3BHK)','Property: Agricultural land (5 acres)','Annual Income: ₹5–7 Lakh','Manglik: No','Hobbies: Reading, Cooking, Travel'];
 function addXBlock(lv,vv){
   xC++;var n=xC;
   var d=document.createElement('div');d.className='xblk';d.id='xb'+n;
