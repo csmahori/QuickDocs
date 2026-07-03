@@ -2858,6 +2858,15 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           💳 Pay ₹31 — Instant Download
         </button>
       </div>
+      <!-- Coupon -->
+      <div style="margin-bottom:16px;text-align:center">
+        <button id="cpnToggle" onclick="toggleCoupon()" style="background:none;border:none;color:var(--M);font-size:13px;font-weight:700;cursor:pointer;text-decoration:underline;font-family:var(--f)">🎟️ Have a coupon code?</button>
+        <div id="cpnRow" style="display:none;gap:8px;margin-top:10px">
+          <input id="cpnInp" aria-label="Coupon code" placeholder="Enter coupon code" style="flex:1;min-width:0;padding:10px 14px;border:1.5px solid var(--B);border-radius:10px;font-size:14px;font-family:var(--f);text-transform:uppercase;outline-color:var(--M)" onkeydown="if(event.key==='Enter')applyCoupon()">
+          <button onclick="applyCoupon()" style="background:var(--M);color:#fff;border:none;padding:10px 18px;border-radius:10px;font-weight:800;font-size:13px;cursor:pointer;font-family:var(--f);flex-shrink:0">Apply</button>
+        </div>
+        <div id="cpnMsg" style="font-size:12.5px;font-weight:700;margin-top:8px;display:none"></div>
+      </div>
       <div style="font-size:11px;color:var(--TL)">🔒 256-bit SSL · Instant access · No subscription</div>
     </div>
   </div>
@@ -3227,9 +3236,10 @@ const OfferUI = {
     }
   },
 
-  /* Save current paid transaction record (called by confirmPayment) */
-  recordPayment(utr){
-    S.set('paid', {utr: utr, ts: Date.now(), amt: OFFER_CONFIG.price, mode: OFFER_CONFIG.mode});
+  /* Save current paid transaction record. amt defaults to list price;
+     pass the actual amount when a coupon changed it. */
+  recordPayment(utr, amt){
+    S.set('paid', {utr: utr, ts: Date.now(), amt: (amt !== undefined ? amt : OFFER_CONFIG.price), mode: OFFER_CONFIG.mode});
   },
 };
 
@@ -4304,6 +4314,81 @@ function handleWAShare(){
   openWAModal('biodata');
 }
 
+// ── Coupon codes ─────────────────────────────────────────────────────────────
+// EDIT THIS TABLE to add/remove coupons.  'CODE': percent-discount (1–100).
+// Codes are case-insensitive for users. A 100% coupon skips Razorpay entirely
+// and downloads the PDF free — share those codes carefully.
+const COUPONS = {
+  'EASY10':    10,   // 10% off
+  'SHAADI20':  20,   // 20% off
+  'FAMILY100': 100,  // 100% off — FREE download (bypasses payment)
+};
+
+let curCoupon = null; // {code, pct} — valid only for the open payment modal
+
+/* Price after coupon. Razorpay minimum is ₹1, so partial discounts floor there. */
+function effPrice(){
+  if(!curCoupon) return OFFER_CONFIG.price;
+  if(curCoupon.pct >= 100) return 0;
+  return Math.max(1, Math.round(OFFER_CONFIG.price * (100 - curCoupon.pct) / 100));
+}
+
+function toggleCoupon(){
+  const row = document.getElementById('cpnRow');
+  if(!row) return;
+  const show = row.style.display === 'none';
+  row.style.display = show ? 'flex' : 'none';
+  if(show){ const inp = document.getElementById('cpnInp'); if(inp) inp.focus(); }
+}
+
+function applyCoupon(){
+  const inp  = document.getElementById('cpnInp');
+  const msg  = document.getElementById('cpnMsg');
+  const code = ((inp && inp.value) || '').trim().toUpperCase();
+  if(!code) return;
+  const pct = COUPONS[code];
+  if(!pct){
+    curCoupon = null;
+    if(msg){ msg.style.display='block'; msg.style.color='#dc2626'; msg.textContent='✗ Invalid coupon code'; }
+    couponPayUI();
+    return;
+  }
+  curCoupon = {code: code, pct: pct};
+  if(msg){
+    msg.style.display='block'; msg.style.color='#16a34a';
+    msg.textContent = pct >= 100
+      ? '✓ ' + code + ' applied — 100% OFF, download FREE!'
+      : '✓ ' + code + ' applied — ' + pct + '% OFF';
+  }
+  if (typeof gtag === 'function') gtag('event', 'coupon_applied', {coupon: code, percent: pct});
+  couponPayUI();
+}
+
+function resetCoupon(){
+  curCoupon = null;
+  const row = document.getElementById('cpnRow'); if(row) row.style.display='none';
+  const inp = document.getElementById('cpnInp'); if(inp) inp.value='';
+  const msg = document.getElementById('cpnMsg'); if(msg){ msg.style.display='none'; msg.textContent=''; }
+}
+
+/* Sync the payment modal price line + pay button with the coupon state.
+   Targets #upOv h3 + p because OfferUI.apply() rewrites that <p> wholesale. */
+function couponPayUI(){
+  const sym = OFFER_CONFIG.currency;
+  const p   = effPrice();
+  const btn  = document.getElementById('rzpPayBtn');
+  const para = document.querySelector('#upOv h3 + p');
+  if(curCoupon){
+    if(para) para.innerHTML = 'Download professional PDF Biodata for just <strong style="color:var(--M);font-size:22px">'
+      + (p === 0 ? 'FREE' : sym + p)
+      + '</strong> <span style="font-size:14px;color:var(--TL);text-decoration:line-through">' + sym + OFFER_CONFIG.price + '</span>';
+    if(btn) btn.innerHTML = p === 0 ? '🎉 100% OFF — Download FREE' : '💳 Pay ' + sym + p + ' — Instant Download';
+  } else {
+    if(para) para.innerHTML = 'Download professional PDF Biodata for just <strong style="color:var(--M);font-size:22px">' + sym + OFFER_CONFIG.price + '</strong>';
+    if(btn) btn.innerHTML = '💳 Pay ' + sym + OFFER_CONFIG.price + ' — Instant Download';
+  }
+}
+
 // ── Razorpay Standard Checkout ───────────────────────────────────────────────
 // Update WORKER_URL after deploying the Cloudflare Worker (worker/index.js)
 const IS_DEV     = window.location.hostname.includes('netlify.app') || window.location.hostname === 'localhost';
@@ -4315,6 +4400,20 @@ const RZP_KEY    = IS_DEV ? 'rzp_test_SuH3hzp0CLubEg'
 async function openRazorpay() {
   const btn  = document.getElementById('rzpPayBtn');
   const orig = btn ? btn.textContent : '';
+  const payAmt = effPrice();
+
+  // 100% coupon → no payment needed, unlock the download directly
+  if (curCoupon && payAmt === 0) {
+    const txnId = 'COUPON-' + curCoupon.code + '-' + Date.now();
+    OfferUI.recordPayment(txnId, 0);
+    if (typeof gtag === 'function') {
+      gtag('event', 'purchase', { transaction_id: txnId, value: 0, currency: 'INR', coupon: curCoupon.code });
+    }
+    closeUp();
+    generateBiodataPDF();
+    return;
+  }
+
   if (btn) { btn.disabled = true; btn.textContent = '⏳ Loading...'; }
   // Load Razorpay checkout on demand (not at page load)
   await loadScript('https://checkout.razorpay.com/v1/checkout.js');
@@ -4324,7 +4423,7 @@ async function openRazorpay() {
     const res = await fetch(WORKER_URL + '/create-order', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: OFFER_CONFIG.price * 100 }), // paise
+      body: JSON.stringify({ amount: payAmt * 100 }), // paise, after any coupon
     });
     const { order_id, amount, currency, error } = await res.json();
     if (error || !order_id) throw new Error(error || 'Order creation failed');
@@ -4336,7 +4435,7 @@ async function openRazorpay() {
       currency,
       order_id,
       name:        'EasyDocuments',
-      description: 'Biodata PDF Download',
+      description: 'Biodata PDF Download' + (curCoupon ? ' (' + curCoupon.code + ' -' + curCoupon.pct + '%)' : ''),
       theme:       { color: '#800026' },
       prefill:     (function(){
         const p = { name: (document.getElementById('bnm') || {}).value || '' };
@@ -4360,13 +4459,15 @@ async function openRazorpay() {
           const { verified } = await vRes.json();
           if (verified) {
             if (btn) { btn.disabled = false; btn.textContent = orig; }
-            OfferUI.recordPayment(response.razorpay_payment_id);
+            OfferUI.recordPayment(response.razorpay_payment_id, payAmt);
             if (typeof gtag === 'function') {
-              gtag('event', 'purchase', {
+              const ev = {
                 transaction_id: response.razorpay_payment_id,
-                value: OFFER_CONFIG.price,
+                value: payAmt,
                 currency: 'INR'
-              });
+              };
+              if (curCoupon) ev.coupon = curCoupon.code;
+              gtag('event', 'purchase', ev);
             }
             closeUp();
             generateBiodataPDF();
@@ -4439,6 +4540,8 @@ function closeFB(){const el=document.getElementById('fbOv');if(el)el.classList.r
 
 function showUp(){
   const el=document.getElementById('upOv');if(el)el.classList.add('act');
+  // Fresh coupon state each time the modal opens (price can differ per template)
+  resetCoupon();
   // Always reset pay button — it may be disabled from a previous payment session
   const rzpBtn=document.getElementById('rzpPayBtn');
   if(rzpBtn){rzpBtn.disabled=false;rzpBtn.innerHTML='💳 Pay '+OFFER_CONFIG.currency+OFFER_CONFIG.price+' — Instant Download';}
