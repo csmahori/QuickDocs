@@ -4369,10 +4369,12 @@ async function openRazorpay() {
       name:        'EasyDocuments',
       description: 'Biodata PDF Download',
       theme:       { color: '#800026' },
-      prefill:     {
-        name:    (document.getElementById('bnm') || {}).value || '',
-        contact: (((document.getElementById('bctmobile') || {}).value || '').replace(/\D/g, '').slice(-10)) || undefined,
-      },
+      prefill:     (function(){
+        const p = { name: (document.getElementById('bnm') || {}).value || '' };
+        const digits = (((document.getElementById('bctmobile') || {}).value) || '').replace(/\D/g, '').slice(-10);
+        if (digits.length === 10) p.contact = '+91' + digits;
+        return p;
+      })(),
 
       // 3. On successful payment → verify signature server-side
       handler: async function(response) {
