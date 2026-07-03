@@ -4314,16 +4314,11 @@ function handleWAShare(){
   openWAModal('biodata');
 }
 
-// ── Coupon codes ─────────────────────────────────────────────────────────────
-// EDIT THIS TABLE to add/remove coupons.  'CODE': percent-discount (1–100).
-// Codes are case-insensitive for users. A 100% coupon skips Razorpay entirely
-// and downloads the PDF free — share those codes carefully.
-const COUPONS = {
-  'EASY10':    10,   // 10% off
-  'SHAADI20':  20,   // 20% off
-  'FAMILY100': 100,  // 100% off — FREE download (bypasses payment)
-};
-
+// ── Coupons ──────────────────────────────────────────────────────────────────
+// Codes live SERVER-SIDE in the Cloudflare Worker (worker/index.js COUPONS
+// table — pct + active flag). The frontend validates via POST /validate-coupon
+// and the worker applies the discount when creating the order, so codes can't
+// be read or tampered with from the page source.
 let curCoupon = null; // {code, pct} — valid only for the open payment modal
 
 /* Price after coupon. Razorpay minimum is ₹1, so partial discounts floor there. */
@@ -4341,26 +4336,38 @@ function toggleCoupon(){
   if(show){ const inp = document.getElementById('cpnInp'); if(inp) inp.focus(); }
 }
 
-function applyCoupon(){
+async function applyCoupon(){
   const inp  = document.getElementById('cpnInp');
   const msg  = document.getElementById('cpnMsg');
   const code = ((inp && inp.value) || '').trim().toUpperCase();
   if(!code) return;
-  const pct = COUPONS[code];
-  if(!pct){
+  if(msg){ msg.style.display='block'; msg.style.color='var(--TL)'; msg.textContent='⏳ Checking coupon…'; }
+  let v = null;
+  try {
+    const r = await fetch(WORKER_URL + '/validate-coupon', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: code }),
+    });
+    v = await r.json();
+  } catch(e) {
+    if(msg){ msg.style.color='#dc2626'; msg.textContent='✗ Could not check coupon — please try again'; }
+    return;
+  }
+  if(!v || !v.valid){
     curCoupon = null;
-    if(msg){ msg.style.display='block'; msg.style.color='#dc2626'; msg.textContent='✗ Invalid coupon code'; }
+    if(msg){ msg.style.color='#dc2626'; msg.textContent='✗ Invalid or inactive coupon code'; }
     couponPayUI();
     return;
   }
-  curCoupon = {code: code, pct: pct};
+  curCoupon = {code: v.code, pct: v.pct};
   if(msg){
-    msg.style.display='block'; msg.style.color='#16a34a';
-    msg.textContent = pct >= 100
-      ? '✓ ' + code + ' applied — 100% OFF, download FREE!'
-      : '✓ ' + code + ' applied — ' + pct + '% OFF';
+    msg.style.color='#16a34a';
+    msg.textContent = v.pct >= 100
+      ? '✓ ' + v.code + ' applied — 100% OFF, download FREE!'
+      : '✓ ' + v.code + ' applied — ' + v.pct + '% OFF';
   }
-  if (typeof gtag === 'function') gtag('event', 'coupon_applied', {coupon: code, percent: pct});
+  if (typeof gtag === 'function') gtag('event', 'coupon_applied', {coupon: v.code, percent: v.pct});
   couponPayUI();
 }
 
@@ -4402,13 +4409,30 @@ async function openRazorpay() {
   const orig = btn ? btn.textContent : '';
   const payAmt = effPrice();
 
-  // 100% coupon → no payment needed, unlock the download directly
+  // 100% coupon → no payment needed. Re-validate server-side, then unlock.
   if (curCoupon && payAmt === 0) {
+    if (btn) { btn.disabled = true; btn.textContent = '⏳ Checking coupon…'; }
+    try {
+      const r = await fetch(WORKER_URL + '/validate-coupon', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: curCoupon.code }),
+      });
+      const v = await r.json();
+      if (!v.valid || v.pct < 100) throw new Error('Coupon is no longer valid');
+    } catch (e) {
+      toast('✗ ' + e.message, 'warn');
+      if (btn) { btn.disabled = false; btn.textContent = orig; }
+      resetCoupon();
+      couponPayUI();
+      return;
+    }
     const txnId = 'COUPON-' + curCoupon.code + '-' + Date.now();
     OfferUI.recordPayment(txnId, 0);
     if (typeof gtag === 'function') {
       gtag('event', 'purchase', { transaction_id: txnId, value: 0, currency: 'INR', coupon: curCoupon.code });
     }
+    if (btn) { btn.disabled = false; btn.textContent = orig; }
     closeUp();
     generateBiodataPDF();
     return;
@@ -4423,7 +4447,11 @@ async function openRazorpay() {
     const res = await fetch(WORKER_URL + '/create-order', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: payAmt * 100 }), // paise, after any coupon
+      // Send the BASE price + coupon code — the worker applies the discount
+      // (authoritative). payAmt is used client-side for labels/analytics only.
+      body: JSON.stringify(curCoupon
+        ? { amount: OFFER_CONFIG.price * 100, coupon: curCoupon.code }
+        : { amount: OFFER_CONFIG.price * 100 }),
     });
     const { order_id, amount, currency, error } = await res.json();
     if (error || !order_id) throw new Error(error || 'Order creation failed');
