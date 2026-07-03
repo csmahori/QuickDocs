@@ -924,14 +924,6 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 .rv-anim-left.visible{opacity:1;transform:translateX(0)}
 .rv-anim-d1{transition-delay:.1s}.rv-anim-d2{transition-delay:.2s}.rv-anim-d3{transition-delay:.3s}.rv-anim-d4{transition-delay:.4s}
 
-/* ── Social proof strip ── */
-.sp-strip{background:var(--MD);color:#fff;padding:10px 0;overflow:hidden;white-space:nowrap}
-.sp-track{display:inline-flex;gap:0;animation:spScroll 28s linear infinite}
-.sp-strip:hover .sp-track{animation-play-state:paused}
-.sp-item{display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:13px;font-weight:600;opacity:.9}
-.sp-item .sp-dot{width:7px;height:7px;border-radius:50%;background:var(--G);flex-shrink:0}
-@keyframes spScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
 /* ── Before/After section ── */
 .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:860px;margin:0 auto}
 @media(max-width:600px){.ba-grid{grid-template-columns:1fr}}
@@ -1916,29 +1908,6 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
     </div>
   </div>
 </section>
-
-<!-- SOCIAL PROOF STRIP -->
-<div class="sp-strip">
-  <div class="sp-track" id="spTrack">
-    <div class="sp-item"><span class="sp-dot"></span>Priya from Lucknow downloaded her biodata 2 mins ago</div>
-    <div class="sp-item"><span class="sp-dot"></span>Rahul from Pune just created his biodata</div>
-    <div class="sp-item"><span class="sp-dot"></span>Anjali from Jaipur shared her biodata on WhatsApp</div>
-    <div class="sp-item"><span class="sp-dot"></span>Suresh from Ahmedabad downloaded Magazine Style</div>
-    <div class="sp-item"><span class="sp-dot"></span>Neha from Delhi created a Hindi biodata</div>
-    <div class="sp-item"><span class="sp-dot"></span>Amit from Mumbai chose Vedic Traditional template</div>
-    <div class="sp-item"><span class="sp-dot"></span>Kavya from Hyderabad downloaded her biodata just now</div>
-    <div class="sp-item"><span class="sp-dot"></span>Vikram from Chandigarh created Sidebar Split design</div>
-    <!-- Duplicate for seamless loop -->
-    <div class="sp-item"><span class="sp-dot"></span>Priya from Lucknow downloaded her biodata 2 mins ago</div>
-    <div class="sp-item"><span class="sp-dot"></span>Rahul from Pune just created his biodata</div>
-    <div class="sp-item"><span class="sp-dot"></span>Anjali from Jaipur shared her biodata on WhatsApp</div>
-    <div class="sp-item"><span class="sp-dot"></span>Suresh from Ahmedabad downloaded Magazine Style</div>
-    <div class="sp-item"><span class="sp-dot"></span>Neha from Delhi created a Hindi biodata</div>
-    <div class="sp-item"><span class="sp-dot"></span>Amit from Mumbai chose Vedic Traditional template</div>
-    <div class="sp-item"><span class="sp-dot"></span>Kavya from Hyderabad downloaded her biodata just now</div>
-    <div class="sp-item"><span class="sp-dot"></span>Vikram from Chandigarh created Sidebar Split design</div>
-  </div>
-</div>
 
 <!-- TEMPLATE SHOWCASE -->
 <section id="templates" style="background:#fff;border-top:1px solid #e8d5b0">
