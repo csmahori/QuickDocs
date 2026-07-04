@@ -4295,9 +4295,9 @@ async function doWAShare(){
         }
       }catch(e){copied=false;}
       if(copied){
-        alert('✅ Biodata image clipboard mein copy ho gayi!\nWhatsApp chat mein paste karein.');
+        alert('✅ Biodata image copied to clipboard!\nPaste it in the WhatsApp chat.');
       } else {
-        alert('📲 WhatsApp khul raha hai. Image attach karne ke liye PDF download kar lein, phir WhatsApp mein bhejein.');
+        alert('📲 Opening WhatsApp. Download the PDF first, then attach it in the chat.');
       }
       window.open('https://wa.me/'+num+'?text='+msg,'_blank');
       closeWAModal();
@@ -4592,7 +4592,7 @@ function subReq(){
 }
 
 function openWASupport(){
-  window.open('https://wa.me/916374195165?text='+encodeURIComponent('Namaste! EasyDocuments.online se help chahiye.'),'_blank');
+  window.open('https://wa.me/916374195165?text='+encodeURIComponent('Hi! I need help with EasyDocuments.online.'),'_blank');
 }
 
 /* ── LABEL SETS ── */
@@ -5269,7 +5269,7 @@ async function generateBiodataPDF(){
       a.download='Biodata_'+safe+'_EasyDocuments.png';
       document.body.appendChild(a); a.click(); a.remove();
     }else{
-      if(!jsPDFLib) throw new Error('jsPDF load nahi hua. Page refresh karein.');
+      if(!jsPDFLib) throw new Error('PDF library failed to load. Please refresh the page.');
       const imgData=canvas.toDataURL('image/jpeg',0.92);
       const pdf=new jsPDFLib({unit:'mm',format:'a4',orientation:'portrait'});
       pdf.addImage(imgData,'JPEG',0,0,210,297);
@@ -5278,14 +5278,14 @@ async function generateBiodataPDF(){
     success=true;
   }catch(err){
     console.error('PDF error:',err);
-    let msg = 'PDF banne mein dikkat aayi:\n'+err.message;
+    let msg = 'Could not create the PDF:\n'+err.message;
     if(/addColorStop|non-finite|CanvasGradient/i.test(err.message||'')){
-      msg = 'PDF generate karne mein technical issue hua.\n\n' +
-            'Kripya yeh try karein:\n' +
-            '1. Browser refresh karein (Ctrl+R)\n' +
-            '2. Default color theme chunein\n' +
-            '3. Doosra template try karein\n\n' +
-            'Agar problem bani rahe to humein WhatsApp par message karein.';
+      msg = 'A technical issue occurred while generating the PDF.\n\n' +
+            'Please try:\n' +
+            '1. Refresh the browser (Ctrl+R)\n' +
+            '2. Choose the default color theme\n' +
+            '3. Try a different template\n\n' +
+            'If the problem continues, message us on WhatsApp.';
     }
     alert(msg);
   }finally{
