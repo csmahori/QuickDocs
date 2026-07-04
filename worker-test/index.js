@@ -13,6 +13,31 @@ const CORS = {
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
+/**
+ * ── COUPONS — EDIT THIS TABLE ────────────────────────────────────
+ * 'CODE': { pct: percent-off (1–100), active: true|false }
+ * Set active:false to disable a code without deleting it.
+ * Changes require redeploy: cd worker-test && npx wrangler deploy
+ * ⚠️ Keep this table in sync with worker/index.js (prod).
+ */
+const COUPONS = {
+  'SAVE50':  { pct: 50,  active: true },
+  'SAVE75':  { pct: 75,  active: true },
+  'FREE100': { pct: 100, active: true },
+};
+
+function lookupCoupon(raw) {
+  const code = String(raw || '').trim().toUpperCase();
+  const c = COUPONS[code];
+  return (c && c.active) ? { code, pct: c.pct } : null;
+}
+
+/* Discount in whole rupees (matches frontend display), floor ₹1 (Razorpay min) */
+function discountedPaise(basePaise, pct) {
+  const rupees = Math.max(1, Math.round((basePaise / 100) * (100 - pct) / 100));
+  return rupees * 100;
+}
+
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
@@ -33,10 +58,26 @@ export default {
     const url = new URL(request.url);
 
     try {
+      // ── VALIDATE COUPON ──────────────────────────────────────────
+      if (url.pathname === '/validate-coupon') {
+        const body = await request.json();
+        const c = lookupCoupon(body.code);
+        return c ? json({ valid: true, code: c.code, pct: c.pct })
+                 : json({ valid: false });
+      }
+
       // ── CREATE ORDER ─────────────────────────────────────────────
       if (url.pathname === '/create-order') {
         const body = await request.json();
-        const amount = Number(body.amount) || 900;
+        let amount = Number(body.amount) || 900;
+
+        // Apply coupon server-side (authoritative — client discount is display-only)
+        if (body.coupon) {
+          const c = lookupCoupon(body.coupon);
+          if (!c) return json({ error: 'Invalid or inactive coupon' }, 400);
+          if (c.pct >= 100) return json({ error: 'Free coupon — no payment required' }, 400);
+          amount = discountedPaise(amount, c.pct);
+        }
 
         const rzpResp = await fetch('https://api.razorpay.com/v1/orders', {
           method: 'POST',

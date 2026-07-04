@@ -148,7 +148,7 @@ if(!/netlify\.app$/i.test(location.hostname)&&location.hostname!=='localhost'){
   --G:#D4AF37;--GD:#B8941F;--GL:#F4D06F;
   --S:#FF9933;--GR:#138808;
   --C:#FFF8F0;--CD:#FFF0DC;--CDD:#FFE7C2;
-  --T:#1a1a1a;--TM:#444;--TL:#777;--B:#e8d5b0;--BL:#f0e5cc;
+  --T:#1a1a1a;--TM:#444;--TL:#666;--B:#e8d5b0;--BL:#f0e5cc;
   --ssm:0 2px 16px rgba(128,0,0,.07);
   --smd:0 8px 32px rgba(128,0,0,.12);
   --slg:0 20px 60px rgba(128,0,0,.18);
@@ -188,6 +188,7 @@ input,textarea,select{font-family:var(--f);outline:none}
 @media(min-width:700px){.nl{display:block}}
 .nc{background:linear-gradient(135deg,var(--M),var(--ML));color:#fff;padding:10px 22px;border-radius:50px;font-weight:800;font-size:14px;box-shadow:0 3px 16px rgba(128,0,0,.28);transition:all .25s}
 .nc:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(128,0,0,.38)}
+@media(max-width:480px){.nav{padding:0 12px}.nlogo{gap:8px;flex:1;min-width:0}.lt{min-width:0}.lt .lb{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nc{padding:9px 14px;font-size:13px}}
 
 /* HAMBURGER BUTTON */
 .hbtn{width:40px;height:40px;border-radius:10px;background:transparent;border:1.5px solid var(--B);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:all .2s;flex-shrink:0}
@@ -366,7 +367,7 @@ input,textarea,select{font-family:var(--f);outline:none}
 .hstep:hover{background:rgba(255,255,255,.13);transform:translateY(-5px)}
 .hnum{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--G),var(--S));color:var(--MD);font-family:var(--fd);font-size:22px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 4px 18px rgba(212,175,55,.45)}
 .hemp{font-size:38px;margin-bottom:16px}
-.hstep h4{font-family:var(--fd);font-size:19px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:-.2px}
+.hstep h3{font-family:var(--fd);font-size:19px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:-.2px}
 .hstep p{font-size:13.5px;color:rgba(255,255,255,.68);line-height:1.65}
 
 /* REQUEST */
@@ -431,21 +432,22 @@ footer{background:#5a0000;color:#fff}
 .ftop{max-width:1100px;margin:0 auto;padding:52px 24px 36px;display:grid;grid-template-columns:2.2fr 1fr 1fr;gap:36px}
 @media(max-width:640px){.ftop{grid-template-columns:1fr;gap:28px}}
 .fbrand .fnm{font-size:21px;font-weight:800;color:var(--G)}
-.fbrand .fsb{font-size:11px;color:rgba(255,255,255,.5);margin-top:1px}
-.fbrand p{font-size:13.5px;color:rgba(255,255,255,.55);margin-top:12px;line-height:1.7}
-.fcol h5{font-size:13px;font-weight:800;color:var(--G);margin-bottom:16px}
+.fbrand .fsb{font-size:11px;color:rgba(255,255,255,.75);margin-top:1px}
+.fbrand p{font-size:13.5px;color:rgba(255,255,255,.75);margin-top:12px;line-height:1.7}
+.fcol h3{font-size:13px;font-weight:800;color:var(--G);margin-bottom:16px}
 .fcol a{display:block;font-size:13.5px;color:rgba(255,255,255,.6);margin-bottom:9px;transition:all .2s}
 .fcol a:hover{color:#fff;padding-left:4px}
 .fbot{border-top:1px solid rgba(255,255,255,.1)}
 .fboti{max-width:1100px;margin:0 auto;padding:18px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.fboti p{font-size:12.5px;color:rgba(255,255,255,.45)}
+.fboti p{font-size:12.5px;color:rgba(255,255,255,.7)}
 
 /* WA */
 .waf{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
-.watp{background:#25D366;color:#fff;padding:7px 16px;border-radius:50px;font-size:12.5px;font-weight:700;box-shadow:0 3px 14px rgba(37,211,102,.45);white-space:nowrap;transition:opacity .5s}
+.watp{background:#075E54;color:#fff;padding:7px 16px;border-radius:50px;font-size:12.5px;font-weight:700;box-shadow:0 3px 14px rgba(7,94,84,.45);white-space:nowrap;transition:opacity .5s}
 .wac{width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 22px rgba(37,211,102,.5);transition:all .25s;animation:wab 3.5s infinite}
 .wac:hover{transform:scale(1.12)}
 @keyframes wab{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@media(max-width:768px){.waf{bottom:92px;right:16px}}
 
 /* MODALS */
 .mov{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.62);backdrop-filter:blur(5px);overflow-y:auto;padding:20px}
@@ -921,14 +923,6 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
 .rv-anim-left{opacity:0;transform:translateX(-32px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1)}
 .rv-anim-left.visible{opacity:1;transform:translateX(0)}
 .rv-anim-d1{transition-delay:.1s}.rv-anim-d2{transition-delay:.2s}.rv-anim-d3{transition-delay:.3s}.rv-anim-d4{transition-delay:.4s}
-
-/* ── Social proof strip ── */
-.sp-strip{background:var(--MD);color:#fff;padding:10px 0;overflow:hidden;white-space:nowrap}
-.sp-track{display:inline-flex;gap:0;animation:spScroll 28s linear infinite}
-.sp-strip:hover .sp-track{animation-play-state:paused}
-.sp-item{display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:13px;font-weight:600;opacity:.9}
-.sp-item .sp-dot{width:7px;height:7px;border-radius:50%;background:var(--G);flex-shrink:0}
-@keyframes spScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ── Before/After section ── */
 .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:860px;margin:0 auto}
@@ -1915,29 +1909,6 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   </div>
 </section>
 
-<!-- SOCIAL PROOF STRIP -->
-<div class="sp-strip">
-  <div class="sp-track" id="spTrack">
-    <div class="sp-item"><span class="sp-dot"></span>Priya from Lucknow downloaded her biodata 2 mins ago</div>
-    <div class="sp-item"><span class="sp-dot"></span>Rahul from Pune just created his biodata</div>
-    <div class="sp-item"><span class="sp-dot"></span>Anjali from Jaipur shared her biodata on WhatsApp</div>
-    <div class="sp-item"><span class="sp-dot"></span>Suresh from Ahmedabad downloaded Magazine Style</div>
-    <div class="sp-item"><span class="sp-dot"></span>Neha from Delhi created a Hindi biodata</div>
-    <div class="sp-item"><span class="sp-dot"></span>Amit from Mumbai chose Vedic Traditional template</div>
-    <div class="sp-item"><span class="sp-dot"></span>Kavya from Hyderabad downloaded her biodata just now</div>
-    <div class="sp-item"><span class="sp-dot"></span>Vikram from Chandigarh created Sidebar Split design</div>
-    <!-- Duplicate for seamless loop -->
-    <div class="sp-item"><span class="sp-dot"></span>Priya from Lucknow downloaded her biodata 2 mins ago</div>
-    <div class="sp-item"><span class="sp-dot"></span>Rahul from Pune just created his biodata</div>
-    <div class="sp-item"><span class="sp-dot"></span>Anjali from Jaipur shared her biodata on WhatsApp</div>
-    <div class="sp-item"><span class="sp-dot"></span>Suresh from Ahmedabad downloaded Magazine Style</div>
-    <div class="sp-item"><span class="sp-dot"></span>Neha from Delhi created a Hindi biodata</div>
-    <div class="sp-item"><span class="sp-dot"></span>Amit from Mumbai chose Vedic Traditional template</div>
-    <div class="sp-item"><span class="sp-dot"></span>Kavya from Hyderabad downloaded her biodata just now</div>
-    <div class="sp-item"><span class="sp-dot"></span>Vikram from Chandigarh created Sidebar Split design</div>
-  </div>
-</div>
-
 <!-- TEMPLATE SHOWCASE -->
 <section id="templates" style="background:#fff;border-top:1px solid #e8d5b0">
   <div class="tshowcase rv-anim">
@@ -2182,19 +2153,19 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
       <div class="hstep rv rd1">
         <div class="hemp">📝</div>
         <div class="hnum">1</div>
-        <h4>Fill Details</h4>
+        <h3>Fill Details</h3>
         <p>Name, DOB, education, family — fill everything in easy guided steps</p>
       </div>
       <div class="hstep rv rd2">
         <div class="hemp">🎨</div>
         <div class="hnum">2</div>
-        <h4>Pick a Template</h4>
+        <h3>Pick a Template</h3>
         <p>Choose from 8 unique designs and customize your colour theme</p>
       </div>
       <div class="hstep rv rd3">
         <div class="hemp">📲</div>
         <div class="hnum">3</div>
-        <h4>Download / Share</h4>
+        <h3>Download / Share</h3>
         <p>Download your professional PDF biodata instantly</p>
       </div>
     </div>
@@ -2260,10 +2231,10 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           <span class="rexc" onclick="fillEx('I need help with Govt Forms')">🪪 Govt Forms</span>
         </div>
         <label class="rl">Your suggestion <span>(Hindi or English)</span></label>
-        <textarea class="rta" id="reqTxt" placeholder="e.g. Resume builder, wedding card, government forms..." maxlength="300" rows="3" oninput="reqCC()"></textarea>
+        <textarea class="rta" id="reqTxt" aria-label="Your suggestion" placeholder="e.g. Resume builder, wedding card, government forms..." maxlength="300" rows="3" oninput="reqCC()"></textarea>
         <div class="rcc"><span id="rccN">0</span>/300</div>
         <div class="rph">
-          <input class="fi" id="reqPh" placeholder="WhatsApp number (optional — we'll notify you)">
+          <input class="fi" id="reqPh" aria-label="WhatsApp number (optional)" placeholder="WhatsApp number (optional — we'll notify you)">
         </div>
         <button class="rsub" onclick="subReq()" style="all:initial;font-family:inherit;width:100%;padding:16px;border-radius:12px;background:linear-gradient(135deg,#800000,#5a0000);color:#fff;font-weight:800;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-sizing:border-box">📤 Send Request →</button>
         <div class="rnote">🔒 Your info is safe</div>
@@ -2436,12 +2407,12 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
       <p>The fastest, most affordable way to build a professional marriage biodata.<br>Made with ❤️ for 🇮🇳 Bharat.</p>
     </div>
     <div class="fcol">
-      <h5>Services</h5>
+      <h3>Services</h3>
       <a href="#" onclick="openM('biodata')">👰 Marriage Biodata</a>
       <a href="#request">📬 Suggest a Service</a>
     </div>
     <div class="fcol">
-      <h5>Help</h5>
+      <h3>Help</h3>
       <a href="biodata-format.html">📖 Biodata Guide</a>
       <a href="faq.html">❓ FAQ</a>
       <a href="#" onclick="openWASupport();return false;">💬 WhatsApp Support</a>
@@ -2451,7 +2422,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
   </div>
   <div class="fbot">
     <div class="fboti">
-      <p>© 2024 EasyDocuments.online · All rights reserved.</p>
+      <p>© <span id="fyr">2026</span> EasyDocuments.online · All rights reserved.</p>
       <p>Made with ❤️ for Bharat 🇮🇳</p>
     </div>
   </div>
@@ -2515,14 +2486,14 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
             <span id="bLangHintBody">Type personal text like name, parents' name, gotra, community in your preferred script (Hindi or English). State, city, occupation, height — these convert automatically.</span>
           </div>
 
-          <div class="fg"><label class="fl" id="i18nLblName">Full Name <span class="req-star">★ Required</span></label><input class="fi" id="bnm" placeholder="Neha Agarwal" oninput="updB()"></div>
+          <div class="fg"><label class="fl" id="i18nLblName" for="bnm">Full Name <span class="req-star">★ Required</span></label><input class="fi" id="bnm" placeholder="Neha Agarwal" oninput="updB()"></div>
 
           <!-- DOB + TOB + Age in one row -->
           <div class="fg">
             <label class="fl" id="i18nLblDOB">Date &amp; Time of Birth <span class="req-star">★ Required</span></label>
             <div class="dob-row">
-              <select class="fsel" id="bdd" onchange="updB()"><option value="">DD</option></select>
-              <select class="fsel" id="bmm" onchange="updB()">
+              <select class="fsel" id="bdd" aria-label="Birth day" onchange="updB()"><option value="">DD</option></select>
+              <select class="fsel" id="bmm" aria-label="Birth month" onchange="updB()">
                 <option value="">MM</option>
                 <option value="01">01 - Jan</option><option value="02">02 - Feb</option>
                 <option value="03">03 - Mar</option><option value="04">04 - Apr</option>
@@ -2531,10 +2502,10 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
                 <option value="09">09 - Sep</option><option value="10">10 - Oct</option>
                 <option value="11">11 - Nov</option><option value="12">12 - Dec</option>
               </select>
-              <input class="byy-inp" id="byy" type="number" min="1940" max="2010" placeholder="YYYY" oninput="fmtYY(this);updB()" style="flex:1.2">
+              <input class="byy-inp" id="byy" aria-label="Birth year" type="number" min="1940" max="2010" placeholder="YYYY" oninput="fmtYY(this);updB()" style="flex:1.2">
             </div>
             <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
-              <input class="fi" id="btob" placeholder="Time of Birth (e.g. 10:30 AM) — Optional" oninput="updB()" style="flex:1">
+              <input class="fi" id="btob" aria-label="Time of birth (optional)" placeholder="Time of Birth (e.g. 10:30 AM) — Optional" oninput="updB()" style="flex:1">
               <div style="background:#f5f0ea;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:700;color:var(--M);white-space:nowrap" id="bAgeDisp">Age: —</div>
             </div>
           </div>
@@ -2548,7 +2519,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
             </div>
             <div id="photoUploadArea">
               <div class="pdrop" onclick="document.getElementById('bPin').click()">
-                <input type="file" id="bPin" accept="image/*" style="display:none" onchange="hPhoto(this)">
+                <input type="file" id="bPin" aria-label="Upload photo" accept="image/*" style="display:none" onchange="hPhoto(this)">
                 <div class="pdi" id="pdi">📷</div>
                 <div class="pdt" id="i18nPhotoClick">Click to upload photo</div>
                 <div class="pdh" id="i18nPhotoHint">JPG / PNG · Max 5MB</div>
@@ -2556,7 +2527,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
             </div>
           </div>
 
-          <div class="fg"><label class="fl" id="i18nLblHeight">Height</label>
+          <div class="fg"><label class="fl" id="i18nLblHeight" for="bheight">Height</label>
             <select class="fsel" id="bheight" onchange="updB()">
               <option value="">-- Select Height --</option>
               <option value="4'8&quot; (142 cm)">4'8" (142 cm)</option>
@@ -2583,7 +2554,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
             </select>
           </div>
 
-          <div class="fg"><label class="fl" id="i18nLblEdu">Education <span class="req-star">★ Required</span></label>
+          <div class="fg"><label class="fl" id="i18nLblEdu" for="bedu">Education <span class="req-star">★ Required</span></label>
             <select class="fsel" id="bedu" onchange="onEduChange();updB()">
               <option value="">-- Select Education --</option>
               <optgroup label="School"><option>10th Pass (Matric)</option><option>12th Pass (Intermediate)</option></optgroup>
@@ -2591,9 +2562,9 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
               <optgroup label="Post Graduation"><option>M.A.</option><option>M.Sc.</option><option>M.Com</option><option>M.Tech / M.E.</option><option>MBA</option><option>MCA</option><option>M.Ed</option><option>MD / MS (Medical)</option><option>LLM</option></optgroup>
               <optgroup label="Other"><option>Diploma / ITI</option><option>PhD / Doctorate</option><option>Other</option></optgroup>
             </select>
-            <input class="fi" id="beduOther" placeholder="Specify your education / degree" oninput="persistOtherInputs();updB()" style="display:none;margin-top:8px">
+            <input class="fi" id="beduOther" aria-label="Specify your education or degree" placeholder="Specify your education / degree" oninput="persistOtherInputs();updB()" style="display:none;margin-top:8px">
           </div>
-          <div class="fg"><label class="fl" id="i18nLblOcc">Occupation <span class="req-star">★ Required</span></label>
+          <div class="fg"><label class="fl" id="i18nLblOcc" for="bocc">Occupation <span class="req-star">★ Required</span></label>
             <select class="fsel" id="bocc" onchange="onOccChange();updB()">
               <option value="">-- Select Occupation --</option>
               <optgroup label="Government"><option>Government Employee</option><option>IAS / IPS / IFS Officer</option><option>Army / Defence</option><option>Police</option><option>Bank Employee</option><option>Teacher / Professor</option><option>Railway Employee</option></optgroup>
@@ -2601,9 +2572,9 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
               <optgroup label="Business"><option>Business / Self-Employed</option><option>Farming / Agriculture</option><option>Shop Owner</option><option>Contractor</option></optgroup>
               <optgroup label="Other"><option>Homemaker</option><option>Housewife</option><option>Student</option><option>Not Working</option><option>Other</option></optgroup>
             </select>
-            <input class="fi" id="boccOther" placeholder="Specify your occupation" oninput="persistOtherInputs();updB()" style="display:none;margin-top:8px">
+            <input class="fi" id="boccOther" aria-label="Specify your occupation" placeholder="Specify your occupation" oninput="persistOtherInputs();updB()" style="display:none;margin-top:8px">
           </div>
-          <div class="fg"><label class="fl" id="i18nLblSalary">Annual Income <span class="fh">(optional)</span></label>
+          <div class="fg"><label class="fl" id="i18nLblSalary" for="bsalary">Annual Income <span class="fh">(optional)</span></label>
             <select class="fsel" id="bsalary" onchange="updB()">
               <option value="">-- Select Range --</option>
               <option>Below ₹2 LPA</option>
@@ -2620,45 +2591,45 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
               <option value="__skip__">Prefer not to say</option>
             </select>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblState">State <span class="req-star">★ Required</span></label>
+          <div class="fg"><label class="fl" id="i18nLblState" for="bstate">State <span class="req-star">★ Required</span></label>
             <select class="fsel" id="bstate" onchange="updB()">
               <option value="">-- Select State --</option>
               <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Delhi (NCT)</option><option>Jammu &amp; Kashmir</option><option>Ladakh</option><option>Chandigarh</option>
             </select>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblCity">City</label><input class="fi" id="bcity" placeholder="e.g. Lucknow, Agra, Patna" oninput="updB()"></div>
+          <div class="fg"><label class="fl" id="i18nLblCity" for="bcity">City</label><input class="fi" id="bcity" placeholder="e.g. Lucknow, Agra, Patna" oninput="updB()"></div>
 
           <div class="sec-div"><span id="i18nSecFamily">Family</span></div>
-          <div class="fg"><label class="fl" id="i18nLblFather">Father's Name <span class="req-star">★ Required</span></label><input class="fi" id="bfth" placeholder="Ramesh Agarwal" oninput="updB()"></div>
-          <div class="fg"><label class="fl" id="i18nLblFOcc">Father's Occupation</label>
+          <div class="fg"><label class="fl" id="i18nLblFather" for="bfth">Father's Name <span class="req-star">★ Required</span></label><input class="fi" id="bfth" placeholder="Ramesh Agarwal" oninput="updB()"></div>
+          <div class="fg"><label class="fl" id="i18nLblFOcc" for="bfocc">Father's Occupation</label>
             <select class="fsel" id="bfocc" onchange="updB()"><option value="">-- Select --</option><option>Government Employee</option><option>Army / Defence</option><option>Business / Self-Employed</option><option>Farmer</option><option>Doctor</option><option>Engineer</option><option>Teacher</option><option>Bank Employee</option><option>Retired</option><option>Deceased</option><option>Other</option></select>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblMother">Mother's Name</label><input class="fi" id="bmth" placeholder="Sunita Agarwal" oninput="updB()"></div>
-          <div class="fg"><label class="fl" id="i18nLblMOcc">Mother's Occupation</label>
+          <div class="fg"><label class="fl" id="i18nLblMother" for="bmth">Mother's Name</label><input class="fi" id="bmth" placeholder="Sunita Agarwal" oninput="updB()"></div>
+          <div class="fg"><label class="fl" id="i18nLblMOcc" for="bmocc">Mother's Occupation</label>
             <select class="fsel" id="bmocc" onchange="updB()"><option value="">-- Select --</option><option>Homemaker</option><option>Housewife</option><option>Government Employee</option><option>Business / Self-Employed</option><option>Teacher</option><option>Doctor</option><option>Farmer</option><option>Retired</option><option>Other</option></select>
           </div>
           <div class="fg"><label class="fl" id="i18nLblBrothers">Brothers</label>
             <div class="sib-row">
-              <div class="sib-cell"><span class="sib-lbl">Total</span><input class="fi sib-num" id="bbrothers" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bbrothers','bbrothersM');updB()"></div>
-              <div class="sib-cell"><span class="sib-lbl">Married</span><input class="fi sib-num" id="bbrothersM" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bbrothers','bbrothersM');updB()"></div>
+              <div class="sib-cell"><span class="sib-lbl">Total</span><input class="fi sib-num" id="bbrothers" aria-label="Total brothers" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bbrothers','bbrothersM');updB()"></div>
+              <div class="sib-cell"><span class="sib-lbl">Married</span><input class="fi sib-num" id="bbrothersM" aria-label="Married brothers" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bbrothers','bbrothersM');updB()"></div>
             </div>
           </div>
           <div class="fg"><label class="fl" id="i18nLblSisters">Sisters</label>
             <div class="sib-row">
-              <div class="sib-cell"><span class="sib-lbl">Total</span><input class="fi sib-num" id="bsisters" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bsisters','bsistersM');updB()"></div>
-              <div class="sib-cell"><span class="sib-lbl">Married</span><input class="fi sib-num" id="bsistersM" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bsisters','bsistersM');updB()"></div>
+              <div class="sib-cell"><span class="sib-lbl">Total</span><input class="fi sib-num" id="bsisters" aria-label="Total sisters" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bsisters','bsistersM');updB()"></div>
+              <div class="sib-cell"><span class="sib-lbl">Married</span><input class="fi sib-num" id="bsistersM" aria-label="Married sisters" type="number" min="0" max="20" placeholder="0" oninput="clampSibling('bsisters','bsistersM');updB()"></div>
             </div>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblRelig">Religion</label><select class="fsel" id="brelig" onchange="onReligChange()"><option value="">-- Select Religion --</option><option>Hindu</option><option>Muslim</option><option>Sikh</option><option>Christian</option><option>Jain</option><option>Buddhist</option><option>Other</option></select></div>
-          <div class="fg"><label class="fl" id="i18nLblCaste">Community / Caste</label><select class="fsel" id="bcst" onchange="updB()"><option value="">-- Select religion first --</option></select></div>
-          <div class="fg"><label class="fl">Gotra <span class="fh">(optional)</span></label><input class="fi" id="bgotr" placeholder="e.g. Kashyap, Bharadwaj" list="gotrList" oninput="updB()"><datalist id="gotrList"><option value="Kashyap"><option value="Bharadwaj"><option value="Vatsa"><option value="Kaundinya"><option value="Atri"><option value="Vashishtha"><option value="Agastya"><option value="Garg"><option value="Sandilya"><option value="Gautam"><option value="Parashar"><option value="Kaushik"><option value="Jamadagni"><option value="Vishwamitra"><option value="Mudgal"><option value="Angiras"><option value="Bhrigu"><option value="Harita"><option value="Shandilya"><option value="Maudgalya"><option value="Lohit"><option value="Upamanyu"><option value="Kapi"><option value="Naitreya"><option value="Shaunaka"><option value="Aupamanyava"><option value="Bhargava"><option value="Vaidyanath"><option value="Vasishtha"></datalist></div>
-          <div class="fg"><label class="fl" id="i18nLblRashi">Rashi <span class="fh">(optional)</span></label><select class="fsel" id="brash" onchange="updB()"><option value="">-- Select Rashi --</option><option value="मेष (Aries)">मेष (Aries)</option><option value="वृषभ (Taurus)">वृषभ (Taurus)</option><option value="मिथुन (Gemini)">मिथुन (Gemini)</option><option value="कर्क (Cancer)">कर्क (Cancer)</option><option value="सिंह (Leo)">सिंह (Leo)</option><option value="कन्या (Virgo)">कन्या (Virgo)</option><option value="तुला (Libra)">तुला (Libra)</option><option value="वृश्चिक (Scorpio)">वृश्चिक (Scorpio)</option><option value="धनु (Sagittarius)">धनु (Sagittarius)</option><option value="मकर (Capricorn)">मकर (Capricorn)</option><option value="कुम्भ (Aquarius)">कुम्भ (Aquarius)</option><option value="मीन (Pisces)">मीन (Pisces)</option></select></div>
+          <div class="fg"><label class="fl" id="i18nLblRelig" for="brelig">Religion</label><select class="fsel" id="brelig" onchange="onReligChange()"><option value="">-- Select Religion --</option><option>Hindu</option><option>Muslim</option><option>Sikh</option><option>Christian</option><option>Jain</option><option>Buddhist</option><option>Other</option></select></div>
+          <div class="fg"><label class="fl" id="i18nLblCaste" for="bcst">Community / Caste</label><select class="fsel" id="bcst" onchange="updB()"><option value="">-- Select religion first --</option></select></div>
+          <div class="fg"><label class="fl" for="bgotr">Gotra <span class="fh">(optional)</span></label><input class="fi" id="bgotr" placeholder="e.g. Kashyap, Bharadwaj" list="gotrList" oninput="updB()"><datalist id="gotrList"><option value="Kashyap"><option value="Bharadwaj"><option value="Vatsa"><option value="Kaundinya"><option value="Atri"><option value="Vashishtha"><option value="Agastya"><option value="Garg"><option value="Sandilya"><option value="Gautam"><option value="Parashar"><option value="Kaushik"><option value="Jamadagni"><option value="Vishwamitra"><option value="Mudgal"><option value="Angiras"><option value="Bhrigu"><option value="Harita"><option value="Shandilya"><option value="Maudgalya"><option value="Lohit"><option value="Upamanyu"><option value="Kapi"><option value="Naitreya"><option value="Shaunaka"><option value="Aupamanyava"><option value="Bhargava"><option value="Vaidyanath"><option value="Vasishtha"></datalist></div>
+          <div class="fg"><label class="fl" id="i18nLblRashi" for="brash">Rashi <span class="fh">(optional)</span></label><select class="fsel" id="brash" onchange="updB()"><option value="">-- Select Rashi --</option><option value="मेष (Aries)">मेष (Aries)</option><option value="वृषभ (Taurus)">वृषभ (Taurus)</option><option value="मिथुन (Gemini)">मिथुन (Gemini)</option><option value="कर्क (Cancer)">कर्क (Cancer)</option><option value="सिंह (Leo)">सिंह (Leo)</option><option value="कन्या (Virgo)">कन्या (Virgo)</option><option value="तुला (Libra)">तुला (Libra)</option><option value="वृश्चिक (Scorpio)">वृश्चिक (Scorpio)</option><option value="धनु (Sagittarius)">धनु (Sagittarius)</option><option value="मकर (Capricorn)">मकर (Capricorn)</option><option value="कुम्भ (Aquarius)">कुम्भ (Aquarius)</option><option value="मीन (Pisces)">मीन (Pisces)</option></select></div>
 
           <div class="sec-div"><span id="i18nSecContact">Contact</span></div>
-          <div class="fg"><label class="fl" id="i18nLblCtPerson">Contact Person <span class="req-star">★ Required</span></label>
+          <div class="fg"><label class="fl" id="i18nLblCtPerson" for="bctperson">Contact Person <span class="req-star">★ Required</span></label>
             <select class="fsel" id="bctperson" onchange="updB()"><option value="">-- Who to Contact? --</option><option value="Father (पिता)">Father</option><option value="Mother (माता)">Mother</option><option value="Brother (भाई)">Brother</option><option value="Sister (बहन)">Sister</option><option value="Uncle (चाचा / मामा)">Uncle</option><option value="Guardian (अभिभावक)">Guardian</option><option value="Self (स्वयं)">Self</option></select>
           </div>
-          <div class="fg"><label class="fl" id="i18nLblCtMobile">Contact Mobile <span class="req-star">★ Required</span></label><input class="fi" id="bctmobile" type="tel" placeholder="e.g. 98765 43210" maxlength="15" oninput="updB()"></div>
+          <div class="fg"><label class="fl" id="i18nLblCtMobile" for="bctmobile">Contact Mobile <span class="req-star">★ Required</span></label><input class="fi" id="bctmobile" type="tel" placeholder="e.g. 98765 43210" maxlength="15" oninput="updB()"></div>
 
 
           <div id="bErrMsg" class="err-msg">⚠️ Please fill all ★ required fields</div>
@@ -2762,11 +2733,11 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
           <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
             <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--TL)">
               <label style="font-weight:600" id="i18nAccentLbl">Accent:</label>
-              <input type="color" id="cpPrimary" value="#880038" style="width:34px;height:28px;border:none;padding:0;cursor:pointer;border-radius:6px" oninput="applyCustomColors()">
+              <input type="color" id="cpPrimary" aria-label="Primary colour" value="#880038" style="width:34px;height:28px;border:none;padding:0;cursor:pointer;border-radius:6px" oninput="applyCustomColors()">
             </div>
             <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--TL)">
               <label style="font-weight:600" id="i18nBgLbl">Background:</label>
-              <input type="color" id="cpBg" value="#FFF5F8" style="width:34px;height:28px;border:none;padding:0;cursor:pointer;border-radius:6px" oninput="applyCustomColors()">
+              <input type="color" id="cpBg" aria-label="Background colour" value="#FFF5F8" style="width:34px;height:28px;border:none;padding:0;cursor:pointer;border-radius:6px" oninput="applyCustomColors()">
             </div>
             <button onclick="resetColors()" id="i18nDefaultBtn" style="font-size:11px;padding:5px 12px;border-radius:20px;border:1px solid var(--M);background:transparent;color:var(--M);cursor:pointer;font-weight:600">↺ Default</button>
           </div>
@@ -2852,7 +2823,7 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
       <button class="sbtn" onclick="setR(3)">★</button><button class="sbtn" onclick="setR(4)">★</button>
       <button class="sbtn" onclick="setR(5)">★</button>
     </div>
-    <textarea class="fbta" id="fbTxt" placeholder="How was your experience? Any suggestions? (min 10 characters)" maxlength="300" rows="3" oninput="chkFB()"></textarea>
+    <textarea class="fbta" id="fbTxt" aria-label="Your feedback" placeholder="How was your experience? Any suggestions? (min 10 characters)" maxlength="300" rows="3" oninput="chkFB()"></textarea>
     <div class="fbcc"><span id="fbCC">0</span>/300</div>
     <div class="fbreq" id="fbReq">⚠️ Please rate and write at least 10 characters</div>
     <div class="fbbox-btns">
@@ -2886,6 +2857,15 @@ input:checked+.tsl{background:var(--M)}input:checked+.tsl::before{transform:tran
         <button id="rzpPayBtn" onclick="openRazorpay()" style="all:initial;font-family:var(--f);background:linear-gradient(135deg,#528FF0,#2563EB);color:#fff;padding:16px 32px;border-radius:12px;font-weight:800;font-size:16px;cursor:pointer;width:100%;box-sizing:border-box;text-align:center;box-shadow:0 6px 20px rgba(37,99,235,.35)">
           💳 Pay ₹31 — Instant Download
         </button>
+      </div>
+      <!-- Coupon -->
+      <div style="margin-bottom:16px;text-align:center">
+        <button id="cpnToggle" onclick="toggleCoupon()" style="background:none;border:none;color:var(--M);font-size:13px;font-weight:700;cursor:pointer;text-decoration:underline;font-family:var(--f)">🎟️ Have a coupon code?</button>
+        <div id="cpnRow" style="display:none;gap:8px;margin-top:10px">
+          <input id="cpnInp" aria-label="Coupon code" placeholder="Enter coupon code" style="flex:1;min-width:0;padding:10px 14px;border:1.5px solid var(--B);border-radius:10px;font-size:14px;font-family:var(--f);text-transform:uppercase;outline-color:var(--M)" onkeydown="if(event.key==='Enter')applyCoupon()">
+          <button onclick="applyCoupon()" style="background:var(--M);color:#fff;border:none;padding:10px 18px;border-radius:10px;font-weight:800;font-size:13px;cursor:pointer;font-family:var(--f);flex-shrink:0">Apply</button>
+        </div>
+        <div id="cpnMsg" style="font-size:12.5px;font-weight:700;margin-top:8px;display:none"></div>
       </div>
       <div style="font-size:11px;color:var(--TL)">🔒 256-bit SSL · Instant access · No subscription</div>
     </div>
@@ -2978,7 +2958,7 @@ const OFFER_DEFAULTS = {
   currency: '₹',
   brandName: 'EasyDocuments',
   upiId: 'csmahori@okhdfcbank',
-  supportNumber: '919677344874',  // WhatsApp support (no +, no spaces)
+  supportNumber: '916374195165',  // WhatsApp support (no +, no spaces)
   // Optional copy overrides — leave '' to use auto-generated copy
   bannerHeadlineHi: '',
   bannerHeadlineEn: '',
@@ -3256,9 +3236,10 @@ const OfferUI = {
     }
   },
 
-  /* Save current paid transaction record (called by confirmPayment) */
-  recordPayment(utr){
-    S.set('paid', {utr: utr, ts: Date.now(), amt: OFFER_CONFIG.price, mode: OFFER_CONFIG.mode});
+  /* Save current paid transaction record. amt defaults to list price;
+     pass the actual amount when a coupon changed it. */
+  recordPayment(utr, amt){
+    S.set('paid', {utr: utr, ts: Date.now(), amt: (amt !== undefined ? amt : OFFER_CONFIG.price), mode: OFFER_CONFIG.mode});
   },
 };
 
@@ -4333,6 +4314,88 @@ function handleWAShare(){
   openWAModal('biodata');
 }
 
+// ── Coupons ──────────────────────────────────────────────────────────────────
+// Codes live SERVER-SIDE in the Cloudflare Worker (worker/index.js COUPONS
+// table — pct + active flag). The frontend validates via POST /validate-coupon
+// and the worker applies the discount when creating the order, so codes can't
+// be read or tampered with from the page source.
+let curCoupon = null; // {code, pct} — valid only for the open payment modal
+
+/* Price after coupon. Razorpay minimum is ₹1, so partial discounts floor there. */
+function effPrice(){
+  if(!curCoupon) return OFFER_CONFIG.price;
+  if(curCoupon.pct >= 100) return 0;
+  return Math.max(1, Math.round(OFFER_CONFIG.price * (100 - curCoupon.pct) / 100));
+}
+
+function toggleCoupon(){
+  const row = document.getElementById('cpnRow');
+  if(!row) return;
+  const show = row.style.display === 'none';
+  row.style.display = show ? 'flex' : 'none';
+  if(show){ const inp = document.getElementById('cpnInp'); if(inp) inp.focus(); }
+}
+
+async function applyCoupon(){
+  const inp  = document.getElementById('cpnInp');
+  const msg  = document.getElementById('cpnMsg');
+  const code = ((inp && inp.value) || '').trim().toUpperCase();
+  if(!code) return;
+  if(msg){ msg.style.display='block'; msg.style.color='var(--TL)'; msg.textContent='⏳ Checking coupon…'; }
+  let v = null;
+  try {
+    const r = await fetch(WORKER_URL + '/validate-coupon', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: code }),
+    });
+    v = await r.json();
+  } catch(e) {
+    if(msg){ msg.style.color='#dc2626'; msg.textContent='✗ Could not check coupon — please try again'; }
+    return;
+  }
+  if(!v || !v.valid){
+    curCoupon = null;
+    if(msg){ msg.style.color='#dc2626'; msg.textContent='✗ Invalid or inactive coupon code'; }
+    couponPayUI();
+    return;
+  }
+  curCoupon = {code: v.code, pct: v.pct};
+  if(msg){
+    msg.style.color='#16a34a';
+    msg.textContent = v.pct >= 100
+      ? '✓ ' + v.code + ' applied — 100% OFF, download FREE!'
+      : '✓ ' + v.code + ' applied — ' + v.pct + '% OFF';
+  }
+  if (typeof gtag === 'function') gtag('event', 'coupon_applied', {coupon: v.code, percent: v.pct});
+  couponPayUI();
+}
+
+function resetCoupon(){
+  curCoupon = null;
+  const row = document.getElementById('cpnRow'); if(row) row.style.display='none';
+  const inp = document.getElementById('cpnInp'); if(inp) inp.value='';
+  const msg = document.getElementById('cpnMsg'); if(msg){ msg.style.display='none'; msg.textContent=''; }
+}
+
+/* Sync the payment modal price line + pay button with the coupon state.
+   Targets #upOv h3 + p because OfferUI.apply() rewrites that <p> wholesale. */
+function couponPayUI(){
+  const sym = OFFER_CONFIG.currency;
+  const p   = effPrice();
+  const btn  = document.getElementById('rzpPayBtn');
+  const para = document.querySelector('#upOv h3 + p');
+  if(curCoupon){
+    if(para) para.innerHTML = 'Download professional PDF Biodata for just <strong style="color:var(--M);font-size:22px">'
+      + (p === 0 ? 'FREE' : sym + p)
+      + '</strong> <span style="font-size:14px;color:var(--TL);text-decoration:line-through">' + sym + OFFER_CONFIG.price + '</span>';
+    if(btn) btn.innerHTML = p === 0 ? '🎉 100% OFF — Download FREE' : '💳 Pay ' + sym + p + ' — Instant Download';
+  } else {
+    if(para) para.innerHTML = 'Download professional PDF Biodata for just <strong style="color:var(--M);font-size:22px">' + sym + OFFER_CONFIG.price + '</strong>';
+    if(btn) btn.innerHTML = '💳 Pay ' + sym + OFFER_CONFIG.price + ' — Instant Download';
+  }
+}
+
 // ── Razorpay Standard Checkout ───────────────────────────────────────────────
 // Update WORKER_URL after deploying the Cloudflare Worker (worker/index.js)
 const IS_DEV     = window.location.hostname.includes('netlify.app') || window.location.hostname === 'localhost';
@@ -4344,6 +4407,37 @@ const RZP_KEY    = IS_DEV ? 'rzp_test_SuH3hzp0CLubEg'
 async function openRazorpay() {
   const btn  = document.getElementById('rzpPayBtn');
   const orig = btn ? btn.textContent : '';
+  const payAmt = effPrice();
+
+  // 100% coupon → no payment needed. Re-validate server-side, then unlock.
+  if (curCoupon && payAmt === 0) {
+    if (btn) { btn.disabled = true; btn.textContent = '⏳ Checking coupon…'; }
+    try {
+      const r = await fetch(WORKER_URL + '/validate-coupon', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: curCoupon.code }),
+      });
+      const v = await r.json();
+      if (!v.valid || v.pct < 100) throw new Error('Coupon is no longer valid');
+    } catch (e) {
+      toast('✗ ' + e.message, 'warn');
+      if (btn) { btn.disabled = false; btn.textContent = orig; }
+      resetCoupon();
+      couponPayUI();
+      return;
+    }
+    const txnId = 'COUPON-' + curCoupon.code + '-' + Date.now();
+    OfferUI.recordPayment(txnId, 0);
+    if (typeof gtag === 'function') {
+      gtag('event', 'purchase', { transaction_id: txnId, value: 0, currency: 'INR', coupon: curCoupon.code });
+    }
+    if (btn) { btn.disabled = false; btn.textContent = orig; }
+    closeUp();
+    generateBiodataPDF();
+    return;
+  }
+
   if (btn) { btn.disabled = true; btn.textContent = '⏳ Loading...'; }
   // Load Razorpay checkout on demand (not at page load)
   await loadScript('https://checkout.razorpay.com/v1/checkout.js');
@@ -4353,7 +4447,11 @@ async function openRazorpay() {
     const res = await fetch(WORKER_URL + '/create-order', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: OFFER_CONFIG.price * 100 }), // paise
+      // Send the BASE price + coupon code — the worker applies the discount
+      // (authoritative). payAmt is used client-side for labels/analytics only.
+      body: JSON.stringify(curCoupon
+        ? { amount: OFFER_CONFIG.price * 100, coupon: curCoupon.code }
+        : { amount: OFFER_CONFIG.price * 100 }),
     });
     const { order_id, amount, currency, error } = await res.json();
     if (error || !order_id) throw new Error(error || 'Order creation failed');
@@ -4365,9 +4463,14 @@ async function openRazorpay() {
       currency,
       order_id,
       name:        'EasyDocuments',
-      description: 'Biodata PDF Download',
+      description: 'Biodata PDF Download' + (curCoupon ? ' (' + curCoupon.code + ' -' + curCoupon.pct + '%)' : ''),
       theme:       { color: '#800026' },
-      prefill:     { name: (document.getElementById('bnm') || {}).value || '' },
+      prefill:     (function(){
+        const p = { name: (document.getElementById('bnm') || {}).value || '' };
+        const digits = (((document.getElementById('bctmobile') || {}).value) || '').replace(/\D/g, '').slice(-10);
+        if (digits.length === 10) p.contact = '+91' + digits;
+        return p;
+      })(),
 
       // 3. On successful payment → verify signature server-side
       handler: async function(response) {
@@ -4384,13 +4487,15 @@ async function openRazorpay() {
           const { verified } = await vRes.json();
           if (verified) {
             if (btn) { btn.disabled = false; btn.textContent = orig; }
-            OfferUI.recordPayment(response.razorpay_payment_id);
+            OfferUI.recordPayment(response.razorpay_payment_id, payAmt);
             if (typeof gtag === 'function') {
-              gtag('event', 'purchase', {
+              const ev = {
                 transaction_id: response.razorpay_payment_id,
-                value: OFFER_CONFIG.price,
+                value: payAmt,
                 currency: 'INR'
-              });
+              };
+              if (curCoupon) ev.coupon = curCoupon.code;
+              gtag('event', 'purchase', ev);
             }
             closeUp();
             generateBiodataPDF();
@@ -4463,6 +4568,8 @@ function closeFB(){const el=document.getElementById('fbOv');if(el)el.classList.r
 
 function showUp(){
   const el=document.getElementById('upOv');if(el)el.classList.add('act');
+  // Fresh coupon state each time the modal opens (price can differ per template)
+  resetCoupon();
   // Always reset pay button — it may be disabled from a previous payment session
   const rzpBtn=document.getElementById('rzpPayBtn');
   if(rzpBtn){rzpBtn.disabled=false;rzpBtn.innerHTML='💳 Pay '+OFFER_CONFIG.currency+OFFER_CONFIG.price+' — Instant Download';}
@@ -4485,7 +4592,7 @@ function subReq(){
 }
 
 function openWASupport(){
-  window.open('https://wa.me/919677344874?text='+encodeURIComponent('Namaste! EasyDocuments.online se help chahiye.'),'_blank');
+  window.open('https://wa.me/916374195165?text='+encodeURIComponent('Namaste! EasyDocuments.online se help chahiye.'),'_blank');
 }
 
 /* ── LABEL SETS ── */
@@ -5768,6 +5875,12 @@ function persistOtherInputs(){
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }});
   }, {threshold: 0.12});
   els.forEach(el => io.observe(el));
+})();
+
+// Keep footer copyright year current
+(function(){
+  const y = document.getElementById('fyr');
+  if(y) y.textContent = new Date().getFullYear();
 })();
 
 // Hide sticky CTA once user opens the biodata builder

@@ -1,0 +1,21 @@
+name: Deploy Cloudflare Test Worker
+
+on:
+  push:
+    branches: [dev]
+    paths:
+      - 'worker-test/**'      # only runs when test worker code changes
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Test Worker
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 81ed5494b29e15351c95cb9a6f72ca88
+          workingDirectory: worker-test
