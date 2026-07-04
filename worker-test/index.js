@@ -5,6 +5,8 @@
  * Required secrets (set via: wrangler secret put <NAME>):
  *   RAZORPAY_KEY_ID     ← rzp_test_xxx
  *   RAZORPAY_KEY_SECRET ← test secret
+ *
+ * Deployed via GitHub Actions (CLOUDFLARE_API_TOKEN secret, renewed 2026-07-04).
  */
 
 const CORS = {
