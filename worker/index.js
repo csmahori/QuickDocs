@@ -23,7 +23,7 @@ const CORS = {
  */
 const COUPONS = {
   'SAVE50':  { pct: 50,  active: true },
-  'SAVE75':  { pct: 75,  active: true },
+  'HARDA75': { pct: 75,  active: true },
   'FREE100': { pct: 100, active: true },
 };
 
