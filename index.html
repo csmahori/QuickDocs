@@ -1,24 +1,4 @@
 <!DOCTYPE html>
-<!--
-  ════════════════════════════════════════════════════════════════════
-  EasyDocuments — Marriage Biodata Maker  (v2.8 — modular offer system)
-  ════════════════════════════════════════════════════════════════════
-  TO SWITCH OFFER MODES:
-    Option A (permanent): Edit OFFER_DEFAULTS in the <script> below.
-    Option B (runtime, no code edit): Open browser console on the live
-      site and type:
-        OfferAdmin.setMode('free')     // free Early Access mode
-        OfferAdmin.setMode('mixed')    // discounted launch (₹9 was ₹49)
-        OfferAdmin.setMode('paid')     // regular paid mode (no banner, no offer)
-        OfferAdmin.setFreeSpots(50)    // change free-tier capacity
-        OfferAdmin.setPrice(19)        // current charging price
-        OfferAdmin.setRegPrice(49)     // strike-through "was" price
-        OfferAdmin.resetUsedCount()    // re-open all 100 free spots
-        OfferAdmin.reset()             // back to OFFER_DEFAULTS in code
-        OfferAdmin.status()            // print current config table
-    Changes from option B persist in localStorage and survive page reloads.
-  ════════════════════════════════════════════════════════════════════
--->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -28,7 +8,7 @@
 if(!/netlify\.app$/i.test(location.hostname)&&location.hostname!=='localhost'){
   window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
   var _gt=document.createElement('script');_gt.async=true;_gt.src='https://www.googletagmanager.com/gtag/js?id=G-3LZGMZV5V1';document.head.appendChild(_gt);
-  gtag('js',new Date());gtag('config','G-3LZGMZV5V1');
+  gtag('js',new Date());gtag('config','G-3LZGMZV5V1');gtag('config','AW-18235823655');
 }
 </script>
 <title>Cheapest Marriage Biodata Maker — from ₹11 | EasyDocuments</title>
@@ -4496,6 +4476,13 @@ async function openRazorpay() {
               };
               if (curCoupon) ev.coupon = curCoupon.code;
               gtag('event', 'purchase', ev);
+              // Google Ads purchase conversion (dedup via transaction_id)
+              gtag('event', 'conversion', {
+                send_to: 'AW-18235823655/_NNICK7I2cgcEKeswvdD',
+                value: payAmt,
+                currency: 'INR',
+                transaction_id: response.razorpay_payment_id
+              });
             }
             closeUp();
             generateBiodataPDF();
